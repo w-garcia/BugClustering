@@ -5,6 +5,7 @@ import nltk
 import os
 import string
 from peewee import *
+import re
 
 cwd = os.getcwd()
 
@@ -26,7 +27,9 @@ def stem_system(db):
     Stemmed_Keywords.create_table()
 
     list_of_stem_dicts = []
-
+    banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'are', 'get', 'from',
+                    'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'using', 'use',
+                    'as', 'after', 'before', 'by', 'row', 'column', 'am', 'nn']
     for row in Terse_PreProcessed_Keywords.select():
         stripped_description = util.strip_autogen_info(row.description)
         words = nltk.word_tokenize(stripped_description)
@@ -35,9 +38,10 @@ def stem_system(db):
         words_to_keep = []
         word_to_pos_pair_list = nltk.pos_tag(words)
         for word, tag in word_to_pos_pair_list:
-            #if word in stopwords.words('english'):
-            if 'N' in tag or 'V' in tag:
-                #words.remove(word)
+            word = re.sub(r'\d+', '', word).lower()
+            word = word.replace(str(db.database), '')
+
+            if ('V' in tag or 'N' in tag) and (word not in banned_words):
                 words_to_keep.append(word)
 
         stems = create_stem_list(words_to_keep)

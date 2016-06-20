@@ -7,6 +7,8 @@ from scipy.cluster.hierarchy import *#dendrogram, linkage, cophenet
 from scipy.spatial.distance import pdist
 from peewee import *
 import copy
+import pygraphviz as pg
+from collections import OrderedDict
 
 
 class LabelledClusterNode(ClusterNode):
@@ -22,16 +24,30 @@ class LabelledClusterNode(ClusterNode):
 
 
 class LabelledBT:
-    def __init__(self, root, list_of_keyword_to_weights):
+    def __init__(self, root, list_of_keyword_to_weights, system_name):
         self.binary_tree = LabelledClusterNode(root)
         self.list_of_keyword_to_weights = list_of_keyword_to_weights
+        self.system_name = system_name
 
     def generate_keywords_label(self, nid):
-        trouble_ticket = self.list_of_keyword_to_weights[nid]
+        keyword_weights = self.list_of_keyword_to_weights[nid]
+
+        # First cast dictionary values to int
+        for keyword in keyword_weights.keys():
+            keyword_weights[keyword] = int(keyword_weights[keyword])
+
+        # Sort according to value
+        keyword_weights = OrderedDict(sorted(keyword_weights.items(), key=lambda t: t[1], reverse=True))
         nonzero_keywords = []
-        for keyword in trouble_ticket.keys():
-            if int(trouble_ticket[keyword]) > 0:
+
+        count = 0
+        for keyword in keyword_weights:
+            if count >= 2:
+                break
+            if keyword_weights[keyword] > 0:
                 nonzero_keywords.append(keyword)
+                count += 1
+
         return nonzero_keywords
 
     def create_label_tree(self):
@@ -45,7 +61,6 @@ class LabelledBT:
             # This checks if left is None
             if node.is_leaf():
                 node.label = self.generate_keywords_label(nid)
-                print node.label
             else:
                 stack.append(node.get_left())
                 node.get_left().parent = node
@@ -69,48 +84,32 @@ class LabelledBT:
                 else:
                     parents[i].label = list(intersection)
             i -= 1
-        """
-        stack = [self.binary_tree]
-        while stack:
-            node = stack.pop()
-            print node.label
-            if node.get_left() is not None:
-                stack.append(node.get_left())
-            if node.get_right() is not None:
-                stack.append(node.get_right())
-        """
 
-class NTree:
-    def __init__(self, labelled_tree, root):
-        self.binary_tree = copy.deepcopy(labelled_tree)
-        self.n_ary_tree = LabelledClusterNode(root)
 
-    def create_n_nary_tree(self):
-        queue = [self.binary_tree]
-        while queue:
-            node = queue.pop(0)
-            if node.head is None and node.parent is not None:
-                node.head = node
-                self.n_ary_tree.children_list.append(node)
+def draw_tree(BT):
+    A = pg.AGraph(directed=True, strict=True)
 
-            temp_child_list = []
-            if node.get_left() is not None:
-                temp_child_list.append(node.get_left())
-            if node.get_right() is not None:
-                temp_child_list.append(node.get_right())
-            for v in temp_child_list:
-                if v.label is not node.label:
-                    v.parent = node.head
-                elif v.label is node.label:
-                    v.parent = node.parent
-                    v.head = node.head
+    level = 0
+    # BFS trough the tree and draw first 300 nodes
+    queue = [BT.binary_tree]
+    while queue:
+        node = queue.pop(0)
+        if node.parent is not None:
+            if node.parent.label != node.label:
+                A.add_edge(node.parent.label, node.label)
 
-        queue = [self.n_ary_tree]
-        while queue:
-            node = queue.pop(0)
-            for v in node.children_list:
-                queue.append(v)
-            print node.label
+        level += 1
+        if node.get_left() is not None:
+            queue.append(node.get_left())
+        if node.get_right() is not None:
+            queue.append(node.get_right())
+        if level >= 300:
+            break
+    A.write('{}.dot'.format(BT.system_name))
+    A.layout(prog='dot')
+    A.draw('{}.png'.format(BT.system_name))
+    print "Generated tree drawing."
+
 
 def cluster(db):
     with open(str(db.database) + '_vectors.csv', 'r') as csvfile:
@@ -133,53 +132,6 @@ def cluster(db):
     print "Cophenetic Correlation: {}".format(c)
 
     root_node = to_tree(Z, rd=False)
-    BTL = LabelledBT(root_node, list_of_keyword_to_weights)
+    BTL = LabelledBT(root_node, list_of_keyword_to_weights, str(db.database))
     BTL.create_label_tree()
-    #HNT = NTree(BTL, root_node)
-    #HNT.create_n_nary_tree()
-
-"""
-    def llf(id):
-        return str(list_of_keyword_to_weights[0].keys()[id])
-
-    pyplot.figure(figsize=(25, 10))
-    pyplot.title('Hierarchical Clustering Dendrogram')
-    pyplot.xlabel('Sample Index (Cluster Size)')
-    pyplot.ylabel('Distance')
-    dendrogram(Z,
-               #leaf_rotation=90,
-               leaf_font_size=14,
-               truncate_mode='lastp',
-               p=4,
-               show_contracted=True)
-               #leaf_label_func=llf)
-    #pyplot.show()
-"""
-"""
-def create_similariy_matrix(db, list_of_keyword_vectors):
-    similarity_matrix = numpy.zeros((len(list_of_keyword_vectors), len(list_of_keyword_vectors)))
-
-    for i in range(len(similarity_matrix)):
-        for j in range(i):
-            x = euclidian(list_of_keyword_vectors[i], list_of_keyword_vectors[j])
-            similarity_matrix[i, j] = x
-            similarity_matrix[j, i] = x
-            print("{}, {}".format(i, j))
-
-    numpy.savetxt("{}_similarity_matrix.csv".format(db.database), similarity_matrix, delimiter=",")
-    return similarity_matrix
-
-
-def load_similarity_matrix(db):
-    return numpy.genfromtxt("{}_similarity_matrix.csv".format(db.database), delimiter=',')
-
-
-def euclidian(vector_i, vector_j):
-    result = 0
-
-    for word in vector_i.keys():
-        result += abs(int(vector_j[word]) - int(vector_i[word]))**2
-
-    result = math.sqrt(result)
-    return result
-"""
+    draw_tree(BTL)

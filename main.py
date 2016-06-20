@@ -9,8 +9,8 @@ import util
 
 
 def main():
-    #input_proc = raw_input("This will over-write system databases. Proceed? ").lower()
-    input_proc = 'y'
+    input_proc = raw_input("This will over-write system databases. Proceed? ").lower()
+    #input_proc = 'y'
     if input_proc != 'y':
         return
 
@@ -23,9 +23,9 @@ def main():
         db = MySQLDatabase(system_name, user='root', passwd='mpcrrover')
 
         #process_system(db, jira, system_name)
-        #stem_system(db)
-        #low_freq_filter(db)
-        #generate_vectors(db)
+        stem_system(db)
+        low_freq_filter(db)
+        generate_vectors(db)
         cluster(db)
 
         #db.close()

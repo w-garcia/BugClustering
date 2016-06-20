@@ -37,5 +37,5 @@ def low_freq_filter(db):
     with db.atomic():
         LFF_Keywords.insert_many(list_of_lff_dicts).execute()
 
-    print "Stripped " + str(db.database) + " of low frequency words"
+    print "Stripped " + str(db.database) + " of low frequency words."
 

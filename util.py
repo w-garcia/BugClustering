@@ -1,10 +1,11 @@
 import os
 import errno
-
+import numpy
+import math
 #TODO: Create string constants file for directories and filenames
 
 #TODO: move to string constants file
-systems = ['zookeeper']#['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
+systems = ['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
 cwd = os.getcwd()
 
 
@@ -41,3 +42,31 @@ def combine():
         for line in fw:
             f.write(line)
     print "Combined files."
+
+
+def create_similarity_matrix(db, list_of_keyword_vectors):
+    similarity_matrix = numpy.zeros((len(list_of_keyword_vectors), len(list_of_keyword_vectors)))
+
+    for i in range(len(similarity_matrix)):
+        for j in range(i):
+            x = euclidian(list_of_keyword_vectors[i], list_of_keyword_vectors[j])
+            similarity_matrix[i, j] = x
+            similarity_matrix[j, i] = x
+            print("{}, {}".format(i, j))
+
+    numpy.savetxt("{}_similarity_matrix.csv".format(db.database), similarity_matrix, delimiter=",")
+    return similarity_matrix
+
+
+def load_similarity_matrix(db):
+    return numpy.genfromtxt("{}_similarity_matrix.csv".format(db.database), delimiter=',')
+
+
+def euclidian(vector_i, vector_j):
+    result = 0
+
+    for word in vector_i.keys():
+        result += abs(int(vector_j[word]) - int(vector_i[word]))**2
+
+    result = math.sqrt(result)
+    return result
