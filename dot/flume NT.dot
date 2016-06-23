@@ -1,0 +1,302 @@
+strict digraph  {
+	"['unknown']
+287" -> "['sourc', 'like']
+2";
+	"['unknown']
+287" -> "['sink', 'file']
+17";
+	"['unknown']
+287" -> "['file']
+51";
+	"['unknown']
+287" -> "['sink']
+44";
+	"['unknown']
+287" -> "['fail', 'seem']
+2";
+	"['unknown']
+287" -> "['event', 'log']
+3";
+	"['unknown']
+287" -> "['test', 'condit']
+3";
+	"['unknown']
+287" -> "['caus']
+3";
+	"['unknown']
+287" -> "['channel']
+21";
+	"['unknown']
+287" -> "['log']
+3";
+	"['unknown']
+287" -> "['event']
+10";
+	"['unknown']
+287" -> "['sourc']
+15";
+	"['unknown']
+287" -> "['fail', 'error']
+1";
+	"['unknown']
+287" -> "['node', 'configur']
+2";
+	"['unknown']
+287" -> "['error', 'configur']
+1";
+	"['unknown']
+287" -> "['log']
+5";
+	"['unknown']
+287" -> "['caus']
+6";
+	"['unknown']
+287" -> "['except']
+7";
+	"['unknown']
+287" -> "['data']
+6";
+	"['unknown']
+287" -> "['collector', 'handl']
+1";
+	"['unknown']
+287" -> "['fail']
+6";
+	"['unknown']
+287" -> "['call']
+8";
+	"['unknown']
+287" -> "['error']
+9";
+	"['unknown']
+287" -> "['agent']
+4";
+	"['unknown']
+287" -> "['hdf']
+6";
+	"['unknown']
+287" -> "['node']
+14";
+	"['unknown']
+287" -> "['use', 'master']
+1";
+	"['unknown']
+287" -> "['configur']
+3";
+	"['unknown']
+287" -> "['collector', 'happen']
+1";
+	"['unknown']
+287" -> "['use']
+2";
+	"['unknown']
+287" -> "['issu', 'filechannel']
+1";
+	"['unknown']
+287" -> "['config', 'creat']
+1";
+	"['unknown']
+287" -> "['failur', 'messag']
+1";
+	"['unknown']
+287" -> "['implement', 'seem']
+1";
+	"['unknown']
+287" -> "['throw', 'npe']
+1";
+	"['unknown']
+287" -> "['test']
+2";
+	"['unknown']
+287" -> "['run', 'shut']
+1";
+	"['unknown']
+287" -> "['handl']
+2";
+	"['unknown']
+287" -> "['into', 'support']
+1";
+	"['unknown']
+287" -> "['start', 'recov']
+1";
+	"['unknown']
+287" -> "['condit', 'seem']
+1";
+	"['unknown']
+287" -> "['filechannel', 'depend']
+1";
+	"['unknown']
+287" -> "['wa', 'tail']
+1";
+	"['unknown']
+287" -> "['issu', 'expect']
+1";
+	"['unknown']
+287" -> "['master']
+2";
+	"['unknown']
+287" -> "['failur', 'exit']
+1";
+	"['unknown']
+287" -> "['creat', 'connect']
+1";
+	"['unknown']
+287" -> "['thread', 'deadlock']
+1";
+	"['unknown']
+287" -> "['state', 'reconfigur']
+1";
+	"['unknown']
+287" -> "['tri', 'base']
+1";
+	"['unknown']
+287" -> "['execsourc', 'command']
+1";
+	"['unknown']
+287" -> "['appear', 'tailsourc']
+1";
+	"['unknown']
+287" -> "['deadlock', 'lock']
+1";
+	"['unknown']
+287" -> "['tail', 'lot']
+1";
+	"['unknown']
+287" -> "['under', 'improv']
+1";
+	"['unknown']
+287" -> "['zk', 'back']
+1";
+	"['unknown']
+287" -> "['group', 'ignor']
+1";
+	"['sourc', 'like']
+2" -> "['sink', 'channel']
+1";
+	"['sink', 'file']
+17" -> "['configur', 'sourc']
+3";
+	"['sink', 'file']
+17" -> "['sink', 'file']
+4";
+	"['sink', 'file']
+17" -> "['hdf', 'sink']
+2";
+	"['sink', 'file']
+17" -> "['file', 'sink']
+1";
+	"['sink', 'file']
+17" -> "['hdf', 'except']
+2";
+	"['sink', 'file']
+17" -> "['fail', 'sink']
+2";
+	"['file']
+51" -> "['file', 'channel']
+1";
+	"['file']
+51" -> "['caus', 'throw']
+2";
+	"['file']
+51" -> "['file', 'log']
+1";
+	"['file']
+51" -> "['file', 'channel']
+17";
+	"['file']
+51" -> "['file', 'caus']
+1";
+	"['file']
+51" -> "['log', 'file']
+6";
+	"['file']
+51" -> "['sourc', 'file']
+6";
+	"['file']
+51" -> "['close', 'error']
+2";
+	"['file']
+51" -> "['file', 'error']
+1";
+	"['file']
+51" -> "['file', 'run']
+1";
+	"['file']
+51" -> "['file', 'agent']
+1";
+	"['file']
+51" -> "['file', 'event']
+1";
+	"['file']
+51" -> "['hdf', 'file']
+4";
+	"['file']
+51" -> "['file', 'start']
+1";
+	"['file']
+51" -> "['file', 'configur']
+1";
+	"['file']
+51" -> "['file', 'use']
+1";
+	"['file']
+51" -> "['file', 'master']
+1";
+	"['file']
+51" -> "['file', 'valu']
+1";
+	"['file']
+51" -> "['file', 'tailsourc']
+1";
+	"['sink']
+44" -> "['fail', 'sink']
+2";
+	"['sink']
+44" -> "['fail', 'start']
+2";
+	"['sink']
+44" -> "['sourc', 'sink']
+7";
+	"['sink']
+44" -> "['sink', 'event']
+1";
+	"['sink']
+44" -> "['sink', 'event']
+13";
+	"['sink']
+44" -> "['sink', 'fail']
+1";
+	"['sink']
+44" -> "['sink', 'data']
+1";
+	"['sink']
+44" -> "['throw', 'log']
+2";
+	"['sink']
+44" -> "['hbase', 'sink']
+2";
+	"['sink']
+44" -> "['failur', 'throw']
+2";
+	"['sink']
+44" -> "['hdf', 'sink']
+3";
+	"['sink']
+44" -> "['sink', 'start']
+1";
+	"['sink']
+44" -> "['sink', 'use']
+1";
+	"['sink']
+44" -> "['sink', 'implement']
+1";
+	"['sink']
+44" -> "['hbase', 'support']
+2";
+	"['sink']
+44" -> "['sink', 'collectorsink']
+1";
+	"['sink']
+44" -> "['sink', 'default']
+1";
+}

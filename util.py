@@ -22,8 +22,6 @@ def strip_autogen_info(line):
     begin_key = line.find(']') + 2
     end_key = line.find('\n') - 2
     # TODO: regex might be more efficient
-    # TODO: look for parts of speech first and preserve?
-    # TODO: remove punctuation
     # remove stop words
     """
     word_list = nltk.word_tokenize(useful_description)

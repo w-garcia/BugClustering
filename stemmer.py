@@ -30,7 +30,8 @@ def stem_system(db):
     banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'are', 'get', 'from',
                     'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'using', 'use',
                     'as', 'after', 'before', 'by', 'row', 'column', 'am', 'nn']
-    for row in Terse_PreProcessed_Keywords.select():
+    #for row in Terse_PreProcessed_Keywords.select():
+    for row in Full_PreProcessed_Keywords.select():
         stripped_description = util.strip_autogen_info(row.description)
         words = nltk.word_tokenize(stripped_description)
 

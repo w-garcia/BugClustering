@@ -2,6 +2,8 @@ import nltk
 import csv
 import collections
 from peewee import *
+import util
+
 
 def generate_vectors(db):
     class LFF_Keywords(Model):
@@ -44,7 +46,9 @@ def generate_vectors(db):
         words_found.clear()
         list_trouble_ticket_dicts.append(ticket_weight_vector)
 
-    with open(str(db.database) + '_vectors.csv', 'w') as csvfile:
+    util.ensure_path_exists(util.cwd + '/vectors/')
+    vector_path = util.cwd + '/vectors/'
+    with open(vector_path + str(db.database) + '_vectors.csv', 'w') as csvfile:
         fieldnames = document_frequency_dict.keys()
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 

@@ -9,13 +9,13 @@ import util
 
 
 def main():
-    input_proc = raw_input("This will over-write system databases. Proceed? ").lower()
+    #input_proc = raw_input("This will over-write system databases. Proceed? ").lower()
     #input_proc = 'y'
-    if input_proc != 'y':
-        return
+    #if input_proc != 'y':
+    #    return
 
     options = {'server': 'https://issues.apache.org/jira'}
-    jira = JIRA(options=options)
+    #jira = JIRA(options=options)
 
     for system_name in util.systems:
         print system_name
@@ -23,12 +23,12 @@ def main():
         db = MySQLDatabase(system_name, user='root', passwd='mpcrrover')
 
         #process_system(db, jira, system_name)
-        stem_system(db)
-        low_freq_filter(db)
+        #stem_system(db)
+        #low_freq_filter(db)
         generate_vectors(db)
         cluster(db)
 
-        #db.close()
+        db.close()
 
 if __name__ == '__main__':
     main()
