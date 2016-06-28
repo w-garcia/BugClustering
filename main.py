@@ -23,8 +23,8 @@ def main():
         db = MySQLDatabase(system_name, user='root', passwd='mpcrrover')
 
         #process_system(db, jira, system_name)
-        #stem_system(db)
-        #low_freq_filter(db)
+        stem_system(db)
+        low_freq_filter(db)
         generate_vectors(db)
         cluster(db)
 

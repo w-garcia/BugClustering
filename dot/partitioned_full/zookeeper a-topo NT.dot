@@ -1,0 +1,19 @@
+strict digraph  {
+	"['unknown'] 11" -> "['connect'] 5";
+	"['unknown'] 11" -> "['elect', 'leader'] 3";
+	"['unknown'] 11" -> "['leader', 'run', 'cluster', 'identifi', 'use', 'start', 'interfac', 'taken', 'introduc', 'enabl', 'zoo.cfg', 'chang', 'specifi', '\
+host', 'leadership', 'exampl', 'send'] 1";
+	"['unknown'] 11" -> "['configur', 'code', 'support', 'member', 'properti', 'inspect', 'address', 'valu', 'problem'] 1";
+	"['unknown'] 11" -> "['class', 'resolut', 'quorump', 'cach', 'maintain'] 1";
+	"['connect'] 5" -> "['client', 'connect'] 3";
+	"['connect'] 5" -> "['connect', 'elect', 'creat', 'observ'] 1";
+	"['connect'] 5" -> "['connect', 'server', 'tri', 'submit', 'http', 'reconfig', 'suggest'] 1";
+	"['elect', 'leader'] 3" -> "['elect', 'leader', 'run', 'select', 'node'] 1";
+	"['elect', 'leader'] 3" -> "['elect', 'leader', 'server'] 2";
+	"['client', 'connect'] 3" -> "['connect', 'client', 'creat', 'tri', 'fail', 'revers', 'caus', 'observ', 'turn', 'sometim', 'relat', 'work', 'issu', 'timeout', '\
+localhost'] 1";
+	"['client', 'connect'] 3" -> "['connect', 'client', 'fail', 'revers', 'caus', 'second', 'lookup', 'take', 'hostnam', 'java', 'environ'] 1";
+	"['client', 'connect'] 3" -> "['connect', 'client', 'random', 'establish', 'delay', 'open', 'socket', 'see'] 1";
+	"['elect', 'leader', 'server'] 2" -> "['elect', 'leader', 'server', 'prevent', 'ensembl', 'lead', 'allow', 'scenario'] 1";
+	"['elect', 'leader', 'server'] 2" -> "['elect', 'leader', 'server', 'configur', 'weight', 'vote', 'group', 'termin', 're-elect'] 1";
+}

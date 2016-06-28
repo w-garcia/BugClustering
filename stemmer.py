@@ -1,5 +1,5 @@
 from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
+from nltk.stem import PorterStemmer, WordNetLemmatizer
 import util
 import nltk
 import os
@@ -27,25 +27,38 @@ def stem_system(db):
     Stemmed_Keywords.create_table()
 
     list_of_stem_dicts = []
-    banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'are', 'get', 'from',
-                    'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'using', 'use',
-                    'as', 'after', 'before', 'by', 'row', 'column', 'am', 'nn']
-    #for row in Terse_PreProcessed_Keywords.select():
-    for row in Full_PreProcessed_Keywords.select():
+    banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'wo' 'ca', 'are', 'get', 'from',
+                    'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'as', 'after', 'before', 'by',
+                    'row', 'column', 'am', 'nn', 'go', 'behavior']
+
+    porter_stemmer = PorterStemmer()
+    wordnet_lemmatizer = WordNetLemmatizer()
+    for row in Terse_PreProcessed_Keywords.select():
+    #for row in Full_PreProcessed_Keywords.select():
         stripped_description = util.strip_autogen_info(row.description)
         words = nltk.word_tokenize(stripped_description)
 
         # Keeps nouns and verbs
-        words_to_keep = []
+        stems = []
         word_to_pos_pair_list = nltk.pos_tag(words)
+
         for word, tag in word_to_pos_pair_list:
             word = re.sub(r'\d+', '', word).lower()
             word = word.replace(str(db.database), '')
+            if (word not in stopwords.words('english')) and len(word) > 3 and re.match('[a-z0-9]', word) and not ('\'' in word):
+                if 'V' in tag:
+                    word = wordnet_lemmatizer.lemmatize(word, pos='v')
+                    stem = porter_stemmer.stem(word)
+                    if stem not in banned_words:
+                        stems.append(stem)
+                elif 'NN' in tag:
+                    word = wordnet_lemmatizer.lemmatize(word)
+                    stem = porter_stemmer.stem(word)
+                    stems.append(stem)
+                    if stem not in banned_words:
+                        stems.append(stem)
 
-            if ('V' in tag or 'N' in tag) and (word not in banned_words):
-                words_to_keep.append(word)
-
-        stems = create_stem_list(words_to_keep)
+        #stems = create_stem_list(words_to_keep)
 
         list_of_stem_dicts.append({'description': u' '.join(stems).encode('utf-8'),
                                    'classification': row.classification})
@@ -54,17 +67,5 @@ def stem_system(db):
         Stemmed_Keywords.insert_many(list_of_stem_dicts).execute()
 
     print "Stemmed " + str(db.database) + "."
-
-
-def create_stem_list(words):
-    stems = []
-    porter_stemmer = PorterStemmer()
-    for word in words:
-        if word in string.punctuation:
-            words.remove(word)
-        else:
-            stems.append(porter_stemmer.stem(word))
-    return stems
-
 
 

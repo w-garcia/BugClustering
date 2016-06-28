@@ -1,0 +1,11 @@
+strict digraph  {
+	"['unknown'] 6" -> "['need', 'use', 'work', 'data'] 2";
+	"['unknown'] 6" -> "['data', 'restart', 'cach', 'watch', 'list', 'chang', 'reconnect', 'want', 'zxid', 'maintain', 'treat', 'initi', 'solv', 'requir', '\
+like', 'scalabl', 'reus', 'allow'] 1";
+	"['unknown'] 6" -> "['node', 'watch', 'client', 'session', 'connect', 'group', 'delay', 'timeout', 'ensembl'] 1";
+	"['unknown'] 6" -> "['cach', 'packet', 'motiv', 'respons'] 1";
+	"['unknown'] 6" -> "['see', 'leader', 'failur', 'keep', 'caus', 'snapshot'] 1";
+	"['need', 'use', 'work', 'data'] 2" -> "['data', 'need', 'restart', 'use', 'node', 'work', 'list', 'chang', 'repres', 'cluster', 'miss', 'ad', 'particip', 'updat', 'tri', '\
+becom', 'grow', 'case', 'issu', 'regress', 'server'] 1";
+	"['need', 'use', 'work', 'data'] 2" -> "['data', 'need', 'use', 'work', 'commit', 'memori', 'transact', 'copi', 'part', 'tripl', 'enabl', 'retain', 'propos'] 1";
+}

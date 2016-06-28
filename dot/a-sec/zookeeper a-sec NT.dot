@@ -1,0 +1,74 @@
+strict digraph  {
+	"['unknown']
+24" -> "['client']
+13";
+	"['unknown']
+24" -> "['server']
+6";
+	"['unknown']
+24" -> "['support', 'allow']
+1";
+	"['unknown']
+24" -> "['connect', 'support']
+1";
+	"['unknown']
+24" -> "['authent', 'default']
+1";
+	"['unknown']
+24" -> "['kerbero', 'problem']
+1";
+	"['unknown']
+24" -> "['user', 'privileg']
+1";
+	"['client']
+13" -> "['client', 'server']
+7";
+	"['client']
+13" -> "['client', 'authent']
+3";
+	"['client']
+13" -> "['client', 'configur']
+1";
+	"['client']
+13" -> "['client', 'connect']
+2";
+	"['server']
+6" -> "['connect', 'server']
+4";
+	"['server']
+6" -> "['server', 'configur']
+1";
+	"['server']
+6" -> "['server', 'authent']
+1";
+	"['client', 'server']
+7" -> "['client', 'authent']
+3";
+	"['client', 'server']
+7" -> "['server', 'client']
+1";
+	"['client', 'authent']
+3" -> "['server', 'client']
+1";
+	"['client', 'authent']
+3" -> "['client', 'authent']
+1";
+	"['client', 'authent']
+3" -> "['support', 'client']
+2";
+	"['client', 'connect']
+2" -> "['client', 'connect']
+1";
+	"['connect', 'server']
+4" -> "['server', 'connect']
+1";
+	"['connect', 'server']
+4" -> "['configur', 'connect']
+3";
+	"['support', 'client']
+2" -> "['client', 'authent']
+1";
+	"['configur', 'connect']
+3" -> "['server', 'connect']
+1";
+}

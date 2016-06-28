@@ -1,0 +1,38 @@
+strict digraph  {
+	"['unknown']
+10" -> "['file', 'call']
+1";
+	"['unknown']
+10" -> "['file']
+4";
+	"['unknown']
+10" -> "['caus', 'queue']
+1";
+	"['unknown']
+10" -> "['call', 'channel']
+1";
+	"['unknown']
+10" -> "['transact', 'rollback']
+1";
+	"['unknown']
+10" -> "['node', 'sync']
+1";
+	"['unknown']
+10" -> "['map', 'duplic']
+1";
+	"['file']
+4" -> "['file', 'channel']
+1";
+	"['file']
+4" -> "['file', 'agent']
+1";
+	"['file']
+4" -> "['condit', 'race']
+2";
+	"['condit', 'race']
+2" -> "['file', 'call']
+1";
+	"['condit', 'race']
+2" -> "['file', 'caus']
+1";
+}

@@ -1,0 +1,56 @@
+strict digraph  {
+	"['unknown']
+16" -> "['channel']
+8";
+	"['unknown']
+16" -> "['perform']
+5";
+	"['unknown']
+16" -> "['event', 'sourc']
+1";
+	"['unknown']
+16" -> "['sink', 'hbase']
+1";
+	"['unknown']
+16" -> "['replay', 'begin']
+1";
+	"['channel']
+8" -> "['checkpoint', 'channel']
+4";
+	"['channel']
+8" -> "['channel', 'event']
+1";
+	"['channel']
+8" -> "['channel', 'perform']
+1";
+	"['channel']
+8" -> "['channel', 'size']
+1";
+	"['channel']
+8" -> "['channel', 'slow']
+1";
+	"['perform']
+5" -> "['perform', 'event']
+1";
+	"['perform']
+5" -> "['perform', 'improv']
+1";
+	"['perform']
+5" -> "['perform', 'sourc']
+3";
+	"['checkpoint', 'channel']
+4" -> "['checkpoint', 'queue']
+2";
+	"['checkpoint', 'channel']
+4" -> "['channel', 'file']
+1";
+	"['perform', 'sourc']
+3" -> "['perform', 'file']
+1";
+	"['perform', 'sourc']
+3" -> "['perform', 'sourc']
+1";
+	"['checkpoint', 'queue']
+2" -> "['channel', 'event']
+1";
+}

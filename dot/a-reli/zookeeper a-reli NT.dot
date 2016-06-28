@@ -1,0 +1,275 @@
+strict digraph  {
+	"['unknown']
+81" -> "['client', 'connect']
+1";
+	"['unknown']
+81" -> "['client']
+24";
+	"['unknown']
+81" -> "['server']
+11";
+	"['unknown']
+81" -> "['fail', 'leader']
+1";
+	"['unknown']
+81" -> "['connect']
+2";
+	"['unknown']
+81" -> "['leader', 'problem']
+1";
+	"['unknown']
+81" -> "['file', 'problem']
+1";
+	"['unknown']
+81" -> "['data']
+6";
+	"['unknown']
+81" -> "['caus', 'file']
+2";
+	"['unknown']
+81" -> "['creat', 'file']
+1";
+	"['unknown']
+81" -> "['connect', 'fail']
+1";
+	"['unknown']
+81" -> "['issu', 'write']
+1";
+	"['unknown']
+81" -> "['creat']
+2";
+	"['unknown']
+81" -> "['time', 'error']
+1";
+	"['unknown']
+81" -> "['leader']
+4";
+	"['unknown']
+81" -> "['code', 'sinc']
+1";
+	"['unknown']
+81" -> "['send']
+2";
+	"['unknown']
+81" -> "['fail']
+2";
+	"['unknown']
+81" -> "['problem', 'patch']
+1";
+	"['unknown']
+81" -> "['issu']
+4";
+	"['unknown']
+81" -> "['node', 'datatre']
+1";
+	"['unknown']
+81" -> "['log', 'transact']
+1";
+	"['unknown']
+81" -> "['start', 'chroot']
+1";
+	"['unknown']
+81" -> "['path', 'multi']
+1";
+	"['unknown']
+81" -> "['leak', 'memori']
+3";
+	"['unknown']
+81" -> "['write', 'klonikowski']
+1";
+	"['unknown']
+81" -> "['method', 'skip']
+1";
+	"['unknown']
+81" -> "['synchron', 'class']
+1";
+	"['unknown']
+81" -> "['partit', 'jira']
+1";
+	"['unknown']
+81" -> "['crash', 'recoveri']
+1";
+	"['client']
+24" -> "['client', 'connect']
+1";
+	"['client']
+24" -> "['client', 'server']
+8";
+	"['client']
+24" -> "['node', 'state']
+2";
+	"['client']
+24" -> "['client', 'connect']
+3";
+	"['client']
+24" -> "['client', 'creat']
+1";
+	"['client']
+24" -> "['client', 'time']
+1";
+	"['client']
+24" -> "['code', 'call']
+2";
+	"['client']
+24" -> "['client', 'path']
+1";
+	"['client']
+24" -> "['client', 'error']
+1";
+	"['client']
+24" -> "['client', 'request']
+1";
+	"['client']
+24" -> "['client', 'allow']
+1";
+	"['server']
+11" -> "['server', 'data']
+1";
+	"['server']
+11" -> "['directori', 'data']
+2";
+	"['server']
+11" -> "['server', 'connect']
+1";
+	"['server']
+11" -> "['respons', 'send']
+2";
+	"['server']
+11" -> "['server', 'call']
+1";
+	"['server']
+11" -> "['server', 'node']
+1";
+	"['server']
+11" -> "['server', 'start']
+1";
+	"['server']
+11" -> "['server', 'case']
+1";
+	"['server']
+11" -> "['server', 'creat']
+1";
+	"['connect']
+2" -> "['connect', 'creat']
+1";
+	"['connect']
+2" -> "['connect', 'problem']
+1";
+	"['data']
+6" -> "['data', 'truncat']
+3";
+	"['data']
+6" -> "['data', 'log']
+1";
+	"['data']
+6" -> "['data', 'find']
+2";
+	"['caus', 'file']
+2" -> "['leader', 'file']
+1";
+	"['caus', 'file']
+2" -> "['fail', 'file']
+1";
+	"['creat']
+2" -> "['creat', 'result']
+1";
+	"['creat']
+2" -> "['creat', 'time']
+1";
+	"['leader']
+4" -> "['need', 'epoch']
+2";
+	"['leader']
+4" -> "['leader', 'seem']
+1";
+	"['leader']
+4" -> "['leader', 'node']
+1";
+	"['send']
+2" -> "['send', 'need']
+1";
+	"['send']
+2" -> "['send', 'provid']
+1";
+	"['fail']
+2" -> "['fail', 'start']
+1";
+	"['fail']
+2" -> "['fail', 'window']
+1";
+	"['issu']
+4" -> "['issu', 'find']
+1";
+	"['issu']
+4" -> "['issu', 'list']
+1";
+	"['issu']
+4" -> "['issu', 'seem']
+1";
+	"['issu']
+4" -> "['issu', 'bug']
+1";
+	"['leak', 'memori']
+3" -> "['leak', 'memori']
+1";
+	"['leak', 'memori']
+3" -> "['leak', 'run']
+1";
+	"['client', 'server']
+8" -> "['client', 'connect']
+4";
+	"['client', 'server']
+8" -> "['client', 'watch']
+4";
+	"['node', 'state']
+2" -> "['client', 'creat']
+1";
+	"['client', 'connect']
+3" -> "['client', 'connect']
+1";
+	"['code', 'call']
+2" -> "['client', 'creat']
+1";
+	"['code', 'call']
+2" -> "['client', 'call']
+1";
+	"['directori', 'data']
+2" -> "['server', 'data']
+1";
+	"['respons', 'send']
+2" -> "['server', 'send']
+1";
+	"['data', 'truncat']
+3" -> "['data', 'file']
+1";
+	"['data', 'truncat']
+3" -> "['write', 'close']
+2";
+	"['data', 'find']
+2" -> "['data', 'find']
+1";
+	"['data', 'find']
+2" -> "['data', 'write']
+1";
+	"['need', 'epoch']
+2" -> "['leader', 'code']
+1";
+	"['need', 'epoch']
+2" -> "['leader', 'need']
+1";
+	"['client', 'connect']
+4" -> "['client', 'server']
+1";
+	"['client', 'watch']
+4" -> "['client', 'server']
+1";
+	"['client', 'watch']
+4" -> "['start', 'client']
+2";
+	"['write', 'close']
+2" -> "['data', 'file']
+1";
+	"['start', 'client']
+2" -> "['client', 'server']
+1";
+}

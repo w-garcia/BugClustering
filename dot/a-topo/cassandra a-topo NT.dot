@@ -1,0 +1,125 @@
+strict digraph  {
+	"['unknown']
+40" -> "['node']
+15";
+	"['unknown']
+40" -> "['cluster']
+5";
+	"['unknown']
+40" -> "['repair', 'improv']
+3";
+	"['unknown']
+40" -> "['data', 'oper']
+1";
+	"['unknown']
+40" -> "['datacent', 'row']
+1";
+	"['unknown']
+40" -> "['except', 'throw']
+1";
+	"['unknown']
+40" -> "['like', 'vnode']
+1";
+	"['unknown']
+40" -> "['datacent']
+3";
+	"['unknown']
+40" -> "['topolog', 'gossip']
+1";
+	"['unknown']
+40" -> "['case', 'traffic']
+1";
+	"['unknown']
+40" -> "['rang', 'row']
+1";
+	"['unknown']
+40" -> "['add', 'stream']
+1";
+	"['unknown']
+40" -> "['rack', 'replica']
+1";
+	"['unknown']
+40" -> "['upgrad', 'need']
+1";
+	"['unknown']
+40" -> "['round', 'deploy']
+1";
+	"['unknown']
+40" -> "['timeoutexcept', 'consist']
+1";
+	"['unknown']
+40" -> "['http', 'implement']
+1";
+	"['unknown']
+40" -> "['read', 'checksum']
+1";
+	"['node']
+15" -> "['node', 'cluster']
+8";
+	"['node']
+15" -> "['node', 'like']
+1";
+	"['node']
+15" -> "['node', 'topolog']
+1";
+	"['node']
+15" -> "['node', 'oper']
+1";
+	"['node']
+15" -> "['node', 'repair']
+1";
+	"['node']
+15" -> "['node', 'error']
+1";
+	"['node']
+15" -> "['node', 'seem']
+1";
+	"['cluster']
+5" -> "['cluster', 'repair']
+1";
+	"['cluster']
+5" -> "['cluster', 'topolog']
+1";
+	"['cluster']
+5" -> "['cluster', 'upgrad']
+1";
+	"['cluster']
+5" -> "['cluster', 'version']
+1";
+	"['cluster']
+5" -> "['cluster', 'throw']
+1";
+	"['repair', 'improv']
+3" -> "['repair', 'vnode']
+1";
+	"['repair', 'improv']
+3" -> "['reduc', 'repair']
+2";
+	"['datacent']
+3" -> "['datacent', 'case']
+1";
+	"['datacent']
+3" -> "['add', 'datacent']
+2";
+	"['node', 'cluster']
+8" -> "['node', 'cluster']
+1";
+	"['node', 'cluster']
+8" -> "['node', 'cluster']
+2";
+	"['node', 'cluster']
+8" -> "['node', 'start']
+2";
+	"['reduc', 'repair']
+2" -> "['repair', 'data']
+1";
+	"['add', 'datacent']
+2" -> "['add', 'datacent']
+1";
+	"['node', 'cluster']
+2" -> "['node', 'cluster']
+1";
+	"['node', 'start']
+2" -> "['node', 'cluster']
+1";
+}

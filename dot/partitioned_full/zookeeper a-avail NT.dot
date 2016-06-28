@@ -1,0 +1,154 @@
+strict digraph  {
+	"['unknown'] 102" -> "['configur', 'elect', 'leader', 'server'] 2";
+	"['unknown'] 102" -> "['fail'] 28";
+	"['unknown'] 102" -> "['client'] 21";
+	"['unknown'] 102" -> "['leader'] 14";
+	"['unknown'] 102" -> "['server'] 9";
+	"['unknown'] 102" -> "['caus', 'quorum', 'problem', 'time', 'ensembl', 'support', 'form', 'member', 'investig'] 1";
+	"['unknown'] 102" -> "['use', 'creat', 'seem', 'socket', 'get', 'work', 'java', 'support', 'address', 'window', 'reus', 'protocol', 'implement', 'channel'] \
+1";
+	"['unknown'] 102" -> "['cluster', 'disk', 'state', 'except', 'shut', 'space', 'servic', 'went', 'syncrequestprocessor'] 1";
+	"['unknown'] 102" -> "['session', 'code', 'time', 'seem', 'issu', 'setup', 'move', 'look', 'sinc', 'clock', 'backward', 'skip', 'host', 'calcul'] 1";
+	"['unknown'] 102" -> "['follow'] 2";
+	"['unknown'] 102" -> "['use'] 3";
+	"['unknown'] 102" -> "['problem', 'code', 'thread', 'instanc', 'find', 'publish', 'valu', 'trunk', 'read', 'default', 'workersend', 'null'] 1";
+	"['unknown'] 102" -> "['test', 'socket', 'get', 'close', 'except', 'notic', 'write', 'followerhandl'] 1";
+	"['unknown'] 102" -> "['caus'] 3";
+	"['unknown'] 102" -> "['start', 'process', 'disk', 'get', 'data', 'shut', 'becom', 'space', 'recov', 'clear'] 1";
+	"['unknown'] 102" -> "['creat', 'process', 'thread', 'race', 'queue', 'oper', 'complet', 'condit', 'backward'] 1";
+	"['unknown'] 102" -> "['call', 'number', 'leak', 'memori', 'sinc', 'line', 'do_insert_watcher_object', 'flag', 'alloc', 'zk_hashtable.c', 'object', 'watcher'] \
+1";
+	"['unknown'] 102" -> "['leak', 'file', 'close', 'load', 'without', 'snapshot', 'consid', 'size', 'randomaccessfil', 'byte', 'return', 'ignor'] 1";
+	"['unknown'] 102" -> "['session', 'system', 'watch', 'expir', 'clock', 'want', 'base', 'adjust', 'toler'] 1";
+	"['unknown'] 102" -> "['configur', 'write', 'address', 'written', 'hostnam', 'localhost', 'correctli', 'resolv', 'suppli'] 1";
+	"['unknown'] 102" -> "['thread', 'handl', 'get', 'send', 'ioexcept', 'error', 'exit', 'followerhandl'] 1";
+	"['unknown'] 102" -> "['lead', 'state', 'peer', 'scenario', 'goe'] 1";
+	"['unknown'] 102" -> "['leak', 'memori', 'repeat'] 1";
+	"['unknown'] 102" -> "['chang', 'function', 'requir', 'allow'] 1";
+	"['unknown'] 102" -> "['method', 'deadlock', 'zkpython', 'add_auth', 'callback', 'command', 'execut'] 1";
+	"['unknown'] 102" -> "['found', 'deadlock', 'pleas', 'closur', 'nettyservercnxn'] 1";
+	"['unknown'] 102" -> "[] 1";
+	"['unknown'] 102" -> "['mode'] 1";
+	"['configur', 'elect', 'leader', 'server'] 2" -> "['server', 'leader', 'elect', 'configur', 're-elect', 'vote', 'termin', 'group', 'weight'] 1";
+	"['configur', 'elect', 'leader', 'server'] 2" -> "['server', 'leader', 'cluster', 'elect', 'node', 'configur', 'test', 'code', 'time', 'process', 'restart', 'happen', 'seem', 'run', '\
+case', 'shut', 'bring', 'applic', 'situat', 'listen', 'startup', 'port', 'ad', 'cours'] 1";
+	"['fail'] 28" -> "['fail', 'leader'] 6";
+	"['fail'] 28" -> "['fail', 'server'] 7";
+	"['fail'] 28" -> "['fail', 'client'] 4";
+	"['fail'] 28" -> "['fail', 'cluster'] 2";
+	"['fail'] 28" -> "['fail', 'use', 'session', 'lead', 'ensembl', 'write', 'move', 'support', 'roll', 'need', 'request', 'stop', 'current', 'enabl'] \
+1";
+	"['fail'] 28" -> "['fail', 'connect', 'code', 'call', 'number', 'socket', 'handl', 'close', 'move', 'reason', 'accept', 'need', 'doio', 'close_wait', '\
+factori'] 1";
+	"['fail'] 28" -> "['fail', 'test', 'failur', 'http', 'reason', 'find', 'log', 'go', 'hudson'] 1";
+	"['fail'] 28" -> "['fail', 'connect', 'reconnect', 'reproduc', 'step'] 1";
+	"['fail'] 28" -> "['fail', 'configur', 'file', 'window', 'reconfig', 'config', 'renam'] 1";
+	"['fail'] 28" -> "['fail', 'start', 'snapshot'] 1";
+	"['fail'] 28" -> "['fail', 'handl', 'system', 'attempt', 'content', 'read', 'encount', 'default', 'thing', 'popul', 'znode', 'exceed', 'jute.maxbuff', '\
+limit', 'directori'] 1";
+	"['fail'] 28" -> "['fail', 'build'] 1";
+	"['fail'] 28" -> "['fail', 'clientportbindtest'] 1";
+	"['client'] 21" -> "['client', 'server'] 4";
+	"['client'] 21" -> "['client', 'leader'] 2";
+	"['client'] 21" -> "['client', 'cluster', 'use', 'quorum', 'failur', 'call', 'lead', 'issu', 'run', 'system', 'databas', 'chang', 'setup', 'work', '\
+data', 'part', 'provid', 'bring', 'instanc', 'without', 'applic', 'receiv', 'serv', 'observ', 'make', 'publish', 'queue', 'appli', '\
+maintain', 'order', 'replay', 'perform', 'suggest', 'member', 'benefit', 'other', 'affect', 'commun', 'multipl', 'goal', 'idea', '\
+master', 'impact', 'locat', 'across', 'replic', 'site', 'slave', 'center', 'bandwidth', 'manag', 'extend'] 1";
+	"['client'] 21" -> "['client', 'node', 'connect', 'caus', 'creat', 'call', 'number', 'watch', 'exist', 'loss'] 1";
+	"['client'] 21" -> "['start', 'client', 'cluster'] 2";
+	"['client'] 21" -> "['client', 'follow', 'call', 'hang', 'thread', 'method', 'applic', 'hung', 'librari'] 1";
+	"['client'] 21" -> "['client', 'creat', 'leak', 'file', 'handl', 'close', 'ioexcept', 'initi', 'clientcnxn', 'selector'] 1";
+	"['client'] 21" -> "['use', 'client'] 2";
+	"['client'] 21" -> "['client', 'configur', 'run', 'socket', 'ensembl', 'listen', 'port', 'product'] 1";
+	"['client'] 21" -> "['client', 'happen', 'leak', 'socket', 'close', 'without', 'receiv', 'timeout', 'function'] 1";
+	"['client'] 21" -> "['client', 'quorum', 'crash', 'part', 'instanc', 'take'] 1";
+	"['client'] 21" -> "['client', 'call', 'leak', 'memori', 'window', 'line', 'winport.c'] 1";
+	"['client'] 21" -> "['client', 'code', 'situat', 'exit'] 1";
+	"['client'] 21" -> "['client', 'hang'] 2";
+	"['leader'] 14" -> "['cluster', 'leader'] 4";
+	"['leader'] 14" -> "['elect', 'leader'] 4";
+	"['leader'] 14" -> "['leader', 'follow', 'connect', 'quorum', 'code', 'process', 'becom', 'ioexcept', 'zxid', 'find', 'set', 'epoch', 'valu', 'establish', '\
+drop', 'kill', 'leadership', 'throw', ':'] 1";
+	"['leader'] 14" -> "['follow', 'leader', 'propos'] 2";
+	"['leader'] 14" -> "['leader', 'quorum', 'configur', 'timeout', 'lose', 'leadership', 'give'] 1";
+	"['leader'] 14" -> "['leader', 'crash', 'startup', 'creation', 'transact'] 1";
+	"['leader'] 14" -> "['leader', 'caus', 'failur', 'snapshot', 'see', 'keep'] 1";
+	"['server'] 9" -> "['cluster', 'server'] 2";
+	"['server'] 9" -> "['server', 'node', 'code', 'databas', 'case', 'data', 'part', 'load', 'found', 'miss', 'check', 'product', 'replay', 'block', 'tree', '\
+detect', 'parent', 'txnlog'] 1";
+	"['server'] 9" -> "['server', 'creat', 'code', 'file', 'user', 'check', 'exist', 'datadir', 'valid'] 1";
+	"['server'] 9" -> "['server', 'quorum', 'restart', 'memori', 'crash', 'provid', 'servic', 'contain'] 1";
+	"['server'] 9" -> "['server', 'connect', 'http', 'tri', 'suggest', 'reconfig', 'submit'] 1";
+	"['server'] 9" -> "['server', 'start', 'number', 'zxid', 'serv', 'roll', 'consid', 'stop'] 1";
+	"['server'] 9" -> "['server', 'configur', 'zoo.cfg', 'accept', 'request'] 1";
+	"['server'] 9" -> "['server', 'databas', 'initi'] 1";
+	"['follow'] 2" -> "['follow', 'node', 'throw', 'deploy', 'socketexcept'] 1";
+	"['follow'] 2" -> "['follow', 'http', 'done', 'protocol', 'learner.java', 'receipt', 'accord', 'upon', 'uptod', 'newlead', 'ack'] 1";
+	"['use'] 3" -> "['use', 'hang', 'lead', 'race', 'form'] 1";
+	"['use'] 3" -> "['use', 'call', 'memori', 'method', 'zkpython', 'see', 'leakag'] 1";
+	"['use'] 3" -> "['use', 'disk', 'except', 'write', 'crash', 'recov'] 1";
+	"['caus'] 3" -> "['caus', 'hang', 'thread', 'issu', 'notic', 'without', 'send', 'miss', 'want', 'kill', 'investig', 'someth', 'sendthread'] 1";
+	"['caus'] 3" -> "['caus', 'session', 'reproduc', 'loop', 'step'] 1";
+	"['caus'] 3" -> "['caus', 'patch', 'trunk', 'upload', 'introduc', 'assign', 'particip'] 1";
+	"['fail', 'leader'] 6" -> "['fail', 'leader', 'server'] 3";
+	"['fail', 'leader'] 6" -> "['fail', 'leader', 'cluster', 'quorum', 'thread', 'run', 'state', 'peer', 'deadlock', 'show', 'dump', 'access', 'result'] 1";
+	"['fail', 'leader'] 6" -> "['test', 'fail', 'elect', 'leader', 'patch'] 2";
+	"['fail', 'server'] 7" -> "['fail', 'client', 'server', 'node', 'connect', 'number', 'watch', 'load', 'maintain', 'drop', 'machin'] 1";
+	"['fail', 'server'] 7" -> "['fail', 'server', 'cluster', 'use', 'connect', 'caus', 'provid'] 1";
+	"['fail', 'server'] 7" -> "['fail', 'server', 'follow', 'node', 'quorum', 'start', 'problem', 'restart', 'disk', 'databas', 'load'] 1";
+	"['fail', 'server'] 7" -> "['fail', 'server', 'node', 'connect', 'configur', 'ensembl', 'zoo.cfg', 'chang', 'reconnect', 'part', 'instanc', 'address', 'hostnam', '\
+remain', 'procedur', 'resolut', 'identifi'] 1";
+	"['fail', 'server'] 7" -> "['fail', 'server', 'follow', 'configur', 'file', 'zoo.cfg', 'startup'] 1";
+	"['fail', 'server'] 7" -> "['fail', 'restart', 'server'] 2";
+	"['fail', 'client'] 4" -> "['fail', 'client', 'connect', 'caus', 'creat', 'issu', 'work', 'timeout', 'observ', 'tri', 'localhost', 'turn', 'sometim', 'revers', '\
+relat'] 1";
+	"['fail', 'client'] 4" -> "['fail', 'client', 'quorum', 'look', 'serv', 'form', 'testearlyleaderabandon', 'attach'] 1";
+	"['fail', 'client'] 4" -> "['fail', 'session', 'client'] 2";
+	"['fail', 'cluster'] 2" -> "['fail', 'cluster', 'quorum', 'state', 'join', 'setup', 'peer'] 1";
+	"['fail', 'cluster'] 2" -> "['fail', 'cluster', 'elect', 'loop', 'devic'] 1";
+	"['client', 'server'] 4" -> "['client', 'server', 'cluster', 'connect', 'session', 'except', 'attempt', 'java', 'zxid', 'expir'] 1";
+	"['client', 'server'] 4" -> "['client', 'server', 'use', 'hang', 'happen', 'function', 'exampl', 'multi'] 1";
+	"['client', 'server'] 4" -> "['node', 'client', 'creat', 'server'] 2";
+	"['client', 'leader'] 2" -> "['client', 'leader', 'follow', 'connect', 'session', 'problem', 'http', 'get', 'except', 'chang', 'move', 'java', 'look', 'disconnect', '\
+make', 'ad', 'switch', 'releas', 'properti', 'featur'] 1";
+	"['client', 'leader'] 2" -> "['client', 'leader', 'process', 'happen', 'error', 'propag', 'exampl', 'sync', 'clien'] 1";
+	"['start', 'client', 'cluster'] 2" -> "['client', 'cluster', 'session', 'start', 'seem', 'bring', 'reason', 'ask', 'base', 'view', 'abil', 'mean', 'namespac'] 1";
+	"['start', 'client', 'cluster'] 2" -> "['client', 'cluster', 'start', 'problem', 'reconnect', 'error', 'user', 'list', 'describ', 'mail', 'mail.gmail.com'] 1";
+	"['use', 'client'] 2" -> "['client', 'use', 'failur', 'http', 'java', 'reus', 'written', 'implement', 'modul', 'detector'] 1";
+	"['use', 'client'] 2" -> "['client', 'use', 'dump', 'segfault', 'core', 'constant', 'zoo_read_acl_unsaf'] 1";
+	"['client', 'hang'] 2" -> "['client', 'hang', 'seem', 'outofmemoryerror'] 1";
+	"['client', 'hang'] 2" -> "['client', 'hang', 'restart', 'method', 'doio', 'clientcnxnsocketnio'] 1";
+	"['cluster', 'leader'] 4" -> "['node', 'cluster', 'elect', 'leader'] 2";
+	"['cluster', 'leader'] 4" -> "['cluster', 'follow', 'leader', 'time'] 2";
+	"['elect', 'leader'] 4" -> "['leader', 'elect', 'creat', 'problem', 'seem', 'issu', 'patch', 'notic', 'setup', 'work', 'vote', 'observ', 'user', 'propos', '\
+like', 'view', 'henri', 'jira', 'given', 'alan', 'determin', 'solv'] 1";
+	"['elect', 'leader'] 4" -> "['leader', 'elect', 'connect', 'problem', 'system', 'encount'] 1";
+	"['elect', 'leader'] 4" -> "['leader', 'elect', 'failur', 'lead', 'situat', 'termin', 'enter'] 1";
+	"['elect', 'leader'] 4" -> "['leader', 'elect', 'node', 'run', 'select'] 1";
+	"['follow', 'leader', 'propos'] 2" -> "['leader', 'follow', 'caus', 'start', 'send', 'miss', 'propos', 'ask', 'order', 'messag', 'shutdown', 'log', 'sent', 'truncat', '\
+diff', 'commit'] 1";
+	"['follow', 'leader', 'propos'] 2" -> "['leader', 'follow', 'set', 'epoch', 'propos', 'done', 'updat', 'acceptedepoch'] 1";
+	"['cluster', 'server'] 2" -> "['server', 'cluster', 'configur', 'socket', 'file', 'state', 'zoo.cfg', 'content', 'close_wait', 'version'] 1";
+	"['cluster', 'server'] 2" -> "['server', 'cluster', 'failur', 'disk', 'databas', 'case', 'provid', 'avail', 'mode', 'requir', 'benefit', 'standalon', 'scale', '\
+lot'] 1";
+	"['fail', 'leader', 'server'] 3" -> "['fail', 'server', 'leader', 'use', 'caus', 'start', 'problem', 'test', 'race', 'found', 'condit'] 1";
+	"['fail', 'leader', 'server'] 3" -> "['fail', 'elect', 'leader', 'server'] 2";
+	"['test', 'fail', 'elect', 'leader', 'patch'] 2" -> "['fail', 'leader', 'elect', 'test', 'time', 'ensembl', 'patch', 'notic', 're-elect', 'appli'] 1";
+	"['test', 'fail', 'elect', 'leader', 'patch'] 2" -> "['fail', 'leader', 'elect', 'follow', 'problem', 'test', 'http', 'happen', 'patch', 'attempt', 'shut', 'bring', 'listen', 'shutdown', '\
+includ'] 1";
+	"['fail', 'restart', 'server'] 2" -> "['fail', 'server', 'start', 'restart', 'look', 'epoch', 'like', 'learner.java', 'inconsist'] 1";
+	"['fail', 'restart', 'server'] 2" -> "['fail', 'server', 'test', 'time', 'restart', 'join', 'roll', 'establish'] 1";
+	"['fail', 'session', 'client'] 2" -> "['fail', 'client', 'caus', 'session', 'number', 'watch', 'set', 'oper', 're-establish'] 1";
+	"['fail', 'session', 'client'] 2" -> "['fail', 'client', 'session', 'attempt', 'reconnect', 'sinc', 'expir', 'disconnect', 'like', 'clientcnxn', 'propag', 'indic'] 1";
+	"['node', 'client', 'creat', 'server'] 2" -> "['client', 'server', 'node', 'creat', 'disconnect'] 1";
+	"['node', 'client', 'creat', 'server'] 2" -> "['client', 'server', 'node', 'use', 'creat', 'test', 'hang', 'issu', 'patch', 'data', 'reproduc', 'creation', 'wait', 'respons'] \
+1";
+	"['node', 'cluster', 'elect', 'leader'] 2" -> "['leader', 'cluster', 'elect', 'node', 'creat', 'time', 'take', 'complet'] 1";
+	"['node', 'cluster', 'elect', 'leader'] 2" -> "['leader', 'cluster', 'elect', 'node', 'lead', 'happen', 'system', 'case', 'support', 'make', 'avail', 'lose', 'let'] 1";
+	"['cluster', 'follow', 'leader', 'time'] 2" -> "['leader', 'cluster', 'follow', 'test', 'time', 'join', 'applic', 'show', 'scenario', 'block', 'amount', 'quorumcnxmanag', 'debug'] \
+1";
+	"['cluster', 'follow', 'leader', 'time'] 2" -> "['leader', 'cluster', 'elect', 'follow', 'time', 're-elect', 'becom', 'take', 'avail', 'size', 'dataset'] 1";
+	"['fail', 'elect', 'leader', 'server'] 2" -> "['fail', 'server', 'leader', 'elect', 'follow', 'node', 'lead', 'process', 'handl', 'case', 'join', 'receiv', 'vote', 'check', '\
+consid', 'messag', 'perform', 'other', 'notif'] 1";
+	"['fail', 'elect', 'leader', 'server'] 2" -> "['fail', 'server', 'leader', 'elect', 'failur', 'run'] 1";
+}

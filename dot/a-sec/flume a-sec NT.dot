@@ -1,0 +1,38 @@
+strict digraph  {
+	"['unknown']
+9" -> "['support', 'allow']
+2";
+	"['unknown']
+9" -> "['sink']
+3";
+	"['unknown']
+9" -> "['make', 'agent']
+1";
+	"['unknown']
+9" -> "['file', 'agent']
+1";
+	"['unknown']
+9" -> "['event', 'decor']
+1";
+	"['unknown']
+9" -> "['allow', 'handl']
+1";
+	"['support', 'allow']
+2" -> "['support', 'secur']
+1";
+	"['support', 'allow']
+2" -> "['support', 'allow']
+1";
+	"['sink']
+3" -> "['secur', 'make']
+1";
+	"['sink']
+3" -> "['hbase', 'support']
+2";
+	"['hbase', 'support']
+2" -> "['support', 'secur']
+1";
+	"['hbase', 'support']
+2" -> "['support', 'sink']
+1";
+}
