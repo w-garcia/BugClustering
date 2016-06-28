@@ -5,7 +5,7 @@ import math
 #TODO: Create string constants file for directories and filenames
 
 #TODO: move to string constants file
-systems = ['flume'] #['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
+systems = ['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
 cwd = os.getcwd()
 
 

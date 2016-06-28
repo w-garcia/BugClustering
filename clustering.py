@@ -1,15 +1,12 @@
-import nltk
 import csv
 import numpy
-import math
-from matplotlib import pyplot
-from scipy.cluster.hierarchy import *#dendrogram, linkage, cophenet
+from scipy.cluster.hierarchy import *
 from scipy.spatial.distance import pdist
 from peewee import *
-import copy
 import pygraphviz as pg
 from collections import OrderedDict, Counter
 import util
+import DBModel
 
 
 class LabelledClusterNode(ClusterNode):
@@ -216,17 +213,10 @@ def draw_nary_tree(Tree, class_name):
     A.draw('{}{} {} NT.png'.format(dot_path, Tree.system_name, class_name))
 
 
-def cluster(db):
-    class LFF_Keywords(Model):
-        description = TextField()
-        classification = CharField()
-
-        class Meta:
-            database = db
-
+def cluster(system_name):
     classes_list = []
 
-    for row in LFF_Keywords.select():
+    for row in DBModel.LFF_Keywords.select_by_system(system_name):
         classes = row.classification.split(' ')
         for c in classes:
             if len(c) > 2 and c not in classes_list:
@@ -236,9 +226,13 @@ def cluster(db):
 
     for c in classes_list:
         vector_path = util.cwd + '/vectors/'
-        with open(vector_path + str(db.database) + '_' + c + '_vectors.csv', 'r') as csvfile:
+        with open(vector_path + system_name + '_' + c + '_vectors.csv', 'r') as csvfile:
             reader = csv.DictReader(csvfile)
             list_of_keyword_to_weights = [rows for rows in reader]
+
+        if len(list_of_keyword_to_weights) < 1:
+            print "Not enough tickets to generate clusters. Skipping..."
+            continue
 
         tickets_to_weights_matrix = numpy.zeros((len(list_of_keyword_to_weights), len(list_of_keyword_to_weights[0])))
 
@@ -260,7 +254,7 @@ def cluster(db):
         print "Cophenetic Correlation: {}".format(correlation)
 
         root_node = to_tree(Z, rd=False)
-        Tree = LabelledTree(root_node, list_of_keyword_to_weights, str(db.database))
+        Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
         Tree.create_label_tree()
         #draw_binary_tree(Tree, c)
         Tree.create_nary_from_label_tree()

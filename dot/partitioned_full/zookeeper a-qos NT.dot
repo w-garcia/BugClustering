@@ -1,5 +1,0 @@
-strict digraph  {
-	"['client'] 2" -> "['client', 'function', 'use', 'code', 'permut', 'connect', 'address', 'determin'] 1";
-	"['client'] 2" -> "['client', 'throttl', 'network', 'degrad', 'share', 'servic', 'reach', 'server', 'start', 'bandwidth', 'want', 'affect', 'improv', '\
-user'] 1";
-}

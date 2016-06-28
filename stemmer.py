@@ -1,31 +1,15 @@
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer, WordNetLemmatizer
+import DBModel
 import util
 import nltk
 import os
-import string
-from peewee import *
 import re
 
 cwd = os.getcwd()
 
 
-def stem_system(db):
-    class Full_PreProcessed_Keywords(Model):
-        description = TextField()
-        classification = CharField()
-
-        class Meta:
-            database = db
-
-    class Terse_PreProcessed_Keywords(Full_PreProcessed_Keywords):
-        pass
-
-    class Stemmed_Keywords(Full_PreProcessed_Keywords):
-        pass
-
-    Stemmed_Keywords.create_table()
-
+def stem_system(system_name):
     list_of_stem_dicts = []
     banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'wo' 'ca', 'are', 'get', 'from',
                     'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'as', 'after', 'before', 'by',
@@ -33,7 +17,8 @@ def stem_system(db):
 
     porter_stemmer = PorterStemmer()
     wordnet_lemmatizer = WordNetLemmatizer()
-    for row in Terse_PreProcessed_Keywords.select():
+
+    for row in DBModel.Terse_PreProcessed_Keyword.select_by_system(system_name):
     #for row in Full_PreProcessed_Keywords.select():
         stripped_description = util.strip_autogen_info(row.description)
         words = nltk.word_tokenize(stripped_description)
@@ -44,7 +29,7 @@ def stem_system(db):
 
         for word, tag in word_to_pos_pair_list:
             word = re.sub(r'\d+', '', word).lower()
-            word = word.replace(str(db.database), '')
+            word = word.replace(system_name, '')
             if (word not in stopwords.words('english')) and len(word) > 3 and re.match('[a-z0-9]', word) and not ('\'' in word):
                 if 'V' in tag:
                     word = wordnet_lemmatizer.lemmatize(word, pos='v')
@@ -60,12 +45,12 @@ def stem_system(db):
 
         #stems = create_stem_list(words_to_keep)
 
-        list_of_stem_dicts.append({'description': u' '.join(stems).encode('utf-8'),
+        list_of_stem_dicts.append({'system': system_name,
+                                   'description': u' '.join(stems).encode('utf-8'),
                                    'classification': row.classification})
 
-    with db.atomic():
-        Stemmed_Keywords.insert_many(list_of_stem_dicts).execute()
+    DBModel.Stemmed_Keyword.overwrite_system_rows(system_name, list_of_stem_dicts)
 
-    print "Stemmed " + str(db.database) + "."
+    print "Stemmed " + system_name + "."
 
 

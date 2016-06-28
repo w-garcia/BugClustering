@@ -1,25 +1,15 @@
 import nltk
 import collections
-from peewee import *
+import DBModel
 import util
 import csv
 
 
-def low_freq_filter(db):
-    class Stemmed_Keywords(Model):
-        description = TextField()
-        classification = CharField()
-
-        class Meta:
-            database = db
-
-    class LFF_Keywords(Stemmed_Keywords):
-        pass
-
+def low_freq_filter(system_name):
     word_to_count_dict = collections.Counter()
     doc_freq = collections.Counter()
 
-    for row in Stemmed_Keywords.select():
+    for row in DBModel.Stemmed_Keyword.select_by_system(system_name):
         words_found = set()
         # Columns: row.description, row.classification
         words = nltk.word_tokenize(row.description)
@@ -34,7 +24,7 @@ def low_freq_filter(db):
     list_of_lff_dicts = []
     words_to_keep_in_dataset = set()
 
-    for row in Stemmed_Keywords.select():
+    for row in DBModel.Stemmed_Keyword.select_by_system(system_name):
         words_to_keep_in_ticket = []
         words = nltk.word_tokenize(row.description)
         for word in words:
@@ -43,9 +33,11 @@ def low_freq_filter(db):
 
                 words_to_keep_in_dataset.add(word)
 
-        list_of_lff_dicts.append({'description': u' '.join(words_to_keep_in_ticket), 'classification': row.classification})
+        list_of_lff_dicts.append({'system': system_name,
+                                  'description': u' '.join(words_to_keep_in_ticket),
+                                  'classification': row.classification})
 
-    LFF_Keywords.create_table()
+    #LFF_Keywords.create_table()
 
     #for row in list_of_lff_dicts:
     #    words = row['description'].split(' ')
@@ -53,14 +45,16 @@ def low_freq_filter(db):
     #        print "TF: " + str(word_to_count_dict[word])
     #        print "DF: " + str(doc_freq[word])
 
-    with db.atomic():
-        LFF_Keywords.insert_many(list_of_lff_dicts).execute()
+    #with db.atomic():
+    #    LFF_Keywords.insert_many(list_of_lff_dicts).execute()
+
+    DBModel.LFF_Keywords.overwrite_system_rows(system_name, list_of_lff_dicts)
 
     util.ensure_path_exists(util.cwd + '/vectors/')
     vector_path = util.cwd + '/vectors/'
 
     # Write file with word to DF to TF as columns
-    with open(vector_path + str(db.database) + '_word_DF+TF.csv', 'w') as csvfile_s:
+    with open(vector_path + system_name + '_word_DF+TF.csv', 'w') as csvfile_s:
         list_word_to_df_to_tf = []
 
         for word in words_to_keep_in_dataset:
@@ -74,6 +68,6 @@ def low_freq_filter(db):
         for row in list_word_to_df_to_tf:
             writer.writerow(row)
 
-    print "Stripped " + str(db.database) + " of low frequency words."
+    print "Stripped " + system_name + " of low frequency words."
     print "Wrote word to DF to TF file."
 

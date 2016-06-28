@@ -1,8 +1,0 @@
-strict digraph  {
-	"['client']
-2" -> "['client', 'code']
-1";
-	"['client']
-2" -> "['client', 'share']
-1";
-}

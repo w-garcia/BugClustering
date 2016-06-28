@@ -1,21 +1,14 @@
 import nltk
 import csv
 import collections
-from peewee import *
+import DBModel
 import util
 
 
-def generate_vectors(db, byClasses=False):
-    class LFF_Keywords(Model):
-        description = TextField()
-        classification = CharField()
-
-        class Meta:
-            database = db
-
+def generate_vectors(system_name, byClasses=False):
     class_to_list_of_descriptions_dict = collections.defaultdict(list)
 
-    for row in LFF_Keywords.select():
+    for row in DBModel.LFF_Keywords.select_by_system(system_name):
         # Columns: row.description, row.classification
         #words = nltk.word_tokenize(row.description)
         classes = row.classification.split(' ')
@@ -75,7 +68,7 @@ def generate_vectors(db, byClasses=False):
         vector_path = util.cwd + '/vectors/'
 
         # Write the matrix to csv file
-        with open(vector_path + str(db.database) + '_' + c + '_vectors.csv', 'w') as csvfile:
+        with open(vector_path + system_name + '_' + c + '_vectors.csv', 'w') as csvfile:
             fieldnames = document_frequency_dict.keys()
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -139,4 +132,4 @@ def generate_vectors(db, byClasses=False):
             writer.writerow(row)
     """
 
-    print "Generated vectors for " + str(db.database) + "."
+    print "Generated vectors for " + system_name + "."
