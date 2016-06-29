@@ -14,16 +14,16 @@ def main():
     #    return
 
     options = {'server': 'https://issues.apache.org/jira'}
-    jira = JIRA(options=options)
+    #jira = JIRA(options=options)
 
     for system_name in util.systems:
-        print system_name
+        print "[status] : " + system_name + " started."
 
-        process_system(jira, system_name)
-        stem_system(system_name)
-        low_freq_filter(system_name)
-        #generate_vectors(system_name)
-        #cluster(system_name)
+        #process_system(jira, system_name)
+        #stem_system(system_name)
+        #low_freq_filter(system_name)
+        #generate_vectors(system_name, by_classes=True, by_system=False, class_key="a-")
+        cluster(system_name, by_classes=True, by_system=False, class_key="a-")
 
 
 if __name__ == '__main__':

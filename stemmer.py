@@ -13,7 +13,7 @@ def stem_system(system_name):
     list_of_stem_dicts = []
     banned_words = ['is', 'and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'wo' 'ca', 'are', 'get', 'from',
                     'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'as', 'after', 'before', 'by',
-                    'row', 'column', 'am', 'nn', 'go', 'behavior']
+                    'row', 'column', 'am', 'nn', 'go']
 
     porter_stemmer = PorterStemmer()
     wordnet_lemmatizer = WordNetLemmatizer()

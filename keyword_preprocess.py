@@ -57,6 +57,8 @@ def process_system(jira, system):
             line = line.replace('\n', '')
             list_classifications.append(line.encode('utf-8'))
 
+        #if descriptions_processed_count == 10:
+        #    break
 
     # Reached eof, append last set of classifications
     classifications_cache[descriptions_processed_count] = u' '.join(list_classifications).encode('utf-8')

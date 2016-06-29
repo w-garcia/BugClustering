@@ -135,7 +135,7 @@ class LabelledTree:
             for child in node.children_list:
                 stack.append(child)
 
-        print self.tree.num_leaf_nodes
+        #print self.tree.num_leaf_nodes
 
     @staticmethod
     def merge_or_add_child(child, node, queue):
@@ -184,7 +184,7 @@ def draw_binary_tree(Tree, class_name):
     A.draw('{}{} {} BT.png'.format(dot_path, Tree.system_name, class_name))
 
 
-def draw_nary_tree(Tree, class_name):
+def draw_nary_tree(Tree, filepath):
     A = pg.AGraph(directed=True, strict=True)
 
     # BFS trough the tree and draw first 300 nodes
@@ -206,57 +206,119 @@ def draw_nary_tree(Tree, class_name):
         if level >= 100:
             pass#break
 
-    dot_path = util.cwd + '/dot/' + class_name + '/'
+    dot_path = util.cwd + '/dot/' + filepath
     util.ensure_path_exists(dot_path)
-    A.write('{}{} {} NT.dot'.format(dot_path, Tree.system_name, class_name))
+    A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
-    A.draw('{}{} {} NT.png'.format(dot_path, Tree.system_name, class_name))
+    A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
-def cluster(system_name):
-    classes_list = []
+def cluster(system_name, by_classes=False, by_system=True, class_key=None):
+
+    if by_classes:
+        cluster_by_classes(system_name, class_key)
+    if by_system:
+        cluster_by_system(system_name)
+
+    if (not by_system) and (not by_classes):
+        print "[Warning] : No method to cluster chosen. No trees generated."
+    else:
+        print "[Status] : Generated tree drawings."
+
+
+def cluster_by_system(system_name):
+    vector_path = util.cwd + '/vectors/by_system/' + system_name + '/'
+    filename = vector_path + system_name + '_vectors.csv'
+
+    with open(filename, 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        list_of_keyword_to_weights = [rows for rows in reader]
+
+    if len(list_of_keyword_to_weights) < 1:
+        print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+        return
+
+    tickets_to_weights_matrix = construct_matrix(list_of_keyword_to_weights)
+
+    if tickets_to_weights_matrix.shape[0] < 2:
+        print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+        return
+
+    Z = linkage(tickets_to_weights_matrix, 'average')
+
+    correlation, coph_dists = cophenet(Z, pdist(tickets_to_weights_matrix))
+
+    print "[Status] : Cophenetic Correlation: {}".format(correlation)
+
+    root_node = to_tree(Z, rd=False)
+    Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
+    Tree.create_label_tree()
+
+    tree_path = '/by_system/' + system_name + '/'
+    # draw_binary_tree(Tree, tree_path)
+    Tree.create_nary_from_label_tree()
+    draw_nary_tree(Tree, tree_path)
+
+
+def construct_matrix(list_of_keyword_to_weights):
+    tickets_to_weights_matrix = numpy.zeros((len(list_of_keyword_to_weights), len(list_of_keyword_to_weights[0])))
+    # Construct matrix of weights as integer only numpy matrix
+    for i in range(len(list_of_keyword_to_weights)):
+        for j in range(len(list_of_keyword_to_weights[0])):
+            word_key = list_of_keyword_to_weights[i].keys()[j]
+            tickets_to_weights_matrix[i, j] = list_of_keyword_to_weights[i][word_key]
+
+    print "[Status] : Shape is {}".format(tickets_to_weights_matrix.shape)
+
+    return tickets_to_weights_matrix
+
+
+def cluster_by_classes(system_name, class_key):
+    classes_to_keep = set()
 
     for row in DBModel.LFF_Keywords.select_by_system(system_name):
         classes = row.classification.split(' ')
+
         for c in classes:
-            if len(c) > 2 and c not in classes_list:
-                classes_list.append(c.encode())
+            c = c.encode()
+            if len(c) < 2 or c in classes_to_keep:
+                continue
+            elif class_key is None:
+                classes_to_keep.add(c)
+            elif c.startswith(class_key):
+                classes_to_keep.add(c)
 
-    print classes_list
+    for c in classes_to_keep:
+        vector_path = util.cwd + '/vectors/by_class/' + c + '/'
+        filename = vector_path + system_name + '_' + c + '_vectors.csv'
 
-    for c in classes_list:
-        vector_path = util.cwd + '/vectors/'
-        with open(vector_path + system_name + '_' + c + '_vectors.csv', 'r') as csvfile:
+        with open(filename, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
             list_of_keyword_to_weights = [rows for rows in reader]
 
         if len(list_of_keyword_to_weights) < 1:
-            print "Not enough tickets to generate clusters. Skipping..."
+            print "[Warning] : Not enough tickets to generate clusters. Skipping..."
             continue
 
-        tickets_to_weights_matrix = numpy.zeros((len(list_of_keyword_to_weights), len(list_of_keyword_to_weights[0])))
+        tickets_to_weights_matrix = construct_matrix(list_of_keyword_to_weights)
 
-        # Construct matrix of weights as integer only numpy matrix
-        for i in range(len(list_of_keyword_to_weights)):
-            for j in range(len(list_of_keyword_to_weights[0])):
-                word_key = list_of_keyword_to_weights[i].keys()[j]
-                tickets_to_weights_matrix[i, j] = list_of_keyword_to_weights[i][word_key]
-
-        print tickets_to_weights_matrix.shape
         if tickets_to_weights_matrix.shape[0] < 2:
-            print "Not enough tickets to generate clusters. Skipping..."
+            print "[Warning] : Not enough tickets to generate clusters. Skipping..."
             continue
 
         Z = linkage(tickets_to_weights_matrix, 'average')
 
         correlation, coph_dists = cophenet(Z, pdist(tickets_to_weights_matrix))
 
-        print "Cophenetic Correlation: {}".format(correlation)
+        print "[Status] : Cophenetic Correlation: {}".format(correlation)
 
         root_node = to_tree(Z, rd=False)
         Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
         Tree.create_label_tree()
-        #draw_binary_tree(Tree, c)
+
+        tree_path = '/by_class/' + '/' + c + '/'
+        # draw_binary_tree(Tree, tree_path)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, c)
-    print "Generated tree drawings."
+        draw_nary_tree(Tree, tree_path)
+
+        print "[Status] : Tree generated for {}.".format(c)
