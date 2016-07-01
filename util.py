@@ -18,6 +18,20 @@ def ensure_path_exists(path):
             raise
 
 
+def strip_autogen_to_eol(line):
+    begin_key = line.find(']') + 2
+    end_key = len(line) - 2
+    # TODO: regex might be more efficient
+    # remove stop words
+    """
+    word_list = nltk.word_tokenize(useful_description)
+    for word in word_list:
+        if word in stopwords.words('english'):
+            word_list.remove(word)
+    """
+    return line[begin_key:end_key + 1]
+
+
 def strip_autogen_info(line):
     begin_key = line.find(']') + 2
     end_key = line.find('\n') - 2

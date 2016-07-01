@@ -184,6 +184,14 @@ def draw_binary_tree(Tree, class_name):
     A.draw('{}{} {} BT.png'.format(dot_path, Tree.system_name, class_name))
 
 
+def create_child_string(child, node):
+    child_string = []
+    for word in child.label:
+        if word not in node.label:
+            child_string.append(word)
+    return str(child_string[:2]) + '\n' + str(child.num_leaf_nodes)
+
+
 def draw_nary_tree(Tree, filepath):
     A = pg.AGraph(directed=True, strict=True)
 
@@ -196,15 +204,18 @@ def draw_nary_tree(Tree, filepath):
         #node_string = str(node.label) + ' ' + str(node.num_leaf_nodes)
 
         for child in node.children_list:
-            child_string = str(child.label[:2]) + '\n' + str(child.num_leaf_nodes)
+            #child_string = str(child.label[:2]) + '\n' + str(child.num_leaf_nodes)
             #child_string = str(child.label) + ' ' + str(child.num_leaf_nodes)
+
+            # Create child string so only words not in parent are displayed.
+            child_string = create_child_string(child, node)
 
             A.add_edge((node_string, child_string))
 
             queue.append(child)
             level += 1
         if level >= 100:
-            pass#break
+            break
 
     dot_path = util.cwd + '/dot/' + filepath
     util.ensure_path_exists(dot_path)
@@ -213,10 +224,10 @@ def draw_nary_tree(Tree, filepath):
     A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
-def cluster(system_name, by_classes=False, by_system=True, class_key=None):
+def cluster(system_name, by_classes=False, by_system=False, class_key=None, by_class_mode='all'):
 
     if by_classes:
-        cluster_by_classes(system_name, class_key)
+        cluster_by_classes(system_name, class_key, by_class_mode)
     if by_system:
         cluster_by_system(system_name)
 
@@ -273,10 +284,15 @@ def construct_matrix(list_of_keyword_to_weights):
     return tickets_to_weights_matrix
 
 
-def cluster_by_classes(system_name, class_key):
+def cluster_by_classes(system_name, class_key, class_mode):
     classes_to_keep = set()
 
-    for row in DBModel.LFF_Keywords.select_by_system(system_name):
+    if class_mode == 'system':
+        selection = DBModel.LFF_Keywords.select_by_system(system_name)
+    else:
+        selection = DBModel.LFF_Keywords.select()
+
+    for row in selection:
         classes = row.classification.split(' ')
 
         for c in classes:

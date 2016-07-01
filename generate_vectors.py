@@ -6,10 +6,10 @@ import util
 from datetime import datetime
 
 
-def generate_vectors(system_name, by_classes=False, by_system=True, class_key=None):
+def generate_vectors(system_name, by_classes=False, by_system=False, class_key=None, by_class_mode="all"):
 
     if by_classes:
-        generate_vectors_by_class(system_name, class_key)
+        generate_vectors_by_class(system_name, class_key, by_class_mode)
     if by_system:
         generate_vectors_by_system(system_name)
 
@@ -46,10 +46,15 @@ def generate_vectors_by_system(system_name):
             writer.writerow(row)
 
 
-def generate_vectors_by_class(system_name, class_key):
+def generate_vectors_by_class(system_name, class_key, by_class_mode):
     class_to_list_of_descriptions_dict = collections.defaultdict(list)
 
-    for row in DBModel.LFF_Keywords.select_by_system(system_name):
+    if by_class_mode == 'system':
+        selection = DBModel.LFF_Keywords.select_by_system(system_name)
+    else:
+        selection = DBModel.LFF_Keywords.select()
+
+    for row in selection:
         classes_to_keep = set()
         classes = row.classification.split(' ')
 
