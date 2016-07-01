@@ -224,21 +224,17 @@ def draw_nary_tree(Tree, filepath):
     A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
-def cluster(system_name, by_classes=False, by_system=False, class_key=None, by_class_mode='all'):
+def cluster(system_name, topology_filter, clustering_filter=None):
 
-    if by_classes:
-        cluster_by_classes(system_name, class_key, by_class_mode)
-    if by_system:
-        cluster_by_system(system_name)
-
-    if (not by_system) and (not by_classes):
-        print "[Warning] : No method to cluster chosen. No trees generated."
+    if clustering_filter == 'none':
+        cluster_by_all(system_name)
     else:
-        print "[Status] : Generated tree drawings."
+        cluster_by_filter(system_name, topology_filter, clustering_filter)
+    print "[Status] : Generated tree drawings."
 
 
-def cluster_by_system(system_name):
-    vector_path = util.cwd + '/vectors/by_system/' + system_name + '/'
+def cluster_by_all(system_name):
+    vector_path = util.cwd + '/vectors/none/' + system_name + '/'
     filename = vector_path + system_name + '_vectors.csv'
 
     with open(filename, 'r') as csvfile:
@@ -284,13 +280,13 @@ def construct_matrix(list_of_keyword_to_weights):
     return tickets_to_weights_matrix
 
 
-def cluster_by_classes(system_name, class_key, class_mode):
+def cluster_by_filter(system_name, topology_filter, clustering_filter):
     classes_to_keep = set()
 
-    if class_mode == 'system':
-        selection = DBModel.LFF_Keywords.select_by_system(system_name)
-    else:
+    if topology_filter == 'none':
         selection = DBModel.LFF_Keywords.select()
+    else:
+        selection = DBModel.LFF_Keywords.select_by_system(system_name)
 
     for row in selection:
         classes = row.classification.split(' ')
@@ -299,13 +295,13 @@ def cluster_by_classes(system_name, class_key, class_mode):
             c = c.encode()
             if len(c) < 2 or c in classes_to_keep:
                 continue
-            elif class_key is None:
+            elif clustering_filter is None:
                 classes_to_keep.add(c)
-            elif c.startswith(class_key):
+            elif c.startswith(clustering_filter):
                 classes_to_keep.add(c)
 
     for c in classes_to_keep:
-        vector_path = util.cwd + '/vectors/by_class/' + c + '/'
+        vector_path = util.cwd + '/vectors/class_filter/' + c + '/'
         filename = vector_path + system_name + '_' + c + '_vectors.csv'
 
         with open(filename, 'r') as csvfile:

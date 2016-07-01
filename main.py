@@ -16,15 +16,10 @@ def main():
     options = {'server': 'https://issues.apache.org/jira'}
     #jira = JIRA(options=options)
 
-    if len(sys.argv) < 4:
-        print "[Error] : Incorrect Usage\n"
-        print "Usage: python main.py <cluster_by_class (True/False)> <cluster_by_system (True/False)> <by_class_mode (all/system/both)>"
-        return
+    filter_option = sys.argv[1].lower()
+    cluster_option = sys.argv[2].lower()
 
-    by_class_option = sys.argv[1].lower()
-    by_system_option = sys.argv[2].lower()
-    by_class_mode = sys.argv[3].lower()
-
+    # Fill local database with data from each system
     for system_name in util.systems:
         print "[status] : " + system_name + " pre-processing started."
 
@@ -32,24 +27,14 @@ def main():
         #stem_system(system_name)
         #low_freq_filter(system_name)
 
-    if by_class_option == 'true':
-        print "[status] : By-class clustering started."
-
-        if by_class_mode == 'all' or by_class_mode == 'both':
-            generate_vectors('all_systems', by_classes=True, by_class_mode='all')
-            cluster('all_systems', by_classes=True, by_class_mode='all')
-
-        if by_class_mode == 'system' or by_class_mode == 'both':
-            for system_name in util.systems:
-                generate_vectors(system_name, by_classes=True, by_class_mode='system')
-                cluster(system_name, by_classes=True, by_class_mode='system')
-
-    if by_system_option == 'true':
+    # Perform clustering according to user specified granularity
+    if filter_option == 'none':
+        generate_vectors("all_systems", filter_option, cluster_option)
+        cluster("all_systems", filter_option, cluster_option)
+    else:
         for system_name in util.systems:
-            print "[status] : " + system_name + " clustering started."
-
-            generate_vectors(system_name, by_system=True)
-            cluster(system_name, by_system=True)
+            generate_vectors(system_name, filter_option, cluster_option)
+            cluster(system_name, filter_option, cluster_option)
 
 
 if __name__ == '__main__':
