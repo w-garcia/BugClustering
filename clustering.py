@@ -40,9 +40,9 @@ class LabelledTree:
         keyword_weights = self.list_of_keyword_to_weights[nid]
 
         # TODO: Need to cache this for speedup
-        # First cast dictionary values to int
+        # First cast dictionary values to float
         for keyword in keyword_weights.keys():
-            keyword_weights[keyword] = int(keyword_weights[keyword])
+            keyword_weights[keyword] = float(keyword_weights[keyword])
 
         # Sort according to value
         keyword_weights = OrderedDict(sorted(keyword_weights.items(), key=lambda t: t[1], reverse=True))
@@ -256,7 +256,7 @@ def cluster_by_all(system_name, max_tree_size):
         print "[Warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
-    Z = linkage(tickets_to_weights_matrix, 'average')
+    Z = linkage(tickets_to_weights_matrix, method='single', metric='euclidean')
 
     correlation, coph_dists = cophenet(Z, pdist(tickets_to_weights_matrix))
 

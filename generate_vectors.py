@@ -98,6 +98,7 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
     list_trouble_ticket_dicts = []
 
     # With the DF dictionary, create the weight vector representing each ticket
+    # TODO: Might be a spot for further optimization
     for description in list_of_descriptions:
         # Vector representing the ticket
         keyword_to_weight_dict = dict((keyword, 0) for keyword in document_frequency_dict.keys())
@@ -107,7 +108,13 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
             word = word.encode('utf-8')
             if word not in words_found:
                 words_found.add(word)
-                keyword_to_weight_dict[word] = document_frequency_dict[word]
+
+                # Assign weight to word, whatever it may be
+                DF = float(document_frequency_dict[word])
+                IDF = 1.0 / (1.0 + DF) # Adjust for 0 denominator
+                TF = float(term_frequency_dict[word])
+                keyword_to_weight_dict[word] = DF
+
         words_found.clear()
         list_trouble_ticket_dicts.append(keyword_to_weight_dict)
 
@@ -119,21 +126,24 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
     vector_path = util.cwd + '/vectors/'
 
     # Write file with word to DF to TF as columns
-    with open(vector_path + system_name + '_' + c + '_' + '_word_DF+TF.csv', 'w') as csvfile_s:
-        list_word_to_df_to_tf = []
+    with open(vector_path + system_name + '_' + c + '_' + '_word_DF+TF+IDF+TF*IDF.csv', 'w') as csvfile_s:
+        list_word_to_weights = []
 
         for word in document_frequency_dict.keys():
-            temp_dict = {'Word': word, 'DF': document_frequency_dict[word], 'TF': term_frequency_dict[word]}
-            list_word_to_df_to_tf.append(temp_dict)
+            DF = float(document_frequency_dict[word])
+            IDF = 1.0 / (1.0 + DF) # Adjust for 0 denominator
+            TF = float(term_frequency_dict[word])
+            temp_dict = {'Word': word, 'DF': DF, 'TF': TF, 'IDF': IDF, 'TF*IDF': TF*IDF}
+            list_word_to_weights.append(temp_dict)
 
-        fieldnames = {'Word', 'DF', 'TF'}
+        fieldnames = {'Word', 'DF', 'TF', 'IDF', 'TF*IDF'}
         writer = csv.DictWriter(csvfile_s, fieldnames=fieldnames)
 
         writer.writeheader()
-        for row in list_word_to_df_to_tf:
+        for row in list_word_to_weights:
             writer.writerow(row)
 
-    print "[Vectors] : Wrote word to DF to TF file."
+    print "[Vectors] : Wrote word to weights file."
 
     return list_trouble_ticket_dicts
 

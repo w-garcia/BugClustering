@@ -26,12 +26,12 @@ def main():
         print "[status] : " + system_name + " pre-processing started."
 
         #process_system(jira, system_name)
-        stem_system(system_name)
-        low_freq_filter(system_name, lff_threshold)
+        #stem_system(system_name)
+        #low_freq_filter(system_name, lff_threshold)
 
     # Perform clustering according to user specified granularity
     if filter_option == 'none':
-        generate_vectors("all_systems", filter_option, cluster_option)
+        #generate_vectors("all_systems", filter_option, cluster_option)
         cluster("all_systems", filter_option, cluster_option, max_tree_size)
     else:
         for system_name in util.systems:
