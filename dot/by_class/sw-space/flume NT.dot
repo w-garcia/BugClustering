@@ -1,0 +1,47 @@
+strict digraph  {
+	"['unknown']
+11" -> "['channel']
+5";
+	"['unknown']
+11" -> "['releas', 'delet']
+2";
+	"['unknown']
+11" -> "['event', 'process']
+1";
+	"['unknown']
+11" -> "['sink', 'error']
+1";
+	"['unknown']
+11" -> "['test']
+2";
+	"['channel']
+5" -> "['file', 'replay']
+1";
+	"['channel']
+5" -> "['exception', 'file']
+2";
+	"['channel']
+5" -> "['replay', 'time']
+1";
+	"['channel']
+5" -> "['sourc', 'exception']
+1";
+	"['releas', 'delet']
+2" -> "['sourc', 'sink']
+1";
+	"['releas', 'delet']
+2" -> "['replay', 'scenario']
+1";
+	"['test']
+2" -> "['termin', 'step']
+1";
+	"['test']
+2" -> "['sink', 'cluster']
+1";
+	"['exception', 'channel']
+2" -> "['size', 'grow']
+1";
+	"['exception', 'channel']
+2" -> "['sourc', 'scenario']
+1";
+}

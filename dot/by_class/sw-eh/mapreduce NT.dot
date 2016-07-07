@@ -1,0 +1,308 @@
+strict digraph  {
+	"['unknown']
+200" -> "['fail']
+69";
+	"['unknown']
+200" -> "['exception']
+42";
+	"['unknown']
+200" -> "['task', 'error']
+1";
+	"['unknown']
+200" -> "['task']
+10";
+	"['unknown']
+200" -> "['case', 'node']
+1";
+	"['unknown']
+200" -> "['throw']
+6";
+	"['unknown']
+200" -> "['command', 'jobclient']
+2";
+	"['unknown']
+200" -> "['node', 'reduc']
+2";
+	"['unknown']
+200" -> "['case']
+5";
+	"['unknown']
+200" -> "['node']
+7";
+	"['unknown']
+200" -> "['code', 'file']
+1";
+	"['unknown']
+200" -> "['job']
+5";
+	"['unknown']
+200" -> "['issu', 'attempt']
+1";
+	"['unknown']
+200" -> "['failur', 'output']
+1";
+	"['unknown']
+200" -> "['reduc']
+6";
+	"['unknown']
+200" -> "['start']
+2";
+	"['unknown']
+200" -> "['happen', 'cluster']
+1";
+	"['unknown']
+200" -> "['test', 'detect']
+2";
+	"['unknown']
+200" -> "['file']
+4";
+	"['unknown']
+200" -> "['code']
+2";
+	"['unknown']
+200" -> "['complet', 'jobtrack']
+1";
+	"['unknown']
+200" -> "['failur']
+3";
+	"['unknown']
+200" -> "['kill']
+3";
+	"['unknown']
+200" -> "['remov', 'attempt']
+2";
+	"['unknown']
+200" -> "['schedul', 'crash']
+1";
+	"['unknown']
+200" -> "['issu']
+4";
+	"['unknown']
+200" -> "['applic']
+2";
+	"['unknown']
+200" -> "['queue', 'schedul']
+2";
+	"['unknown']
+200" -> "['output', 'stream']
+1";
+	"['unknown']
+200" -> "['happen', 'recov']
+1";
+	"['unknown']
+200" -> "['return', 'result']
+2";
+	"['unknown']
+200" -> "['complet']
+2";
+	"['unknown']
+200" -> "['work', 'process']
+1";
+	"['unknown']
+200" -> "['method', 'valu']
+1";
+	"['unknown']
+200" -> "['check', 'stream']
+1";
+	"['unknown']
+200" -> "['creat', 'symlink']
+1";
+	"['unknown']
+200" -> "['hdfs', 'remov']
+1";
+	"['unknown']
+200" -> "['mrappmast', 'hook']
+1";
+	"['fail']
+69" -> "['node']
+7";
+	"['fail']
+69" -> "['exception']
+18";
+	"['fail']
+69" -> "['task']
+19";
+	"['fail']
+69" -> "['throw']
+3";
+	"['fail']
+69" -> "['error']
+5";
+	"['fail']
+69" -> "['reduc', 'output']
+1";
+	"['fail']
+69" -> "['issu', 'kill']
+1";
+	"['fail']
+69" -> "['job', 'file']
+1";
+	"['fail']
+69" -> "['case']
+2";
+	"['fail']
+69" -> "['issu', 'jobtrack']
+2";
+	"['fail']
+69" -> "['contain', 'miss']
+1";
+	"['fail']
+69" -> "['start', 'check']
+1";
+	"['fail']
+69" -> "['code', 'check']
+1";
+	"['fail']
+69" -> "['handl', 'event']
+1";
+	"['fail']
+69" -> "['miss', 'work']
+1";
+	"['fail']
+69" -> "['check', 'report']
+1";
+	"['fail']
+69" -> "['jobtrack', 'tasktrack']
+1";
+	"['fail']
+69" -> "['hadoop', 'sort']
+1";
+	"['fail']
+69" -> "['test']
+1";
+	"['fail']
+69" -> "['thread', 'search']
+1";
+	"['exception']
+42" -> "['case']
+2";
+	"['exception']
+42" -> "['task', 'throw']
+1";
+	"['exception']
+42" -> "['case', 'node']
+2";
+	"['exception']
+42" -> "['task']
+3";
+	"['exception']
+42" -> "['throw']
+17";
+	"['exception']
+42" -> "['error']
+6";
+	"['exception']
+42" -> "['reduc', 'job']
+1";
+	"['exception']
+42" -> "['code', 'exit']
+1";
+	"['exception']
+42" -> "['output', 'give']
+1";
+	"['exception']
+42" -> "['start', 'give']
+1";
+	"['exception']
+42" -> "['contain', 'applic']
+1";
+	"['exception']
+42" -> "['cluster', 'return']
+1";
+	"['exception']
+42" -> "['start', 'miss']
+1";
+	"['exception']
+42" -> "['detect', 'complet']
+1";
+	"['exception']
+42" -> "['thread', 'shuffl']
+1";
+	"['exception']
+42" -> "['add', 'counter']
+1";
+	"['exception']
+42" -> "['occur']
+1";
+	"['task']
+10" -> "['case', 'output']
+2";
+	"['task']
+10" -> "['case', 'code']
+1";
+	"['task']
+10" -> "['node', 'contain']
+1";
+	"['task']
+10" -> "['kill', 'attempt']
+1";
+	"['task']
+10" -> "['kill']
+2";
+	"['task']
+10" -> "['file', 'give']
+1";
+	"['task']
+10" -> "['attempt', 'crash']
+1";
+	"['task']
+10" -> "['histori', 'config']
+1";
+	"['throw']
+6" -> "['error', 'applic']
+1";
+	"['throw']
+6" -> "['node', 'schedul']
+1";
+	"['throw']
+6" -> "['case', 'jobclient']
+1";
+	"['throw']
+6" -> "['code', 'stop']
+1";
+	"['throw']
+6" -> "['exit', 'delet']
+1";
+	"['throw']
+6" -> "['queue', 'mapr']
+1";
+	"['command', 'jobclient']
+2" -> "['kill', 'spew']
+1";
+	"['command', 'jobclient']
+2" -> "['issu', 'exit']
+1";
+	"['node', 'reduc']
+2" -> "['failur', 'output']
+1";
+	"['node', 'reduc']
+2" -> "['start', 'kill']
+1";
+	"['case']
+5" -> "['job', 'crash']
+1";
+	"['case']
+5" -> "['hadoop', 'histori']
+1";
+	"['case']
+5" -> "['file']
+3";
+	"['node']
+7" -> "['case', 'contain']
+1";
+	"['node']
+7" -> "['exit', 'handl']
+1";
+	"['node']
+7" -> "['handl', 'contain']
+2";
+	"['node']
+7" -> "['issu', 'hang']
+1";
+	"['node']
+7" -> "['contain', 'hang']
+1";
+	"['node']
+7" -> "['happen']
+1";
+}

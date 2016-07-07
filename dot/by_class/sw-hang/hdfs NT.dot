@@ -1,0 +1,152 @@
+strict digraph  {
+	"['unknown']
+38" -> "['node']
+20";
+	"['unknown']
+38" -> "['thread', 'block']
+1";
+	"['unknown']
+38" -> "['deadlock']
+8";
+	"['unknown']
+38" -> "['exception', 'time']
+2";
+	"['unknown']
+38" -> "['hang', 'timeout']
+2";
+	"['unknown']
+38" -> "['time', 'timeout']
+1";
+	"['unknown']
+38" -> "['loop', 'write']
+1";
+	"['unknown']
+38" -> "['process', 'scenario']
+1";
+	"['unknown']
+38" -> "['timeout', 'transferfsimag']
+1";
+	"['node']
+20" -> "['thread', 'block']
+1";
+	"['node']
+20" -> "['thread', 'lock']
+1";
+	"['node']
+20" -> "['deadlock']
+5";
+	"['node']
+20" -> "['time']
+3";
+	"['node']
+20" -> "['hang']
+4";
+	"['node']
+20" -> "['loop']
+4";
+	"['node']
+20" -> "['block', 'trunk']
+2";
+	"['deadlock']
+8" -> "['thread', 'block']
+1";
+	"['deadlock']
+8" -> "['thread', 'time']
+1";
+	"['deadlock']
+8" -> "['thread', 'loop']
+1";
+	"['deadlock']
+8" -> "['lock']
+3";
+	"['deadlock']
+8" -> "['synchron', 'config']
+1";
+	"['deadlock']
+8" -> "['dfsclient', 'dfsoutputstream']
+1";
+	"['exception', 'time']
+2" -> "['block', 'trunk']
+1";
+	"['exception', 'time']
+2" -> "['hang', 'fsnamesystem']
+1";
+	"['hang', 'timeout']
+2" -> "['connect', 'socket']
+1";
+	"['hang', 'timeout']
+2" -> "['thread', 'crash']
+1";
+	"['node', 'deadlock']
+5" -> "['recov', 'detect']
+2";
+	"['node', 'deadlock']
+5" -> "['thread', 'function']
+1";
+	"['node', 'deadlock']
+5" -> "['function', 'someth']
+1";
+	"['node', 'deadlock']
+5" -> "['detect', 'problem']
+1";
+	"['node', 'time']
+3" -> "['exception', 'close']
+1";
+	"['node', 'time']
+3" -> "['function']
+2";
+	"['node', 'hang']
+4" -> "['lock', 'fsnamesystem']
+1";
+	"['node', 'hang']
+4" -> "['timeout', 'connect']
+1";
+	"['node', 'hang']
+4" -> "['fail', 'process']
+1";
+	"['node', 'hang']
+4" -> "['dfsclient', 'failov']
+1";
+	"['node', 'loop']
+4" -> "['timeout']
+2";
+	"['node', 'loop']
+4" -> "['record']
+1";
+	"['node', 'loop']
+4" -> "['cache', 'data']
+1";
+	"['node', 'block']
+2" -> "['loop', 'manag']
+1";
+	"['node', 'block']
+2" -> "['test', 'wait']
+1";
+	"['lock', 'deadlock']
+3" -> "['detect', 'leaserenew']
+1";
+	"['lock', 'deadlock']
+3" -> "['fsnamesystem', 'synchron']
+1";
+	"['lock', 'deadlock']
+3" -> "['imag', 'fsimag']
+1";
+	"['node', 'recov']
+2" -> "['block', 'write']
+1";
+	"['node', 'recov']
+2" -> "['thread', 'test']
+1";
+	"['node', 'function']
+2" -> "['block', 'hang']
+1";
+	"['node', 'function']
+2" -> "['timeout', 'interrupt']
+1";
+	"['node', 'loop']
+2" -> "['exception', 'continu']
+1";
+	"['node', 'loop']
+2" -> "['infinit', 'note']
+1";
+}

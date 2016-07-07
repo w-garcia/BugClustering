@@ -1,0 +1,332 @@
+strict digraph  {
+	"['unknown']
+287" -> "['sink']
+95";
+	"['unknown']
+287" -> "['sourc', 'file']
+1";
+	"['unknown']
+287" -> "['sourc']
+51";
+	"['unknown']
+287" -> "['file']
+36";
+	"['unknown']
+287" -> "['event']
+15";
+	"['unknown']
+287" -> "['config']
+22";
+	"['unknown']
+287" -> "['node']
+12";
+	"['unknown']
+287" -> "['data', 'hdfs']
+1";
+	"['unknown']
+287" -> "['channel']
+10";
+	"['unknown']
+287" -> "['exception']
+6";
+	"['unknown']
+287" -> "['data', 'filechannel']
+1";
+	"['unknown']
+287" -> "['collector', 'agent']
+2";
+	"['unknown']
+287" -> "['throw', 'happen']
+1";
+	"['unknown']
+287" -> "['error']
+3";
+	"['unknown']
+287" -> "['hdfs']
+4";
+	"['unknown']
+287" -> "['agent']
+4";
+	"['unknown']
+287" -> "['fail']
+2";
+	"['unknown']
+287" -> "['write', 'filechannel']
+1";
+	"['unknown']
+287" -> "['start', 'failur']
+1";
+	"['unknown']
+287" -> "['throw', 'lose']
+1";
+	"['unknown']
+287" -> "['failur', 'messag']
+1";
+	"['unknown']
+287" -> "['return']
+2";
+	"['unknown']
+287" -> "['master', 'condit']
+1";
+	"['unknown']
+287" -> "['failur', 'exit']
+1";
+	"['unknown']
+287" -> "['filechannel']
+2";
+	"['unknown']
+287" -> "['batch', 'read']
+1";
+	"['unknown']
+287" -> "['test', 'step']
+1";
+	"['unknown']
+287" -> "['master', 'scenario']
+1";
+	"['unknown']
+287" -> "['charact']
+2";
+	"['unknown']
+287" -> "['thread', 'deadlock']
+1";
+	"['unknown']
+287" -> "['expect', 'issu']
+1";
+	"['unknown']
+287" -> "['allow', 'support']
+1";
+	"['unknown']
+287" -> "['improve', 'content']
+1";
+	"['unknown']
+287" -> "['back']
+1";
+	"['unknown']
+287" -> "['group', 'ignor']
+1";
+	"['sink']
+95" -> "['exception']
+6";
+	"['sink']
+95" -> "['sourc']
+20";
+	"['sink']
+95" -> "['file']
+15";
+	"['sink']
+95" -> "['config', 'node']
+1";
+	"['sink']
+95" -> "['fail', 'collector']
+3";
+	"['sink']
+95" -> "['event']
+18";
+	"['sink']
+95" -> "['node']
+6";
+	"['sink']
+95" -> "['data', 'close']
+1";
+	"['sink']
+95" -> "['hbase', 'data']
+2";
+	"['sink']
+95" -> "['hdfs', 'handl']
+1";
+	"['sink']
+95" -> "['error']
+5";
+	"['sink']
+95" -> "['fail']
+4";
+	"['sink']
+95" -> "['hdfs']
+3";
+	"['sink']
+95" -> "['test', 'detect']
+1";
+	"['sink']
+95" -> "['handl', 'properti']
+1";
+	"['sink']
+95" -> "['start']
+2";
+	"['sink']
+95" -> "['creat', 'connect']
+1";
+	"['sink']
+95" -> "['implement', 'selector']
+1";
+	"['sink']
+95" -> "['default', 'duplic']
+1";
+	"['sink']
+95" -> "['format', 'paramet']
+1";
+	"['sink']
+95" -> "['hbase', 'support']
+2";
+	"['sourc']
+51" -> "['transact', 'event']
+2";
+	"['sourc']
+51" -> "['file']
+10";
+	"['sourc']
+51" -> "['config']
+10";
+	"['sourc']
+51" -> "['event']
+4";
+	"['sourc']
+51" -> "['node', 'close']
+1";
+	"['sourc']
+51" -> "['channel']
+4";
+	"['sourc']
+51" -> "['jira', 'tthreadpoolserv']
+2";
+	"['sourc']
+51" -> "['exception']
+3";
+	"['sourc']
+51" -> "['error', 'handl']
+1";
+	"['sourc']
+51" -> "['data']
+2";
+	"['sourc']
+51" -> "['write', 'process']
+1";
+	"['sourc']
+51" -> "['error', 'transact']
+1";
+	"['sourc']
+51" -> "['close', 'kill']
+1";
+	"['sourc']
+51" -> "['handl']
+2";
+	"['sourc']
+51" -> "['creat', 'send']
+1";
+	"['sourc']
+51" -> "['implement', 'queue']
+1";
+	"['sourc']
+51" -> "['master', 'command']
+1";
+	"['sourc']
+51" -> "['result', 'perform']
+1";
+	"['sourc']
+51" -> "['command', 'pars']
+1";
+	"['sourc']
+51" -> "['appear', 'limit']
+1";
+	"['sourc']
+51" -> "['loss']
+1";
+	"['file']
+36" -> "['channel']
+10";
+	"['file']
+36" -> "['hdfs']
+3";
+	"['file']
+36" -> "['event', 'channel']
+5";
+	"['file']
+36" -> "['exception', 'data']
+1";
+	"['file']
+36" -> "['config']
+7";
+	"['file']
+36" -> "['node']
+3";
+	"['file']
+36" -> "['channel', 'fail']
+1";
+	"['file']
+36" -> "['filechannel', 'error']
+2";
+	"['file']
+36" -> "['filechannel', 'write']
+2";
+	"['file']
+36" -> "['implement', 'block']
+1";
+	"['file']
+36" -> "['master', 'connect']
+1";
+	"['event']
+15" -> "['exception']
+3";
+	"['event']
+15" -> "['config']
+2";
+	"['event']
+15" -> "['error', 'throw']
+1";
+	"['event']
+15" -> "['channel']
+2";
+	"['event']
+15" -> "['return', 'collector']
+1";
+	"['event']
+15" -> "['fail', 'creat']
+1";
+	"['event']
+15" -> "['data', 'messag']
+2";
+	"['event']
+15" -> "['master', 'process']
+1";
+	"['event']
+15" -> "['bodi']
+2";
+	"['config']
+22" -> "['data']
+2";
+	"['config']
+22" -> "['node']
+9";
+	"['config']
+22" -> "['channel', 'return']
+1";
+	"['config']
+22" -> "['error', 'agent']
+1";
+	"['config']
+22" -> "['fail', 'collector']
+1";
+	"['config']
+22" -> "['agent', 'state']
+1";
+	"['config']
+22" -> "['collector', 'detect']
+1";
+	"['config']
+22" -> "['error', 'consol']
+1";
+	"['config']
+22" -> "['return', 'problem']
+1";
+	"['config']
+22" -> "['detect', 'deadlock']
+1";
+	"['config']
+22" -> "['creat']
+1";
+	"['config']
+22" -> "['problem']
+1";
+	"['config']
+22" -> "['assign', 'user']
+1";
+}

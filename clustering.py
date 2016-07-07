@@ -156,7 +156,7 @@ class LabelledTree:
             node.head.children_list.append(child)
 
 
-def draw_binary_tree(Tree, class_name):
+def draw_binary_tree(Tree, class_name, max_tree_size):
     A = pg.AGraph(directed=True, strict=True)
 
     level = 0
@@ -174,7 +174,7 @@ def draw_binary_tree(Tree, class_name):
             queue.append(node.get_left())
         if node.get_right() is not None:
             queue.append(node.get_right())
-        if level >= 50:
+        if level >= max_tree_size:
             break
 
     util.ensure_path_exists(util.cwd + '/dot/')
@@ -192,48 +192,53 @@ def create_child_string(child, node):
     return str(child_string[:2]) + '\n' + str(child.num_leaf_nodes)
 
 
-def draw_nary_tree(Tree, filepath):
+def draw_nary_tree(Tree, filepath, max_tree_size):
     A = pg.AGraph(directed=True, strict=True)
+
+    # Get value thats 1% of total nodes in tree
+    num_leaf_nodes_cutoff = int(0.01 * Tree.tree.num_leaf_nodes)
+    print "[Clustering] : Leaf node cutoff: {}.".format(num_leaf_nodes_cutoff)
 
     # BFS trough the tree and draw first 300 nodes
     level = 0
     queue = [Tree.tree]
     while queue:
         node = queue.pop(0)
+        level += 1
+
         node_string = str(node.label[:2]) + '\n' + str(node.num_leaf_nodes)
-        #node_string = str(node.label) + ' ' + str(node.num_leaf_nodes)
 
         for child in node.children_list:
-            #child_string = str(child.label[:2]) + '\n' + str(child.num_leaf_nodes)
-            #child_string = str(child.label) + ' ' + str(child.num_leaf_nodes)
+            # Skip this node if it doesn't meet the 1% cutoff requirement
+            if child.num_leaf_nodes < num_leaf_nodes_cutoff:
+                continue
 
             # Create child string so only words not in parent are displayed.
             child_string = create_child_string(child, node)
-
             A.add_edge((node_string, child_string))
-
             queue.append(child)
-            level += 1
-        if level >= 100:
+
+        if level >= max_tree_size:
             break
 
-    dot_path = util.cwd + '/dot/' + filepath
+    dot_path = util.cwd + '/dot' + filepath
     util.ensure_path_exists(dot_path)
     A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
     A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
+    print "[Clustering] : Created tree at path {}.".format('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
-def cluster(system_name, topology_filter, clustering_filter=None):
+def cluster(system_name, topology_filter, clustering_filter=None, max_tree_size=None):
 
     if clustering_filter == 'none':
-        cluster_by_all(system_name)
+        cluster_by_all(system_name, max_tree_size)
     else:
-        cluster_by_filter(system_name, topology_filter, clustering_filter)
+        cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_size)
     print "[Status] : Generated tree drawings."
 
 
-def cluster_by_all(system_name):
+def cluster_by_all(system_name, max_tree_size):
     vector_path = util.cwd + '/vectors/none/' + system_name + '/'
     filename = vector_path + system_name + '_vectors.csv'
 
@@ -262,9 +267,9 @@ def cluster_by_all(system_name):
     Tree.create_label_tree()
 
     tree_path = '/by_system/' + system_name + '/'
-    # draw_binary_tree(Tree, tree_path)
+    # draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
-    draw_nary_tree(Tree, tree_path)
+    draw_nary_tree(Tree, tree_path, max_tree_size)
 
 
 def construct_matrix(list_of_keyword_to_weights):
@@ -280,7 +285,7 @@ def construct_matrix(list_of_keyword_to_weights):
     return tickets_to_weights_matrix
 
 
-def cluster_by_filter(system_name, topology_filter, clustering_filter):
+def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_size):
     classes_to_keep = set()
 
     if topology_filter == 'none':
@@ -329,8 +334,8 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter):
         Tree.create_label_tree()
 
         tree_path = '/by_class/' + '/' + c + '/'
-        # draw_binary_tree(Tree, tree_path)
+        # draw_binary_tree(Tree, tree_path, max_tree_size)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, tree_path)
+        draw_nary_tree(Tree, tree_path, max_tree_size)
 
         print "[Status] : Tree generated for {}.".format(c)

@@ -1,0 +1,83 @@
+strict digraph  {
+	"['unknown']
+19" -> "['leak']
+10";
+	"['unknown']
+19" -> "['node']
+2";
+	"['unknown']
+19" -> "['watch', 'memori']
+2";
+	"['unknown']
+19" -> "['node', 'close']
+1";
+	"['unknown']
+19" -> "['exception', 'disk']
+1";
+	"['unknown']
+19" -> "['close']
+3";
+	"['leak']
+10" -> "['close']
+3";
+	"['leak']
+10" -> "['memori']
+5";
+	"['leak']
+10" -> "['exception', 'socket']
+1";
+	"['leak']
+10" -> "['node', 'report']
+1";
+	"['node']
+2" -> "['hang']
+1";
+	"['node']
+2" -> "['watch', 'report']
+1";
+	"['watch', 'memori']
+2" -> "['node', 'number']
+1";
+	"['watch', 'memori']
+2" -> "['leakag', 'method']
+1";
+	"['close']
+3" -> "['disk', 'space']
+1";
+	"['close']
+3" -> "['exception']
+2";
+	"['leak', 'memori']
+5" -> "['node', 'cours']
+1";
+	"['leak', 'memori']
+5" -> "['cours', 'number']
+1";
+	"['leak', 'memori']
+5" -> "['report', 'version']
+1";
+	"['leak', 'memori']
+5" -> "['function']
+1";
+	"['leak', 'memori']
+5" -> "['chroot']
+1";
+	"['leak', 'close']
+3" -> "['node']
+2";
+	"['leak', 'close']
+3" -> "['file', 'return']
+1";
+	"['close', 'exception']
+2" -> "['disk', 'state']
+1";
+	"['close', 'exception']
+2" -> "['socket', 'give']
+1";
+	"['node', 'leak']
+2" -> "['exception', 'give']
+1";
+	"['node', 'leak']
+2" -> "['lead', 'socket']
+1";
+}

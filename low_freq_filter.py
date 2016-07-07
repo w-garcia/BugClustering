@@ -5,7 +5,7 @@ import util
 import csv
 
 
-def low_freq_filter(system_name):
+def low_freq_filter(system_name, lff_threshold):
     word_to_count_dict = collections.Counter()
     doc_freq = collections.Counter()
 
@@ -28,7 +28,7 @@ def low_freq_filter(system_name):
         words_to_keep_in_ticket = []
         words = nltk.word_tokenize(row.description)
         for word in words:
-            if word_to_count_dict[word] > 1 and doc_freq[word] > 1:
+            if word_to_count_dict[word] >= lff_threshold and doc_freq[word] >= lff_threshold:
                 words_to_keep_in_ticket.append(word)
 
                 words_to_keep_in_dataset.add(word)

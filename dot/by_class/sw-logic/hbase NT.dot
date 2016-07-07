@@ -1,0 +1,302 @@
+strict digraph  {
+	"['unknown']
+252" -> "['region']
+87";
+	"['unknown']
+252" -> "['test', 'data']
+1";
+	"['unknown']
+252" -> "['test', 'issu']
+1";
+	"['unknown']
+252" -> "['case']
+3";
+	"['unknown']
+252" -> "['tabl', 'cluster']
+1";
+	"['unknown']
+252" -> "['fail', 'delet']
+2";
+	"['unknown']
+252" -> "['function', 'issu']
+2";
+	"['unknown']
+252" -> "['split']
+5";
+	"['unknown']
+252" -> "['case', 'check']
+2";
+	"['unknown']
+252" -> "['test']
+11";
+	"['unknown']
+252" -> "['node', 'replic']
+3";
+	"['unknown']
+252" -> "['case', 'creat']
+1";
+	"['unknown']
+252" -> "['tabl']
+8";
+	"['unknown']
+252" -> "['recov', 'start']
+1";
+	"['unknown']
+252" -> "['master']
+10";
+	"['unknown']
+252" -> "['data']
+11";
+	"['unknown']
+252" -> "['server']
+5";
+	"['unknown']
+252" -> "['issu']
+9";
+	"['unknown']
+252" -> "['time', 'problem']
+1";
+	"['unknown']
+252" -> "['file']
+9";
+	"['unknown']
+252" -> "['node']
+4";
+	"['unknown']
+252" -> "['problem', 'result']
+1";
+	"['unknown']
+252" -> "['delet']
+2";
+	"['unknown']
+252" -> "['fail']
+8";
+	"['unknown']
+252" -> "['find']
+4";
+	"['unknown']
+252" -> "['case']
+4";
+	"['unknown']
+252" -> "['prefix_tre', 'encod']
+2";
+	"['unknown']
+252" -> "['creat']
+6";
+	"['unknown']
+252" -> "['start', 'problem']
+1";
+	"['unknown']
+252" -> "['check']
+3";
+	"['unknown']
+252" -> "['recov', 'patch']
+1";
+	"['unknown']
+252" -> "['result']
+3";
+	"['unknown']
+252" -> "['oper', 'patch']
+1";
+	"['unknown']
+252" -> "['state']
+2";
+	"['unknown']
+252" -> "['function', 'work']
+1";
+	"['unknown']
+252" -> "['problem']
+2";
+	"['unknown']
+252" -> "['regionserv']
+3";
+	"['unknown']
+252" -> "['return']
+2";
+	"['unknown']
+252" -> "['happen', 'continu']
+1";
+	"['unknown']
+252" -> "['miss', 'report']
+1";
+	"['unknown']
+252" -> "['assum']
+3";
+	"['unknown']
+252" -> "['exception', 'write']
+1";
+	"['unknown']
+252" -> "['close']
+2";
+	"['unknown']
+252" -> "['oper']
+2";
+	"['unknown']
+252" -> "['method', 'keyvalu']
+1";
+	"['unknown']
+252" -> "['code']
+2";
+	"['unknown']
+252" -> "['request', 'filter']
+1";
+	"['unknown']
+252" -> "['valu', 'list']
+1";
+	"['unknown']
+252" -> "['remov']
+2";
+	"['unknown']
+252" -> "['failur', 'build']
+1";
+	"['unknown']
+252" -> "['hbck', 'handl']
+1";
+	"['unknown']
+252" -> "['hregion', 'memstor']
+1";
+	"['unknown']
+252" -> "['notic']
+1";
+	"['unknown']
+252" -> "['loop', 'list']
+1";
+	"['unknown']
+252" -> "['hmaster', 'shutdown']
+1";
+	"['unknown']
+252" -> "['duplic', 'command']
+1";
+	"['unknown']
+252" -> "['refer', 'comment']
+1";
+	"['unknown']
+252" -> "['unit', 'manag']
+1";
+	"['unknown']
+252" -> "['hregion.bulkloadhfil', 'completebulkload']
+1";
+	"['unknown']
+252" -> "['rowcol', 'bloomfilt']
+1";
+	"['unknown']
+252" -> "[]
+1";
+	"['region']
+87" -> "['case']
+3";
+	"['region']
+87" -> "['server']
+5";
+	"['region']
+87" -> "['tabl', 'split']
+1";
+	"['region']
+87" -> "['master', 'split']
+1";
+	"['region']
+87" -> "['master', 'test']
+1";
+	"['region']
+87" -> "['master', 'tabl']
+1";
+	"['region']
+87" -> "['fail', 'master']
+4";
+	"['region']
+87" -> "['node']
+3";
+	"['region']
+87" -> "['recov', 'file']
+3";
+	"['region']
+87" -> "['cluster', 'split']
+2";
+	"['region']
+87" -> "['cluster', 'server']
+3";
+	"['region']
+87" -> "['tabl']
+4";
+	"['region']
+87" -> "['fail', 'close']
+2";
+	"['region']
+87" -> "['move', 'assign']
+2";
+	"['region']
+87" -> "['test']
+7";
+	"['region']
+87" -> "['master']
+4";
+	"['region']
+87" -> "['file']
+6";
+	"['region']
+87" -> "['split']
+10";
+	"['region']
+87" -> "['data']
+3";
+	"['region']
+87" -> "['tabl', 'creat']
+1";
+	"['region']
+87" -> "['cluster']
+4";
+	"['region']
+87" -> "['find']
+2";
+	"['region']
+87" -> "['assign']
+5";
+	"['region']
+87" -> "['recov']
+2";
+	"['region']
+87" -> "['meta']
+2";
+	"['region']
+87" -> "['miss', 'open']
+1";
+	"['region']
+87" -> "['problem', 'balanc']
+1";
+	"['region']
+87" -> "['store', 'replay']
+1";
+	"['region']
+87" -> "['implement', 'improve']
+1";
+	"['region']
+87" -> "['hook']
+2";
+	"['case']
+3" -> "['test', 'data']
+1";
+	"['case']
+3" -> "['file']
+2";
+	"['fail', 'delet']
+2" -> "['test', 'assum']
+1";
+	"['fail', 'delet']
+2" -> "['expect', 'restor']
+1";
+	"['function', 'issu']
+2" -> "['cluster', 'node']
+1";
+	"['function', 'issu']
+2" -> "['code', 'assum']
+1";
+	"['split']
+5" -> "['failur']
+2";
+	"['split']
+5" -> "['creat', 'node']
+1";
+	"['split']
+5" -> "['check']
+2";
+}

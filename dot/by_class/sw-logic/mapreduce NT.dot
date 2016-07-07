@@ -1,0 +1,305 @@
+strict digraph  {
+	"['unknown']
+74" -> "['task']
+19";
+	"['unknown']
+74" -> "['reduc', 'fail']
+2";
+	"['unknown']
+74" -> "['node', 'cluster']
+3";
+	"['unknown']
+74" -> "['fail']
+8";
+	"['unknown']
+74" -> "['reduc']
+6";
+	"['unknown']
+74" -> "['node', 'time']
+1";
+	"['unknown']
+74" -> "['cluster']
+3";
+	"['unknown']
+74" -> "['job']
+5";
+	"['unknown']
+74" -> "['node']
+2";
+	"['unknown']
+74" -> "['contain', 'detect']
+1";
+	"['unknown']
+74" -> "['contain', 'code']
+1";
+	"['unknown']
+74" -> "['data', 'count']
+1";
+	"['unknown']
+74" -> "['case']
+2";
+	"['unknown']
+74" -> "['kill', 'count']
+1";
+	"['unknown']
+74" -> "['sourc']
+2";
+	"['unknown']
+74" -> "['kill', 'code']
+1";
+	"['unknown']
+74" -> "['attempt', 'send']
+1";
+	"['unknown']
+74" -> "['data', 'split']
+1";
+	"['unknown']
+74" -> "['complet', 'work']
+1";
+	"['unknown']
+74" -> "['gener', 'split']
+2";
+	"['unknown']
+74" -> "['mrappmast']
+2";
+	"['unknown']
+74" -> "['problem', 'memori']
+1";
+	"['unknown']
+74" -> "['cache']
+2";
+	"['unknown']
+74" -> "['user', 'queue']
+1";
+	"['unknown']
+74" -> "['appear', 'slot']
+1";
+	"['unknown']
+74" -> "['assign', 'request']
+1";
+	"['unknown']
+74" -> "['result', 'index']
+1";
+	"['unknown']
+74" -> "['failur', 'disk']
+1";
+	"['unknown']
+74" -> "['histori', 'flush']
+1";
+	"['task']
+19" -> "['cluster']
+3";
+	"['task']
+19" -> "['job', 'sourc']
+1";
+	"['task']
+19" -> "['reduc']
+4";
+	"['task']
+19" -> "['fail']
+2";
+	"['task']
+19" -> "['case', 'contain']
+1";
+	"['task']
+19" -> "['node', 'launch']
+1";
+	"['task']
+19" -> "['time']
+3";
+	"['task']
+19" -> "['cluster', 'attempt']
+1";
+	"['task']
+19" -> "['kill', 'detect']
+1";
+	"['task']
+19" -> "['launch']
+2";
+	"['reduc', 'fail']
+2" -> "['detect', 'attempt']
+1";
+	"['reduc', 'fail']
+2" -> "['time', 'data']
+1";
+	"['reduc', 'fail']
+2" -> "['time', 'attempt']
+1";
+	"['reduc', 'fail']
+2" -> "['launch', 'count']
+1";
+	"['node', 'cluster']
+3" -> "['job', 'case']
+1";
+	"['node', 'cluster']
+3" -> "['combinefileinputformat', 'split']
+2";
+	"['fail']
+8" -> "['cluster', 'sourc']
+2";
+	"['fail']
+8" -> "['node']
+3";
+	"['fail']
+8" -> "['issu', 'check']
+1";
+	"['fail']
+8" -> "['time']
+2";
+	"['reduc']
+6" -> "['contain', 'condit']
+1";
+	"['reduc']
+6" -> "['case', 'count']
+1";
+	"['reduc']
+6" -> "['issu', 'count']
+1";
+	"['reduc']
+6" -> "['job', 'data']
+1";
+	"['reduc']
+6" -> "['job', 'restart']
+1";
+	"['reduc']
+6" -> "['ask', 'memori']
+1";
+	"['cluster']
+3" -> "['case', 'capac']
+1";
+	"['cluster']
+3" -> "['exception', 'throw']
+1";
+	"['cluster']
+3" -> "['file', 'jobclient']
+1";
+	"['job']
+5" -> "['sourc']
+2";
+	"['job']
+5" -> "['time', 'collect']
+1";
+	"['job']
+5" -> "['user']
+2";
+	"['node']
+2" -> "['shutdown', 'admin']
+1";
+	"['node']
+2" -> "['detect', 'give']
+1";
+	"['case']
+2" -> "['condit', 'execut']
+1";
+	"['case']
+2" -> "['send', 'miss']
+1";
+	"['sourc']
+2" -> "['error', 'restart']
+1";
+	"['sourc']
+2" -> "['issu', 'divid']
+1";
+	"['gener', 'split']
+2" -> "['local', 'host']
+1";
+	"['gener', 'split']
+2" -> "['complet', 'calcul']
+1";
+	"['mrappmast']
+2" -> "['code', 'throw']
+1";
+	"['mrappmast']
+2" -> "['send', 'check']
+1";
+	"['cache']
+2" -> "['block', 'heartbeat']
+1";
+	"['cache']
+2" -> "['index', 'submiss']
+1";
+	"['cluster', 'task']
+3" -> "['case', 'data']
+1";
+	"['cluster', 'task']
+3" -> "['reduc', 'job']
+2";
+	"['reduc', 'task']
+4" -> "['fail', 'complet']
+2";
+	"['reduc', 'task']
+4" -> "['time', 'attempt']
+1";
+	"['reduc', 'task']
+4" -> "['schedul', 'rmcontaineralloc']
+1";
+	"['fail', 'task']
+2" -> "['error', 'inform']
+1";
+	"['fail', 'task']
+2" -> "['node', 'contain']
+1";
+	"['task', 'time']
+3" -> "['error', 'condit']
+1";
+	"['task', 'time']
+3" -> "['progress', 'give']
+2";
+	"['task', 'launch']
+2" -> "['execut', 'mapper']
+1";
+	"['task', 'launch']
+2" -> "['kill', 'give']
+1";
+	"['node', 'combinefileinputformat']
+2" -> "['map', 'happen']
+1";
+	"['node', 'combinefileinputformat']
+2" -> "['data', 'issu']
+1";
+	"['fail', 'cluster']
+2" -> "['node', 'kill']
+1";
+	"['fail', 'cluster']
+2" -> "['file', 'block']
+1";
+	"['node', 'fail']
+3" -> "['error', 'restart']
+1";
+	"['node', 'fail']
+3" -> "['case', 'kill']
+1";
+	"['node', 'fail']
+3" -> "['launch', 'issu']
+1";
+	"['fail', 'time']
+2" -> "['process', 'failur']
+1";
+	"['fail', 'time']
+2" -> "['timeout', 'build']
+1";
+	"['job', 'sourc']
+2" -> "['capac', 'slot']
+1";
+	"['job', 'sourc']
+2" -> "['kill', 'manag']
+1";
+	"['job', 'user']
+2" -> "['issu', 'creat']
+1";
+	"['job', 'user']
+2" -> "['command', 'list']
+1";
+	"['reduc', 'cluster']
+2" -> "['data', 'cache']
+1";
+	"['reduc', 'cluster']
+2" -> "['case', 'sourc']
+1";
+	"['progress', 'task']
+2" -> "['specul', 'report']
+1";
+	"['progress', 'task']
+2" -> "['hdfs', 'read']
+1";
+}

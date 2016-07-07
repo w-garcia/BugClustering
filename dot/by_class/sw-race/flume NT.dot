@@ -1,0 +1,122 @@
+strict digraph  {
+	"['unknown']
+28" -> "['race']
+12";
+	"['unknown']
+28" -> "['sink']
+8";
+	"['unknown']
+28" -> "['exception', 'happen']
+1";
+	"['unknown']
+28" -> "['file']
+3";
+	"['unknown']
+28" -> "['sourc', 'close']
+1";
+	"['unknown']
+28" -> "['close', 'node']
+1";
+	"['unknown']
+28" -> "['duplic', 'failur']
+1";
+	"['unknown']
+28" -> "['channel', 'transact']
+1";
+	"['race']
+12" -> "['sink']
+4";
+	"['race']
+12" -> "['file']
+4";
+	"['race']
+12" -> "['condit']
+4";
+	"['sink']
+8" -> "['hdfs', 'exception']
+2";
+	"['sink']
+8" -> "['node', 'current']
+2";
+	"['sink']
+8" -> "['exception', 'return']
+1";
+	"['sink']
+8" -> "['exception', 'stop']
+1";
+	"['sink']
+8" -> "['node']
+1";
+	"['sink']
+8" -> "['fail', 'hadoop']
+1";
+	"['file']
+3" -> "['close', 'happen']
+1";
+	"['file']
+3" -> "['sourc', 'reset']
+1";
+	"['file']
+3" -> "['start', 'config']
+1";
+	"['hdfs', 'exception']
+2" -> "['happen', 'event']
+1";
+	"['hdfs', 'exception']
+2" -> "['return', 'node']
+1";
+	"['node', 'current']
+2" -> "['exception', 'hang']
+1";
+	"['node', 'current']
+2" -> "['event', 'duplic']
+1";
+	"['race', 'sink']
+4" -> "['exception', 'happen']
+1";
+	"['race', 'sink']
+4" -> "['condit', 'file']
+1";
+	"['race', 'sink']
+4" -> "['bucketwrit', 'close']
+2";
+	"['bucketwrit', 'close']
+2" -> "['return', 'test']
+1";
+	"['bucketwrit', 'close']
+2" -> "['exception', 'throw']
+1";
+	"['race', 'file']
+4" -> "['condit', 'exception']
+1";
+	"['race', 'file']
+4" -> "['block', 'implement']
+1";
+	"['race', 'file']
+4" -> "['condit']
+2";
+	"['condit', 'race']
+4" -> "['happen', 'collector']
+1";
+	"['condit', 'race']
+4" -> "['test', 'sourc']
+3";
+	"['condit', 'race']
+2" -> "['sourc', 'reset']
+1";
+	"['condit', 'race']
+2" -> "['close', 'thread']
+1";
+	"['test', 'condit']
+3" -> "['event', 'duplic']
+1";
+	"['test', 'condit']
+3" -> "['jira', 'tthreadpoolserv']
+2";
+	"['jira', 'tthreadpoolserv']
+2" -> "['fail', 'implement']
+1";
+	"['jira', 'tthreadpoolserv']
+2" -> "['upgrad']
+1";
+}

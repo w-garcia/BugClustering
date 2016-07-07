@@ -1,7 +1,10 @@
+"""
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import string
 import nltk
+from nltk.corpus import wordnet as wn
+"""
 import re
 
 contractions = {
@@ -123,6 +126,21 @@ contractions = {
 "you're": "you are",
 "you've": "you have"
 }
+"""
+# http://sujitpal.blogspot.com/2013/02/checking-for-word-equivalence-using.html
+def similarity(word1, word2, sim=wn.path_similarity):
+    synsets1 = wn.synsets(word1)
+    synsets2 = wn.synsets(word2)
+    sim_scores = []
+
+    for synset1 in synsets1:
+        for synset2 in synsets2:
+            sim_scores.append(sim(synset1, synset2))
+
+    if len(sim_scores) == 0:
+        return 0
+    else:
+        return max(sim_scores)
 
 
 def create_stem_list(words):
@@ -143,5 +161,30 @@ def tokenize(text):
     stems = create_stem_list(tokens)
     return stems
 
-text = "unless though behavior"
-print tokenize(text.lower())
+    dots = re.compile(r'([a-z]+\.+[a-z]+)')
+    if len(dots.findall(word)):
+        return [x for x in word.split('.') if len(x) >= 3]
+
+    hypens = re.compile(r'[a-z]+\-+[a-z]+')
+    if len(hypens.findall(word)):
+        return [x for x in word.split('-') if len(x) >= 3]
+
+    fslashes = re.compile(r'[a-z]+/+[a-z]+')
+    if len(fslashes.findall(word)):
+        return [x for x in word.split('/') if len(x) >= 3]
+
+    bslashes = re.compile(r'[a-z]+\\+[a-z]+')
+    if len(bslashes.findall(word)):
+        return [x for x in word.split('\\') if len(x) >= 3]
+
+    uscores = re.compile(r'[a-z]+_+[a-z]+')
+    if len(uscores.findall(word)):
+        return [x for x in word.split('_') if len(x) >= 3]
+
+"""
+text = "ta_too_many_fetch_failur=true"
+print re.findall(r'[A-Z]*[a-z]+', text)
+
+#print tokenize(text.lower())
+#syns = [x for x in wn.synsets("agreement") if x.name().split('.')[1] == 'n']
+#syns = wn.synsets("take")

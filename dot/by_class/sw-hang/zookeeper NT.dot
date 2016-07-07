@@ -1,0 +1,23 @@
+strict digraph  {
+	"['unknown']
+6" -> "['thread', 'lead']
+1";
+	"['unknown']
+6" -> "['hang']
+3";
+	"['unknown']
+6" -> "['thread', 'followerhandl']
+1";
+	"['unknown']
+6" -> "['deadlock', 'pleas']
+1";
+	"['hang']
+3" -> "['thread', 'node']
+1";
+	"['hang']
+3" -> "['lead', 'form']
+1";
+	"['hang']
+3" -> "['node', 'server']
+1";
+}
