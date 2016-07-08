@@ -8,6 +8,7 @@ import pygraphviz as pg
 from collections import OrderedDict, Counter
 import util
 import DBModel
+import math
 
 
 class LabelledClusterNode(ClusterNode):
@@ -255,11 +256,11 @@ def cluster_by_all(system_name, max_tree_size):
         print "[Warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
-    method = 'average'
-    metric = 'euclidean'
+    method = 'single'
+    metric = 'cosine'
 
     Y = pdist(tickets_to_weights_matrix, metric=metric)
-    #Y[abs(Y) < 3e-16] = 0.0
+    Y = Y[~numpy.isnan(Y)]
 
     Z = linkage(Y, method=method, metric=metric)
 
@@ -272,7 +273,7 @@ def cluster_by_all(system_name, max_tree_size):
     Tree.create_label_tree()
 
     tree_path = '/by_system/' + system_name + '/'
-    draw_binary_tree(Tree, tree_path, max_tree_size)
+    #draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
     draw_nary_tree(Tree, tree_path, max_tree_size)
 
