@@ -2,6 +2,7 @@ import csv
 import numpy
 from scipy.cluster.hierarchy import *
 from scipy.spatial.distance import pdist
+from scipy import clip
 from peewee import *
 import pygraphviz as pg
 from collections import OrderedDict, Counter
@@ -156,17 +157,17 @@ class LabelledTree:
             node.head.children_list.append(child)
 
 
-def draw_binary_tree(Tree, class_name, max_tree_size):
+def draw_binary_tree(Tree, filepath, max_tree_size):
     A = pg.AGraph(directed=True, strict=True)
 
     level = 0
     queue = [Tree.tree]
     while queue:
         node = queue.pop(0)
-        node_string = str(node.label[:2]) + '\n' + str(Tree.generate_bt_stats(node))
+        node_string = str(node.label) + '\n' + str(Tree.generate_bt_stats(node))
 
         if node.parent is not None:
-            parent_string = str(node.parent.label[:2]) + '\n' + str(Tree.generate_bt_stats(node.parent))
+            parent_string = str(node.parent.label) + '\n' + str(Tree.generate_bt_stats(node.parent))
             A.add_edge(parent_string, node_string)
 
         level += 1
@@ -177,19 +178,17 @@ def draw_binary_tree(Tree, class_name, max_tree_size):
         if level >= max_tree_size:
             break
 
-    util.ensure_path_exists(util.cwd + '/dot/')
-    dot_path = util.cwd + '/dot/'
-    A.write('{}{} {} BT.dot'.format(dot_path, Tree.system_name, class_name))
+    dot_path = util.cwd + '/dot' + filepath
+    util.ensure_path_exists(dot_path)
+    A.write('{}{} BT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
-    A.draw('{}{} {} BT.png'.format(dot_path, Tree.system_name, class_name))
+    A.draw('{}{} BT.png'.format(dot_path, Tree.system_name))
+    print "[Clustering] : Created binary tree at path {}.".format('{}{} BT.png'.format(dot_path, Tree.system_name))
 
 
-def create_child_string(child, node):
-    child_string = []
-    for word in child.label:
-        if word not in node.label:
-            child_string.append(word)
-    return str(child_string[:2]) + '\n' + str(child.num_leaf_nodes)
+def create_node_string(node):
+    node_string = node.label
+    return str(node_string) + '\n' + str(node.num_leaf_nodes)
 
 
 def draw_nary_tree(Tree, filepath, max_tree_size):
@@ -206,7 +205,7 @@ def draw_nary_tree(Tree, filepath, max_tree_size):
         node = queue.pop(0)
         level += 1
 
-        node_string = str(node.label[:2]) + '\n' + str(node.num_leaf_nodes)
+        node_string = create_node_string(node)
 
         for child in node.children_list:
             # Skip this node if it doesn't meet the 1% cutoff requirement
@@ -214,7 +213,7 @@ def draw_nary_tree(Tree, filepath, max_tree_size):
                 continue
 
             # Create child string so only words not in parent are displayed.
-            child_string = create_child_string(child, node)
+            child_string = create_node_string(child)
             A.add_edge((node_string, child_string))
             queue.append(child)
 
@@ -226,7 +225,7 @@ def draw_nary_tree(Tree, filepath, max_tree_size):
     A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
     A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
-    print "[Clustering] : Created tree at path {}.".format('{}{} NT.png'.format(dot_path, Tree.system_name))
+    print "[Clustering] : Created n-ary tree at path {}.".format('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
 def cluster(system_name, topology_filter, clustering_filter=None, max_tree_size=None):
@@ -256,9 +255,15 @@ def cluster_by_all(system_name, max_tree_size):
         print "[Warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
-    Z = linkage(tickets_to_weights_matrix, method='single', metric='euclidean')
+    method = 'average'
+    metric = 'euclidean'
 
-    correlation, coph_dists = cophenet(Z, pdist(tickets_to_weights_matrix))
+    Y = pdist(tickets_to_weights_matrix, metric=metric)
+    #Y[abs(Y) < 3e-16] = 0.0
+
+    Z = linkage(Y, method=method, metric=metric)
+
+    correlation, coph_dists = cophenet(Z, Y)
 
     print "[Status] : Cophenetic Correlation: {}".format(correlation)
 
@@ -267,7 +272,7 @@ def cluster_by_all(system_name, max_tree_size):
     Tree.create_label_tree()
 
     tree_path = '/by_system/' + system_name + '/'
-    # draw_binary_tree(Tree, tree_path, max_tree_size)
+    draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
     draw_nary_tree(Tree, tree_path, max_tree_size)
 
