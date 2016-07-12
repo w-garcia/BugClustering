@@ -2,10 +2,12 @@ import os
 import errno
 import numpy
 import math
+from config import config as cfg
+
 #TODO: Create string constants file for directories and filenames
 
 #TODO: move to string constants file
-systems = ['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
+systems = ['flume']#['cassandra', 'flume', 'hbase', 'hdfs', 'mapreduce', 'zookeeper']
 cwd = os.getcwd()
 
 
@@ -82,3 +84,8 @@ def euclidian(vector_i, vector_j):
 
     result = math.sqrt(result)
     return result
+
+
+def generate_meta_path(system_name, root, c='none'):
+    str(root).replace('/', '')
+    return cwd + '/' +  root + '/' + system_name + '/' + cfg.to_file_string() + c + '/'

@@ -3,9 +3,10 @@ import collections
 import DBModel
 import util
 import csv
+from config import config as cfg
 
 
-def low_freq_filter(system_name, lff_threshold):
+def low_freq_filter(system_name):
     word_to_count_dict = collections.Counter()
     doc_freq = collections.Counter()
 
@@ -23,6 +24,8 @@ def low_freq_filter(system_name, lff_threshold):
 
     list_of_lff_dicts = []
     words_to_keep_in_dataset = set()
+
+    lff_threshold = cfg.low_freq_threshold
 
     for row in DBModel.Stemmed_Keyword.select_by_system(system_name):
         words_to_keep_in_ticket = []

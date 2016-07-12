@@ -1,5 +1,6 @@
 import csv
 import numpy
+from config import config as cfg
 from scipy.cluster.hierarchy import *
 from scipy.spatial.distance import pdist
 from scipy import clip
@@ -192,7 +193,7 @@ def create_node_string(node):
     return str(node_string) + '\n' + str(node.num_leaf_nodes)
 
 
-def draw_nary_tree(Tree, filepath, max_tree_size):
+def draw_nary_tree(Tree, max_tree_size, c='none'):
     A = pg.AGraph(directed=True, strict=True)
 
     # Get value thats 1% of total nodes in tree
@@ -221,7 +222,7 @@ def draw_nary_tree(Tree, filepath, max_tree_size):
         if level >= max_tree_size:
             break
 
-    dot_path = util.cwd + '/dot' + filepath
+    dot_path = util.generate_meta_path(Tree.system_name, 'dot', c)
     util.ensure_path_exists(dot_path)
     A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
@@ -229,17 +230,20 @@ def draw_nary_tree(Tree, filepath, max_tree_size):
     print "[Clustering] : Created n-ary tree at path {}.".format('{}{} NT.png'.format(dot_path, Tree.system_name))
 
 
-def cluster(system_name, topology_filter, clustering_filter=None, max_tree_size=None):
+def cluster(system_name):
+    class_clustering_filter = cfg.class_clustering_filter
+    systems_filter = cfg.systems_filter
+    max_tree_size = cfg.max_tree_size
 
-    if clustering_filter == 'none':
+    if class_clustering_filter == 'none':
         cluster_by_all(system_name, max_tree_size)
     else:
-        cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_size)
+        cluster_by_filter(system_name, systems_filter, class_clustering_filter, max_tree_size)
     print "[Status] : Generated tree drawings."
 
 
 def cluster_by_all(system_name, max_tree_size):
-    vector_path = util.cwd + '/vectors/none/' + system_name + '/'
+    vector_path = util.generate_meta_path(system_name, 'vectors')
     filename = vector_path + system_name + '_vectors.csv'
 
     with open(filename, 'r') as csvfile:
@@ -256,8 +260,8 @@ def cluster_by_all(system_name, max_tree_size):
         print "[Warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
-    method = 'single'
-    metric = 'cosine'
+    method = cfg.cluster_similarity_method
+    metric = cfg.distance_metric
 
     Y = pdist(tickets_to_weights_matrix, metric=metric)
     Y = Y[~numpy.isnan(Y)]
@@ -272,10 +276,9 @@ def cluster_by_all(system_name, max_tree_size):
     Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
     Tree.create_label_tree()
 
-    tree_path = '/by_system/' + system_name + '/'
     #draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
-    draw_nary_tree(Tree, tree_path, max_tree_size)
+    draw_nary_tree(Tree, max_tree_size)
 
 
 def construct_matrix(list_of_keyword_to_weights):
@@ -312,8 +315,8 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
                 classes_to_keep.add(c)
 
     for c in classes_to_keep:
-        vector_path = util.cwd + '/vectors/class_filter/' + c + '/'
-        filename = vector_path + system_name + '_' + c + '_vectors.csv'
+        vector_path = util.generate_meta_path(system_name, 'vectors', c)
+        filename = vector_path + system_name + '_vectors.csv'
 
         with open(filename, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -339,9 +342,8 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
         Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
         Tree.create_label_tree()
 
-        tree_path = '/by_class/' + '/' + c + '/'
         # draw_binary_tree(Tree, tree_path, max_tree_size)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, tree_path, max_tree_size)
+        draw_nary_tree(Tree, max_tree_size, c)
 
         print "[Status] : Tree generated for {}.".format(c)

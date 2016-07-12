@@ -1,21 +1,25 @@
+from config import config as cfg
 import nltk
 import csv
 import collections
 import DBModel
 import util
+import math
 
+def generate_vectors(name):
+    systems_filter = cfg.systems_filter
+    class_clustering_filter = cfg.class_clustering_filter
 
-def generate_vectors(name, topology_filter, clustering_filter='none'):
-    if topology_filter == 'none':
+    if systems_filter == 'none':
         selection = DBModel.LFF_Keywords.select()
-    else: #topology_filter == 'system':
+    else: #systems_filter == 'system':
         selection = DBModel.LFF_Keywords.select_by_system(name)
 
-    if clustering_filter == 'none':
+    if class_clustering_filter == 'none':
         cluster_by_all(name, selection)
     else:
         # Filter by class specific filter (sw-, a-, hw-, etc.) or all classes if not specified
-        cluster_by_filter(name, selection, clustering_filter)
+        cluster_by_filter(name, selection, class_clustering_filter)
 
 
 def cluster_by_all(name, selection):
@@ -29,7 +33,7 @@ def cluster_by_all(name, selection):
     if list_trouble_ticket_dicts is None:
         return
 
-    vector_path = util.cwd + '/vectors/none/' + name + '/'
+    vector_path = util.generate_meta_path(name, 'vectors')
     util.ensure_path_exists(vector_path)
 
     # Write the matrix to csv file
@@ -55,11 +59,11 @@ def cluster_by_filter(name, selection, class_key):
         if list_trouble_ticket_dicts is None:
             return
 
-        vector_path = util.cwd + '/vectors/class_filter/' + c + '/'
+        vector_path = util.generate_meta_path(name, 'vectors', c)
         util.ensure_path_exists(vector_path)
 
         # Write the matrix to csv file
-        filename = vector_path + name + '_' + c + '_vectors.csv'
+        filename = vector_path + name + '_vectors.csv'
         write_matrix_file(filename, list_trouble_ticket_dicts)
         print "[Status] : Vector generated for {}.".format(c)
 
@@ -81,6 +85,8 @@ def extract_classes_from_row(class_key, row):
 def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='none'):
     term_frequency_dict = collections.Counter()
     document_frequency_dict = collections.Counter()
+
+    weighting_scheme = cfg.weighting_scheme
 
     # Get TF and DF dicts for this list of description's dataset
     for description in list_of_descriptions:
@@ -113,7 +119,10 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
                 DF = float(document_frequency_dict[word])
                 IDF = 1.0 / (1.0 + DF) # Adjust for 0 denominator
                 TF = float(term_frequency_dict[word])
-                keyword_to_weight_dict[word] = DF
+                if weighting_scheme == 'DF':
+                    keyword_to_weight_dict[word] = DF
+                elif weighting_scheme == 'TFxIDF':
+                    keyword_to_weight_dict[word] = TF*IDF
 
         words_found.clear()
         list_trouble_ticket_dicts.append(keyword_to_weight_dict)
@@ -122,11 +131,12 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
         print "[Warning] : Not enough tickets to generate vectors. Skipping..."
         return None
 
-    util.ensure_path_exists(util.cwd + '/vectors/')
-    vector_path = util.cwd + '/vectors/'
+    vector_path = util.generate_meta_path(system_name, 'vectors', c)
+    util.ensure_path_exists(vector_path)
+
 
     # Write file with word to DF to TF as columns
-    with open(vector_path + system_name + '_' + c + '_' + '_word_DF+TF+IDF+TF*IDF.csv', 'w') as csvfile_s:
+    with open(vector_path + system_name + '_word_DF+TF+IDF+TF*IDF.csv', 'w') as csvfile_s:
         list_word_to_weights = []
 
         for word in document_frequency_dict.keys():
@@ -146,6 +156,10 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
     print "[Vectors] : Wrote word to weights file."
 
     return list_trouble_ticket_dicts
+
+
+def sigmoid(x):
+    return 1.0 / (1.0 + math.exp(-x))
 
 
 def write_matrix_file(filename, list_trouble_ticket_dicts):
