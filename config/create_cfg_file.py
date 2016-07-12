@@ -11,7 +11,7 @@ config.set('Topology', 'class_clustering_filter', 'sw-')
 config.set('Topology', 'perform_preprocessing', 'False')
 config.set('Clustering', 'low_freq_threshold', '2')
 config.set('Clustering', 'cluster_similarity_method', 'average')
-config.set('Clustering', 'distance_metric', 'euclidean')
+config.set('Clustering', 'distance_metric', 'cosine')
 config.set('Clustering', 'weighting_scheme', 'DF')
 config.set('Rendering', 'max_tree_size', '50')
 

@@ -3,13 +3,10 @@ import numpy
 from config import config as cfg
 from scipy.cluster.hierarchy import *
 from scipy.spatial.distance import pdist
-from scipy import clip
-from peewee import *
 import pygraphviz as pg
 from collections import OrderedDict, Counter
 import util
 import DBModel
-import math
 
 
 class LabelledClusterNode(ClusterNode):
@@ -34,9 +31,10 @@ class LabelledTree:
     After all leaves are labelled, the parents are labelled according to the intersection of its children's labels.
     This labelled binary tree is then transformed into an n-ary tree, which can be drawn with pygraphviz.
     """
-    def __init__(self, root, list_of_keyword_to_weights, system_name):
+    def __init__(self, root, list_of_keyword_to_weights, system_name, list_of_ticket_classes):
         self.tree = LabelledClusterNode(root)
         self.list_of_keyword_to_weights = list_of_keyword_to_weights
+        self.list_of_ticket_classes = list_of_ticket_classes
         self.system_name = system_name
 
     def generate_keywords_label(self, nid):
@@ -274,8 +272,10 @@ def cluster_by_all(system_name, max_tree_size):
 
     print "[Status] : Cophenetic Correlation: {}".format(correlation)
 
+    list_of_ticket_classes = []
+
     root_node = to_tree(Z, rd=False)
-    Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
+    Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name, list_of_ticket_classes)
     Tree.create_label_tree()
 
     #draw_binary_tree(Tree, tree_path, max_tree_size)
@@ -304,6 +304,7 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
     else:
         selection = DBModel.LFF_Keywords.select_by_system(system_name)
 
+    # Create list of classes of to be clustered according to filter
     for row in selection:
         classes = row.classification.split(' ')
 
@@ -316,7 +317,11 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
             elif c.startswith(clustering_filter):
                 classes_to_keep.add(c)
 
+    # Add the filter of interest to build a non-truth cluster
+    classes_to_keep.add(clustering_filter)
+
     for c in classes_to_keep:
+        # Load file assuming it was created previously for this class
         vector_path = util.generate_meta_path(system_name, 'vectors', c)
         filename = vector_path + system_name + '_vectors.csv'
 
@@ -334,6 +339,7 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
             print "[Warning] : Not enough tickets to generate clusters. Skipping..."
             continue
 
+
         method = cfg.cluster_similarity_method
         metric = cfg.distance_metric
 
@@ -346,8 +352,10 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
 
         print "[Status] : Cophenetic Correlation: {}".format(correlation)
 
+        list_of_ticket_classes = []
+
         root_node = to_tree(Z, rd=False)
-        Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name)
+        Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name, list_of_ticket_classes)
         Tree.create_label_tree()
 
         # draw_binary_tree(Tree, tree_path, max_tree_size)

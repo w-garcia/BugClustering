@@ -1,8 +1,0 @@
-strict digraph  {
-	"['read', 'request']
-2" -> "['read', 'request', 'oper', 'write', 'degre', 'pressur', 'user', 'sens', 'subject']
-1";
-	"['read', 'request']
-2" -> "['read', 'request', 'repair', 'node', 'execut', 'send', 'custom', 'timeout', 'wait']
-1";
-}

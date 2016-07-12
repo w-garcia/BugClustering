@@ -90,3 +90,7 @@ ENV/
 
 # idea
 .idea/
+
+# meta files
+vectors/
+dot/

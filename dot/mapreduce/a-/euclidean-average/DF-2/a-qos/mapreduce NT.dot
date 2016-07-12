@@ -1,9 +1,0 @@
-strict digraph  {
-	"['job']
-2" -> "['job', 'fair', 'give', 'schedul', 'number', 'file', 'memori', 'submit', 'delay', 'call', 'tracker', 'progress', 'split', 'read', '\
-initi', 'pool', 'task', 'inform', 'limit', 'time', 'manag']
-1";
-	"['job']
-2" -> "['job', 'start', 'pend', 'map', 'notic', 'reduc', 'queue', 'hung']
-1";
-}

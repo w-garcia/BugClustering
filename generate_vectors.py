@@ -44,12 +44,15 @@ def cluster_by_all(name, selection):
 
 def cluster_by_filter(name, selection, class_key):
     class_to_list_of_descriptions_dict = collections.defaultdict(list)
+    set_of_all_descriptions = set()
 
+    # Create ground truth vectors for each class
     for row in selection:
         classes_to_keep = extract_classes_from_row(class_key, row)
 
         for c in classes_to_keep:
             class_to_list_of_descriptions_dict[c].append(row.description)
+            set_of_all_descriptions.add(row.description)
 
     for c in class_to_list_of_descriptions_dict:
         list_of_descriptions = class_to_list_of_descriptions_dict[c]
@@ -66,6 +69,20 @@ def cluster_by_filter(name, selection, class_key):
         filename = vector_path + name + '_vectors.csv'
         write_matrix_file(filename, list_trouble_ticket_dicts)
         print "[Status] : Vector generated for {}.".format(c)
+
+    # Create vector for entire class filter
+    list_trouble_ticket_dicts = create_list_of_trouble_ticket_dicts(set_of_all_descriptions, name, class_key)
+
+    if list_trouble_ticket_dicts is None:
+        return
+
+    vector_path = util.generate_meta_path(name, 'vectors', class_key)
+    util.ensure_path_exists(vector_path)
+
+    # Write the matrix to csv file
+    filename = vector_path + name + '_vectors.csv'
+    write_matrix_file(filename, list_trouble_ticket_dicts)
+    print "[Status] : Vector generated for {}.".format(class_key)
 
 
 def extract_classes_from_row(class_key, row):
@@ -133,7 +150,6 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
 
     vector_path = util.generate_meta_path(system_name, 'vectors', c)
     util.ensure_path_exists(vector_path)
-
 
     # Write file with word to DF to TF as columns
     with open(vector_path + system_name + '_word_DF+TF+IDF+TF*IDF.csv', 'w') as csvfile_s:
