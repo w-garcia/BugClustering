@@ -193,7 +193,7 @@ def create_node_string(node):
     return str(node_string) + '\n' + str(node.num_leaf_nodes)
 
 
-def draw_nary_tree(Tree, max_tree_size, c='none'):
+def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
     A = pg.AGraph(directed=True, strict=True)
 
     # Get value thats 1% of total nodes in tree
@@ -226,8 +226,10 @@ def draw_nary_tree(Tree, max_tree_size, c='none'):
     util.ensure_path_exists(dot_path)
     A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
-    A.draw('{}{} NT.png'.format(dot_path, Tree.system_name))
-    print "[Clustering] : Created n-ary tree at path {}.".format('{}{} NT.png'.format(dot_path, Tree.system_name))
+    A.draw('{}{} NT Score={}.png'.format(dot_path, Tree.system_name, correlation))
+    print "[Clustering] : Created n-ary tree at path {}.".format('{}{} NT Score={}.png'.format(dot_path,
+                                                                                               Tree.system_name,
+                                                                                               correlation))
 
 
 def cluster(system_name):
@@ -278,7 +280,7 @@ def cluster_by_all(system_name, max_tree_size):
 
     #draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
-    draw_nary_tree(Tree, max_tree_size)
+    draw_nary_tree(Tree, max_tree_size, correlation)
 
 
 def construct_matrix(list_of_keyword_to_weights):
@@ -332,9 +334,15 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
             print "[Warning] : Not enough tickets to generate clusters. Skipping..."
             continue
 
-        Z = linkage(tickets_to_weights_matrix, 'average')
+        method = cfg.cluster_similarity_method
+        metric = cfg.distance_metric
 
-        correlation, coph_dists = cophenet(Z, pdist(tickets_to_weights_matrix))
+        Y = pdist(tickets_to_weights_matrix, metric=metric)
+        Y = Y[~numpy.isnan(Y)]
+
+        Z = linkage(Y, method=method, metric=metric)
+
+        correlation, coph_dists = cophenet(Z, Y)
 
         print "[Status] : Cophenetic Correlation: {}".format(correlation)
 
@@ -344,6 +352,6 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
 
         # draw_binary_tree(Tree, tree_path, max_tree_size)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, max_tree_size, c)
+        draw_nary_tree(Tree, max_tree_size, correlation, c)
 
         print "[Status] : Tree generated for {}.".format(c)
