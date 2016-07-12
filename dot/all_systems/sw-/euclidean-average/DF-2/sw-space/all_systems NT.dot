@@ -1,0 +1,234 @@
+strict digraph  {
+	"['unknown']
+248" -> "['memori']
+76";
+	"['unknown']
+248" -> "['node']
+43";
+	"['unknown']
+248" -> "['file']
+34";
+	"['unknown']
+248" -> "['fail']
+20";
+	"['unknown']
+248" -> "['problem', 'cache', 'batch', 'size']
+2";
+	"['unknown']
+248" -> "['exception']
+11";
+	"['unknown']
+248" -> "['outofmemory']
+3";
+	"['unknown']
+248" -> "['reduc']
+8";
+	"['unknown']
+248" -> "['leak']
+2";
+	"['unknown']
+248" -> "['data']
+5";
+	"['unknown']
+248" -> "['load', 'region', 'hbase', 'server']
+2";
+	"['unknown']
+248" -> "['outofmemory']
+10";
+	"['unknown']
+248" -> "['size']
+3";
+	"['unknown']
+248" -> "['space']
+3";
+	"['unknown']
+248" -> "['job']
+3";
+	"['unknown']
+248" -> "['write', 'commit']
+2";
+	"['unknown']
+248" -> "['creat']
+2";
+	"['unknown']
+248" -> "['cache']
+3";
+	"['unknown']
+248" -> "['compact']
+2";
+	"['memori']
+76" -> "['node', 'memori']
+21";
+	"['memori']
+76" -> "['file', 'memori']
+6";
+	"['memori']
+76" -> "['reduc', 'memori', 'space', 'read', 'cache', 'disk']
+2";
+	"['memori']
+76" -> "['fail', 'memori']
+5";
+	"['memori']
+76" -> "['outofmemory', 'exception', 'memori']
+2";
+	"['memori']
+76" -> "['size', 'memori']
+3";
+	"['memori']
+76" -> "['outofmemory', 'server', 'memori']
+2";
+	"['memori']
+76" -> "['reduc', 'map', 'set', 'shuffl', 'memori', 'process', 'leak', 'prevent', 'list', 'messag', 'add', 'output', 'complet', 'manag', '\
+merg']
+2";
+	"['memori']
+76" -> "['job', 'memori']
+3";
+	"['memori']
+76" -> "['leak', 'memori']
+10";
+	"['memori']
+76" -> "['oper', 'cluster', 'memori']
+2";
+	"['node']
+43" -> "['node', 'fail']
+11";
+	"['node']
+43" -> "['node', 'file']
+6";
+	"['node']
+43" -> "['node', 'exception']
+6";
+	"['node']
+43" -> "['node', 'detect', 'creat']
+2";
+	"['node']
+43" -> "['node', 'outofmemory']
+3";
+	"['node']
+43" -> "['node', 'data']
+2";
+	"['node']
+43" -> "['node', 'leak', 'lead']
+2";
+	"['node']
+43" -> "['node', 'cache']
+3";
+	"['file']
+34" -> "['fail', 'file']
+8";
+	"['file']
+34" -> "['leak', 'file', 'error']
+2";
+	"['file']
+34" -> "['distribut', 'cache', 'system', 'call', 'file', 'close']
+2";
+	"['file']
+34" -> "['leak', 'file']
+5";
+	"['file']
+34" -> "['reduc', 'hdfs', 'file']
+2";
+	"['file']
+34" -> "['file', 'size']
+2";
+	"['file']
+34" -> "['file', 'thread']
+3";
+	"['file']
+34" -> "['file', 'error']
+2";
+	"['file']
+34" -> "['exception', 'file']
+2";
+	"['fail']
+20" -> "['reduc', 'fail']
+5";
+	"['fail']
+20" -> "['fail', 'exception', 'thread']
+2";
+	"['fail']
+20" -> "['fail', 'test']
+2";
+	"['exception']
+11" -> "['exception', 'data']
+2";
+	"['exception']
+11" -> "['oper', 'test', 'exception']
+2";
+	"['exception']
+11" -> "['exception', 'class', 'thread']
+2";
+	"['outofmemory']
+3" -> "['write', 'outofmemory', 'data']
+2";
+	"['reduc']
+8" -> "['reduc', 'job']
+5";
+	"['data']
+5" -> "['data', 'space']
+2";
+	"['space']
+3" -> "['disk', 'space']
+2";
+	"['node', 'memori']
+21" -> "['node', 'reduc', 'memori']
+4";
+	"['node', 'memori']
+21" -> "['node', 'data', 'memori']
+3";
+	"['node', 'memori']
+21" -> "['node', 'leak', 'memori']
+3";
+	"['node', 'memori']
+21" -> "['node', 'batch', 'memori']
+2";
+	"['file', 'memori']
+6" -> "['leak', 'add', 'call', 'file', 'memori']
+2";
+	"['fail', 'memori']
+5" -> "['exception', 'thread', 'memori', 'handl', 'handler', 'fail']
+2";
+	"['fail', 'memori']
+5" -> "['fail', 'problem', 'batch', 'memori']
+2";
+	"['size', 'memori']
+3" -> "['test', 'cache', 'size', 'memori']
+2";
+	"['job', 'memori']
+3" -> "['job', 'out', 'memori']
+2";
+	"['node', 'fail']
+11" -> "['node', 'fail', 'system', 'file']
+2";
+	"['node', 'fail']
+11" -> "['node', 'reduc', 'job', 'fail', 'map']
+2";
+	"['node', 'fail']
+11" -> "['node', 'fail', 'exception']
+2";
+	"['node', 'fail']
+11" -> "['node', 'fail', 'data']
+2";
+	"['node', 'exception']
+6" -> "['node', 'exception', 'disk', 'space']
+3";
+	"['node', 'exception']
+6" -> "['node', 'handl', 'exception']
+2";
+	"['node', 'outofmemory']
+3" -> "['node', 'outofmemory', 'finish', 'batch']
+2";
+	"['fail', 'file']
+8" -> "['test', 'fail', 'file']
+2";
+	"['leak', 'file']
+5" -> "['dfsclient', 'cache', 'leak', 'object', 'batch', 'file']
+2";
+	"['file', 'thread']
+3" -> "['file', 'thread', 'creat']
+2";
+	"['reduc', 'fail']
+5" -> "['reduc', 'space', 'schedul', 'cluster', 'job', 'fail', 'disk']
+2";
+}

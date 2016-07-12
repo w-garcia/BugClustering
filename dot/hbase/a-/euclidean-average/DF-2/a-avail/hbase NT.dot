@@ -1,0 +1,266 @@
+strict digraph  {
+	"['unknown']
+247" -> "['region']
+113";
+	"['unknown']
+247" -> "['server']
+26";
+	"['unknown']
+247" -> "['master']
+32";
+	"['unknown']
+247" -> "['hbase']
+25";
+	"['unknown']
+247" -> "['fail']
+7";
+	"['unknown']
+247" -> "['regionserv', 'hlog', 'time']
+2";
+	"['unknown']
+247" -> "['node', 'restart']
+2";
+	"['unknown']
+247" -> "['start']
+2";
+	"['unknown']
+247" -> "['assign']
+2";
+	"['unknown']
+247" -> "['test']
+4";
+	"['unknown']
+247" -> "['split']
+5";
+	"['unknown']
+247" -> "['exception']
+6";
+	"['unknown']
+247" -> "['file']
+4";
+	"['unknown']
+247" -> "['regionserv']
+2";
+	"['region']
+113" -> "['region', 'server']
+57";
+	"['region']
+113" -> "['region', 'master']
+16";
+	"['region']
+113" -> "['region', 'hbase']
+12";
+	"['region']
+113" -> "['cluster', 'region']
+3";
+	"['region']
+113" -> "['start', 'region']
+3";
+	"['region']
+113" -> "['fail', 'region']
+4";
+	"['region']
+113" -> "['region', 'assign']
+5";
+	"['region']
+113" -> "['exception', 'region']
+3";
+	"['region']
+113" -> "['regionserv', 'region']
+2";
+	"['server']
+26" -> "['master', 'server']
+8";
+	"['server']
+26" -> "['hbase', 'server']
+8";
+	"['server']
+26" -> "['fail', 'server']
+2";
+	"['server']
+26" -> "['info', 'server']
+2";
+	"['master']
+32" -> "['hbase', 'master']
+6";
+	"['master']
+32" -> "['fail', 'master']
+9";
+	"['master']
+32" -> "['start', 'master']
+6";
+	"['master']
+32" -> "['data', 'regionserv', 'master']
+2";
+	"['master']
+32" -> "['exception', 'master']
+2";
+	"['master']
+32" -> "['master', 'loop']
+2";
+	"['hbase']
+25" -> "['fail', 'hbase']
+5";
+	"['hbase']
+25" -> "['node', 'cluster', 'hbase']
+2";
+	"['hbase']
+25" -> "['start', 'hbase']
+3";
+	"['hbase']
+25" -> "['function', 'hbase', 'time']
+2";
+	"['hbase']
+25" -> "['test', 'hbase']
+6";
+	"['hbase']
+25" -> "['hang', 'hbase', 'call', 'custom']
+2";
+	"['fail']
+7" -> "['function', 'cluster', 'fail']
+2";
+	"['fail']
+7" -> "['fail', 'data']
+2";
+	"['split']
+5" -> "['hlog', 'split']
+2";
+	"['exception']
+6" -> "['exception', 'regionserv']
+2";
+	"['file']
+4" -> "['loop', 'file']
+2";
+	"['region', 'server']
+57" -> "['region', 'master', 'server']
+17";
+	"['region', 'server']
+57" -> "['region', 'hbase', 'server']
+3";
+	"['region', 'server']
+57" -> "['fail', 'region', 'server']
+8";
+	"['region', 'server']
+57" -> "['node', 'cluster', 'region', 'time', 'server']
+2";
+	"['region', 'server']
+57" -> "['cluster', 'region', 'server']
+4";
+	"['region', 'server']
+57" -> "['region', 'time', 'assign', 'problem', 'server']
+2";
+	"['region', 'server']
+57" -> "['region', 'assign', 'server']
+7";
+	"['region', 'server']
+57" -> "['region', 'code', 'time', 'server']
+2";
+	"['region', 'server']
+57" -> "['region', 'regionserv', 'server']
+2";
+	"['region', 'master']
+16" -> "['fail', 'region', 'master']
+4";
+	"['region', 'master']
+16" -> "['start', 'region', 'master']
+5";
+	"['region', 'master']
+16" -> "['region', 'master', 'assign', 'restart']
+2";
+	"['region', 'master']
+16" -> "['region', 'master', 'restart']
+3";
+	"['region', 'hbase']
+12" -> "['fail', 'region', 'hbase']
+3";
+	"['cluster', 'region']
+3" -> "['node', 'delet', 'region', 'cluster']
+2";
+	"['start', 'region']
+3" -> "['cluster', 'region', 'start']
+2";
+	"['region', 'assign']
+5" -> "['region', 'assign', 'time']
+2";
+	"['master', 'server']
+8" -> "['hbase', 'master', 'server']
+2";
+	"['master', 'server']
+8" -> "['start', 'master', 'server']
+2";
+	"['master', 'server']
+8" -> "['fail', 'master', 'server']
+2";
+	"['hbase', 'server']
+8" -> "['cluster', 'hbase', 'server']
+2";
+	"['hbase', 'server']
+8" -> "['exception', 'hbase', 'server']
+2";
+	"['hbase', 'server']
+8" -> "['issu', 'hbase', 'server', 'connect', 'patch']
+2";
+	"['hbase', 'master']
+6" -> "['function', 'fail', 'hbase', 'master']
+2";
+	"['hbase', 'master']
+6" -> "['admin', 'hbase', 'master', 'connect']
+3";
+	"['fail', 'master']
+9" -> "['fail', 'start', 'master']
+5";
+	"['fail', 'master']
+9" -> "['test', 'fail', 'master']
+2";
+	"['fail', 'master']
+9" -> "['fail', 'master', 'stick']
+2";
+	"['start', 'master']
+6" -> "['cluster', 'master', 'start']
+2";
+	"['start', 'master']
+6" -> "['start', 'master', 'root']
+2";
+	"['fail', 'hbase']
+5" -> "['fail', 'hbase', 'network']
+2";
+	"['fail', 'hbase']
+5" -> "['fail', 'exception', 'hbase']
+2";
+	"['start', 'hbase']
+3" -> "['node', 'hdfs', 'exception', 'start', 'hlog', 'hbase']
+2";
+	"['region', 'master', 'server']
+17" -> "['region', 'master', 'hbase', 'server']
+4";
+	"['region', 'master', 'server']
+17" -> "['fail', 'region', 'master', 'server']
+3";
+	"['region', 'master', 'server']
+17" -> "['start', 'region', 'master', 'server']
+2";
+	"['region', 'master', 'server']
+17" -> "['cluster', 'region', 'master', 'restart', 'server']
+3";
+	"['region', 'master', 'server']
+17" -> "['node', 'region', 'master', 'server']
+2";
+	"['region', 'master', 'server']
+17" -> "['process', 'region', 'server', 'master', 'onlin', 'restart']
+2";
+	"['region', 'hbase', 'server']
+3" -> "['cluster', 'region', 'time', 'hbase', 'server']
+2";
+	"['fail', 'region', 'server']
+8" -> "['fail', 'region', 'assign', 'server']
+3";
+	"['fail', 'region', 'server']
+8" -> "['node', 'fail', 'region', 'server']
+2";
+	"['cluster', 'region', 'server']
+4" -> "['fail', 'cluster', 'region', 'server']
+2";
+	"['cluster', 'region', 'server']
+4" -> "['cluster', 'region', 'crash', 'split', 'server']
+2";
+}

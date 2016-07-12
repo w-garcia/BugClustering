@@ -1,0 +1,30 @@
+strict digraph  {
+	"['unknown']
+7" -> "['node', 'process', 'add', 'fail']
+2";
+	"['unknown']
+7" -> "['add', 'set', 'append', 'support', 'provid', 'implement', 'jira', 'featur', 'design', 'hadoop', 'refer', 'return', 'user', 'put', '\
+target']
+1";
+	"['unknown']
+7" -> "['node', 'fail', 'set', 'file', 'recov', 'load', 'edit', 'corrupt', 'miss', 'detect', 'start', 'checkpoint', 'save', 'namespac', '\
+stop', 'address', 'chang', 'case', 'admin', 'backup', 'section']
+1";
+	"['unknown']
+7" -> "['node', 'recov', 'safemod', 'leas', 'name']
+1";
+	"['unknown']
+7" -> "['pipelin', 'checksum']
+1";
+	"['unknown']
+7" -> "['file', 'data', 'request', 'gateway', 'hdfs', 'buffer', 'read', 'write', 'commit']
+1";
+	"['node', 'process', 'add', 'fail']
+2" -> "['node', 'fail', 'add', 'process', 'pipelin', 'data', 'implement', 'result', 'transfer', 'custom', 'trigger', 'call', 'method', '\
+understand', 'exception', 'block']
+1";
+	"['node', 'process', 'add', 'fail']
+2" -> "['node', 'fail', 'add', 'process', 'append', 'support', 'provid', 'request', 'rpc', 'network', 'cache', 'applic', 'proxi', 'renam', '\
+attempt', 'setup', 'issu']
+1";
+}

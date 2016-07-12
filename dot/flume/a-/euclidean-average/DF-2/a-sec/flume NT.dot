@@ -1,0 +1,44 @@
+strict digraph  {
+	"['unknown']
+9" -> "['agent']
+2";
+	"['unknown']
+9" -> "['index', 'add', 'properti']
+2";
+	"['unknown']
+9" -> "['sink']
+3";
+	"['unknown']
+9" -> "['support', 'allow']
+2";
+	"['agent']
+2" -> "['agent', 'transport', 'flume', 'data', 'featur', 'surviv', 'connect', 'collector', 'break']
+1";
+	"['agent']
+2" -> "['agent', 'file', 'encrypt', 'channel', 'throw', 'restart', 'exception', 'enabl', 'disabl']
+1";
+	"['index', 'add', 'properti']
+2" -> "['index', 'add', 'properti', 'event', 'decor', 'messag', 'bodi', 'hold', 'bug']
+1";
+	"['index', 'add', 'properti']
+2" -> "['sink', 'allow', 'index', 'add', 'properti', 'elast', 'name', 'handl', 'search', 'improve', 'header']
+1";
+	"['sink']
+3" -> "['sink', 'secur', 'kerbero', 'cluster', 'hdfs', 'work', 'implement']
+1";
+	"['sink']
+3" -> "['hbase', 'support', 'sink']
+2";
+	"['support', 'allow']
+2" -> "['support', 'secur', 'allow', 'transport', 'flume', 'network', 'patch']
+1";
+	"['support', 'allow']
+2" -> "['support', 'allow', 'file', 'encrypt', 'channel', 'data', 'disk', 'persist', 'form']
+1";
+	"['hbase', 'support', 'sink']
+2" -> "['support', 'sink', 'kerbero', 'hbase']
+1";
+	"['hbase', 'support', 'sink']
+2" -> "['support', 'sink', 'secur', 'hbase']
+1";
+}

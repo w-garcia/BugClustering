@@ -1,0 +1,269 @@
+strict digraph  {
+	"['unknown']
+70" -> "['node']
+39";
+	"['unknown']
+70" -> "['file']
+18";
+	"['unknown']
+70" -> "['block']
+7";
+	"['unknown']
+70" -> "['handl', 'hdfs', 'hadoop']
+2";
+	"['unknown']
+70" -> "['read', 'fail', 'contain', 'write', 'assum', 'edit', 'second', 'section', 'recov', 'test', 'issu', 'transfer', 'timeout', 'measur', '\
+valid', 'qjm']
+1";
+	"['unknown']
+70" -> "['memori', 'read', 'detect', 'limit', 'hbase', 'pool', 'exampl', 'option', 'understand', 'buffer', 'encount', 'featur', 'circuit']
+\
+1";
+	"['unknown']
+70" -> "['socket', 'wait']
+1";
+	"['unknown']
+70" -> "['method', 'namespac', 'chang', 'work', 'check', 'move', 'introduc', 'filesystem', 'user', 'api']
+1";
+	"['node']
+39" -> "['node', 'block']
+18";
+	"['node']
+39" -> "['node', 'file']
+9";
+	"['node']
+39" -> "['node', 'process', 'thread', 'memori', 'data', 'limit', 'hbase', 'servic', 'open', 'hadoop', 'connect', 'concurr', 'stack']
+1";
+	"['node']
+39" -> "['node', 'call', 'dfsclient', 'memori', 'leak', 'leas', 'continu', 'case', 'refer', 'collect', 'prevent', 'renew']
+1";
+	"['node']
+39" -> "['node', 'hdfs']
+3";
+	"['node']
+39" -> "['node', 'name', 'data', 'replica', 'perform', 'space', 'case', 'admin', 'queue']
+1";
+	"['node']
+39" -> "['node', 'load', 'cluster']
+2";
+	"['node']
+39" -> "['node', 'time', 'load', 'creat', 'detect', 'contain', 'start', 'delet', 'token', 'optim', 'fsimag', 'avoid', 'one']
+1";
+	"['node']
+39" -> "['node', 'time', 'handl', 'hadoop', 'command', 'admin', 'shoot']
+1";
+	"['node']
+39" -> "['node', 'namespac']
+2";
+	"['file']
+18" -> "['block', 'file']
+4";
+	"['file']
+18" -> "['file', 'call', 'process', 'thread', 'dfsclient', 'time', 'memori', 'system', 'leak', 'close', 'creat', 'method', 'object', 'start', '\
+cache', 'leas', 'result', 'execut', 'daemon']
+1";
+	"['file']
+18" -> "['hdfs', 'number', 'file', 'dfsclient']
+2";
+	"['file']
+18" -> "['dfsclient', 'object', 'socket', 'cache', 'call', 'file', 'close']
+2";
+	"['file']
+18" -> "['dfsclient', 'file']
+3";
+	"['file']
+18" -> "['file', 'hdfs', 'leak', 'handl', 'detect', 'fix', 'test', 'issu']
+1";
+	"['file']
+18" -> "['file', 'call', 'directori', 'list', 'perform', 'start', 'assum', 'store', 'edit', 'section', 'find', 'transfer', 'kill']
+1";
+	"['file']
+18" -> "['file', 'time', 'directori', 'list', 'load', 'web', 'command', 'network']
+1";
+	"['file']
+18" -> "['file', 'call', 'leak', 'close', 'stream', 'edit', 'throw', 'sourc', 'output']
+1";
+	"['file']
+18" -> "['file', 'socket', 'test', 'web', 'region', 'address']
+1";
+	"['file']
+18" -> "['file', 'system', 'leak', 'stream', 'implement', 'input', 'byte', 'hftp']
+1";
+	"['block']
+7" -> "['block', 'call', 'process', 'lock', 'list', 'replica', 'reduc', 'detect', 'manag', 'work', 'increment', 'monitor', 'obtain', 'comput']
+\
+1";
+	"['block']
+7" -> "['block', 'call', 'dfsclient', 'leak', 'socket', 'close', 'handl', 'method', 'stream', 'state', 'wait', 'connect', 'access', 'throw', '\
+token', 'exception', 'fetch', 'dfsinput', 'skip']
+1";
+	"['block']
+7" -> "['block', 'hdfs', 'call', 'system', 'lock', 'perform', 'issu', 'sync', 'commit', 'branch']
+1";
+	"['block']
+7" -> "['block', 'memori', 'lock', 'improve', 'reduc', 'perform', 'namespac', 'manag', 'servic', 'support', 'custom', 'abil']
+1";
+	"['block']
+7" -> "['block', 'hdfs', 'data', 'transfer', 'pool', 'protocol', 'introduc']
+1";
+	"['block']
+7" -> "['block', 'thread', 'default', 'move', 'count', 'balanc']
+1";
+	"['block']
+7" -> "['block', 'leak', 'socket', 'stream', 'fix', 'wait', 'dfsinput', 'reader']
+1";
+	"['handl', 'hdfs', 'hadoop']
+2" -> "['hdfs', 'handl', 'hadoop', 'util']
+1";
+	"['handl', 'hdfs', 'hadoop']
+2" -> "['hdfs', 'cluster', 'data', 'replica', 'handl', 'fail', 'servic', 'function', 'batch', 'recov', 'hadoop', 'locat', 'distribut', '\
+copi', 'secur', 'latenc', 'loss', 'design', 'throughput', 'backup', 'setup', 'provid', 'config', 'tool', 'avail']
+1";
+	"['node', 'block']
+18" -> "['node', 'block', 'file']
+3";
+	"['node', 'block']
+18" -> "['node', 'call', 'block']
+3";
+	"['node', 'block']
+18" -> "['node', 'process', 'block', 'cluster']
+5";
+	"['node', 'block']
+18" -> "['node', 'block', 'time']
+3";
+	"['node', 'block']
+18" -> "['node', 'block', 'thread', 'memori', 'data', 'read', 'perform', 'assum', 'request', 'chang', 'hbase', 'case', 'server', 'pool', '\
+cpu', 'protocol', 'send', 'sourc', 'buffer', 'xceiver', 'replac', 'packag', 'alloc']
+1";
+	"['node', 'block']
+18" -> "['node', 'block', 'name', 'namespac', 'manag', 'space', 'jira', 'code', 'server', 'compon', 'allow']
+1";
+	"['node', 'block']
+18" -> "['node', 'data', 'block']
+2";
+	"['node', 'file']
+9" -> "['node', 'file', 'hdfs', 'call', 'process', 'cluster', 'name', 'number', 'improve', 'creat', 'reduc', 'object', 'set', 'state', '\
+valu', 'cpu', 'info', 'rpc', 'shoot', 'amount', 'handler', 'invalid']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'process', 'name', 'system', 'lock', 'directori', 'handl', 'detect', 'contain', 'request', 'delet', 'command', '\
+progress', 'accept', 'complet']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'leak', 'directori', 'read', 'close', 'handl', 'fail', 'method', 'stream', 'delet', 'edit', 'section', 'open', '\
+input', 'disk', 'collect', 'copi', 'star', 'share']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'cluster', 'time', 'name', 'handl', 'perform', 'problem', 'access', 'fsck', 'trigger', 'decreas', 'index']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'hdfs', 'name', 'creat', 'object', 'start', 'set', 'store', 'space', 'function', 'save', 'byte', 'optim', 'correspond']
+\
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'memori', 'creat', 'limit', 'continu', 'recov', 'applic', 'remov', 'filesystem', 'crash', 'refus']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'name', 'number', 'directori', 'load', 'path', 'store', 'requir', 'save', 'imag', 'fsimag', 'order']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'directori', 'contain', 'fix']
+1";
+	"['node', 'file']
+9" -> "['node', 'file', 'name', 'state', 'path', 'code', 'fsdirectori', 'string', 'return']
+1";
+	"['node', 'hdfs']
+3" -> "['node', 'hdfs', 'system', 'lock', 'improve', 'detect', 'work', 'fsdirectori']
+1";
+	"['node', 'hdfs']
+3" -> "['node', 'hdfs', 'cluster', 'limit', 'jira']
+1";
+	"['node', 'hdfs']
+3" -> "['node', 'hdfs', 'memori', 'socket', 'detect', 'set', 'hbase', 'valu', 'custom', 'hang']
+1";
+	"['node', 'load', 'cluster']
+2" -> "['node', 'cluster', 'time', 'read', 'load', 'web', 'choos']
+1";
+	"['node', 'load', 'cluster']
+2" -> "['node', 'cluster', 'load', 'fail', 'assum', 'requir', 'imag', 'expir', 'secur', 'merg', 'checkpoint']
+1";
+	"['node', 'namespac']
+2" -> "['node', 'namespac', 'work', 'implement', 'coupl']
+1";
+	"['node', 'namespac']
+2" -> "['node', 'memori', 'namespac', 'continu', 'region']
+1";
+	"['block', 'file']
+4" -> "['file', 'block', 'call', 'process', 'memori', 'lock', 'directori', 'reduc', 'function', 'batch', 'disk', 'info', 'diff', 'scanner', '\
+scan', 'fsdataset']
+1";
+	"['block', 'file']
+4" -> "['file', 'block', 'cluster', 'time', 'list', 'replica', 'assum', 'path', 'store', 'check', 'find', 'input', 'miss', 'fsck', 'exampl', '\
+speed']
+1";
+	"['block', 'file']
+4" -> "['block', 'system', 'file']
+2";
+	"['hdfs', 'number', 'file', 'dfsclient']
+2" -> "['file', 'hdfs', 'process', 'dfsclient', 'number', 'socket', 'reduc', 'problem', 'support']
+1";
+	"['hdfs', 'number', 'file', 'dfsclient']
+2" -> "['file', 'hdfs', 'thread', 'dfsclient', 'number', 'creat', 'continu', 'case', 'stack', 'writer', 'releas']
+1";
+	"['dfsclient', 'object', 'socket', 'cache', 'call', 'file', 'close']
+2" -> "['file', 'call', 'dfsclient', 'system', 'socket', 'close', 'object', 'problem', 'fix', 'cache', 'function', 'refer', 'applic', '\
+distribut']
+1";
+	"['dfsclient', 'object', 'socket', 'cache', 'call', 'file', 'close']
+2" -> "['file', 'hdfs', 'call', 'dfsclient', 'leak', 'socket', 'close', 'method', 'object', 'cache', 'implement', 'batch', 'mean', 'note', '\
+context']
+1";
+	"['dfsclient', 'file']
+3" -> "['file', 'dfsclient', 'name', 'system', 'leak', 'creat', 'object', 'cache', 'batch', 'elaps']
+1";
+	"['dfsclient', 'file']
+3" -> "['dfsclient', 'open', 'file', 'thread']
+2";
+	"['node', 'block', 'file']
+3" -> "['node', 'file', 'block', 'process', 'read', 'improve', 'report', 'write', 'request', 'heartbeat', 'rpc']
+1";
+	"['node', 'block', 'file']
+3" -> "['node', 'block', 'number', 'file', 'sync']
+2";
+	"['node', 'call', 'block']
+3" -> "['node', 'block', 'call', 'process', 'thread', 'name', 'system', 'lock', 'data', 'read', 'improve', 'method', 'write', 'state', '\
+chang', 'path', 'section', 'code', 'locat', 'structur', 'occur', 'split', 'class']
+1";
+	"['node', 'call', 'block']
+3" -> "['node', 'list', 'replica', 'call', 'manag', 'block']
+2";
+	"['node', 'process', 'block', 'cluster']
+5" -> "['node', 'block', 'process', 'cluster', 'time', 'lock', 'read', 'load', 'perform', 'report', 'namespac', 'problem', 'request', '\
+find', 'concurr', 'result', 'put', 'multipl', 'page']
+1";
+	"['node', 'process', 'block', 'cluster']
+5" -> "['node', 'block', 'process', 'thread', 'cluster', 'time', 'data', 'list', 'report', 'assum', 'chang', 'exampl', 'hostnam', 'gener', '\
+host']
+1";
+	"['node', 'process', 'block', 'cluster']
+5" -> "['node', 'block', 'process', 'thread', 'cluster', 'number', 'list', 'replica', 'updat', 'check', 'default', 'choos', 'monitor', '\
+network', 'count', 'option', 'remov', 'polici', 'factor', 'condit', 'random', 'topolog', 'stay', 'rack', 'size', 'loop', 'placement']
+\
+1";
+	"['node', 'process', 'block', 'cluster']
+5" -> "['node', 'process', 'report', 'block', 'cluster']
+2";
+	"['node', 'block', 'time']
+3" -> "['node', 'block', 'cluster', 'dfsclient', 'time', 'load', 'fail', 'fetch', 'mark']
+1";
+	"['node', 'block', 'time']
+3" -> "['node', 'thread', 'second', 'valu', 'time', 'block']
+2";
+	"['node', 'data', 'block']
+2" -> "['node', 'block', 'data', 'socket', 'load', 'fail', 'contain', 'path', 'updat', 'locat', 'connect', 'refer', 'note', 'know', 'bit']
+\
+1";
+	"['node', 'data', 'block']
+2" -> "['node', 'block', 'number', 'data', 'report', 'start', 'store', 'issu', 'send', 'messag']
+1";
+}

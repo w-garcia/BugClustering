@@ -1,0 +1,95 @@
+strict digraph  {
+	"['unknown']
+1409" -> "['region']
+460";
+	"['unknown']
+1409" -> "['hbase']
+248";
+	"['unknown']
+1409" -> "['fail']
+136";
+	"['unknown']
+1409" -> "['server']
+47";
+	"['unknown']
+1409" -> "['exception']
+79";
+	"['unknown']
+1409" -> "['test']
+31";
+	"['unknown']
+1409" -> "['master']
+27";
+	"['unknown']
+1409" -> "['file']
+64";
+	"['unknown']
+1409" -> "['tabl']
+35";
+	"['unknown']
+1409" -> "['creat']
+15";
+	"['unknown']
+1409" -> "['issu']
+25";
+	"['unknown']
+1409" -> "['node']
+15";
+	"['region']
+460" -> "['region', 'hbase']
+93";
+	"['region']
+460" -> "['fail', 'region']
+75";
+	"['region']
+460" -> "['region', 'server']
+102";
+	"['region']
+460" -> "['region', 'exception']
+23";
+	"['region']
+460" -> "['region', 'master']
+21";
+	"['region']
+460" -> "['region', 'file']
+15";
+	"['region']
+460" -> "['region', 'tabl']
+18";
+	"['hbase']
+248" -> "['fail', 'hbase']
+36";
+	"['hbase']
+248" -> "['hbase', 'server']
+28";
+	"['hbase']
+248" -> "['exception', 'hbase']
+29";
+	"['hbase']
+248" -> "['test', 'hbase']
+16";
+	"['hbase']
+248" -> "['hbase', 'file']
+25";
+	"['hbase']
+248" -> "['hbase', 'tabl']
+17";
+	"['fail']
+136" -> "['fail', 'server']
+15";
+	"['fail']
+136" -> "['fail', 'test']
+40";
+	"['fail']
+136" -> "['fail', 'master']
+14";
+	"['exception']
+79" -> "['test', 'exception']
+14";
+	"['region', 'hbase']
+93" -> "['region', 'hbase', 'server']
+30";
+	"['fail', 'region']
+75" -> "['fail', 'region', 'server']
+34";
+}

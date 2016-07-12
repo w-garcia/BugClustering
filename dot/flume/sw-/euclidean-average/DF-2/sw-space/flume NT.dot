@@ -1,0 +1,52 @@
+strict digraph  {
+	"['unknown']
+11" -> "['channel']
+6";
+	"['unknown']
+11" -> "['set', 'batch', 'file', 'sink']
+2";
+	"['unknown']
+11" -> "['set', 'event', 'memori', 'process', 'java', 'master', 'valu', 'jvm', 'alloc', 'requir', 'default', 'amount', 'allow']
+1";
+	"['unknown']
+11" -> "['test']
+2";
+	"['channel']
+6" -> "['queue', 'replay', 'channel', 'file']
+2";
+	"['channel']
+6" -> "['exception', 'channel', 'file']
+2";
+	"['channel']
+6" -> "['channel', 'replay', 'time', 'paus', 'eof']
+1";
+	"['channel']
+6" -> "['channel', 'exception', 'sourc', 'handl', 'spool', 'directori']
+1";
+	"['set', 'batch', 'file', 'sink']
+2" -> "['file', 'set', 'sourc', 'sink', 'detect', 'space', 'delet', 'tail', 'flume', 'handl', 'releas', 'grow', 'collector', 'batch', '\
+continu', 'agent', 'disk', 'auto', 'stop', 'hold', 'instanc', 'output']
+1";
+	"['set', 'batch', 'file', 'sink']
+2" -> "['file', 'set', 'sink', 'memori', 'error', 'node', 'max', 'batch', 'load', 'surviv', 'connect', 'hdfs', 'open', 'system']
+1";
+	"['test']
+2" -> "['test', 'handler', 'termin', 'step', 'netcat']
+1";
+	"['test']
+2" -> "['event', 'sink', 'memori', 'error', 'node', 'test', 'collector', 'cluster', 'someth', 'push']
+1";
+	"['queue', 'replay', 'channel', 'file']
+2" -> "['file', 'channel', 'set', 'replay', 'error', 'space', 'delet', 'releas', 'scenario', 'queue', 'refer', 'put']
+1";
+	"['queue', 'replay', 'channel', 'file']
+2" -> "['file', 'channel', 'replay', 'event', 'size', 'detect', 'flume', 'queue', 'time', 'one', 'affect', 'pointer', 'trace', 'checkpoint', '\
+end', 'sort', 'slow', 'improve', 'remov', 'method', 'top']
+1";
+	"['exception', 'channel', 'file']
+2" -> "['file', 'channel', 'exception', 'size', 'max', 'grow', 'fail', 'start']
+1";
+	"['exception', 'channel', 'file']
+2" -> "['file', 'channel', 'exception', 'sourc', 'tail', 'scenario', 'kill', 'send', 'fill', 'downstream', 'exec', 'exit']
+1";
+}

@@ -1,0 +1,300 @@
+strict digraph  {
+	"['unknown']
+90" -> "['token']
+31";
+	"['unknown']
+90" -> "['secur']
+19";
+	"['unknown']
+90" -> "['node']
+10";
+	"['unknown']
+90" -> "['enabl', 'file']
+3";
+	"['unknown']
+90" -> "['fail', 'user']
+3";
+	"['unknown']
+90" -> "['hdfs', 'support']
+4";
+	"['unknown']
+90" -> "['support']
+6";
+	"['unknown']
+90" -> "['hdfs']
+4";
+	"['unknown']
+90" -> "['web']
+3";
+	"['unknown']
+90" -> "['kerbero', 'implement', 'set', 'data', 'qjm']
+1";
+	"['unknown']
+90" -> "['renew', 'exception', 'call', 'throw', 'pointer', 'null']
+1";
+	"['unknown']
+90" -> "['add', 'base', 'test', 'command', 'end']
+1";
+	"['unknown']
+90" -> "['server', 'check', 'hadoop', 'base', 'protocol', 'author']
+1";
+	"['unknown']
+90" -> "['system', 'check', 'permiss', 'case', 'snapshot']
+1";
+	"['unknown']
+90" -> "['admin', 'function', 'group', 'proxi']
+1";
+	"['unknown']
+90" -> "['user', 'custom', 'directori']
+1";
+	"['token']
+31" -> "['node', 'token']
+14";
+	"['token']
+31" -> "['token', 'secur']
+7";
+	"['token']
+31" -> "['token', 'fail', 'web', 'renew', 'hftp', 'servic', 'port', 'requir', 'default', 'filesystem', 'author', 'obtain', 'build']
+1";
+	"['token']
+31" -> "['token', 'deleg']
+6";
+	"['token']
+31" -> "['token', 'fail', 'hdfs', 'connect', 'file', 'base', 'test', 'block', 'concurr', 'reader', 'batch']
+1";
+	"['token']
+31" -> "['token', 'system']
+2";
+	"['secur']
+19" -> "['node', 'secur']
+6";
+	"['secur']
+19" -> "['support', 'secur']
+2";
+	"['secur']
+19" -> "['enabl', 'secur']
+8";
+	"['secur']
+19" -> "['secur', 'connect', 'implement', 'jira', 'track', 'fsck']
+1";
+	"['secur']
+19" -> "['fail', 'secur']
+2";
+	"['node']
+10" -> "['node', 'hdfs', 'support', 'add', 'cluster', 'current', 'data', 'rpc', 'protocol', 'transfer', 'code', 'process', 'perform', 'read', '\
+share', 'send', 'write']
+1";
+	"['node']
+10" -> "['node', 'hdfs', 'web', 'kerbero', 'authent', 'server', 'name', 'start']
+1";
+	"['node']
+10" -> "['node', 'enabl', 'add', 'web', 'server', 'port', 'access', 'jira', 'java', 'page']
+1";
+	"['node']
+10" -> "['node', 'fail', 'connect', 'renew', 'code', 'java']
+1";
+	"['node']
+10" -> "['node', 'support']
+2";
+	"['node']
+10" -> "['node', 'hdfs', 'implement', 'function', 'featur', 'abstract', 'introduc']
+1";
+	"['node']
+10" -> "['node', 'implement', 'file', 'server', 'name', 'system', 'rpc', 'distribut']
+1";
+	"['node']
+10" -> "['node', 'understand']
+2";
+	"['enabl', 'file']
+3" -> "['fail', 'enabl', 'cluster', 'exception', 'file', 'server', 'problem', 'error', 'end', 'socket']
+1";
+	"['enabl', 'file']
+3" -> "['file', 'enabl', 'context']
+2";
+	"['fail', 'user']
+3" -> "['fail', 'hdfs', 'add', 'cluster', 'user', 'check', 'admin', 'chang', 'command', 'branch', 'balanc']
+1";
+	"['fail', 'user']
+3" -> "['fail', 'kerbero', 'user', 'servic', 'name', 'verif', 'method', 'valid']
+1";
+	"['fail', 'user']
+3" -> "['fail', 'user', 'exception', 'admin', 'error', 'permiss', 'fix', 'miss', 'build', 'cache', 'pool']
+1";
+	"['hdfs', 'support']
+4" -> "['hdfs', 'support', 'cluster', 'port', 'current', 'hadoop', 'data', 'rpc', 'protocol', 'transfer', 'code', 'process', 'perform', '\
+read', 'custom', 'share', 'send', 'write']
+1";
+	"['hdfs', 'support']
+4" -> "['hdfs', 'support', 'add']
+3";
+	"['support']
+6" -> "['support', 'web', 'port', 'current', 'access', 'data', 'block', 'transfer', 'allow', 'prevent', 'contain', 'servlet', 'list', '\
+network']
+1";
+	"['support']
+6" -> "['support', 'implement']
+2";
+	"['support']
+6" -> "['support', 'gateway', 'authent']
+3";
+	"['hdfs']
+4" -> "['hdfs', 'user', 'implement', 'access', 'author', 'path', 'control', 'level']
+1";
+	"['hdfs']
+4" -> "['hdfs', 'hadoop']
+3";
+	"['web']
+3" -> "['web', 'authent', 'user', 'name', 'set', 'config', 'requir', 'specifi', 'request', 'option']
+1";
+	"['web']
+3" -> "['web', 'connect', 'user', 'open', 'someth', 'pipelin']
+1";
+	"['web']
+3" -> "['web', 'implement', 'test', 'api']
+1";
+	"['node', 'token']
+14" -> "['node', 'token', 'secur']
+5";
+	"['node', 'token']
+14" -> "['node', 'fail', 'token']
+2";
+	"['node', 'token']
+14" -> "['token', 'node', 'deleg', 'add', 'authent', 'user', 'file', 'name', 'system', 'allow', 'filesystem', 'assum']
+1";
+	"['node', 'token']
+14" -> "['token', 'node', 'add', 'renew', 'hftp', 'fetch', 'creat', 'filesystem', 'obtain', 'custom', 'featur', 'thread']
+1";
+	"['node', 'token']
+14" -> "['node', 'deleg', 'token']
+3";
+	"['node', 'token']
+14" -> "['token', 'node', 'authent', 'implement', 'access', 'base', 'rpc', 'block', 'author', 'share', 'factor', 'interface']
+1";
+	"['node', 'token']
+14" -> "['token', 'node', 'server', 'region', 'read', 'detect', 'invalid', 'occur']
+1";
+	"['token', 'secur']
+7" -> "['exception', 'task', 'secur', 'token', 'ignor', 'fail', 'problem', 'hftp']
+2";
+	"['token', 'secur']
+7" -> "['cluster', 'token', 'secur']
+3";
+	"['token', 'secur']
+7" -> "['deleg', 'token', 'creat', 'secur']
+2";
+	"['token', 'deleg']
+6" -> "['token', 'fail', 'deleg', 'system', 'call', 'test', 'edit', 'chang', 'manag', 'shutdown', 'race', 'exit', 'condit', 'stream']
+1";
+	"['token', 'deleg']
+6" -> "['token', 'deleg', 'enabl', 'renew', 'servic', 'return', 'hostnam', 'uri']
+1";
+	"['token', 'deleg']
+6" -> "['token', 'deleg', 'renew', 'implement', 'exception', 'data', 'region', 'delet', 'messag', 'respons']
+1";
+	"['token', 'deleg']
+6" -> "['token', 'deleg', 'renew', 'hftp', 'current', 'check', 'call', 'fetch', 'expir']
+1";
+	"['token', 'deleg']
+6" -> "['token', 'deleg', 'user', 'issu', 'contain']
+1";
+	"['token', 'deleg']
+6" -> "['token', 'deleg', 'support', 'call']
+1";
+	"['token', 'system']
+2" -> "['token', 'hdfs', 'file', 'servic', 'system', 'set', 'give', 'context', 'abstract', 'dfsclient']
+1";
+	"['token', 'system']
+2" -> "['token', 'hftp', 'system', 'problem', 'break', 'proxi']
+1";
+	"['node', 'secur']
+6" -> "['node', 'connect', 'secur']
+3";
+	"['node', 'secur']
+6" -> "['node', 'fail', 'kerbero', 'secur']
+3";
+	"['support', 'secur']
+2" -> "['secur', 'support', 'add', 'kerbero', 'authent', 'allow']
+1";
+	"['support', 'secur']
+2" -> "['secur', 'hdfs', 'support', 'set', 'current', 'data', 'config', 'gateway', 'manag', 'detail']
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'kerbero', 'cluster', 'exception', 'servic', 'rpc', 'throw', 'filesystem']
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'kerbero', 'server', 'work', 'protocol', 'admin', 'mean', 'someth', 'time', 'specifi', 'valu', 'info', 'note']
+\
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'connect', 'renew', 'fetch', 'work', 'expir', 'perform', 'fsimag', 'merg', 'checkpoint', 'attempt', 'stop', '\
+standbi']
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'user', 'access', 'fetch', 'admin', 'requir', 'imag', 'process', 'fsimag', 'messag']
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'exception', 'set', 'throw', 'start', 'function', 'default', 'give', 'hostnam', 'address']
+1";
+	"['enabl', 'secur']
+8" -> "['secur', 'enabl', 'work', 'error', 'command', 'group', 'follow']
+1";
+	"['enabl', 'secur']
+8" -> "['web', 'enabl', 'secur']
+2";
+	"['fail', 'secur']
+2" -> "['secur', 'fail', 'test', 'open', 'branch', 'renam']
+1";
+	"['fail', 'secur']
+2" -> "['secur', 'fail', 'web', 'hadoop', 'command']
+1";
+	"['node', 'support']
+2" -> "['node', 'support', 'connect', 'hadoop', 'updat']
+1";
+	"['node', 'support']
+2" -> "['node', 'support', 'add', 'name', 'current', 'jira', 'track', 'second', 'journal']
+1";
+	"['node', 'understand']
+2" -> "['node', 'file', 'name', 'understand', 'directori', 'applic']
+1";
+	"['node', 'understand']
+2" -> "['node', 'port', 'config', 'understand', 'default', 'ignor']
+1";
+	"['file', 'enabl', 'context']
+2" -> "['enabl', 'kerbero', 'file', 'set', 'creat', 'test', 'context', 'setup']
+1";
+	"['file', 'enabl', 'context']
+2" -> "['enabl', 'connect', 'exception', 'file', 'system', 'check', 'throw', 'permiss', 'delet', 'contain', 'context', 'path', 'target']
+\
+1";
+	"['hdfs', 'support', 'add']
+3" -> "['hdfs', 'support', 'add', 'servic', 'hadoop', 'jira', 'region']
+1";
+	"['hdfs', 'support', 'add']
+3" -> "['hdfs', 'support', 'add', 'web']
+2";
+	"['support', 'implement']
+2" -> "['support', 'implement', 'file', 'work', 'featur', 'util']
+1";
+	"['support', 'implement']
+2" -> "['support', 'implement', 'access', 'creat', 'default', 'chang', 'prevent', 'api', 'modifi', 'submiss', 'valid', 'report', 'patch', '\
+includ']
+1";
+	"['support', 'gateway', 'authent']
+3" -> "['support', 'add', 'kerbero', 'authent', 'gateway', 'verif']
+1";
+	"['support', 'gateway', 'authent']
+3" -> "['support', 'authent', 'gateway']
+1";
+	"['support', 'gateway', 'authent']
+3" -> "['support', 'authent', 'current', 'rpc', 'gateway']
+1";
+	"['hdfs', 'hadoop']
+3" -> "['hdfs', 'kerbero', 'authent', 'hadoop', 'region']
+1";
+	"['hdfs', 'hadoop']
+3" -> "['hdfs', 'access', 'hadoop', 'admin', 'servlet']
+1";
+	"['hdfs', 'hadoop']
+3" -> "['hdfs', 'servic', 'hadoop', 'polici']
+1";
+}

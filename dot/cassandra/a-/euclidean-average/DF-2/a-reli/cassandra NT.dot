@@ -1,0 +1,122 @@
+strict digraph  {
+	"['unknown']
+566" -> "['node', 'error']
+5";
+	"['unknown']
+566" -> "['data']
+8";
+	"['unknown']
+566" -> "['node']
+112";
+	"['unknown']
+566" -> "['exception']
+76";
+	"['unknown']
+566" -> "['cassandra']
+59";
+	"['unknown']
+566" -> "['creat']
+6";
+	"['unknown']
+566" -> "['fail']
+40";
+	"['unknown']
+566" -> "['error']
+39";
+	"['unknown']
+566" -> "['test']
+13";
+	"['unknown']
+566" -> "['data']
+21";
+	"['unknown']
+566" -> "['class']
+14";
+	"['unknown']
+566" -> "['compact']
+15";
+	"['unknown']
+566" -> "['consequ']
+5";
+	"['unknown']
+566" -> "['repair']
+7";
+	"['unknown']
+566" -> "['creat']
+9";
+	"['unknown']
+566" -> "['time']
+7";
+	"['unknown']
+566" -> "['index']
+13";
+	"['unknown']
+566" -> "['cql']
+10";
+	"['unknown']
+566" -> "['read']
+5";
+	"['data']
+8" -> "['data', 'cassandra']
+7";
+	"['node']
+112" -> "['node', 'exception']
+21";
+	"['node']
+112" -> "['node', 'cassandra']
+13";
+	"['node']
+112" -> "['node', 'fail']
+12";
+	"['node']
+112" -> "['node', 'error']
+9";
+	"['node']
+112" -> "['node', 'test']
+6";
+	"['node']
+112" -> "['node', 'data']
+6";
+	"['node']
+112" -> "['node', 'cluster']
+6";
+	"['exception']
+76" -> "['exception', 'cassandra']
+6";
+	"['exception']
+76" -> "['exception', 'data']
+5";
+	"['exception']
+76" -> "['exception', 'error']
+8";
+	"['exception']
+76" -> "['test', 'exception']
+5";
+	"['exception']
+76" -> "['compact', 'exception']
+5";
+	"['cassandra']
+59" -> "['fail', 'cassandra']
+5";
+	"['cassandra']
+59" -> "['data', 'cassandra']
+8";
+	"['cassandra']
+59" -> "['cassandra', 'error']
+5";
+	"['fail']
+40" -> "['fail', 'test']
+8";
+	"['fail']
+40" -> "['fail', 'class']
+5";
+	"['error']
+39" -> "['test', 'error']
+9";
+	"['error']
+39" -> "['compact', 'error']
+5";
+	"['node', 'exception']
+21" -> "['node', 'fail', 'exception']
+9";
+}

@@ -1,0 +1,24 @@
+strict digraph  {
+	"['unknown']
+6" -> "['region']
+4";
+	"['unknown']
+6" -> "['load', 'balanc', 'event', 'trigger', 'condit', 'algorithm', 'problem']
+1";
+	"['unknown']
+6" -> "['set', 'tabl', 'function', 'current', 'handler', 'catalog', 'user', 'request']
+1";
+	"['region']
+4" -> "['region', 'tabl', 'hbase', 'function', 'issu', 'group', 'custom', 'applic', 'sourc', 'deploy', 'base', 'multipl', 'serv', 'alloc', '\
+level', 'provid', 'server', 'assign']
+1";
+	"['region']
+4" -> "['region', 'load', 'issu', 'balanc', 'relat', 'hang', 'improve']
+1";
+	"['region']
+4" -> "['region', 'hbase', 'fail', 'build', 'test']
+1";
+	"['region']
+4" -> "['region', 'set', 'scan', 'cluster', 'replica', 'connect', 'start', 'restart', 'mean']
+1";
+}

@@ -1,0 +1,104 @@
+strict digraph  {
+	"['unknown']
+1024" -> "['node']
+479";
+	"['unknown']
+1024" -> "['block']
+150";
+	"['unknown']
+1024" -> "['file']
+111";
+	"['unknown']
+1024" -> "['fail']
+68";
+	"['unknown']
+1024" -> "['hdfs']
+50";
+	"['unknown']
+1024" -> "['data']
+11";
+	"['unknown']
+1024" -> "['exception']
+29";
+	"['node']
+479" -> "['node', 'block']
+163";
+	"['node']
+479" -> "['node', 'file']
+70";
+	"['node']
+479" -> "['node', 'fail']
+67";
+	"['node']
+479" -> "['node', 'hdfs']
+33";
+	"['node']
+479" -> "['node', 'data']
+28";
+	"['node']
+479" -> "['node', 'name']
+33";
+	"['node']
+479" -> "['node', 'exception']
+10";
+	"['block']
+150" -> "['file', 'block']
+45";
+	"['block']
+150" -> "['fail', 'block']
+15";
+	"['block']
+150" -> "['hdfs', 'block']
+15";
+	"['block']
+150" -> "['data', 'block']
+10";
+	"['file']
+111" -> "['fail', 'file']
+29";
+	"['file']
+111" -> "['hdfs', 'file']
+20";
+	"['fail']
+68" -> "['fail', 'hdfs']
+14";
+	"['fail']
+68" -> "['fail', 'exception']
+10";
+	"['node', 'block']
+163" -> "['node', 'block', 'file']
+36";
+	"['node', 'block']
+163" -> "['node', 'fail', 'block']
+21";
+	"['node', 'block']
+163" -> "['node', 'hdfs', 'block']
+11";
+	"['node', 'block']
+163" -> "['node', 'data', 'block']
+32";
+	"['node', 'file']
+70" -> "['node', 'fail', 'file']
+18";
+	"['node', 'file']
+70" -> "['node', 'hdfs', 'file']
+15";
+	"['node', 'file']
+70" -> "['node', 'name', 'file']
+14";
+	"['node', 'fail']
+67" -> "['node', 'hdfs', 'fail']
+10";
+	"['node', 'fail']
+67" -> "['node', 'fail', 'data']
+14";
+	"['node', 'hdfs']
+33" -> "['node', 'hdfs', 'data']
+10";
+	"['node', 'data']
+28" -> "['node', 'data', 'name']
+10";
+	"['node', 'hdfs', 'file']
+15" -> "['node', 'hdfs', 'name', 'file']
+10";
+}

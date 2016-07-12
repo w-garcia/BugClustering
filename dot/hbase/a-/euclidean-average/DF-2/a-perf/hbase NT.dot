@@ -1,0 +1,149 @@
+strict digraph  {
+	"['unknown']
+328" -> "['region']
+104";
+	"['unknown']
+328" -> "['hbase']
+64";
+	"['unknown']
+328" -> "['oper', 'time']
+3";
+	"['unknown']
+328" -> "['file', 'time']
+4";
+	"['unknown']
+328" -> "['file', 'improve']
+3";
+	"['unknown']
+328" -> "['oper', 'issu']
+3";
+	"['unknown']
+328" -> "['server']
+16";
+	"['unknown']
+328" -> "['time']
+15";
+	"['unknown']
+328" -> "['file']
+16";
+	"['unknown']
+328" -> "['oper']
+11";
+	"['unknown']
+328" -> "['improve']
+19";
+	"['unknown']
+328" -> "['issu', 'block']
+3";
+	"['unknown']
+328" -> "['load']
+3";
+	"['unknown']
+328" -> "['block']
+4";
+	"['unknown']
+328" -> "['compact']
+4";
+	"['unknown']
+328" -> "['creat']
+5";
+	"['unknown']
+328" -> "['scanner', 'store']
+3";
+	"['unknown']
+328" -> "['tabl']
+4";
+	"['unknown']
+328" -> "['node']
+4";
+	"['unknown']
+328" -> "['cache']
+3";
+	"['unknown']
+328" -> "['filter']
+3";
+	"['region']
+104" -> "['region', 'hbase']
+31";
+	"['region']
+104" -> "['region', 'server']
+28";
+	"['region']
+104" -> "['region', 'time']
+6";
+	"['region']
+104" -> "['oper', 'region']
+3";
+	"['region']
+104" -> "['cluster', 'region']
+5";
+	"['region']
+104" -> "['region', 'scanner']
+5";
+	"['hbase']
+64" -> "['hbase', 'server']
+3";
+	"['hbase']
+64" -> "['hbase', 'time']
+7";
+	"['hbase']
+64" -> "['hbase', 'improve']
+9";
+	"['hbase']
+64" -> "['hbase', 'file']
+11";
+	"['hbase']
+64" -> "['oper', 'hbase']
+6";
+	"['hbase']
+64" -> "['cluster', 'hbase']
+3";
+	"['hbase']
+64" -> "['hbase', 'tabl']
+3";
+	"['hbase']
+64" -> "['issu', 'hbase']
+3";
+	"['hbase']
+64" -> "['hbase', 'implement']
+3";
+	"['server']
+16" -> "['time', 'server']
+4";
+	"['time']
+15" -> "['creat', 'time']
+3";
+	"['file']
+16" -> "['block', 'file']
+4";
+	"['improve']
+19" -> "['oper', 'improve']
+7";
+	"['region', 'hbase']
+31" -> "['region', 'hbase', 'server']
+14";
+	"['region', 'hbase']
+31" -> "['region', 'hbase', 'time']
+3";
+	"['region', 'hbase']
+31" -> "['region', 'hbase', 'improve']
+3";
+	"['region', 'server']
+28" -> "['region', 'file', 'server']
+3";
+	"['region', 'server']
+28" -> "['region', 'time', 'server']
+7";
+	"['region', 'server']
+28" -> "['region', 'tabl', 'server']
+4";
+	"['hbase', 'improve']
+9" -> "['oper', 'hbase', 'improve']
+5";
+	"['region', 'hbase', 'server']
+14" -> "['region', 'time', 'hbase', 'server']
+5";
+	"['oper', 'hbase', 'improve']
+5" -> "['oper', 'write', 'hbase', 'improve']
+3";
+}

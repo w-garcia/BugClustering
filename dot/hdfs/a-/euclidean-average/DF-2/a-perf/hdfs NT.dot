@@ -1,0 +1,267 @@
+strict digraph  {
+	"['unknown']
+278" -> "['node']
+144";
+	"['unknown']
+278" -> "['block']
+58";
+	"['unknown']
+278" -> "['file']
+25";
+	"['unknown']
+278" -> "['hdfs']
+18";
+	"['unknown']
+278" -> "['data']
+4";
+	"['unknown']
+278" -> "['read']
+5";
+	"['unknown']
+278" -> "['call']
+2";
+	"['unknown']
+278" -> "['perform']
+4";
+	"['unknown']
+278" -> "['improve']
+2";
+	"['unknown']
+278" -> "['set']
+2";
+	"['node']
+144" -> "['node', 'block']
+67";
+	"['node']
+144" -> "['node', 'file']
+28";
+	"['node']
+144" -> "['node', 'hdfs']
+12";
+	"['node']
+144" -> "['node', 'data']
+9";
+	"['node']
+144" -> "['node', 'time']
+6";
+	"['node']
+144" -> "['node', 'perform']
+5";
+	"['node']
+144" -> "['node', 'name']
+2";
+	"['node']
+144" -> "['node', 'lock', 'write']
+2";
+	"['node']
+144" -> "['node', 'call']
+2";
+	"['node']
+144" -> "['node', 'process']
+2";
+	"['block']
+58" -> "['block', 'file']
+18";
+	"['block']
+58" -> "['hdfs', 'block']
+9";
+	"['block']
+58" -> "['block', 'time']
+6";
+	"['block']
+58" -> "['read', 'block']
+7";
+	"['block']
+58" -> "['data', 'block', 'structur']
+2";
+	"['block']
+58" -> "['optim', 'process', 'report', 'block']
+2";
+	"['block']
+58" -> "['report', 'block']
+2";
+	"['file']
+25" -> "['creat', 'scan', 'process', 'hadoop', 'second', 'replica', 'connect', 'file', 'disk', 'assum', 'memori', 'upgrad', 'call', 'method', '\
+map', 'bulk', 'bit', 'data', 'util', 'directori', 'batch', 'filesystem']
+2";
+	"['file']
+25" -> "['hdfs', 'file']
+7";
+	"['file']
+25" -> "['file', 'time']
+3";
+	"['file']
+25" -> "['read', 'request', 'file']
+2";
+	"['file']
+25" -> "['call', 'file']
+5";
+	"['hdfs']
+18" -> "['hdfs', 'time']
+4";
+	"['hdfs']
+18" -> "['hdfs', 'data']
+4";
+	"['hdfs']
+18" -> "['read', 'hdfs', 'copi', 'patch']
+2";
+	"['hdfs']
+18" -> "['hdfs', 'improve']
+2";
+	"['hdfs']
+18" -> "['hdfs', 'hadoop']
+3";
+	"['read']
+5" -> "['read', 'write', 'manag']
+2";
+	"['perform']
+4" -> "['perform', 'detect']
+2";
+	"['node', 'block']
+67" -> "['node', 'block', 'file']
+14";
+	"['node', 'block']
+67" -> "['node', 'hdfs', 'block']
+7";
+	"['node', 'block']
+67" -> "['node', 'process', 'concurr', 'read', 'block']
+3";
+	"['node', 'block']
+67" -> "['node', 'read', 'data', 'block']
+5";
+	"['node', 'block']
+67" -> "['node', 'process', 'time', 'report', 'data', 'block']
+2";
+	"['node', 'block']
+67" -> "['node', 'block', 'time']
+12";
+	"['node', 'block']
+67" -> "['node', 'data', 'block']
+7";
+	"['node', 'block']
+67" -> "['node', 'load', 'replica', 'distribut', 'block']
+2";
+	"['node', 'block']
+67" -> "['node', 'process', 'report', 'block']
+3";
+	"['node', 'block']
+67" -> "['node', 'report', 'add', 'block']
+2";
+	"['node', 'block']
+67" -> "['node', 'name', 'block']
+2";
+	"['node', 'block']
+67" -> "['node', 'delet', 'block']
+2";
+	"['node', 'file']
+28" -> "['node', 'hdfs', 'file']
+9";
+	"['node', 'file']
+28" -> "['node', 'data', 'file']
+4";
+	"['node', 'file']
+28" -> "['node', 'name', 'file']
+3";
+	"['node', 'file']
+28" -> "['node', 'read', 'file']
+2";
+	"['node', 'hdfs']
+12" -> "['node', 'hdfs', 'time']
+3";
+	"['node', 'hdfs']
+12" -> "['node', 'hdfs', 'set', 'data']
+2";
+	"['node', 'hdfs']
+12" -> "['node', 'hdfs', 'read']
+2";
+	"['node', 'data']
+9" -> "['node', 'process', 'data']
+2";
+	"['node', 'data']
+9" -> "['node', 'cache', 'data']
+3";
+	"['node', 'time']
+6" -> "['node', 'read', 'time']
+2";
+	"['node', 'perform']
+5" -> "['node', 'perform', 'name', 'improve']
+3";
+	"['block', 'file']
+18" -> "['hdfs', 'block', 'file']
+6";
+	"['block', 'file']
+18" -> "['block', 'file', 'time']
+4";
+	"['block', 'file']
+18" -> "['block', 'system', 'file']
+2";
+	"['hdfs', 'block']
+9" -> "['hdfs', 'call', 'sync', 'block', 'lock']
+2";
+	"['hdfs', 'block']
+9" -> "['hdfs', 'add', 'block']
+3";
+	"['block', 'time']
+6" -> "['report', 'start', 'improve', 'block', 'time']
+2";
+	"['read', 'block']
+7" -> "['read', 'process', 'block', 'lock']
+2";
+	"['read', 'block']
+7" -> "['read', 'local', 'block', 'reader']
+3";
+	"['call', 'file']
+5" -> "['lock', 'system', 'sync', 'start', 'flag', 'call', 'file', 'releas']
+2";
+	"['call', 'file']
+5" -> "['close', 'call', 'file']
+2";
+	"['hdfs', 'time']
+4" -> "['hdfs', 'add', 'time']
+2";
+	"['hdfs', 'data']
+4" -> "['hdfs', 'data', 'improve']
+2";
+	"['node', 'block', 'file']
+14" -> "['node', 'map', 'creat', 'memori', 'start', 'file', 'time', 'data', 'block']
+2";
+	"['node', 'block', 'file']
+14" -> "['node', 'hdfs', 'data', 'block', 'file']
+3";
+	"['node', 'block', 'file']
+14" -> "['node', 'hdfs', 'block', 'file']
+3";
+	"['node', 'block', 'file']
+14" -> "['node', 'block', 'call', 'sync', 'file']
+2";
+	"['node', 'hdfs', 'block']
+7" -> "['node', 'hdfs', 'time', 'block', 'cluster']
+2";
+	"['node', 'hdfs', 'block']
+7" -> "['node', 'hdfs', 'call', 'block']
+2";
+	"['node', 'process', 'concurr', 'read', 'block']
+3" -> "['node', 'load', 'process', 'perform', 'concurr', 'read', 'time', 'block']
+2";
+	"['node', 'read', 'data', 'block']
+5" -> "['node', 'perform', 'read', 'block', 'data']
+3";
+	"['node', 'read', 'data', 'block']
+5" -> "['node', 'set', 'read', 'write', 'data', 'block']
+2";
+	"['node', 'block', 'time']
+12" -> "['node', 'name', 'block', 'time']
+2";
+	"['node', 'block', 'time']
+12" -> "['node', 'cluster', 'start', 'time', 'report', 'block']
+2";
+	"['node', 'data', 'block']
+7" -> "['node', 'data', 'name', 'block']
+2";
+	"['node', 'data', 'block']
+7" -> "['node', 'data', 'scanner', 'block']
+2";
+	"['node', 'process', 'report', 'block']
+3" -> "['node', 'process', 'report', 'block', 'contain']
+2";
+}

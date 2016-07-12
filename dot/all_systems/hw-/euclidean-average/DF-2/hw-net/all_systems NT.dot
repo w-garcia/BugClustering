@@ -1,0 +1,272 @@
+strict digraph  {
+	"['unknown']
+74" -> "['node']
+26";
+	"['unknown']
+74" -> "['fail']
+15";
+	"['unknown']
+74" -> "['connect']
+11";
+	"['unknown']
+74" -> "['hbase', 'test', 'network', 'master', 'fix', 'function', 'find', 'interface', 'regionserv', 'machin']
+1";
+	"['unknown']
+74" -> "['test', 'start', 'server', 'master', 'data', 'hmaster', 'remov', 'move', 'machin', 'notic', 'crash', 'upgrad']
+1";
+	"['unknown']
+74" -> "['hbase', 'custom']
+3";
+	"['unknown']
+74" -> "['region', 'server']
+3";
+	"['unknown']
+74" -> "['test', 'oper', 'chang', 'send', 'hint', 'handoff', 'datacent', 'window', 'environ']
+1";
+	"['unknown']
+74" -> "['exception']
+4";
+	"['unknown']
+74" -> "['start', 'time', 'understand', 'coupl', 'checkpoint', 'center', 'fsimag', 'section']
+1";
+	"['unknown']
+74" -> "['network', 'subject', 'cassandra', 'multipl', 'author', 'datacent', 'authent']
+1";
+	"['unknown']
+74" -> "['problem', 'data', 'issu', 'commit', 'result', 'sourc', 'split', 'batch', 'launch', 'job', 'site', 'finish', 'task']
+1";
+	"['unknown']
+74" -> "['custom', 'oper', 'cluster', 'output', 'regionserv']
+1";
+	"['unknown']
+74" -> "['cluster', 'return', 'quorum', 'replay', 'insert', 'handoff', 'consequ', 'one', 'rf=', 'increment', 'slice', 'coordin']
+1";
+	"['unknown']
+74" -> "['oper', 'rpc', 'pass', 'notic', 'drop']
+1";
+	"['unknown']
+74" -> "['issu', 'crash']
+1";
+	"['unknown']
+74" -> "['hint', 'deliv']
+1";
+	"['unknown']
+74" -> "[]
+1";
+	"['node']
+26" -> "['node', 'connect']
+5";
+	"['node']
+26" -> "['node', 'fail']
+7";
+	"['node']
+26" -> "['node', 'region', 'call', 'network', 'assign']
+2";
+	"['node']
+26" -> "['node', 'network', 'call', 'data', 'error', 'check', 'disk']
+1";
+	"['node']
+26" -> "['node', 'exception']
+2";
+	"['node']
+26" -> "['node', 'test', 'case', 'perform', 'exit']
+1";
+	"['node']
+26" -> "['node', 'start']
+2";
+	"['node']
+26" -> "['node', 'socket', 'race', 'zookeeper', 'keeper', 'port', 'config']
+1";
+	"['node']
+26" -> "['node', 'state', 'race']
+2";
+	"['node']
+26" -> "['node', 'oper', 'send', 'batch', 'improve', 'algorithm']
+1";
+	"['node']
+26" -> "['node', 'remov', 'bootstrap', 'repeat']
+1";
+	"['node']
+26" -> "['node', 'condit', 'estim', 'calcul']
+1";
+	"['fail']
+15" -> "['fail', 'connect']
+5";
+	"['fail']
+15" -> "['fail', 'hbase', 'network', 'timeout', 'custom', 'oper', 'rpc', 'thread', 'lock', 'load', 'interface', 'expect', 'base', 'releas', '\
+disabl']
+1";
+	"['fail']
+15" -> "['fail', 'test']
+7";
+	"['fail']
+15" -> "['fail', 'commit', 'return', 'quorum', 'replay', 'give', 'insert', 'updat', 'round', 'subject', 'valu', 'accept', 'know', 'agr']
+\
+1";
+	"['fail']
+15" -> "['fail', 'start', 'region', 'problem', 'state', 'send', 'hmaster', 'assign', 'open', 'inconsist']
+1";
+	"['connect']
+11" -> "['connect', 'test', 'exception', 'block', 'code', 'loop', 'keeper', 'handl', 'loss', 'support', 'integrate', 'observ']
+1";
+	"['connect']
+11" -> "['hbase', 'connect']
+4";
+	"['connect']
+11" -> "['close', 'connect', 'network']
+2";
+	"['connect']
+11" -> "['connect', 'start', 'problem', 'oper', 'read', 'commit', 'chang', 'return', 'work', 'quorum', 'write', 'sync', 'lead', 'elect']
+\
+1";
+	"['connect']
+11" -> "['connect', 'timeout', 'socket', 'hang', 'hdfs', 'web', 'add']
+1";
+	"['connect']
+11" -> "['connect', 'start', 'thread', 'open', 'local', 'trunk', 'pool', 'discuss']
+1";
+	"['connect']
+11" -> "['connect', 'commit', 'manag', 'creat', 'quorum', 'list', 'messag', 'add', 'keep', 'multipl', 'receiv', 'patch']
+1";
+	"['hbase', 'custom']
+3" -> "['hbase', 'region', 'custom', 'issu', 'thread', 'locat', 'meta', 'author', 'cache']
+1";
+	"['hbase', 'custom']
+3" -> "['call', 'hbase', 'hang', 'custom']
+2";
+	"['region', 'server']
+3" -> "['start', 'server', 'region', 'master', 'result', 'set', 'interface', 'info', 'default', 'tabl', 'better']
+1";
+	"['region', 'server']
+3" -> "['server', 'region', 'data', 'state', 'assign', 'name', 'set', 'info', 'lead', 'inconsist', 'store', 'map', 'access', 'place', '\
+transit', 'memori', 'relat']
+1";
+	"['region', 'server']
+3" -> "['server', 'region', 'block', 'read', 'recov', 'creat', 'locat', 'hdfs', 'split', 'alloc', 'edit', 'hlog', 'file', 'distribut']
+\
+1";
+	"['exception']
+4" -> "['exception', 'custom', 'call', 'data', 'read', 'remov', 'hang', 'input', 'stream']
+1";
+	"['exception']
+4" -> "['exception', 'problem', 'case', 'manag', 'hconnect', 'bug', 'execut', 'level', 'implement', 'rais']
+1";
+	"['exception']
+4" -> "['exception', 'error']
+2";
+	"['node', 'connect']
+5" -> "['node', 'fail', 'connect', 'network', 'time', 'call', 'block', 'chang', 'close', 'lock', 'open', 'sink', 'amount', 'cancel', 'deadlock', '\
+flume', 'rotat', 'roller', 'hold', 'attempt']
+1";
+	"['node', 'connect']
+5" -> "['node', 'time', 'network', 'connect']
+2";
+	"['node', 'connect']
+5" -> "['node', 'connect', 'timeout', 'server', 'socket', 'read', 'thread', 'wait', 'pool', 'side', 'thrift']
+1";
+	"['node', 'connect']
+5" -> "['node', 'connect', 'hbase', 'master', 'issu', 'race', 'admin', 'function', 'find', 'allow', 'introduc', 'exist', 'branch']
+1";
+	"['node', 'fail']
+7" -> "['node', 'recov', 'fail', 'hbase']
+2";
+	"['node', 'fail']
+7" -> "['node', 'fail', 'start', 'server', 'region', 'data', 'race', 'manag', 'find', 'sourc', 'loss', 'miss', 'bug', 'initi', 'replica']
+\
+1";
+	"['node', 'fail']
+7" -> "['node', 'fail', 'exception', 'result', 'pipelin', 'sourc', 'assum', 'write', 'detect', 'continu', 'remain', 'catch', 'dfsclient']
+\
+1";
+	"['node', 'fail']
+7" -> "['node', 'fail', 'error', 'give', 'web', 'base', 'process', 'expir', 'token', 'renew']
+1";
+	"['node', 'fail']
+7" -> "['node', 'fail', 'name', 'messag', 'scenario', 'standbi', 'submiss']
+1";
+	"['node', 'fail']
+7" -> "['node', 'fail', 'output', 'allow', 'map', 'reduc', 'protocol', 'hadoop', 'fetch', 'mapper', 'number', 'blacklist']
+1";
+	"['node', 'region', 'call', 'network', 'assign']
+2" -> "['node', 'network', 'time', 'server', 'region', 'call', 'problem', 'work', 'assign', 'locat', 'pass', 'expir', 'check', 'skip', '\
+complain', 'verif', 'root', 'shutdown', 'handler']
+1";
+	"['node', 'region', 'call', 'network', 'assign']
+2" -> "['node', 'network', 'exception', 'timeout', 'region', 'socket', 'call', 'case', 'chang', 'assign', 'handl', 'sync', 'bulk', 'offlin', '\
+plan']
+1";
+	"['node', 'exception']
+2" -> "['node', 'hbase', 'exception', 'pointer', 'answer', 'stack', 'null', 'trace']
+1";
+	"['node', 'exception']
+2" -> "['node', 'exception', 'case', 'pipelin', 'name', 'list', 'give', 'continu', 'rack', 'saw']
+1";
+	"['node', 'start']
+2" -> "['node', 'start', 'commit', 'replay', 'updat', 'round', 'valu', 'accept', 'keep', 'mean']
+1";
+	"['node', 'start']
+2" -> "['node', 'start', 'send', 'gossip', 'mark', 'cassandra', 'background', 'partition', 'command']
+1";
+	"['node', 'state', 'race']
+2" -> "['node', 'cluster', 'race', 'state', 'return', 'load', 'gossip']
+1";
+	"['node', 'state', 'race']
+2" -> "['node', 'race', 'state', 'work', 'condit', 'store', 'bootstrap', 'complet', 'compact', 'prevent', 'servic']
+1";
+	"['fail', 'connect']
+5" -> "['fail', 'connect', 'network', 'timeout', 'start', 'time', 'problem', 'close', 'assum', 'expect', 'write', 'handl', 'sink', 'amount', '\
+cancel', 'flume', 'mode', 'collector', 'agent', 'decor']
+1";
+	"['fail', 'connect']
+5" -> "['fail', 'connect', 'hbase', 'recov', 'info', 'meta']
+1";
+	"['fail', 'connect']
+5" -> "['fail', 'connect', 'exception', 'server', 'cluster', 'zookeeper', 'provid']
+1";
+	"['fail', 'connect']
+5" -> "['fail', 'fix', 'connect']
+2";
+	"['fail', 'test']
+7" -> "['fail', 'test', 'exception', 'timeout', 'socket', 'hmaster', 'expect', 'build']
+1";
+	"['fail', 'test']
+7" -> "['test', 'fail', 'timeout', 'time']
+2";
+	"['fail', 'test']
+7" -> "['fail', 'test', 'server', 'master', 'process', 'complet', 'ssh']
+1";
+	"['fail', 'test']
+7" -> "['fail', 'test', 'time', 'rpc']
+1";
+	"['fail', 'test']
+7" -> "['fail', 'test', 'rpc', 'error', 'java']
+1";
+	"['fail', 'test']
+7" -> "['fail', 'test', 'epoch']
+1";
+	"['hbase', 'connect']
+4" -> "['connect', 'hbase', 'timeout', 'custom', 'master', 'issu', 'admin', 'hconnect', 'introduc', 'progress', 'stick', 'format', 'object', '\
+exampl']
+1";
+	"['hbase', 'connect']
+4" -> "['connect', 'hbase', 'test', 'manag', 'admin', 'work', 'hconnect', 'allow', 'exist', 'jira']
+1";
+	"['hbase', 'connect']
+4" -> "['connect', 'hbase', 'error', 'state', 'creat', 'load', 'move', 'config', 'method', 'tool']
+1";
+	"['hbase', 'connect']
+4" -> "['connect', 'hbase', 'list', 'delet', 'refer', 'mail']
+1";
+	"['close', 'connect', 'network']
+2" -> "['connect', 'network', 'block', 'close', 'remov', 'code', 'wait', 'assum', 'receiv', 'transport', 'packag', 'queue']
+1";
+	"['close', 'connect', 'network']
+2" -> "['connect', 'network', 'timeout', 'time', 'socket', 'read', 'close', 'host', 'hftp']
+1";
+	"['call', 'hbase', 'hang', 'custom']
+2" -> "['hbase', 'custom', 'call', 'hang']
+1";
+	"['call', 'hbase', 'hang', 'custom']
+2" -> "['hbase', 'custom', 'call', 'rpc', 'issu', 'hang', 'understand', 'trunk']
+1";
+}

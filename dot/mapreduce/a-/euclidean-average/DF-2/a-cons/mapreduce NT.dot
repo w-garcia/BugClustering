@@ -1,0 +1,122 @@
+strict digraph  {
+	"['unknown']
+29" -> "['job']
+13";
+	"['unknown']
+29" -> "['fail']
+7";
+	"['unknown']
+29" -> "['task']
+4";
+	"['unknown']
+29" -> "['case', 'output', 'schedul', 'test', 'mapreduce', 'capac', 'cluster', 'config', 'queue', 'miss', 'default', 'child']
+1";
+	"['unknown']
+29" -> "['case', 'condit', 'execut', 'specul', 'bug', 'function']
+1";
+	"['unknown']
+29" -> "['start', 'node', 'issu', 'server', 'manag', 'contain', 'port']
+1";
+	"['unknown']
+29" -> "['condit', 'complet', 'wait', 'timeout', 'call']
+1";
+	"['unknown']
+29" -> "['load', 'creat', 'config', 'thread', 'site', 'object', 'xml', 'conf']
+1";
+	"['job']
+13" -> "['fail', 'job']
+4";
+	"['job']
+13" -> "['job', 'task']
+4";
+	"['job']
+13" -> "['job', 'condit', 'output', 'start', 'state', 'crash', 'report', 'assum', 'attack', 'recov', 'format', 'support', 'custom', 'reach']
+\
+1";
+	"['job']
+13" -> "['job', 'histori', 'handl', 'server', 'kill', 'applic', 'period', 'travers']
+1";
+	"['job']
+13" -> "['case', 'job']
+3";
+	"['fail']
+7" -> "['fail', 'case', 'tracker', 'test', 'cache', 'requir', 'manag', 'set', 'config', 'directori', 'error', 'manner', 'distribut', 'environ', '\
+permiss', 'path', 'messag', 'system', 'build']
+1";
+	"['fail']
+7" -> "['fail', 'task']
+2";
+	"['fail']
+7" -> "['fail', 'start', 'node', 'jvm', 'manag', 'state', 'exit', 'thread', 'servic']
+1";
+	"['fail']
+7" -> "['fail', 'output', 'requir', 'valu', 'class', 'key', 'interface', 'multipl', 'associ']
+1";
+	"['fail']
+7" -> "['fail', 'directori', 'disk', 'shutdown']
+1";
+	"['fail']
+7" -> "['fail', 'report', 'bug', 'jira']
+1";
+	"['task']
+4" -> "['task', 'exception', 'tracker', 'start', 'execut', 'load', 'crash', 'miss', 'class']
+1";
+	"['task']
+4" -> "['task', 'code', 'jvm', 'mapreduce', 'set', 'assum', 'launch', 'work', 'object', 'window', 'heartbeat', 'executor', 'control', '\
+process', 'command', 'retain']
+1";
+	"['task']
+4" -> "['task', 'tracker']
+2";
+	"['fail', 'job']
+4" -> "['job', 'fail', 'case', 'exception', 'histori', 'node', 'cluster', 'time', 'data', 'submit', 'work', 'jar', 'input', 'stream']
+1";
+	"['fail', 'job']
+4" -> "['job', 'fail', 'condit', 'tracker', 'schedul', 'test', 'complet', 'issu', 'capac', 'wait', 'queue']
+1";
+	"['fail', 'job']
+4" -> "['job', 'fail', 'exception', 'output', 'test', 'commit']
+1";
+	"['fail', 'job']
+4" -> "['job', 'fail', 'schedul', 'specifi', 'submit', 'option', 'environ', 'provid', 'exist', 'pool']
+1";
+	"['job', 'task']
+4" -> "['job', 'task', 'case', 'condit', 'execut', 'code', 'handl', 'contain', 'specul', 'site', 'mean', 'progress']
+1";
+	"['job', 'task']
+4" -> "['job', 'task', 'schedul', 'cache', 'jvm', 'requir', 'mapreduce', 'load', 'capac', 'specifi', 'creat', 'cluster', 'enabl', 'data', '\
+option', 'reduc', 'memori']
+1";
+	"['job', 'task']
+4" -> "['job', 'avoid', 'task', 'number', 'file']
+2";
+	"['case', 'job']
+3" -> "['job', 'case', 'exception', 'histori', 'complet', 'issu', 'server', 'time', 'index', 'clean', 'address', 'lock', 'perform']
+1";
+	"['case', 'job']
+3" -> "['job', 'case', 'histori', 'index', 'valu', 'end', 'string', 'extract', 'properti', 'hadoop', 'counter']
+1";
+	"['case', 'job']
+3" -> "['job', 'case', 'exception', 'node', 'give']
+1";
+	"['fail', 'task']
+2" -> "['fail', 'task', 'exception', 'output', 'code', 'creat', 'give', 'directori', 'time', 'exit', 'error', 'touch', 'local', 'initi', '\
+current']
+1";
+	"['fail', 'task']
+2" -> "['fail', 'task', 'complet', 'launch', 'reduc', 'alloc', 'count', 'map']
+1";
+	"['task', 'tracker']
+2" -> "['task', 'tracker', 'schedul', 'handl', 'set', 'number', 'fair', 'slot', 'allow']
+1";
+	"['task', 'tracker']
+2" -> "['task', 'tracker', 'cache', 'give', 'file', 'distribut', 'result', 'delet']
+1";
+	"['job', 'avoid', 'task', 'number', 'file']
+2" -> "['job', 'task', 'start', 'number', 'specifi', 'file', 'avoid', 'manner', 'dist', 'pend', 'prevent', 'block', 'limit', 'raid']
+1";
+	"['job', 'avoid', 'task', 'number', 'file']
+2" -> "['job', 'task', 'histori', 'execut', 'issu', 'state', 'number', 'file', 'enabl', 'avoid', 'attack', 'recov', 'end', 'hang', 'batch', '\
+record', 'inform']
+1";
+}

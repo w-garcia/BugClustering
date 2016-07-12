@@ -1,0 +1,262 @@
+strict digraph  {
+	"['unknown']
+71" -> "['config']
+39";
+	"['unknown']
+71" -> "['fail', 'sourc']
+3";
+	"['unknown']
+71" -> "['sourc', 'sink', 'agent']
+2";
+	"['unknown']
+71" -> "['sink']
+13";
+	"['unknown']
+71" -> "['sourc']
+4";
+	"['unknown']
+71" -> "['fail']
+3";
+	"['unknown']
+71" -> "['file']
+3";
+	"['unknown']
+71" -> "['channel', 'event', 'data', 'loss', 'selector', 'miss', 'record', 'put', 'select']
+1";
+	"['unknown']
+71" -> "['extractor', 'group', 'regex', 'dev', 'ignor']
+1";
+	"['unknown']
+71" -> "['test', 'channel']
+2";
+	"['config']
+39" -> "['sourc', 'config', 'sink']
+4";
+	"['config']
+39" -> "['config', 'sink']
+5";
+	"['config']
+39" -> "['sourc', 'config']
+7";
+	"['config']
+39" -> "['config', 'event', 'channel']
+2";
+	"['config']
+39" -> "['config', 'file']
+3";
+	"['config']
+39" -> "['fail', 'config']
+6";
+	"['config']
+39" -> "['config', 'agent']
+3";
+	"['config']
+39" -> "['node', 'config']
+5";
+	"['config']
+39" -> "['config', 'exception', 'problem']
+1";
+	"['config']
+39" -> "['config', 'assign', 'call', 'forc', 'user', 'interface', 'program', 'builder']
+1";
+	"['config']
+39" -> "['config', 'error', 'consol']
+1";
+	"['config']
+39" -> "['config', 'creat', 'format', 'escap']
+1";
+	"['fail', 'sourc']
+3" -> "['sink', 'sourc', 'fail', 'node', 'agent', 'collector', 'time', 'recov', 'messag', 'auto', 'restart', 'revert', 'output', 'expect', '\
+consum', 'code', 'condit', 'back', 'resum', 'coupl']
+1";
+	"['fail', 'sourc']
+3" -> "['fail', 'sourc', 'event']
+2";
+	"['sourc', 'sink', 'agent']
+2" -> "['sink', 'sourc', 'file', 'agent', 'collector', 'flume', 'hold', 'batch', 'disk', 'tail', 'stop', 'auto', 'output', 'set', 'detect', '\
+continu', 'handl', 'releas', 'grow', 'space', 'delet', 'instanc']
+1";
+	"['sourc', 'sink', 'agent']
+2" -> "['sink', 'sourc', 'channel', 'agent', 'event', 'data', 'write', 'recov', 'memori', 'process', 'expect', 'kill', 'seq', 'gener', '\
+ctrl', 'clean']
+1";
+	"['sink']
+13" -> "['fail', 'sink']
+3";
+	"['sink']
+13" -> "['sink', 'file']
+4";
+	"['sink']
+13" -> "['sink', 'event', 'collector', 'error', 'add', 'write', 'exit', 'recov', 'disk', 'rolltag', 'dfo', 'path', 'field']
+1";
+	"['sink']
+13" -> "['sink', 'event', 'exception', 'default', 'throw', 'gener', 'header']
+1";
+	"['sink']
+13" -> "['sink', 'collector', 'format', 'custom', 'escap', 'paramet']
+1";
+	"['sink']
+13" -> "['sink', 'hdfs', 'hold', 'process', 'continu', 'expect', 'handl', 'append', 'back', 'timeout', 'complet', 'stream']
+1";
+	"['sink']
+13" -> "['sink', 'hdfs', 'exit', 'support', 'conf', 'enabl', 'featur']
+1";
+	"['sink']
+13" -> "['sink', 'recov', 'start', 'hbase', 'async', 'exist', 'class']
+1";
+	"['sourc']
+4" -> "['sourc', 'file', 'agent', 'hold', 'tail', 'close', 'rotat']
+1";
+	"['sourc']
+4" -> "['sourc', 'channel', 'exception', 'add', 'creat', 'list', 'mention']
+1";
+	"['sourc']
+4" -> "['sourc', 'collector', 'master', 'command', 'auto', 'chain', 'bug', 'replac']
+1";
+	"['sourc']
+4" -> "['sourc', 'tail', 'appear', 'byte', 'limit']
+1";
+	"['fail']
+3" -> "['fail', 'agent', 'hold', 'batch', 'decor', 'zip']
+1";
+	"['fail']
+3" -> "['fail', 'channel']
+2";
+	"['file']
+3" -> "['file', 'master', 'web', 'connect', 'machin']
+1";
+	"['file']
+3" -> "['channel', 'file']
+2";
+	"['test', 'channel']
+2" -> "['channel', 'valu', 'add', 'time', 'memori', 'test', 'size', 'context', 'prevent', 'alloc', 'dataloss']
+1";
+	"['test', 'channel']
+2" -> "['channel', 'agent', 'test', 'downstream', 'trunk', 'outofmemory']
+1";
+	"['sourc', 'config', 'sink']
+4" -> "['config', 'sink', 'sourc', 'file', 'agent', 'event', 'collector', 'master', 'number', 'problem', 'duplic', 'tcp', 'eechain']
+1";
+	"['sourc', 'config', 'sink']
+4" -> "['node', 'sourc', 'config', 'sink']
+3";
+	"['config', 'sink']
+5" -> "['fail', 'collector', 'config', 'sink']
+2";
+	"['config', 'sink']
+5" -> "['config', 'sink', 'node', 'chang', 'time', 'close', 'thread', 'decor', 'deco', 'appear', 'heartbeat', 'hang', 'block']
+1";
+	"['config', 'sink']
+5" -> "['config', 'event', 'sink']
+2";
+	"['sourc', 'config']
+7" -> "['sourc', 'config', 'file']
+3";
+	"['sourc', 'config']
+7" -> "['sourc', 'config', 'channel']
+2";
+	"['sourc', 'config']
+7" -> "['step', 'sourc', 'config']
+2";
+	"['config', 'event', 'channel']
+2" -> "['config', 'channel', 'event', 'memori', 'loss', 'context', 'end']
+1";
+	"['config', 'event', 'channel']
+2" -> "['config', 'file', 'channel', 'event', 'flume', 'data', 'chang', 'properti', 'process', 'stop', 'restart', 'loop', 'consum', 'duplic', '\
+compon']
+1";
+	"['config', 'file']
+3" -> "['config', 'file', 'assign', 'valu', 'properti', 'command', 'save']
+1";
+	"['config', 'file']
+3" -> "['fail', 'config', 'file']
+2";
+	"['fail', 'config']
+6" -> "['config', 'sourc', 'fail', 'node', 'error', 'messag', 'rpc', 'loop', 'updat']
+1";
+	"['fail', 'config']
+6" -> "['fail', 'config', 'data']
+2";
+	"['fail', 'config']
+6" -> "['node', 'fail', 'config']
+3";
+	"['config', 'agent']
+3" -> "['config', 'agent', 'collector', 'master', 'error', 'state', 'multipl', 'kill', 'help', 'mode', 'dfo', 'end', 'work']
+1";
+	"['config', 'agent']
+3" -> "['flume', 'config', 'agent']
+2";
+	"['node', 'config']
+5" -> "['config', 'node', 'event', 'add', 'batch', 'decor', 'releas', 'ctrl', 'remain', 'cpu']
+1";
+	"['node', 'config']
+5" -> "['config', 'node', 'chang', 'time', 'loss', 'condit', 'interface', 'count']
+1";
+	"['node', 'config']
+5" -> "['node', 'config', 'master']
+3";
+	"['fail', 'sourc', 'event']
+2" -> "['sourc', 'fail', 'node', 'agent', 'event', 'flume', 'implement', 'continu', 'allow', 'help', 'detail', 'grow', 'capabl']
+1";
+	"['fail', 'sourc', 'event']
+2" -> "['sourc', 'fail', 'event', 'exit', 'process', 'stop', 'command', 'restart', 'exec']
+1";
+	"['fail', 'sink']
+3" -> "['sink', 'fail', 'file', 'data', 'write', 'creat', 'transfer', 'code', 'respons']
+1";
+	"['fail', 'sink']
+3" -> "['sink', 'fail', 'agent', 'revert', 'attempt']
+1";
+	"['fail', 'sink']
+3" -> "['sink', 'fail', 'hdfs', 'test', 'break', 'hadoop', 'upgrad', 'build']
+1";
+	"['sink', 'file']
+4" -> "['sink', 'file', 'node', 'error', 'hdfs', 'batch', 'memori', 'load', 'set', 'open', 'connect', 'system', 'max', 'surviv']
+1";
+	"['sink', 'file']
+4" -> "['sink', 'file', 'data', 'assign', 'hdfs', 'write', 'messag', 'creat', 'format', 'detect', 'miss', 'mention', 'lib']
+1";
+	"['sink', 'file']
+4" -> "['sink', 'file', 'valu', 'properti', 'time', 'delay']
+1";
+	"['sink', 'file']
+4" -> "['sink', 'file', 'event', 'step']
+1";
+	"['fail', 'channel']
+2" -> "['fail', 'channel', 'error', 'implement', 'acquisit', 'jdbc', 'lock', 'result']
+1";
+	"['fail', 'channel']
+2" -> "['sourc', 'fail', 'channel', 'chang', 'selector', 'multiplex', 'seq', 'conf']
+1";
+	"['channel', 'file']
+2" -> "['file', 'channel', 'flume', 'memori', 'implement', 'chann']
+1";
+	"['channel', 'file']
+2" -> "['file', 'channel', 'agent', 'time', 'start', 'step']
+1";
+	"['node', 'sourc', 'config', 'sink']
+3" -> "['config', 'sink', 'sourc', 'fail', 'file', 'node', 'flume', 'chang', 'default', 'state', 'start', 'break', 'revert', 'set', 'driver', '\
+thread', 'open', 'handl', 'read', 'heartbeat', 'forc', 'hang', 'clean', 'fix', 'semant', 'eat', 'invari']
+1";
+	"['node', 'sourc', 'config', 'sink']
+3" -> "['config', 'sink', 'sourc', 'file', 'node', 'data', 'write', 'tail', 'loss', 'number', 'miss', 'custom', 'record', 'read', 'text', '\
+ingest', 'begin', 'directori']
+1";
+	"['node', 'sourc', 'config', 'sink']
+3" -> "['config', 'sink', 'sourc', 'node', 'master', 'assign', 'add', 'default', 'load', 'test', 'driver', 'thread', 'call', 'determin', '\
+lifecycle', 'spawn', 'branch']
+1";
+	"['fail', 'collector', 'config', 'sink']
+2" -> "['config', 'sink', 'fail', 'collector', 'assign', 'hold', 'write', 'multipl', 'fan', 'out']
+1";
+	"['fail', 'collector', 'config', 'sink']
+2" -> "['config', 'sink', 'fail', 'agent', 'collector', 'flume', 'exception', 'exit', 'messag', 'start', 'stop', 'driver', 'experi', 'deliv']
+\
+1";
+	"['config', 'event', 'sink']
+2" -> "['config', 'sink', 'event', 'valu', 'properti', 'record', 'allow', 'hbase', 'prefix', 'insert', 'current', 'key', 'attr']
+1";
+	"['config', 'event', 'sink']
+2" -> "['config', 'sink', 'channel', 'event', 'assign', 'default', 'selector', 'multiplex', 'setup', 'abil', 'match', 'map']
+1";
+}

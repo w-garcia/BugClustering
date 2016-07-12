@@ -1,0 +1,67 @@
+strict digraph  {
+	"['unknown']
+14" -> "['polici', 'default', 'placement', 'rack', 'block']
+4";
+	"['unknown']
+14" -> "['node', 'group', 'network', 'support', 'implement', 'topolog']
+2";
+	"['unknown']
+14" -> "['node']
+4";
+	"['unknown']
+14" -> "['block', 'rack', 'replica', 'topolog', 'hdfs', 'put', 'config']
+1";
+	"['unknown']
+14" -> "['block', 'assum', 'balanc', 'factor', 'handl']
+1";
+	"['unknown']
+14" -> "['support', 'work', 'hdfs', 'jira', 'refer', 'machin', 'improve', 'multipl']
+1";
+	"['unknown']
+14" -> "['topolog', 'network', 'chang', 'restart', 'case', 'config', 'start']
+1";
+	"['polici', 'default', 'placement', 'rack', 'block']
+4" -> "['block', 'rack', 'polici', 'default', 'placement', 'assum', 'work', 'balanc', 'exist', 'follow', 'requir', 'enabl', 'design', '\
+current', 'abstract']
+1";
+	"['polici', 'default', 'placement', 'rack', 'block']
+4" -> "['node', 'placement', 'polici', 'default', 'rack', 'block']
+3";
+	"['node', 'group', 'network', 'support', 'implement', 'topolog']
+2" -> "['node', 'topolog', 'group', 'network', 'implement', 'support', 'balanc', 'call', 'option', 'exist', 'hadoop', 'updat', 'choos', '\
+local', 'method', 'fail', 'custom', 'tool', 'creat', 'defect', 'class']
+1";
+	"['node', 'group', 'network', 'support', 'implement', 'topolog']
+2" -> "['node', 'replica', 'polici', 'topolog', 'default', 'placement', 'group', 'network', 'implement', 'support', 'test']
+1";
+	"['node']
+4" -> "['node', 'replica', 'block']
+2";
+	"['node']
+4" -> "['node', 'chang', 'rack']
+2";
+	"['node', 'placement', 'polici', 'default', 'rack', 'block']
+3" -> "['node', 'block', 'rack', 'replica', 'polici', 'topolog', 'default', 'placement', 'network', 'remov', 'monitor', 'factor', 'count', '\
+list', 'option', 'process', 'cluster', 'check', 'updat', 'choos', 'random', 'condit', 'thread', 'number', 'size', 'loop', 'stay']
+\
+1";
+	"['node', 'placement', 'polici', 'default', 'rack', 'block']
+3" -> "['node', 'block', 'rack', 'replica', 'polici', 'default', 'placement', 'count', 'decommiss']
+1";
+	"['node', 'placement', 'polici', 'default', 'rack', 'block']
+3" -> "['node', 'block', 'rack', 'polici', 'default', 'placement', 'group', 'work', 'drop', 'provid', 'server', 'store', 'comput']
+1";
+	"['node', 'replica', 'block']
+2" -> "['node', 'block', 'replica', 'add', 'list', 'call', 'process', 'manag', 'system', 'problem', 'lock', 'reduc']
+1";
+	"['node', 'replica', 'block']
+2" -> "['node', 'block', 'replica', 'assum', 'remov', 'monitor', 'save', 'stop', 'report', 'mode', 'gener', 'queue', 'exception', 'time']
+\
+1";
+	"['node', 'chang', 'rack']
+2" -> "['node', 'rack', 'chang', 'add', 'restart', 'cluster', 'scenario']
+1";
+	"['node', 'chang', 'rack']
+2" -> "['node', 'rack', 'replica', 'group', 'implement', 'chang', 'remov', 'put', 'case', 'check', 'hadoop', 'avoid']
+1";
+}

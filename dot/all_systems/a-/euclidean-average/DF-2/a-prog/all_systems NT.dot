@@ -1,0 +1,34 @@
+strict digraph  {
+	"['unknown']
+6" -> "['sink']
+3";
+	"['unknown']
+6" -> "['flume', 'config']
+3";
+	"['sink']
+3" -> "['flume', 'sink', 'event', 'provid', 'map', 'data', 'text', 'batch', 'acquisit', 'index', 'apach', 'replac', 'hdfs', 'base', 'queri', '\
+reduc', 'search', 'write', 'time', 'server']
+1";
+	"['sink']
+3" -> "['sink', 'selector']
+2";
+	"['flume', 'config']
+3" -> "['flume', 'config', 'sink', 'event', 'agent', 'channel', 'sourc', 'data', 'setup', 'stream', 'metric', 'number', 'set', 'respons', '\
+poll', 'collector', 'size', 'monitor', 'exec', 'compon', 'tail', 'experi', 'background', 'put', 'hold', 'revert', 'count']
+1";
+	"['flume', 'config']
+3" -> "['flume', 'provid', 'config']
+2";
+	"['sink', 'selector']
+2" -> "['config', 'sink', 'event', 'channel', 'map', 'selector', 'setup', 'multiplex', 'abil', 'default', 'match', 'assign']
+1";
+	"['sink', 'selector']
+2" -> "['sink', 'selector', 'load', 'fail', 'processor', 'includ', 'balanc', 'implement']
+1";
+	"['flume', 'provid', 'config']
+2" -> "['flume', 'config', 'provid', 'agent', 'process', 'support', 'start', 'node', 'host', 'emb', 'manag', 'allow', 'user']
+1";
+	"['flume', 'provid', 'config']
+2" -> "['flume', 'config', 'provid', 'sourc', 'code', 'improve']
+1";
+}

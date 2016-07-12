@@ -1,0 +1,39 @@
+strict digraph  {
+	"['unknown']
+10" -> "['queue', 'commit', 'event', 'file', 'channel']
+2";
+	"['unknown']
+10" -> "['file']
+3";
+	"['unknown']
+10" -> "['channel', 'transfer', 'call', 'thread', 'commit', 'rollback', 'coupl', 'memori', 'entri', 'order']
+1";
+	"['unknown']
+10" -> "['thread', 'queue', 'config', 'remov', 'function', 'batch', 'executor', 'problem', 'runnabl', 'pool', 'servic', 'revert']
+1";
+	"['unknown']
+10" -> "['event', 'elast', 'serial', 'duplic', 'field', 'map', 'sink', 'search', 'default']
+1";
+	"['unknown']
+10" -> "['node', 'config', 'sync', 'multipl', 'master', 'updat', 'chang']
+1";
+	"['unknown']
+10" -> "['transfer', 'sourc', 'error', 'exec']
+1";
+	"['queue', 'commit', 'event', 'file', 'channel']
+2" -> "['file', 'channel', 'event', 'queue', 'commit', 'flume', 'remov', 'background', 'complet']
+1";
+	"['queue', 'commit', 'event', 'file', 'channel']
+2" -> "['file', 'channel', 'event', 'transfer', 'call', 'queue', 'commit', 'agent', 'put', 'exit', 'rollback', 'delet', 'list', 'replay', '\
+result', 'fix', 'pend', 'restart', 'end', 'hold', 'data', 'insert', 'count', 'issu']
+1";
+	"['file']
+3" -> "['file', 'channel', 'call', 'thread', 'put', 'close', 'condit', 'race', 'index', 'write']
+1";
+	"['file']
+3" -> "['file', 'sourc', 'condit', 'race', 'tail', 'begin', 'input', 'reset']
+1";
+	"['file']
+3" -> "['file', 'node', 'agent', 'close', 'exit', 'flume', 'delet', 'detect', 'crash', 'report', 'time']
+1";
+}

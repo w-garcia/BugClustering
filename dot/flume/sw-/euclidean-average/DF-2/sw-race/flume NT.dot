@@ -1,0 +1,131 @@
+strict digraph  {
+	"['unknown']
+28" -> "['race']
+11";
+	"['unknown']
+28" -> "['file']
+2";
+	"['unknown']
+28" -> "['write', 'hdfs', 'exception', 'sink', 'file']
+2";
+	"['unknown']
+28" -> "['file', 'call', 'thread', 'flume', 'close', 'channel', 'method', 'block', 'fix', 'put', 'commit', 'read', 'monitor', 'sync', 'hold', '\
+deadlock', 'expect', 'lock']
+1";
+	"['unknown']
+28" -> "['exception', 'fail', 'collector', 'event', 'process', 'block', 'interrupt', 'system', 'time', 'rotat', 'reconnect', 'append', '\
+work']
+1";
+	"['unknown']
+28" -> "['sink']
+7";
+	"['unknown']
+28" -> "['call', 'sourc', 'thread', 'close', 'exit', 'method', 'hang', 'block', 'node', 'implement', 'appear', 'consol', 'newlin', 'enter']
+\
+1";
+	"['unknown']
+28" -> "['call', 'thread', 'channel', 'commit', 'memori', 'transfer', 'rollback', 'coupl', 'entri', 'order']
+1";
+	"['unknown']
+28" -> "['close', 'collector', 'master', 'setup', 'singl']
+1";
+	"['unknown']
+28" -> "['thread', 'fail', 'exit', 'tail', 'duplic']
+1";
+	"['race']
+11" -> "['flume', 'sourc', 'base', 'race', 'test', 'condit']
+3";
+	"['race']
+11" -> "['hdfs', 'process', 'writer', 'bucket', 'race', 'call', 'sink', 'condit', 'close']
+2";
+	"['race']
+11" -> "['race', 'file']
+6";
+	"['file']
+2" -> "['file', 'sourc', 'tail', 'reset', 'produc']
+1";
+	"['file']
+2" -> "['file', 'exception', 'flume', 'channel', 'start', 'agent', 'config', 'stop', 'relat', 'checkpoint']
+1";
+	"['write', 'hdfs', 'exception', 'sink', 'file']
+2" -> "['sink', 'file', 'exception', 'hdfs', 'event', 'duplic', 'write', 'name', 'memori', 'runner', 'exist', 'multipl']
+1";
+	"['write', 'hdfs', 'exception', 'sink', 'file']
+2" -> "['sink', 'file', 'exception', 'call', 'thread', 'hdfs', 'process', 'method', 'write', 'node', 'interrupt', 'revert', 'cancel', '\
+check', 'perform', 'hadoop', 'set', 'rpc', 'flag', 'sort', 'end']
+1";
+	"['sink']
+7" -> "['race', 'sink', 'exception', 'collector', 'hang', 'concurr', 'manag', 'chang']
+1";
+	"['sink']
+7" -> "['flume', 'fail', 'exception', 'config', 'sink']
+2";
+	"['sink']
+7" -> "['sink', 'sourc', 'flume', 'event', 'duplic', 'config', 'node', 'jira', 'name', 'semant', 'mean', 'current', 'address', 'includ', '\
+idea', 'tag']
+1";
+	"['sink']
+7" -> "['sink', 'exception', 'hdfs', 'stop', 'throw', 'state', 'shutdown', 'index', 'illeg']
+1";
+	"['sink']
+7" -> "['sink', 'agent', 'node', 'eechain']
+1";
+	"['sink']
+7" -> "['sink', 'fail', 'hdfs', 'test', 'hadoop', 'apach', 'cluster', 'replica', 'max']
+1";
+	"['flume', 'sourc', 'base', 'race', 'test', 'condit']
+3" -> "['race', 'condit', 'sourc', 'flume', 'tail', 'event', 'test', 'duplic', 'base', 'data', 'result', 'nio']
+1";
+	"['flume', 'sourc', 'base', 'race', 'test', 'condit']
+3" -> "['jira', 'creat', 'linux', 'unit', 'detect', 'cross', 'exit', 'rhel', 'test', 'condit', 'refer', 'flume', 'sourc', 'regard', 'base', '\
+crea', 'lifecycle', 'pool', 'thrift', 'thread', 'server', 'race', 'environ', 'time']
+2";
+	"['hdfs', 'process', 'writer', 'bucket', 'race', 'call', 'sink', 'condit', 'close']
+2" -> "['race', 'sink', 'condit', 'call', 'close', 'hdfs', 'exit', 'process', 'test', 'relat', 'writer', 'semant', 'bucket', 'perform', '\
+data', 'lack', 'loss']
+1";
+	"['hdfs', 'process', 'writer', 'bucket', 'race', 'call', 'sink', 'condit', 'close']
+2" -> "['race', 'sink', 'condit', 'exception', 'call', 'close', 'hdfs', 'process', 'throw', 'writer', 'bucket', 'scenerio', 'flush']
+1";
+	"['race', 'file']
+6" -> "['race', 'sink', 'file', 'condit', 'call', 'fail', 'channel', 'method', 'start', 'lifecycle', 'creat', 'revert', 'transfer', 'check', '\
+replay', 'compon', 'error', 'supervisor']
+1";
+	"['race', 'file']
+6" -> "['race', 'file', 'condit', 'exception', 'channel', 'event', 'process', 'start', 'write', 'system', 'shutdown', 'begin', 'code', '\
+record', 'remain']
+1";
+	"['race', 'file']
+6" -> "['race', 'file', 'condit', 'call', 'thread', 'close', 'channel', 'write', 'put', 'index']
+1";
+	"['race', 'file']
+6" -> "['race', 'file', 'call', 'tail', 'block', 'implement', 'read', 'truncat', 'reader', 'problem', 'updat', 'buffer']
+1";
+	"['race', 'file']
+6" -> "['condit', 'race', 'file']
+2";
+	"['flume', 'fail', 'exception', 'config', 'sink']
+2" -> "['sink', 'exception', 'sourc', 'flume', 'fail', 'hang', 'config', 'interrupt', 'throw', 'relat', 'cancel', 'deco', 'handl', 'mode', '\
+avoid', 'allow']
+1";
+	"['flume', 'fail', 'exception', 'config', 'sink']
+2" -> "['sink', 'exception', 'flume', 'fail', 'exit', 'collector', 'start', 'agent', 'config', 'stop', 'experi', 'messag', 'deliv', 'driver']
+\
+1";
+	"['jira', 'creat', 'linux', 'unit', 'detect', 'cross', 'exit', 'rhel', 'test', 'condit', 'refer', 'flume', 'sourc', 'regard', 'base', '\
+crea', 'lifecycle', 'pool', 'thrift', 'thread', 'server', 'race', 'environ', 'time']
+2" -> "['race', 'condit', 'sourc', 'thread', 'flume', 'fail', 'exit', 'test', 'jira', 'base', 'system', 'lifecycle', 'creat', 'implement', '\
+time', 'cross', 'server', 'detect', 'refer', 'thrift', 'linux', 'unit', 'rhel', 'crea', 'regard', 'pool', 'environ']
+1";
+	"['jira', 'creat', 'linux', 'unit', 'detect', 'cross', 'exit', 'rhel', 'test', 'condit', 'refer', 'flume', 'sourc', 'regard', 'base', '\
+crea', 'lifecycle', 'pool', 'thrift', 'thread', 'server', 'race', 'environ', 'time']
+2" -> "['race', 'condit', 'sourc', 'thread', 'flume', 'exit', 'test', 'jira', 'base', 'lifecycle', 'creat', 'time', 'cross', 'server', '\
+detect', 'refer', 'thrift', 'linux', 'unit', 'rhel', 'crea', 'regard', 'pool', 'environ', 'upgrad']
+1";
+	"['condit', 'race', 'file']
+2" -> "['race', 'file', 'condit', 'sourc', 'tail', 'reset', 'begin', 'input']
+1";
+	"['condit', 'race', 'file']
+2" -> "['race', 'file', 'condit', 'collector', 'hang', 'agent', 'fix', 'state', 'retransmit', 'naiv', 'logic']
+1";
+}

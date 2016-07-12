@@ -1,0 +1,435 @@
+strict digraph  {
+	"['unknown']
+161" -> "['job']
+70";
+	"['unknown']
+161" -> "['task']
+39";
+	"['unknown']
+161" -> "['map']
+12";
+	"['unknown']
+161" -> "['output', 'node', 'file', 'sourc', 'config', 'manag', 'index', 'list', 'yarn', 'function', 'specifi', 'name', 'resolv', 'web', '\
+ignor', 'script']
+1";
+	"['unknown']
+161" -> "['node', 'mapreduce', 'perform', 'sourc', 'set', 'hadoop', 'config', 'server', 'cluster', 'cache', 'issu', 'yarn', 'histori', 'size', '\
+java', 'allow', 'heap', 'bug', 'retain', 'submiss', 'clean', 'command', 'store']
+1";
+	"['unknown']
+161" -> "['time', 'node', 'contain', 'end', 'launch', 'stay', 'pool']
+1";
+	"['unknown']
+161" -> "['time']
+3";
+	"['unknown']
+161" -> "['fail']
+4";
+	"['unknown']
+161" -> "['reduc', 'mapreduce', 'input', 'execut', 'format', 'report', 'allow', 'mapper', 'provid', 'dist']
+1";
+	"['unknown']
+161" -> "['node']
+6";
+	"['unknown']
+161" -> "['call', 'file']
+2";
+	"['unknown']
+161" -> "['mapreduce', 'perform', 'attack', 'index', 'input', 'give', 'data', 'page', 'submit']
+1";
+	"['unknown']
+161" -> "['end', 'perform', 'hadoop', 'shuffl', 'local', 'regression']
+1";
+	"['unknown']
+161" -> "['process', 'contain']
+2";
+	"['unknown']
+161" -> "['end']
+2";
+	"['unknown']
+161" -> "['sourc', 'hadoop', 'server', 'java', 'environ']
+1";
+	"['unknown']
+161" -> "['set', 'shuffl', 'support', 'servic', 'gener', 'provid']
+1";
+	"['unknown']
+161" -> "['perform']
+2";
+	"['unknown']
+161" -> "['hadoop']
+2";
+	"['unknown']
+161" -> "['cache', 'result', 'improve', 'code', 'creat', 'avoid', 'resolv', 'host']
+1";
+	"['unknown']
+161" -> "['mapreduce', 'counter', 'aggreg']
+1";
+	"['unknown']
+161" -> "['detect', 'input', 'code', 'format', 'method', 'record']
+1";
+	"['unknown']
+161" -> "['cache', 'heartbeat', 'block', 'tasktrack', 'dist']
+1";
+	"['unknown']
+161" -> "['add', 'support', 'servic', 'web']
+1";
+	"['unknown']
+161" -> "['commit', 'data', 'servic', 'mean']
+1";
+	"['unknown']
+161" -> "['code', 'object', 'valu', 'distribut', 'return']
+1";
+	"['unknown']
+161" -> "[]
+1";
+	"['unknown']
+161" -> "['default', 'check', 'manner', 'retain', 'pend', 'specul']
+1";
+	"['job']
+70" -> "['job', 'task']
+31";
+	"['job']
+70" -> "['map', 'job']
+11";
+	"['job']
+70" -> "['output', 'job', 'file', 'time']
+2";
+	"['job']
+70" -> "['reduc', 'job']
+3";
+	"['job']
+70" -> "['job', 'time']
+7";
+	"['job']
+70" -> "['job', 'file']
+4";
+	"['job']
+70" -> "['job', 'end', 'mapreduce']
+2";
+	"['job']
+70" -> "['fail', 'job']
+2";
+	"['job']
+70" -> "['job', 'case', 'tracker', 'add', 'state', 'list', 'execut', 'transfer', 'custom', 'return', 'stage', 'submit']
+1";
+	"['job']
+70" -> "['job', 'node', 'counter', 'delay', 'calcul']
+1";
+	"['job']
+70" -> "['job', 'histori', 'stay', 'server']
+2";
+	"['job']
+70" -> "['job', 'perform', 'hadoop', 'local', 'regression', 'hive', 'pig']
+1";
+	"['job']
+70" -> "['job', 'start', 'add', 'batch', 'directori', 'induc', 'jar']
+1";
+	"['job']
+70" -> "['job', 'mrapp', 'master', 'throw']
+2";
+	"['task']
+39" -> "['map', 'task']
+13";
+	"['task']
+39" -> "['task', 'time', 'node', 'sourc', 'hadoop', 'config', 'process', 'manag', 'load', 'number', 'give', 'allow', 'slot', 'mrv', 'assum', '\
+environ']
+1";
+	"['task']
+39" -> "['task', 'output', 'time', 'case', 'tracker', 'detect', 'launch', 'state', 'slot', 'progress', 'handl', 'succeed', 'releas']
+1";
+	"['task']
+39" -> "['task', 'time', 'fail', 'contain', 'attack', 'launch', 'kill', 'event', 'stay', 'commit', 'timeout', 'inform', 'notic', 'messag']
+\
+1";
+	"['task']
+39" -> "['reduc', 'task', 'result']
+2";
+	"['task']
+39" -> "['task', 'fail', 'mapreduce', 'tracker', 'detect', 'cluster', 'fetch', 'issu', 'improve', 'check', 'handl', 'reach', 'tasktrack']
+\
+1";
+	"['task']
+39" -> "['task', 'time']
+2";
+	"['task']
+39" -> "['task', 'file', 'set', 'config', 'launch', 'kill', 'handler', 'heartbeat', 'data', 'timeout', 'progress', 'order', 'travers', '\
+properti']
+1";
+	"['task']
+39" -> "['task', 'output', 'sourc', 'code', 'java', 'stream', 'protocol']
+1";
+	"['task']
+39" -> "['node', 'task']
+2";
+	"['task']
+39" -> "['fail', 'attack', 'task']
+3";
+	"['task']
+39" -> "['task', 'mapreduce', 'complet', 'hadoop', 'size', 'exception', 'merg', 'inform', 'exit', 'apach', 'org']
+1";
+	"['task']
+39" -> "['task', 'case', 'complet', 'attack', 'result', 'recov', 'retain', 'assum']
+1";
+	"['task']
+39" -> "['task', 'end', 'complet', 'thread', 'wait', 'report', 'exit', 'check']
+1";
+	"['task']
+39" -> "['task', 'config', 'start', 'detect', 'handler', 'heartbeat', 'timeout', 'check']
+1";
+	"['task']
+39" -> "['task', 'attack', 'function', 'counter', 'heap', 'object']
+1";
+	"['task']
+39" -> "['task', 'perform', 'tracker', 'schedul', 'capac', 'environ']
+1";
+	"['task']
+39" -> "['task', 'tracker']
+3";
+	"['task']
+39" -> "['task', 'handler', 'heartbeat', 'lock', 'retain']
+1";
+	"['task']
+39" -> "['task', 'level']
+1";
+	"['map']
+12" -> "['map', 'node', 'file', 'end', 'batch', 'cluster', 'number', 'result', 'input', 'local', 'block', 'creat', 'format', 'problem', '\
+exit', 'combin', 'distribut', 'order', 'gener', 'split', 'group']
+1";
+	"['map']
+12" -> "['reduc', 'map', 'output']
+6";
+	"['map']
+12" -> "['map', 'output']
+3";
+	"['map']
+12" -> "['map', 'add', 'app', 'remov', 'aggreg', 'servic', 'object', 'leak']
+1";
+	"['map']
+12" -> "['map', 'fetch', 'number', 'memori', 'disk', 'handl', 'requir', 'extract', 'copi']
+1";
+	"['time']
+3" -> "['time', 'sourc', 'manag', 'batch', 'cluster', 'load', 'index', 'schedul', 'applic', 'condit', 'block', 'page', 'app', 'queue', '\
+web']
+1";
+	"['time']
+3" -> "['chang', 'time']
+2";
+	"['fail']
+4" -> "['fail', 'mapreduce', 'detect', 'disk', 'list', 'thread', 'function', 'exception', 'work', 'error', 'directori', 'chang', 'throw', '\
+invalid', 'access']
+1";
+	"['fail']
+4" -> "['fail', 'contain']
+3";
+	"['node']
+6" -> "['node', 'case', 'shuffl', 'cluster', 'index', 'disk', 'handler', 'exception', 'error', 'connect', 'test', 'gener', 'space']
+1";
+	"['node']
+6" -> "['node', 'file', 'cluster', 'issu', 'input', 'size', 'data', 'format', 'request', 'combin', 'hive', 'split', 'locat']
+1";
+	"['node']
+6" -> "['node', 'contain']
+2";
+	"['node']
+6" -> "['node', 'manag', 'master', 'memori', 'kill', 'applic']
+1";
+	"['node']
+6" -> "['node', 'remov', 'alloc', 'chang', 'request', 'blacklist']
+1";
+	"['call', 'file']
+2" -> "['file', 'sourc', 'call', 'batch', 'event', 'home']
+1";
+	"['call', 'file']
+2" -> "['file', 'tracker', 'call', 'manag', 'cache', 'number', 'issu', 'condit', 'specifi', 'directori', 'request', 'distribut', 'hdfs']
+\
+1";
+	"['process', 'contain']
+2" -> "['contain', 'complet', 'sourc', 'process', 'commit', 'exit', 'address']
+1";
+	"['process', 'contain']
+2" -> "['contain', 'process', 'function', 'heartbeat', 'assign', 'alloc']
+1";
+	"['end']
+2" -> "['end', 'call', 'process', 'work', 'timeout', 'java']
+1";
+	"['end']
+2" -> "['contain', 'end', 'yarn', 'local', 'exception', 'error', 'alloc', 'loop']
+1";
+	"['perform']
+2" -> "['perform', 'improve', 'heartbeat', 'default', 'handl']
+1";
+	"['perform']
+2" -> "['perform', 'cache', 'index', 'sort', 'submiss', 'side']
+1";
+	"['hadoop']
+2" -> "['hadoop', 'yarn', 'schedul', 'assign', 'request', 'capac']
+1";
+	"['hadoop']
+2" -> "['hadoop', 'add', 'function', 'tag']
+1";
+	"['job', 'task']
+31" -> "['map', 'job', 'task']
+10";
+	"['job', 'task']
+31" -> "['job', 'task', 'output', 'file', 'end', 'complet', 'perform', 'call', 'process', 'commit', 'wait', 'work', 'directori', 'method', '\
+regression', 'gener']
+1";
+	"['job', 'task']
+31" -> "['job', 'task', 'output', 'time', 'node', 'contain', 'start', 'recov', 'block', 'hang', 'transfer', 'trunk']
+1";
+	"['job', 'task']
+31" -> "['reduc', 'job', 'task']
+5";
+	"['job', 'task']
+31" -> "['job', 'task', 'time']
+3";
+	"['job', 'task']
+31" -> "['output', 'job', 'task']
+2";
+	"['job', 'task']
+31" -> "['node', 'job', 'task']
+2";
+	"['job', 'task']
+31" -> "['fail', 'job', 'task']
+2";
+	"['job', 'task']
+31" -> "['job', 'task', 'mapreduce', 'config', 'detect', 'memori', 'error', 'string', 'heap', 'leak', 'out']
+1";
+	"['job', 'task']
+31" -> "['job', 'task', 'process', 'launch', 'batch', 'cluster']
+1";
+	"['job', 'task']
+31" -> "['job', 'task', 'attack', 'hadoop', 'kill', 'notic', 'follow']
+1";
+	"['job', 'task']
+31" -> "['job', 'task', 'tracker', 'call', 'block', 'method', 'transfer']
+1";
+	"['job', 'task']
+31" -> "['job', 'task', 'complet', 'detect', 'pend']
+1";
+	"['map', 'job']
+11" -> "['job', 'map', 'reduc', 'time', 'fail', 'case', 'end', 'complet', 'perform', 'server', 'launch', 'batch', 'issu', 'event', 'stay', '\
+wait', 'applic', 'timeout', 'problem', 'connect', 'chang', 'touch', 'mean', 'lock', 'stack']
+1";
+	"['map', 'job']
+11" -> "['job', 'map', 'node', 'fail', 'end', 'detect', 'state', 'index', 'list', 'stay', 'wait', 'schedul']
+1";
+	"['map', 'job']
+11" -> "['job', 'map', 'reduc', 'node', 'file', 'contain', 'perform', 'code', 'local', 'function', 'execut', 'remov', 'manner', 'class', '\
+hdfs', 'dist', 'raid']
+1";
+	"['map', 'job']
+11" -> "['reduc', 'map', 'job']
+5";
+	"['map', 'job']
+11" -> "['job', 'map', 'mapreduce', 'perform', 'config', 'issu', 'improve', 'size', 'work', 'specifi', 'alloc', 'slot', 'default', 'heap', '\
+travers']
+1";
+	"['map', 'job']
+11" -> "['job', 'map', 'case', 'launch', 'stay', 'progress']
+1";
+	"['map', 'job']
+11" -> "['job', 'map', 'state', 'test', 'regression']
+1";
+	"['output', 'job', 'file', 'time']
+2" -> "['job', 'output', 'time', 'node', 'file', 'call', 'state', 'kill', 'thread', 'commit', 'heartbeat', 'alloc', 'mean', 'prevent', '\
+appear', 'method', 'lock', 'retain']
+1";
+	"['output', 'job', 'file', 'time']
+2" -> "['job', 'output', 'time', 'file', 'command']
+1";
+	"['reduc', 'job']
+3" -> "['job', 'reduc', 'file', 'contain', 'process', 'cache', 'number', 'index', 'function', 'condit', 'block', 'inform', 'name', 'system', '\
+calcul', 'store', 'locat', 'filesystem']
+1";
+	"['reduc', 'job']
+3" -> "['job', 'reduc', 'detect', 'state', 'stay', 'page', 'support', 'shutdown']
+1";
+	"['reduc', 'job']
+3" -> "['job', 'reduc', 'mapreduce', 'case', 'shuffl', 'manag', 'wait', 'report', 'merg', 'problem', 'saw', 'hang', 'race']
+1";
+	"['job', 'time']
+7" -> "['job', 'time', 'contain', 'case', 'end', 'sourc', 'config', 'master', 'number', 'schedul', 'applic', 'work', 'app', 'limit', 'capac', '\
+queue', 'base', 'deadlock']
+1";
+	"['job', 'time']
+7" -> "['call', 'job', 'set', 'end', 'time']
+3";
+	"['job', 'time']
+7" -> "['job', 'time', 'case', 'complet', 'perform', 'server', 'index', 'issu', 'histori', 'exception', 'lock', 'clean', 'address']
+1";
+	"['job', 'time']
+7" -> "['job', 'time', 'master', 'recov', 'report', 'app']
+1";
+	"['job', 'time']
+7" -> "['job', 'time', 'add', 'index', 'thread', 'bug']
+1";
+	"['job', 'file']
+4" -> "['job', 'file', 'complet', 'tracker', 'call', 'add', 'cache', 'memori', 'directori', 'leak', 'queue', 'system', 'delet', 'close', '\
+cleanup', 'stag']
+1";
+	"['job', 'file']
+4" -> "['job', 'file', 'mapreduce', 'complet', 'start', 'histori', 'recov', 'clean', 'record']
+1";
+	"['job', 'file']
+4" -> "['job', 'file', 'manag', 'thread', 'histori', 'block', 'size', 'creat', 'queue', 'core', 'pool', 'associ']
+1";
+	"['job', 'file']
+4" -> "['job', 'file', 'call', 'cluster', 'load', 'remov', 'custom', 'conf']
+1";
+	"['job', 'end', 'mapreduce']
+2" -> "['job', 'mapreduce', 'end', 'batch', 'disk', 'event', 'handler', 'histori', 'recov', 'test']
+1";
+	"['job', 'end', 'mapreduce']
+2" -> "['job', 'mapreduce', 'end', 'add', 'timeout', 'limit', 'support', 'mrv']
+1";
+	"['fail', 'job']
+2" -> "['job', 'fail', 'state', 'error', 'saw']
+1";
+	"['fail', 'job']
+2" -> "['job', 'fail', 'config', 'server', 'issu', 'histori', 'specifi', 'valu', 'submiss', 'custom', 'token', 'renew', 'user']
+1";
+	"['job', 'histori', 'stay', 'server']
+2" -> "['job', 'start', 'detect', 'server', 'load', 'thread', 'stay', 'histori', 'servic', 'touch', 'web', 'stack', 'custom']
+1";
+	"['job', 'histori', 'stay', 'server']
+2" -> "['job', 'server', 'kill', 'stay', 'histori', 'context', 'page', 'default']
+1";
+	"['job', 'mrapp', 'master', 'throw']
+2" -> "['job', 'master', 'code', 'mrapp', 'throw', 'xml']
+1";
+	"['job', 'mrapp', 'master', 'throw']
+2" -> "['job', 'master', 'cluster', 'state', 'event', 'exception', 'mrapp', 'throw', 'succeed', 'invalid', 'hdfs']
+1";
+	"['map', 'task']
+13" -> "['reduc', 'map', 'task', 'output']
+2";
+	"['map', 'task']
+13" -> "['fail', 'map', 'task']
+4";
+	"['map', 'task']
+13" -> "['map', 'task', 'output']
+3";
+	"['map', 'task']
+13" -> "['task', 'map', 'node', 'hadoop', 'shuffl', 'launch', 'result', 'level', 'limit', 'problem', 'aggreg', 'combin', 'resolv', 'manner', '\
+exist']
+1";
+	"['map', 'task']
+13" -> "['task', 'map', 'reduc', 'level', 'give', 'java', 'stream', 'provid', 'interface']
+1";
+	"['map', 'task']
+13" -> "['map', 'task', 'check']
+2";
+	"['reduc', 'task', 'result']
+2" -> "['task', 'reduc', 'config', 'fetch', 'result', 'schedul', 'phase', 'avoid', 'loop']
+1";
+	"['reduc', 'task', 'result']
+2" -> "['task', 'reduc', 'fail', 'mapreduce', 'complet', 'result', 'condit', 'report', 'problem', 'race']
+1";
+	"['task', 'time']
+2" -> "['task', 'time', 'file', 'sourc', 'hadoop', 'batch', 'notic', 'calcul', 'loop', 'child']
+1";
+	"['task', 'time']
+2" -> "['task', 'time', 'start', 'improve']
+1";
+}

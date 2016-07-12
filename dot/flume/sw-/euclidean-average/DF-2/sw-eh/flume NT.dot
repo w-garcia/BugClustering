@@ -1,0 +1,236 @@
+strict digraph  {
+	"['unknown']
+79" -> "['exception']
+40";
+	"['unknown']
+79" -> "['sink', 'file', 'event']
+2";
+	"['unknown']
+79" -> "['throw', 'error']
+3";
+	"['unknown']
+79" -> "['sink']
+6";
+	"['unknown']
+79" -> "['throw', 'error']
+2";
+	"['unknown']
+79" -> "['sourc', 'error', 'fail', 'node', 'config', 'rpc', 'messag', 'loop', 'updat']
+1";
+	"['unknown']
+79" -> "['file']
+4";
+	"['unknown']
+79" -> "['event', 'fail', 'flume', 'send', 'creat', 'messag', 'break', 'bodi', 'hold', 'charact', 'pars', 'exampl']
+1";
+	"['unknown']
+79" -> "['sourc']
+3";
+	"['unknown']
+79" -> "['fail', 'collector', 'config']
+2";
+	"['unknown']
+79" -> "['channel']
+4";
+	"['unknown']
+79" -> "['error']
+3";
+	"['unknown']
+79" -> "['node', 'flume', 'collector', 'hdfs', 'recov']
+1";
+	"['unknown']
+79" -> "['node']
+3";
+	"['unknown']
+79" -> "['close', 'collector', 'master', 'setup', 'singl']
+1";
+	"['unknown']
+79" -> "['flume', 'master', 'recov', 'condit', 'connect', 'relat', 'paus']
+1";
+	"['unknown']
+79" -> "['agent', 'master', 'mode']
+1";
+	"['unknown']
+79" -> "['exit', 'start', 'add', 'trace', 'lifecycle', 'base', 'compon', 'supervisor', 'jira', 'patch', 'content']
+1";
+	"['exception']
+40" -> "['exception', 'sink']
+17";
+	"['exception']
+40" -> "['exception', 'event', 'file', 'channel']
+2";
+	"['exception']
+40" -> "['exception', 'throw']
+10";
+	"['exception']
+40" -> "['exception', 'sourc', 'event', 'flume', 'exit', 'agent', 'detect', 'state', 'exist', 'queue', 'directori', 'spool', 'charact', '\
+lack', 'repeat', 'function', 'visit']
+1";
+	"['exception']
+40" -> "['exception', 'sourc']
+5";
+	"['exception']
+40" -> "['exception', 'channel', 'close', 'call', 'catch', 'check', 'processor', 'condit', 'block', 'work', 'clobber', 'allow']
+1";
+	"['exception']
+40" -> "['exception', 'node', 'flume', 'collector', 'send', 'recov', 'problem', 'attempt', 'name', 'reconnect', 'fix', 'time', 'instanc', '\
+consol', 'servic']
+1";
+	"['exception']
+40" -> "['exception', 'error', 'catch', 'class', 'method', 'lifecycle', 'supervisor', 'runtim', 'monitor', 'eat', 'runnabl', 'wrap']
+1";
+	"['exception']
+40" -> "['exception', 'config', 'problem']
+1";
+	"['exception']
+40" -> "['exception', 'node', 'catch', 'rpc', 'test', 'list', 'address', 'appear', 'host', 'load', 'valid', 'next', 'provid', 'balanc']
+\
+1";
+	"['sink', 'file', 'event']
+2" -> "['sink', 'sourc', 'file', 'event', 'config', 'collector', 'agent', 'master', 'problem', 'duplic', 'tcp', 'eechain', 'number']
+1";
+	"['sink', 'file', 'event']
+2" -> "['sink', 'file', 'error', 'event', 'fail', 'channel', 'close', 'hdfs', 'data', 'map', 'address', 'remov', 'persist', 'consum', '\
+delet', 'environ']
+1";
+	"['throw', 'error']
+3" -> "['throw', 'sourc', 'error', 'event', 'flume', 'send', 'memori', 'test', 'data', 'out', 'netcat']
+1";
+	"['throw', 'error']
+3" -> "['hadoop', 'throw', 'file', 'error', 'catch', 'class', 'channel']
+2";
+	"['sink']
+6" -> "['sink', 'event', 'flume', 'collector', 'agent', 'restart']
+1";
+	"['sink']
+6" -> "['transfer', 'sink', 'error']
+2";
+	"['sink']
+6" -> "['sink', 'flume', 'send', 'detect', 'process', 'hbase', 'restart', 'data', 'mention', 'command', 'resum', 'attr', 'order']
+1";
+	"['sink']
+6" -> "['sink', 'hdfs', 'exit', 'enabl', 'support', 'featur', 'conf']
+1";
+	"['sink']
+6" -> "['sink', 'start', 'class', 'hbase', 'recov', 'exist', 'async']
+1";
+	"['throw', 'error']
+2" -> "['sink', 'throw', 'error', 'call', 'hbase', 'check', 'exist', 'put', 'base', 'valid', 'paramet']
+1";
+	"['throw', 'error']
+2" -> "['throw', 'error', 'start', 'catch', 'class', 'creat', 'fix', 'method', 'found', 'def', 'compon']
+1";
+	"['file']
+4" -> "['sourc', 'file', 'error', 'flume', 'state', 'attempt', 'read', 'report', 'tail', 'instal', 'default', 'user']
+1";
+	"['file']
+4" -> "['hdfs', 'file']
+3";
+	"['sourc']
+3" -> "['sourc', 'close', 'kill', 'stick', 'exec']
+1";
+	"['sourc']
+3" -> "['sourc', 'collector', 'master', 'chain', 'bug', 'command', 'auto', 'replac']
+1";
+	"['sourc']
+3" -> "['sourc', 'rpc', 'queue', 'outofmemory', 'exec', 'implement', 'nio']
+1";
+	"['fail', 'collector', 'config']
+2" -> "['fail', 'config', 'collector', 'detect', 'mode', 'dfo', 'network']
+1";
+	"['fail', 'collector', 'config']
+2" -> "['file', 'fail', 'config', 'collector', 'loop', 'bodi', 'size']
+1";
+	"['channel']
+4" -> "['fail', 'channel', 'exit', 'detect', 'process', 'restart', 'result', 'interrupt', 'loss', 'add', 'corrupt', 'abil', 'dataloss', '\
+checkpoint']
+1";
+	"['channel']
+4" -> "['channel', 'agent', 'test', 'downstream', 'outofmemory', 'trunk']
+1";
+	"['channel']
+4" -> "['file', 'channel']
+2";
+	"['error']
+3" -> "['error', 'node', 'exit', 'rpc', 'memori', 'attempt', 'reconnect', 'out', 'outofmemory', 'batch', 'trace', 'lack']
+1";
+	"['error']
+3" -> "['error', 'transfer', 'call', 'handl', 'point', 'regard']
+1";
+	"['error']
+3" -> "['error', 'null', 'class', 'messag', 'hold', 'pars', 'util', 'valu']
+1";
+	"['node']
+3" -> "['node', 'close', 'transfer', 'master', 'reconnect']
+1";
+	"['node']
+3" -> "['node', 'map']
+2";
+	"['exception', 'sink']
+17" -> "['node', 'exception', 'sourc', 'config', 'sink']
+2";
+	"['exception', 'sink']
+17" -> "['exception', 'sink', 'throw']
+7";
+	"['exception', 'sink']
+17" -> "['fail', 'exception', 'sink', 'event']
+3";
+	"['exception', 'sink']
+17" -> "['exception', 'collector', 'sink']
+2";
+	"['exception', 'sink']
+17" -> "['exception', 'sink', 'file']
+3";
+	"['exception', 'event', 'file', 'channel']
+2" -> "['exception', 'file', 'event', 'fail', 'channel', 'agent', 'data', 'queue', 'loss', 'put', 'write', 'rollback', 'stop', 'replay']
+\
+1";
+	"['exception', 'event', 'file', 'channel']
+2" -> "['exception', 'sink', 'file', 'event', 'channel', 'flume', 'null', 'detect', 'pointer', 'restart', 'memori', 'fix', 'expect', 'remov', '\
+deliveri', 'header', 'miss']
+1";
+	"['exception', 'throw']
+10" -> "['exception', 'throw', 'file']
+4";
+	"['exception', 'throw']
+10" -> "['exception', 'event', 'throw']
+4";
+	"['exception', 'throw']
+10" -> "['exception', 'throw', 'error', 'start', 'check', 'exist', 'directori', 'chang', 'util', 'someth', 'loo']
+1";
+	"['exception', 'throw']
+10" -> "['exception', 'throw', 'flume', 'append', 'loss', 'connect']
+1";
+	"['exception', 'sourc']
+5" -> "['exception', 'sourc', 'node', 'config', 'start', 'null', 'pointer', 'append', 'mode', 'batch', 'trace', 'program']
+1";
+	"['exception', 'sourc']
+5" -> "['exception', 'sourc', 'channel']
+4";
+	"['hadoop', 'throw', 'file', 'error', 'catch', 'class', 'channel']
+2" -> "['throw', 'file', 'error', 'fail', 'channel', 'hdfs', 'agent', 'start', 'catch', 'class', 'memori', 'name', 'depend', 'expect', '\
+hadoop', 'write', 'found', 'machin', 'def', 'instal', 'factori', 'requir', 'emb', 'idea', 'jdbc']
+1";
+	"['hadoop', 'throw', 'file', 'error', 'catch', 'class', 'channel']
+2" -> "['throw', 'file', 'error', 'event', 'channel', 'catch', 'class', 'detect', 'state', 'interrupt', 'kill', 'hang', 'put', 'serial', '\
+hadoop', 'implement', 'thread', 'load', 'repeat', 'shutdown', 'respond', 'lib']
+1";
+	"['transfer', 'sink', 'error']
+2" -> "['sink', 'error', 'hdfs', 'transfer', 'call', 'open', 'begin']
+1";
+	"['transfer', 'sink', 'error']
+2" -> "['sink', 'error', 'close', 'transfer', 'hbase', 'scenario']
+1";
+	"['hdfs', 'file']
+3" -> "['file', 'node', 'hdfs', 'creat', 'batch', 'appear', 'corrupt', 'truncat', 'zip', 'attach']
+1";
+	"['hdfs', 'file']
+3" -> "['flume', 'hdfs', 'close', 'file', 'error']
+2";
+	"['file', 'channel']
+2" -> "['file', 'channel', 'agent', 'start', 'time', 'step']
+1";
+	"['file', 'channel']
+2" -> "['file', 'channel', 'read', 'block', 'hold']
+1";
+}

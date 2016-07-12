@@ -1,0 +1,167 @@
+strict digraph  {
+	"['unknown']
+39" -> "['region']
+18";
+	"['unknown']
+39" -> "['hbase', 'thread', 'server']
+3";
+	"['unknown']
+39" -> "['cluster']
+7";
+	"['unknown']
+39" -> "['server', 'time', 'load', 'insert', 'race', 'close', 'error', 'sync', 'stream']
+1";
+	"['unknown']
+39" -> "['hbase', 'block', 'data', 'compact', 'cache', 'applic', 'improve', 'prefix', 'hit', 'format', 'encod']
+1";
+	"['unknown']
+39" -> "['queue', 'block', 'time', 'creat', 'list', 'hold', 'code', 'cache', 'link', 'access', 'sort']
+1";
+	"['unknown']
+39" -> "['start', 'connect', 'thread']
+2";
+	"['unknown']
+39" -> "['queue', 'handler', 'size', 'call', 'count', 'rpc', 'chang', 'notic', 'bug']
+1";
+	"['unknown']
+39" -> "['node', 'connect', 'regionserv', 'power', 'continu']
+1";
+	"['unknown']
+39" -> "['list', 'scanner', 'size']
+2";
+	"['unknown']
+39" -> "['avoid']
+2";
+	"['region']
+18" -> "['region', 'cluster', 'hbase', 'node', 'block', 'data', 'load', 'read', 'hbck', 'parallel', 'file', 'second', 'encount', 'hdfs', '\
+attempt', 'progress', 'share']
+1";
+	"['region']
+18" -> "['cluster', 'region']
+4";
+	"['region']
+18" -> "['region', 'server']
+3";
+	"['region']
+18" -> "['region', 'node', 'handler', 'time', 'creat', 'master', 'split', 'race', 'delet', 'kill', 'saw']
+1";
+	"['region']
+18" -> "['region', 'queue', 'handler', 'data', 'call', 'insert', 'problem', 'hregion', 'obtain', 'key', 'wait', 'deadlock', 'lock', 'sequenc', '\
+user']
+1";
+	"['region']
+18" -> "['region', 'hbase', 'issu', 'creat', 'close', 'name', 'patch', 'index', 'version', 'stack']
+1";
+	"['region']
+18" -> "['start', 'region', 'assign']
+2";
+	"['region']
+18" -> "['region', 'time', 'load', 'assign', 'check', 'add', 'hbck', 'lead', 'current', 'test', 'meta', 'hdfs', 'info', 'option']
+1";
+	"['region']
+18" -> "['region', 'time', 'scanner', 'code', 'find', 'memstor', 'oper', 'seek', 'skip', 'iter', 'set', 'situat', 'place', 'event']
+1";
+	"['region']
+18" -> "['region', 'check', 'min', 'split', 'lead', 'hold', 'process']
+1";
+	"['region']
+18" -> "['region', 'assign', 'slow', 'bulk']
+1";
+	"['region']
+18" -> "['region', 'block', 'write', 'memstor', 'flush']
+1";
+	"['hbase', 'thread', 'server']
+3" -> "['server', 'hbase', 'queue', 'start', 'node', 'connect', 'fail', 'load', 'thread', 'size', 'creat', 'call', 'min', 'request', 'add', '\
+case', 'test', 'find', 'bound', 'custom', 'default', 'increment', 'pool', 'attempt', 'consum', 'drop', 'side', 'pass', 'max', 'context', '\
+implement', 'put', 'memori', 'worker', 'argument', 'crash', 'thrift', 'hang', 'command']
+1";
+	"['hbase', 'thread', 'server']
+3" -> "['hbase', 'handler', 'thread', 'server']
+2";
+	"['cluster']
+7" -> "['cluster', 'server', 'fail', 'tabl', 'split', 'paus', 'hregion', 'better', 'duplic']
+1";
+	"['cluster']
+7" -> "['cluster', 'hbase']
+3";
+	"['cluster']
+7" -> "['issu', 'cluster']
+3";
+	"['start', 'connect', 'thread']
+2" -> "['start', 'connect', 'thread', 'local', 'open', 'pool', 'discuss', 'trunk']
+1";
+	"['start', 'connect', 'thread']
+2" -> "['queue', 'start', 'connect', 'handler', 'thread', 'request', 'outofmemory', 'prevent', 'bound', 'send', 'answer', 'backup', 'sourc']
+\
+1";
+	"['list', 'scanner', 'size']
+2" -> "['size', 'scanner', 'add', 'list', 'count', 'outofmemory', 'write', 'compact', 'ing']
+1";
+	"['list', 'scanner', 'size']
+2" -> "['size', 'scanner', 'list', 'improve', 'oper']
+1";
+	"['avoid']
+2" -> "['avoid', 'file', 'seek', 'help', 'queri', 'multipl', 'reduc']
+1";
+	"['avoid']
+2" -> "['data', 'scanner', 'request', 'avoid', 'default', 'batch', 'store', 'compar']
+1";
+	"['cluster', 'region']
+4" -> "['cluster', 'region', 'server']
+2";
+	"['cluster', 'region']
+4" -> "['region', 'cluster', 'fail', 'hbck', 'encount', 'function', 'exception', 'error', 'problem', 'point', 'execut', 'show']
+1";
+	"['cluster', 'region']
+4" -> "['region', 'cluster', 'tabl', 'regionserv', 'balanc', 'follow']
+1";
+	"['region', 'server']
+3" -> "['region', 'server', 'node', 'fail', 'creat', 'tabl', 'shell']
+1";
+	"['region', 'server']
+3" -> "['region', 'server', 'master', 'split', 'parallel', 'shutdown']
+1";
+	"['region', 'server']
+3" -> "['region', 'server', 'assign', 'tabl', 'slow', 'lead', 'second', 'open', 'directori']
+1";
+	"['start', 'region', 'assign']
+2" -> "['region', 'start', 'issu', 'assign', 'min', 'bulk', 'timeout', 'rit', 'environ']
+1";
+	"['start', 'region', 'assign']
+2" -> "['region', 'start', 'fail', 'assign', 'regionserv', 'master']
+1";
+	"['hbase', 'handler', 'thread', 'server']
+2" -> "['server', 'hbase', 'connect', 'handler', 'data', 'thread', 'read', 'network', 'current', 'parallel', 'function', 'optim', 'object']
+\
+1";
+	"['hbase', 'handler', 'thread', 'server']
+2" -> "['server', 'hbase', 'queue', 'issu', 'block', 'handler', 'thread', 'size', 'call', 'request', 'paus', 'avoid', 'outofmemory', 'link', '\
+result', 'state', 'entri']
+1";
+	"['cluster', 'hbase']
+3" -> "['cluster', 'hbase', 'start', 'node', 'network', 'move', 'prevent', 'meta', 'host', 'shutdown', 'exception', 'root', 'develop']
+\
+1";
+	"['cluster', 'hbase']
+3" -> "['cluster', 'hbase', 'block', 'data', 'regionserv', 'local', 'enabl', 'base', 'featur']
+1";
+	"['cluster', 'hbase']
+3" -> "['cluster', 'hbase', 'read', 'network', 'write', 'applic', 'rpc', 'batch', 'result', 'ttl']
+1";
+	"['issu', 'cluster']
+3" -> "['cluster', 'queue', 'issu', 'fail', 'time', 'check', 'slow', 'case', 'file', 'zookeeper', 'delet', 'keeper', 'remov', 'point', '\
+mean', 'hlog', 'cleaner', 'replica', 'clean']
+1";
+	"['issu', 'cluster']
+3" -> "['cluster', 'start', 'node', 'issu', 'connect', 'min', 'current', 'zookeeper', 'keeper', 'refer']
+1";
+	"['issu', 'cluster']
+3" -> "['cluster', 'issu', 'test', 'custom', 'increment', 'path']
+1";
+	"['cluster', 'region', 'server']
+2" -> "['region', 'cluster', 'server', 'master', 'check', 'paus', 'hold', 'host', 'remov', 'restart']
+1";
+	"['cluster', 'region', 'server']
+2" -> "['region', 'cluster', 'server', 'issu', 'load', 'tabl', 'count', 'case', 'move', 'balanc', 'handl', 'algorithm', 'exampl']
+1";
+}

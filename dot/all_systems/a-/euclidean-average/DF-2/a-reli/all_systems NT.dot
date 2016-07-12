@@ -1,0 +1,83 @@
+strict digraph  {
+	"['unknown']
+2325" -> "['fail']
+585";
+	"['unknown']
+2325" -> "['exception']
+354";
+	"['unknown']
+2325" -> "['node']
+253";
+	"['unknown']
+2325" -> "['file']
+200";
+	"['unknown']
+2325" -> "['test']
+71";
+	"['unknown']
+2325" -> "['region']
+118";
+	"['unknown']
+2325" -> "['data']
+69";
+	"['unknown']
+2325" -> "['server']
+23";
+	"['unknown']
+2325" -> "['error']
+53";
+	"['unknown']
+2325" -> "['start']
+25";
+	"['unknown']
+2325" -> "['hbase']
+34";
+	"['unknown']
+2325" -> "['creat']
+25";
+	"['unknown']
+2325" -> "['issu']
+28";
+	"['unknown']
+2325" -> "['set']
+25";
+	"['unknown']
+2325" -> "['job']
+23";
+	"['fail']
+585" -> "['fail', 'exception']
+127";
+	"['fail']
+585" -> "['fail', 'node']
+97";
+	"['fail']
+585" -> "['fail', 'file']
+64";
+	"['fail']
+585" -> "['fail', 'test']
+106";
+	"['exception']
+354" -> "['node', 'exception']
+62";
+	"['exception']
+354" -> "['exception', 'file']
+37";
+	"['exception']
+354" -> "['test', 'exception']
+32";
+	"['exception']
+354" -> "['exception', 'region']
+23";
+	"['node']
+253" -> "['node', 'file']
+37";
+	"['node']
+253" -> "['node', 'data']
+27";
+	"['file']
+200" -> "['data', 'file']
+25";
+	"['fail', 'exception']
+127" -> "['node', 'fail', 'exception']
+39";
+}
