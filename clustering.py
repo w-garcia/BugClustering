@@ -7,6 +7,7 @@ import pygraphviz as pg
 from collections import OrderedDict, Counter
 import util
 import DBModel
+from Ticket import Ticket
 
 
 class LabelledClusterNode(ClusterNode):
@@ -20,6 +21,7 @@ class LabelledClusterNode(ClusterNode):
         self.children_list = []
         self.num_leaf_nodes = 1
         self.head = None
+        self.ground_truth = []
 
 
 class LabelledTree:
@@ -31,29 +33,27 @@ class LabelledTree:
     After all leaves are labelled, the parents are labelled according to the intersection of its children's labels.
     This labelled binary tree is then transformed into an n-ary tree, which can be drawn with pygraphviz.
     """
-    def __init__(self, root, list_of_keyword_to_weights, system_name, list_of_ticket_classes):
+    def __init__(self, root, system_name, list_of_tickets):
         self.tree = LabelledClusterNode(root)
-        self.list_of_keyword_to_weights = list_of_keyword_to_weights
-        self.list_of_ticket_classes = list_of_ticket_classes
+        self.list_of_tickets = list_of_tickets
         self.system_name = system_name
 
-    def generate_keywords_label(self, nid):
-        keyword_weights = self.list_of_keyword_to_weights[nid]
+    @staticmethod
+    def build_keyword_to_weight_dict_from_ticket(ticket_of_interest):
+        list_nonzero_weights = ticket_of_interest.nonzero_vector
+        list_keywords = ticket_of_interest.keywords
 
-        # TODO: Need to cache this for speedup
-        # First cast dictionary values to float
-        for keyword in keyword_weights.keys():
-            keyword_weights[keyword] = float(keyword_weights[keyword])
+        kw_to_weight_dict = {}
+        for i in range(len(list_nonzero_weights)):
+            kw_to_weight_dict[list_keywords[i]] = list_nonzero_weights[i]
+
+        return kw_to_weight_dict
+
+    def generate_keywords_label(self, nid):
+        keyword_weights = self.build_keyword_to_weight_dict_from_ticket(ticket_of_interest=self.list_of_tickets[nid])
 
         # Sort according to value
-        keyword_weights = OrderedDict(sorted(keyword_weights.items(), key=lambda t: t[1], reverse=True))
-        nonzero_keywords = []
-
-        for keyword in keyword_weights:
-            if keyword_weights[keyword] > 0:
-                nonzero_keywords.append(keyword)
-
-        return nonzero_keywords
+        return OrderedDict(sorted(keyword_weights.items(), key=lambda t: t[1], reverse=True)).keys()
 
     def create_label_tree(self):
         # DFS through scipy tree and convert to label leaf nodes according to T
@@ -183,7 +183,7 @@ def draw_binary_tree(Tree, filepath, max_tree_size):
     A.write('{}{} BT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
     A.draw('{}{} BT.png'.format(dot_path, Tree.system_name))
-    print "[Clustering] : Created binary tree at path {}.".format('{}{} BT.png'.format(dot_path, Tree.system_name))
+    print "[clustering] : Created binary tree at path {}.".format('{}{} BT.png'.format(dot_path, Tree.system_name))
 
 
 def create_node_string(node):
@@ -196,7 +196,7 @@ def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
 
     # Get value thats 1% of total nodes in tree
     num_leaf_nodes_cutoff = int(0.01 * Tree.tree.num_leaf_nodes)
-    print "[Clustering] : Leaf node cutoff: {}.".format(num_leaf_nodes_cutoff)
+    print "[clustering] : Leaf node cutoff: {}.".format(num_leaf_nodes_cutoff)
 
     # BFS trough the tree and draw first 300 nodes
     level = 0
@@ -225,7 +225,7 @@ def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
     A.write('{}{} NT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
     A.draw('{}{} NT Score={}.png'.format(dot_path, Tree.system_name, correlation))
-    print "[Clustering] : Created n-ary tree at path {}.".format('{}{} NT Score={}.png'.format(dot_path,
+    print "[clustering] : Created n-ary tree at path {}.".format('{}{} NT Score={}.png'.format(dot_path,
                                                                                                Tree.system_name,
                                                                                                correlation))
 
@@ -239,7 +239,7 @@ def cluster(system_name):
         cluster_by_all(system_name, max_tree_size)
     else:
         cluster_by_filter(system_name, systems_filter, class_clustering_filter, max_tree_size)
-    print "[Status] : Generated tree drawings."
+    print "[status] : Generated tree drawings."
 
 
 def cluster_by_all(system_name, max_tree_size):
@@ -248,16 +248,20 @@ def cluster_by_all(system_name, max_tree_size):
 
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
-        list_of_keyword_to_weights = [rows for rows in reader]
+        list_of_ticket_dicts = [rows for rows in reader]
 
-    if len(list_of_keyword_to_weights) < 1:
-        print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+    if len(list_of_ticket_dicts) < 1:
+        print "[warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
-    tickets_to_weights_matrix = construct_matrix(list_of_keyword_to_weights)
+    # Create list of keyword weights, keeping string format
+    list_of_weights = [ticket_dict['vector'] for ticket_dict in list_of_ticket_dicts]
+
+    # Construct matrix from the list of keyword dictionaries
+    tickets_to_weights_matrix = construct_matrix(list_of_weights)
 
     if tickets_to_weights_matrix.shape[0] < 2:
-        print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+        print "[warning] : Not enough tickets to generate clusters. Skipping..."
         return
 
     method = cfg.cluster_similarity_method
@@ -270,28 +274,49 @@ def cluster_by_all(system_name, max_tree_size):
 
     correlation, coph_dists = cophenet(Z, Y)
 
-    print "[Status] : Cophenetic Correlation: {}".format(correlation)
-
-    list_of_ticket_classes = []
+    print "[{}] : Cophenetic Correlation: {}".format(system_name, correlation)
 
     root_node = to_tree(Z, rd=False)
-    Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name, list_of_ticket_classes)
+    list_of_tickets = build_ticket_list(list_of_ticket_dicts)
+    Tree = LabelledTree(root_node, system_name, list_of_tickets)
     Tree.create_label_tree()
 
     #draw_binary_tree(Tree, tree_path, max_tree_size)
     Tree.create_nary_from_label_tree()
     draw_nary_tree(Tree, max_tree_size, correlation)
 
+    print "[{}] : Tree generated.".format(system_name, system_name)
 
-def construct_matrix(list_of_keyword_to_weights):
-    tickets_to_weights_matrix = numpy.zeros((len(list_of_keyword_to_weights), len(list_of_keyword_to_weights[0])))
+
+def build_ticket_list(list_of_ticket_dicts):
+    ticket_list = []
+    for ticket_dict in list_of_ticket_dicts:
+        desc = ticket_dict['description']
+        id = ticket_dict['id']
+        classes = ticket_dict['classification']
+        system = ticket_dict['system']
+        vector = [float(x) for x in ticket_dict['vector'].split(' ')]
+        keywords = [word for word in ticket_dict['keywords'].split(' ')]
+        t = Ticket(id, desc, classes, system, vector, keywords)
+        ticket_list.append(t)
+
+    return ticket_list
+
+
+def construct_matrix(list_of_weights):
+    # Build a numpy matrix of m x n, where m is number of documents and n is number of keywords
+    tickets_to_weights_matrix = numpy.zeros((len(list_of_weights), len(list_of_weights[0].split(' '))))
+
+    m = len(list_of_weights)
     # Construct matrix of weights as integer only numpy matrix
-    for i in range(len(list_of_keyword_to_weights)):
-        for j in range(len(list_of_keyword_to_weights[0])):
-            word_key = list_of_keyword_to_weights[i].keys()[j]
-            tickets_to_weights_matrix[i, j] = list_of_keyword_to_weights[i][word_key]
+    for i in range(m):
+        list_of_float_weights = [float(x) for x in list_of_weights[i].split(' ')]
+        n = len(list_of_float_weights)
 
-    print "[Status] : Shape is {}".format(tickets_to_weights_matrix.shape)
+        for j in range(n):
+            tickets_to_weights_matrix[i, j] = list_of_float_weights[j]
+
+    print "[status] : Shape is {}".format(tickets_to_weights_matrix.shape)
 
     return tickets_to_weights_matrix
 
@@ -327,18 +352,21 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
 
         with open(filename, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
-            list_of_keyword_to_weights = [rows for rows in reader]
+            list_of_ticket_dicts = [rows for rows in reader]
 
-        if len(list_of_keyword_to_weights) < 1:
-            print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+        if len(list_of_ticket_dicts) < 1:
+            print "[warning] : Not enough tickets to generate clusters. Skipping..."
             continue
 
-        tickets_to_weights_matrix = construct_matrix(list_of_keyword_to_weights)
+        # Create list of keyword weights, keeping string format
+        list_of_weights = [ticket_dict['vector'] for ticket_dict in list_of_ticket_dicts]
+
+        # Construct matrix from the list of keyword dictionaries
+        tickets_to_weights_matrix = construct_matrix(list_of_weights)
 
         if tickets_to_weights_matrix.shape[0] < 2:
-            print "[Warning] : Not enough tickets to generate clusters. Skipping..."
+            print "[warning] : Not enough tickets to generate clusters. Skipping..."
             continue
-
 
         method = cfg.cluster_similarity_method
         metric = cfg.distance_metric
@@ -350,16 +378,15 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
 
         correlation, coph_dists = cophenet(Z, Y)
 
-        print "[Status] : Cophenetic Correlation: {}".format(correlation)
+        print "[{}:{}] : Cophenetic Correlation: {}".format(system_name, c, correlation)
 
-        list_of_ticket_classes = []
-
+        list_of_tickets = build_ticket_list(list_of_ticket_dicts)
         root_node = to_tree(Z, rd=False)
-        Tree = LabelledTree(root_node, list_of_keyword_to_weights, system_name, list_of_ticket_classes)
+        Tree = LabelledTree(root_node, system_name, list_of_tickets)
         Tree.create_label_tree()
 
         # draw_binary_tree(Tree, tree_path, max_tree_size)
         Tree.create_nary_from_label_tree()
         draw_nary_tree(Tree, max_tree_size, correlation, c)
 
-        print "[Status] : Tree generated for {}.".format(c)
+        print "[{}:{}] : Tree generated.".format(system_name, c)

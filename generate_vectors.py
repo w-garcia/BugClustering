@@ -5,6 +5,7 @@ import collections
 import DBModel
 import util
 import math
+from Ticket import Ticket
 
 def generate_vectors(name):
     systems_filter = cfg.systems_filter
@@ -23,14 +24,17 @@ def generate_vectors(name):
 
 
 def cluster_by_all(name, selection):
-    list_of_descriptions = []
+    list_of_tickets = []
 
     for row in selection:
-        list_of_descriptions.append(row.description)
+        t = Ticket(row.id, row.description, row.classification, row.system)
 
-    list_trouble_ticket_dicts = create_list_of_trouble_ticket_dicts(list_of_descriptions, name)
+        list_of_tickets.append(t)
 
-    if list_trouble_ticket_dicts is None:
+    list_ticket_dicts = []
+    create_list_of_trouble_ticket_dicts(list_of_tickets, name, list_ticket_dicts)
+
+    if len(list_ticket_dicts) < 1:
         return
 
     vector_path = util.generate_meta_path(name, 'vectors')
@@ -38,28 +42,31 @@ def cluster_by_all(name, selection):
 
     # Write the matrix to csv file
     filename = vector_path + name + '_vectors.csv'
-    write_matrix_file(filename, list_trouble_ticket_dicts)
-    print "[Status] : Vector generated for {}.".format(name)
+    write_matrix_file(filename, list_ticket_dicts)
+    print "[status] : Vector generated for {}.".format(name)
 
 
 def cluster_by_filter(name, selection, class_key):
-    class_to_list_of_descriptions_dict = collections.defaultdict(list)
-    set_of_all_descriptions = set()
+    class_to_list_of_tickets_dict = collections.defaultdict(list)
 
     # Create ground truth vectors for each class
     for row in selection:
         classes_to_keep = extract_classes_from_row(class_key, row)
 
+        # Add the filter of interest to build a non-truth list
+        classes_to_keep.add(class_key)
+
         for c in classes_to_keep:
-            class_to_list_of_descriptions_dict[c].append(row.description)
-            set_of_all_descriptions.add(row.description)
+            t = Ticket(row.id, row.description, row.classification, row.system)
+            class_to_list_of_tickets_dict[c].append(t)
 
-    for c in class_to_list_of_descriptions_dict:
-        list_of_descriptions = class_to_list_of_descriptions_dict[c]
+    for c in class_to_list_of_tickets_dict:
+        _list_of_tickets = class_to_list_of_tickets_dict[c]
 
-        list_trouble_ticket_dicts = create_list_of_trouble_ticket_dicts(list_of_descriptions, name, c)
+        list_ticket_dicts = []
+        create_list_of_trouble_ticket_dicts(_list_of_tickets, name, list_ticket_dicts, c)
 
-        if list_trouble_ticket_dicts is None:
+        if len(list_ticket_dicts) < 1:
             return
 
         vector_path = util.generate_meta_path(name, 'vectors', c)
@@ -67,22 +74,8 @@ def cluster_by_filter(name, selection, class_key):
 
         # Write the matrix to csv file
         filename = vector_path + name + '_vectors.csv'
-        write_matrix_file(filename, list_trouble_ticket_dicts)
-        print "[Status] : Vector generated for {}.".format(c)
-
-    # Create vector for entire class filter
-    list_trouble_ticket_dicts = create_list_of_trouble_ticket_dicts(set_of_all_descriptions, name, class_key)
-
-    if list_trouble_ticket_dicts is None:
-        return
-
-    vector_path = util.generate_meta_path(name, 'vectors', class_key)
-    util.ensure_path_exists(vector_path)
-
-    # Write the matrix to csv file
-    filename = vector_path + name + '_vectors.csv'
-    write_matrix_file(filename, list_trouble_ticket_dicts)
-    print "[Status] : Vector generated for {}.".format(class_key)
+        write_matrix_file(filename, list_ticket_dicts)
+        print "[status] : Vector generated for {}.".format(c)
 
 
 def extract_classes_from_row(class_key, row):
@@ -99,33 +92,23 @@ def extract_classes_from_row(class_key, row):
     return classes_to_keep
 
 
-def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='none'):
+def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticket_dicts, c='none'):
     term_frequency_dict = collections.Counter()
     document_frequency_dict = collections.Counter()
 
     weighting_scheme = cfg.weighting_scheme
 
-    # Get TF and DF dicts for this list of description's dataset
-    for description in list_of_descriptions:
-        words = nltk.word_tokenize(description)
-        words_found = set()
-
-        for word in words:
-            word = word.encode('utf-8')
-            term_frequency_dict[word] += 1
-            # Only increment if the ticket contains an instance of the keyword (DF)
-            if word not in words_found:
-                words_found.add(word)
-                document_frequency_dict[word] += 1
-        words_found.clear()
-    list_trouble_ticket_dicts = []
+    # Get TF and DF dicts for this dataset
+    create_dictionaries(document_frequency_dict, list_of_tickets, term_frequency_dict)
 
     # With the DF dictionary, create the weight vector representing each ticket
     # TODO: Might be a spot for further optimization
-    for description in list_of_descriptions:
+    for ticket in list_of_tickets:
+        words_found = set()
+
         # Vector representing the ticket
         keyword_to_weight_dict = dict((keyword, 0) for keyword in document_frequency_dict.keys())
-        words = nltk.word_tokenize(description)
+        words = nltk.word_tokenize(ticket.description)
 
         for word in words:
             word = word.encode('utf-8')
@@ -141,12 +124,19 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
                 elif weighting_scheme == 'TFxIDF':
                     keyword_to_weight_dict[word] = TF*IDF
 
-        words_found.clear()
-        list_trouble_ticket_dicts.append(keyword_to_weight_dict)
+        # Parameterize the numeric weights as a list of strings
+        list_weights = [str(x) for x in keyword_to_weight_dict.values()]
+        list_keywords = [word for word in keyword_to_weight_dict.keys() if keyword_to_weight_dict[word] > 0]
 
-    if len(list_trouble_ticket_dicts) < 1:
-        print "[Warning] : Not enough tickets to generate vectors. Skipping..."
-        return None
+        # Create dictionary representing this ticket
+        _ticket_dict = {'id': ticket.id, 'description': ticket.description,
+                        'classification': ticket.classes, 'system': ticket.system,
+                        'vector': ' '.join(list_weights), 'keywords': ' '.join(list_keywords)}
+        list_ticket_dicts.append(_ticket_dict)
+
+    if len(list_ticket_dicts) < 1:
+        print "[warning] : Not enough tickets to generate vectors. Skipping..."
+        return
 
     vector_path = util.generate_meta_path(system_name, 'vectors', c)
     util.ensure_path_exists(vector_path)
@@ -169,20 +159,32 @@ def create_list_of_trouble_ticket_dicts(list_of_descriptions, system_name, c='no
         for row in list_word_to_weights:
             writer.writerow(row)
 
-    print "[Vectors] : Wrote word to weights file."
+    print "[{}] : Wrote word to weights file.".format(system_name)
 
-    return list_trouble_ticket_dicts
+
+def create_dictionaries(document_frequency_dict, list_of_tickets, term_frequency_dict):
+    for ticket in list_of_tickets:
+        words = nltk.word_tokenize(ticket.description)
+        words_found = set()
+
+        for word in words:
+            word = word.encode('utf-8')
+            term_frequency_dict[word] += 1
+            # Only increment if the ticket contains an instance of the keyword (DF)
+            if word not in words_found:
+                words_found.add(word)
+                document_frequency_dict[word] += 1
 
 
 def sigmoid(x):
     return 1.0 / (1.0 + math.exp(-x))
 
 
-def write_matrix_file(filename, list_trouble_ticket_dicts):
+def write_matrix_file(filename, list_of_dicts):
     with open(filename, 'w') as csvfile:
-        fieldnames = list_trouble_ticket_dicts[0].keys()
+        fieldnames = list_of_dicts[0].keys()
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
-        for row in list_trouble_ticket_dicts:
+        for row in list_of_dicts:
             writer.writerow(row)

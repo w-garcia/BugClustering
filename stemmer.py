@@ -99,7 +99,7 @@ def stem_system(system_name):
 
     DBModel.Stemmed_Keyword.overwrite_system_rows(system_name, list_of_stem_dicts)
 
-    print "[Stemmer] : Stemmed " + system_name + "."
+    print "[stemmer] : Stemmed " + system_name + "."
 
 
 def regex_match_reduce(word):
