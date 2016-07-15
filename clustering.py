@@ -4,7 +4,7 @@ from config import config as cfg
 from scipy.cluster.hierarchy import *
 from scipy.spatial.distance import pdist
 import pygraphviz as pg
-from collections import OrderedDict, Counter
+from collections import OrderedDict, Counter, defaultdict
 import util
 import DBModel
 from Ticket import Ticket
@@ -22,6 +22,7 @@ class LabelledClusterNode(ClusterNode):
         self.num_leaf_nodes = 1
         self.head = None
         self.ground_truth = []
+        self.ticket = None
 
 
 class LabelledTree:
@@ -55,6 +56,21 @@ class LabelledTree:
         # Sort according to value
         return OrderedDict(sorted(keyword_weights.items(), key=lambda t: t[1], reverse=True)).keys()
 
+    def generate_ground_truth(self, nid):
+        ticket_of_interest = self.list_of_tickets[nid]
+        raw_list = ticket_of_interest.classes.split(' ')
+        truth_list = set()
+
+        # Only keep class categories from our classes of interest
+        for c in raw_list:
+            for ci in cfg.classes_of_interest:
+                if ci in c:
+                    truth_list.add(c)
+                    truth_list.add(ci)
+
+        # Sort such that labels are identical
+        return sorted(list(truth_list))
+
     def create_label_tree(self):
         # DFS through scipy tree and convert to label leaf nodes according to T
         stack = [self.tree]
@@ -66,6 +82,8 @@ class LabelledTree:
             # This checks if left is None, which would make it a leaf
             if node.is_leaf():
                 node.label = self.generate_keywords_label(nid)
+                node.ground_truth = self.generate_ground_truth(nid)
+                node.ticket = self.list_of_tickets[nid]
             else:
                 node.left = LabelledClusterNode(node.get_left())
                 left_child = node.get_left()
@@ -88,12 +106,19 @@ class LabelledTree:
             left_child = parents[i].get_left()
             if right_child is None:
                 parents[i].label = left_child.label
+                parents[i].ground_truth = left_child.ground_truth
             else:
                 intersection = set.intersection(set(left_child.label), set(right_child.label))
                 if not intersection:
                     parents[i].label = ['unknown']
                 else:
                     parents[i].label = list(intersection)
+
+                class_intersection = set.intersection(set(left_child.ground_truth), set(right_child.ground_truth))
+                if not class_intersection:
+                    parents[i].ground_truth = ['unknown']
+                else:
+                    parents[i].ground_truth = list(class_intersection)
             i -= 1
 
     def generate_bt_stats(self, node):
@@ -119,7 +144,6 @@ class LabelledTree:
 
     def create_nary_from_label_tree(self):
         queue = [self.tree]
-
         while queue:
             node = queue.pop(0)
             left_child = node.get_left()
@@ -136,8 +160,6 @@ class LabelledTree:
             for child in node.children_list:
                 stack.append(child)
 
-        #print self.tree.num_leaf_nodes
-
     @staticmethod
     def merge_or_add_child(child, node, queue):
         if child is None:
@@ -148,63 +170,88 @@ class LabelledTree:
         if node.head is None:
             node.head = node
 
+        # Decide which values to use for comparison based off config
+        if cfg.node_label_display == 'class':
+            child_comparison_string = str(child.ground_truth)
+            node_comparison_string = str(node.ground_truth)
+        else:
+            child_comparison_string = str(child.label)
+            node_comparison_string = str(node.label)
+
         # A duplicate child was found, so its head will be set to this node's head (set previously).
         # This step propagates the head's reference down the tree until it hits a unique node.
         # When a unique node is found, it will add that unique node to the head's list, and the process starts over.
-        if str(child.label) == str(node.label):
+        if child_comparison_string == node_comparison_string:
             child.head = node.head
         else:
             node.head.children_list.append(child)
 
 
-def draw_binary_tree(Tree, filepath, max_tree_size):
+def draw_binary_tree(Tree, correlation, c='none'):
     A = pg.AGraph(directed=True, strict=True)
 
     level = 0
     queue = [Tree.tree]
     while queue:
         node = queue.pop(0)
-        node_string = str(node.label) + '\n' + str(Tree.generate_bt_stats(node))
-
-        if node.parent is not None:
-            parent_string = str(node.parent.label) + '\n' + str(Tree.generate_bt_stats(node.parent))
-            A.add_edge(parent_string, node_string)
+        #node_string = str(node.label) + '\n' + str(Tree.generate_bt_stats(node))
+        node_string = str(node.ground_truth) + '\n' + str(Tree.generate_bt_stats(node))
 
         level += 1
         if node.get_left() is not None:
             queue.append(node.get_left())
+            child_string = str(node.get_left().ground_truth) + '\n' + str(Tree.generate_bt_stats(node.get_left()))
+            A.add_edge(node_string, child_string)
         if node.get_right() is not None:
             queue.append(node.get_right())
-        if level >= max_tree_size:
+            child_string = str(node.get_right().ground_truth) + '\n' + str(Tree.generate_bt_stats(node.get_right()))
+            A.add_edge(node_string, child_string)
+        if level >= cfg.max_tree_size:
             break
 
-    dot_path = util.cwd + '/dot' + filepath
+    dot_path = util.generate_meta_path(Tree.system_name, 'dot', c)
     util.ensure_path_exists(dot_path)
     A.write('{}{} BT.dot'.format(dot_path, Tree.system_name))
     A.layout(prog='dot')
-    A.draw('{}{} BT.png'.format(dot_path, Tree.system_name))
-    print "[clustering] : Created binary tree at path {}.".format('{}{} BT.png'.format(dot_path, Tree.system_name))
+    A.draw('{}{} BT Score={}.png'.format(dot_path, Tree.system_name, correlation))
+    print "[clustering] : Created n-ary tree at path {}.".format('{}{} BT Score={}.png'.format(dot_path,
+                                                                                               Tree.system_name,
+                                                                                               correlation))
 
 
 def create_node_string(node):
-    node_string = node.label
-    return str(node_string) + '\n' + str(node.num_leaf_nodes)
+    if cfg.node_label_display == 'class':
+        node_string = str(node.ground_truth)
+    elif cfg.node_label_display == 'both':
+        node_string = str(node.label) + '\n' + str(node.ground_truth)
+    else:
+        node_string = str(node.label)
+
+    if node.ticket is not None:
+        node_string = node_string + '\nid: ' + str(node.ticket.id)
+
+    if cfg.draw_leaf_statistics:
+        node_string = node_string + '\n' + str(node.num_leaf_nodes)
+
+    return node_string
 
 
-def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
+def draw_nary_tree(Tree, correlation, c='none'):
     A = pg.AGraph(directed=True, strict=True)
 
     # Get value thats 1% of total nodes in tree
-    num_leaf_nodes_cutoff = int(0.01 * Tree.tree.num_leaf_nodes)
+    num_leaf_nodes_cutoff = int(0.01 * cfg.node_cutoff_percentage * Tree.tree.num_leaf_nodes)
     print "[clustering] : Leaf node cutoff: {}.".format(num_leaf_nodes_cutoff)
 
     # BFS trough the tree and draw first 300 nodes
-    level = 0
+    count = 0
     queue = [Tree.tree]
     while queue:
         node = queue.pop(0)
-        level += 1
 
+        if count >= cfg.max_tree_size:
+            break
+            
         node_string = create_node_string(node)
 
         for child in node.children_list:
@@ -212,13 +259,15 @@ def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
             if child.num_leaf_nodes < num_leaf_nodes_cutoff:
                 continue
 
-            # Create child string so only words not in parent are displayed.
             child_string = create_node_string(child)
+            # If the config allows, skip the node if it will result in repeated node (and thus a cycle for pygraphviz)
+            # This will fail if draw_leaf_statistics is active, since leaf stats make the labels unique
+            if cfg.skip_repeated_nodes and child_string == node_string:
+                continue
+
+            count += 1
             A.add_edge((node_string, child_string))
             queue.append(child)
-
-        if level >= max_tree_size:
-            break
 
     dot_path = util.generate_meta_path(Tree.system_name, 'dot', c)
     util.ensure_path_exists(dot_path)
@@ -233,16 +282,15 @@ def draw_nary_tree(Tree, max_tree_size, correlation, c='none'):
 def cluster(system_name):
     class_clustering_filter = cfg.class_clustering_filter
     systems_filter = cfg.systems_filter
-    max_tree_size = cfg.max_tree_size
 
     if class_clustering_filter == 'none':
-        cluster_by_all(system_name, max_tree_size)
+        cluster_by_all(system_name)
     else:
-        cluster_by_filter(system_name, systems_filter, class_clustering_filter, max_tree_size)
+        cluster_by_filter(system_name, systems_filter, class_clustering_filter)
     print "[status] : Generated tree drawings."
 
 
-def cluster_by_all(system_name, max_tree_size):
+def cluster_by_all(system_name):
     vector_path = util.generate_meta_path(system_name, 'vectors')
     filename = vector_path + system_name + '_vectors.csv'
 
@@ -281,9 +329,9 @@ def cluster_by_all(system_name, max_tree_size):
     Tree = LabelledTree(root_node, system_name, list_of_tickets)
     Tree.create_label_tree()
 
-    #draw_binary_tree(Tree, tree_path, max_tree_size)
+    #draw_binary_tree(Tree, correlation)
     Tree.create_nary_from_label_tree()
-    draw_nary_tree(Tree, max_tree_size, correlation)
+    draw_nary_tree(Tree, correlation)
 
     print "[{}] : Tree generated.".format(system_name, system_name)
 
@@ -321,7 +369,7 @@ def construct_matrix(list_of_weights):
     return tickets_to_weights_matrix
 
 
-def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_size):
+def cluster_by_filter(system_name, topology_filter, clustering_filter):
     classes_to_keep = set()
 
     if topology_filter == 'none':
@@ -385,8 +433,8 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, max_tree_
         Tree = LabelledTree(root_node, system_name, list_of_tickets)
         Tree.create_label_tree()
 
-        # draw_binary_tree(Tree, tree_path, max_tree_size)
+        # draw_binary_tree(Tree, tree_path)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, max_tree_size, correlation, c)
+        draw_nary_tree(Tree, correlation, c)
 
         print "[{}:{}] : Tree generated.".format(system_name, c)

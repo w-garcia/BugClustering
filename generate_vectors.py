@@ -7,6 +7,7 @@ import util
 import math
 from Ticket import Ticket
 
+
 def generate_vectors(name):
     systems_filter = cfg.systems_filter
     class_clustering_filter = cfg.class_clustering_filter
@@ -49,12 +50,13 @@ def cluster_by_all(name, selection):
 def cluster_by_filter(name, selection, class_key):
     class_to_list_of_tickets_dict = collections.defaultdict(list)
 
+    classes_to_keep = set()
+    # Add the filter of interest to build a non-truth list
+    classes_to_keep.add(class_key)
+
     # Create ground truth vectors for each class
     for row in selection:
-        classes_to_keep = extract_classes_from_row(class_key, row)
-
-        # Add the filter of interest to build a non-truth list
-        classes_to_keep.add(class_key)
+        extract_classes_from_row(class_key, row, classes_to_keep)
 
         for c in classes_to_keep:
             t = Ticket(row.id, row.description, row.classification, row.system)
@@ -78,9 +80,8 @@ def cluster_by_filter(name, selection, class_key):
         print "[status] : Vector generated for {}.".format(c)
 
 
-def extract_classes_from_row(class_key, row):
+def extract_classes_from_row(class_key, row, classes_to_keep):
     classes = row.classification.split(' ')
-    classes_to_keep = set()
     for c in classes:
         c = c.encode()
         if len(c) < 2:
@@ -89,7 +90,6 @@ def extract_classes_from_row(class_key, row):
             classes_to_keep.add(c)
         elif c.startswith(class_key):
             classes_to_keep.add(c)
-    return classes_to_keep
 
 
 def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticket_dicts, c='none'):

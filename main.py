@@ -10,14 +10,14 @@ import sys
 
 
 def main():
-    options = {'server': 'https://issues.apache.org/jira'}
-    jira = JIRA(options=options)
-
     systems_filter = cfg.systems_filter
     perform_preprocessing = cfg.perform_preprocessing
 
     # Fill local database with data from each system
     if perform_preprocessing:
+        options = {'server': 'https://issues.apache.org/jira'}
+        jira = JIRA(options=options)
+
         for system_name in util.systems:
             print "[status] : " + system_name + " pre-processing started."
             process_system(jira, system_name)
