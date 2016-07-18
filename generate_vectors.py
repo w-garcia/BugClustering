@@ -50,17 +50,16 @@ def cluster_by_all(name, selection):
 def cluster_by_filter(name, selection, class_key):
     class_to_list_of_tickets_dict = collections.defaultdict(list)
 
-    classes_to_keep = set()
-    # Add the filter of interest to build a non-truth list
-    classes_to_keep.add(class_key)
-
     # Create ground truth vectors for each class
     for row in selection:
+        classes_to_keep = set()
         extract_classes_from_row(class_key, row, classes_to_keep)
 
         for c in classes_to_keep:
+            print c
             t = Ticket(row.id, row.description, row.classification, row.system)
             class_to_list_of_tickets_dict[c].append(t)
+            print row.classification
 
     for c in class_to_list_of_tickets_dict:
         _list_of_tickets = class_to_list_of_tickets_dict[c]
@@ -81,6 +80,12 @@ def cluster_by_filter(name, selection, class_key):
 
 
 def extract_classes_from_row(class_key, row, classes_to_keep):
+    """
+    :param class_key: filtering term
+    :param row: db row of a trouble ticket
+    :param classes_to_keep: must be a set to avoid duplicates
+    :return:
+    """
     classes = row.classification.split(' ')
     for c in classes:
         c = c.encode()
@@ -88,8 +93,10 @@ def extract_classes_from_row(class_key, row, classes_to_keep):
             continue
         elif class_key is 'none':
             classes_to_keep.add(c)
-        elif c.startswith(class_key):
+        elif class_key in c: #c.startswith(class_key) or c == class_key:
             classes_to_keep.add(c)
+            # Add the filter of interest to build a non-truth list
+            classes_to_keep.add(class_key)
 
 
 def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticket_dicts, c='none'):
@@ -142,7 +149,7 @@ def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticke
     util.ensure_path_exists(vector_path)
 
     # Write file with word to DF to TF as columns
-    with open(vector_path + system_name + '_word_DF+TF+IDF+TF*IDF.csv', 'w') as csvfile_s:
+    with open(vector_path + system_name + '_word_DF_TF_IDF_TFIDF.csv', 'w') as csvfile_s:
         list_word_to_weights = []
 
         for word in document_frequency_dict.keys():
