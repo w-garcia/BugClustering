@@ -23,6 +23,7 @@ class LabelledClusterNode(ClusterNode):
         self.head = None
         self.ground_truth = []
         self.ticket = None
+        self.path_of_interest = False
 
 
 class LabelledTree:
@@ -71,6 +72,13 @@ class LabelledTree:
         # Sort such that labels are identical
         return sorted(list(truth_list))
 
+    @staticmethod
+    def mark_node_of_interest(node):
+        if node.ticket.system == cfg.test_dataset:
+            return True
+        else:
+            return False
+
     def create_label_tree(self):
         # DFS through scipy tree and convert to label leaf nodes according to T
         stack = [self.tree]
@@ -84,6 +92,7 @@ class LabelledTree:
                 node.label = self.generate_keywords_label(nid)
                 node.ground_truth = self.generate_ground_truth(nid)
                 node.ticket = self.list_of_tickets[nid]
+                node.path_of_interest = self.mark_node_of_interest(node)
             else:
                 node.left = LabelledClusterNode(node.get_left())
                 left_child = node.get_left()
@@ -116,7 +125,19 @@ class LabelledTree:
 
                 class_intersection = set.intersection(set(left_child.ground_truth), set(right_child.ground_truth))
                 if not class_intersection:
-                    parents[i].ground_truth = ['unknown']
+                    # Check if child tickets are unlabelled. The goal is to pick size of training data such that it
+                    # is much larger than the size of testing/labelling data, otherwise both children can end up
+                    # unlabelled, which is a dead-end (making the clustering useless)
+
+                    if left_child.ground_truth == []:
+                        # Use the other child's ground truth since that is the only info we have.
+                        parents[i].ground_truth = right_child.ground_truth
+                    elif right_child.ground_truth == []:
+                        # Same as above.
+                        parents[i].ground_truth = left_child.ground_truth
+                    else:
+                        # Either both children are empty, or the clustered tickets are simply not related to each other.
+                        parents[i].ground_truth = ['unknown']
                 else:
                     parents[i].ground_truth = list(class_intersection)
             i -= 1
@@ -151,13 +172,17 @@ class LabelledTree:
             self.merge_or_add_child(left_child, node, queue)
             self.merge_or_add_child(right_child, node, queue)
 
-        # Generate statistics of each node by recursive DFS
+        # Generate statistics of each node by recursive DFS, and mark paths of interest. Also assign parents.
         cache = Counter()
+        interest_cache = Counter()
         stack = [self.tree]
         while stack:
             node = stack.pop()
             node.num_leaf_nodes = self.generate_leaf_statistics(node, cache)
+            if cfg.clustering_mode != 'vanilla':
+                node.path_of_interest = self.mark_paths_of_interest(node, interest_cache)
             for child in node.children_list:
+                child.parent = node
                 stack.append(child)
 
     @staticmethod
@@ -185,6 +210,21 @@ class LabelledTree:
             child.head = node.head
         else:
             node.head.children_list.append(child)
+
+    def mark_paths_of_interest(self, node, interest_cache):
+        if interest_cache[node.get_id()] == 1:
+            return True
+
+        if node.path_of_interest:
+            interest_cache[node.get_id()] = 1
+            print "[clustering] : <-> Found node of interest"
+            return True
+
+        for child in node.children_list:
+            if self.mark_paths_of_interest(child, interest_cache):
+                print "[clustering] :  | "
+                return True
+        return False
 
 
 def draw_binary_tree(Tree, correlation, c='none'):
@@ -251,10 +291,20 @@ def draw_nary_tree(Tree, correlation, c='none'):
 
         if count >= cfg.max_tree_size:
             break
-            
+
         node_string = create_node_string(node)
 
         for child in node.children_list:
+            # Force draw if node is on path of interest
+            if cfg.clustering_mode != 'vanilla' and child.path_of_interest:
+                child_string = create_node_string(child)
+                A.add_edge((node_string, child_string), color='blue')
+                queue.append(child)
+                if len(child.children_list) == 0:
+                    child_node = A.get_node(child_string)
+                    child_node.attr['color'] = 'blue'
+                continue
+
             # Skip this node if it doesn't meet the 1% cutoff requirement
             if child.num_leaf_nodes < num_leaf_nodes_cutoff:
                 continue
@@ -328,7 +378,6 @@ def cluster_by_all(system_name):
     list_of_tickets = build_ticket_list(list_of_ticket_dicts)
     Tree = LabelledTree(root_node, system_name, list_of_tickets)
     Tree.create_label_tree()
-
     #draw_binary_tree(Tree, correlation)
     Tree.create_nary_from_label_tree()
     draw_nary_tree(Tree, correlation)

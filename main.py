@@ -26,6 +26,7 @@ def main():
 
     # Perform clustering according to user specified granularity
     if cfg.clustering_mode == 'vanilla':
+        print "[status] : vanilla clustering mode started."
         if systems_filter == 'none':
             generate_vectors("all_systems")
             cluster("all_systems")
@@ -33,7 +34,8 @@ def main():
             for system_name in util.systems:
                 generate_vectors(system_name)
                 cluster(system_name)
-    elif cfg.clustering_mode == 'test':
+    else:
+        print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
         generate_vectors(cfg.model_selection)
         cluster(cfg.model_selection)
 

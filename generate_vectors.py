@@ -6,7 +6,7 @@ import DBModel
 import util
 import math
 from Ticket import Ticket
-import peewee
+import os
 
 def generate_vectors(name):
     systems_filter = cfg.systems_filter
@@ -16,11 +16,9 @@ def generate_vectors(name):
         selection = [row for row in DBModel.LFF_Keywords.select()]
     else: #systems_filter == 'system':
         selection = [row for row in DBModel.LFF_Keywords.select_by_system(name)]
-    print len(selection)
+
     # Get test/label dataset according to config.
     retrieve_additional_rows(selection)
-
-    print len(selection)
 
     if class_clustering_filter == 'none':
         cluster_by_all(name, selection)
@@ -49,7 +47,7 @@ def cluster_by_all(name, selection):
     # Write the matrix to csv file
     filename = vector_path + name + '_vectors.csv'
     write_matrix_file(filename, list_ticket_dicts)
-    print "[status] : Vector generated for {}.".format(name)
+    print "[vectors] : Vector generated for {}.".format(name)
 
 
 def cluster_by_filter(name, selection, class_key):
@@ -79,7 +77,7 @@ def cluster_by_filter(name, selection, class_key):
         # Write the matrix to csv file
         filename = vector_path + name + '_vectors.csv'
         write_matrix_file(filename, list_ticket_dicts)
-        print "[status] : Vector generated for {}.".format(c)
+        print "[vectors] : Vector generated for {}.".format(c)
 
 
 def extract_classes_from_row(class_key, row, classes_to_keep):
@@ -202,8 +200,37 @@ def write_matrix_file(filename, list_of_dicts):
 
 def retrieve_additional_rows(selection):
     if cfg.clustering_mode == 'test':
-        additional_select = [row for row in DBModel.LFF_Keywords.random(cfg.test_dataset).limit(1)]
+        original_len = len(selection)
+        additional_select = [row for row in DBModel.LFF_Keywords.random(cfg.test_dataset).limit(3)]
+        write_addon_to_classifier_file(additional_select)
+
         for row in additional_select:
+            row.classification = ''
             selection.append(row)
+        new_len = len(selection)
+        print "[vectors] : Original dataset length: {}, new length: {}".format(original_len, new_len)
     elif cfg.clustering_mode == 'label':
         pass
+
+
+def write_addon_to_classifier_file(addon_select):
+        #TODO: This doesn't work when using class_clustering_filter
+        cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
+        util.ensure_path_exists(cls_path)
+
+        list_of_dicts = []
+        for row in addon_select:
+            _row_dict = {'id': row.id, 'description': row.description,
+                         'system': row.system, 'ground truth': row.classification, 'prediction': ''}
+            list_of_dicts.append(_row_dict)
+
+        # Write the matrix to csv file
+        filename = cls_path + addon_select[0].system + '_classifier.csv'
+        with open(filename, 'a') as csvfile:
+            fieldnames = list_of_dicts[0].keys()
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            if os.stat(filename).st_size == 0:
+                writer.writeheader()
+            for row in list_of_dicts:
+                writer.writerow(row)

@@ -34,6 +34,22 @@ class ConfigurationManager:
         else:
             self._classes_of_interest = self._classes_of_interest.split(' ')
 
+        if self._clustering_mode != 'vanilla':
+            # Make sure systems filter is set to none to use all_systems as directory
+            if self._model_selection == 'all' or self._model_selection == 'all_systems':
+                # Force self._model_selection to 'all_systems' to be safe
+                self._model_selection = 'all_systems'
+                if self._systems_filter != 'none':
+                    print '[warning] : All systems chosen as model, but system filter is not \'none\'.'
+                    print '          : Setting systems_filter to none.'
+                    self._systems_filter = 'none'
+            else:
+                # Opposite scenario, make sure systems filter is set to system if we only want one system in use
+                if self._systems_filter != 'system':
+                    print '[warning] : Single system chosen as model, but system filter is not \'system\'.'
+                    print '          : Setting systems_filter to \'system\'.'
+                    self._systems_filter = 'system'
+
     @property
     def systems_filter(self):
         return self._systems_filter
