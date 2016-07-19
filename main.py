@@ -25,14 +25,17 @@ def main():
             low_freq_filter(system_name)
 
     # Perform clustering according to user specified granularity
-    if systems_filter == 'none':
-        generate_vectors("all_systems")
-        cluster("all_systems")
-    else:
-        for system_name in util.systems:
-            generate_vectors(system_name)
-            cluster(system_name)
-
+    if cfg.clustering_mode == 'vanilla':
+        if systems_filter == 'none':
+            generate_vectors("all_systems")
+            cluster("all_systems")
+        else:
+            for system_name in util.systems:
+                generate_vectors(system_name)
+                cluster(system_name)
+    elif cfg.clustering_mode == 'test':
+        generate_vectors(cfg.model_selection)
+        cluster(cfg.model_selection)
 
 if __name__ == '__main__':
     main()

@@ -36,6 +36,13 @@ class TicketDBModel(Model):
         with db.atomic():
             cls.insert_many(list_of_dicts).execute()
 
+    @classmethod
+    def random(cls, system_name):
+        if not cls.table_exists():
+            return
+
+        return cls.select_by_system(system_name).order_by(fn.Rand())
+
     class Meta:
         database = db
 

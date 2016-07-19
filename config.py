@@ -14,6 +14,10 @@ class ConfigurationManager:
         self._systems_filter = self.config.get('Topology', 'systems_filter')
         self._class_clustering_filter = self.config.get('Topology', 'class_clustering_filter')
         self._perform_preprocessing = self.config.getboolean('Topology', 'perform_preprocessing')
+        self._clustering_mode = self.config.get('Topology', 'clustering_mode')
+        self._model_selection = self.config.get('Topology', 'model_selection')
+        self._test_dataset = self.config.get('Topology', 'test_dataset')
+        self._labelling_dataset = self.config.get('Topology', 'labelling_dataset')
         self._low_freq_threshold = self.config.getint('Clustering', 'low_freq_threshold')
         self._cluster_similarity_method = self.config.get('Clustering', 'cluster_similarity_method')
         self._distance_metric = self.config.get('Clustering', 'distance_metric')
@@ -82,11 +86,33 @@ class ConfigurationManager:
     def node_cutoff_percentage(self):
         return self._node_cutoff_percentage
 
+    @property
+    def clustering_mode(self):
+        return self._clustering_mode
+
+    @property
+    def model_selection(self):
+        return self._model_selection
+
+    @property
+    def test_dataset(self):
+        return self._test_dataset
+
+    @property
+    def labelling_dataset(self):
+        return self._labelling_dataset
+
     def to_file_string(self):
         topology_string = self._class_clustering_filter + '/'
         clustering_string = self._distance_metric + '-' + self._cluster_similarity_method + '/'
         scheme_string = self._weighting_scheme + '-' + str(self._low_freq_threshold) + '/'
-        return topology_string + clustering_string + scheme_string
+        if self._clustering_mode == 'test':
+            classifier_string = self._clustering_mode + '-' + self._model_selection + '-on-' + self._test_dataset + '/'
+        elif self._clustering_mode == 'label':
+            classifier_string = self._clustering_mode + '-' + self._model_selection + '-on-' + self._labelling_dataset + '/'
+        else:
+            classifier_string = self._clustering_mode + '/'
+        return topology_string + classifier_string + clustering_string + scheme_string
 
 
 config = ConfigurationManager()

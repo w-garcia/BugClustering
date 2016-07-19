@@ -6,16 +6,21 @@ import DBModel
 import util
 import math
 from Ticket import Ticket
-
+import peewee
 
 def generate_vectors(name):
     systems_filter = cfg.systems_filter
     class_clustering_filter = cfg.class_clustering_filter
 
     if systems_filter == 'none':
-        selection = DBModel.LFF_Keywords.select()
+        selection = [row for row in DBModel.LFF_Keywords.select()]
     else: #systems_filter == 'system':
-        selection = DBModel.LFF_Keywords.select_by_system(name)
+        selection = [row for row in DBModel.LFF_Keywords.select_by_system(name)]
+    print len(selection)
+    # Get test/label dataset according to config.
+    retrieve_additional_rows(selection)
+
+    print len(selection)
 
     if class_clustering_filter == 'none':
         cluster_by_all(name, selection)
@@ -56,10 +61,8 @@ def cluster_by_filter(name, selection, class_key):
         extract_classes_from_row(class_key, row, classes_to_keep)
 
         for c in classes_to_keep:
-            print c
             t = Ticket(row.id, row.description, row.classification, row.system)
             class_to_list_of_tickets_dict[c].append(t)
-            print row.classification
 
     for c in class_to_list_of_tickets_dict:
         _list_of_tickets = class_to_list_of_tickets_dict[c]
@@ -195,3 +198,12 @@ def write_matrix_file(filename, list_of_dicts):
         writer.writeheader()
         for row in list_of_dicts:
             writer.writerow(row)
+
+
+def retrieve_additional_rows(selection):
+    if cfg.clustering_mode == 'test':
+        additional_select = [row for row in DBModel.LFF_Keywords.random(cfg.test_dataset).limit(1)]
+        for row in additional_select:
+            selection.append(row)
+    elif cfg.clustering_mode == 'label':
+        pass
