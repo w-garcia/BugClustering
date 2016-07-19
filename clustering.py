@@ -329,18 +329,33 @@ def draw_nary_tree(Tree, correlation, c='none'):
                                                                                                correlation))
 
 
-def cluster(system_name):
+def get_prediction(Tree):
+    # DFS through tree and find the parent of leaf interest path.
+    stack = [Tree.tree]
+    while stack:
+        node = stack.pop()
+
+        if node.path_of_interest and len(node.children_list) == 0:
+            return node.parent.ground_truth
+
+        for child in node.children_list:
+            stack.append(child)
+
+    return []
+
+
+def cluster(system_name, prediction=None):
     class_clustering_filter = cfg.class_clustering_filter
     systems_filter = cfg.systems_filter
 
     if class_clustering_filter == 'none':
-        cluster_by_all(system_name)
+        cluster_by_all(system_name, prediction)
     else:
-        cluster_by_filter(system_name, systems_filter, class_clustering_filter)
-    print "[status] : Generated tree drawings."
+        cluster_by_filter(system_name, systems_filter, class_clustering_filter, prediction)
+    print "[status] : Generated clusters."
 
 
-def cluster_by_all(system_name):
+def cluster_by_all(system_name, prediction=None):
     vector_path = util.generate_meta_path(system_name, 'vectors')
     filename = vector_path + system_name + '_vectors.csv'
 
@@ -380,9 +395,11 @@ def cluster_by_all(system_name):
     Tree.create_label_tree()
     #draw_binary_tree(Tree, correlation)
     Tree.create_nary_from_label_tree()
-    draw_nary_tree(Tree, correlation)
+    prediction.append(get_prediction(Tree))
 
-    print "[{}] : Tree generated.".format(system_name, system_name)
+    if cfg.draw_trees:
+        draw_nary_tree(Tree, correlation)
+        print "[{}] : Tree generated.".format(system_name, system_name)
 
 
 def build_ticket_list(list_of_ticket_dicts):
@@ -418,7 +435,7 @@ def construct_matrix(list_of_weights):
     return tickets_to_weights_matrix
 
 
-def cluster_by_filter(system_name, topology_filter, clustering_filter):
+def cluster_by_filter(system_name, topology_filter, clustering_filter, prediction=None):
     classes_to_keep = set()
 
     if topology_filter == 'none':
@@ -484,6 +501,7 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter):
 
         # draw_binary_tree(Tree, tree_path)
         Tree.create_nary_from_label_tree()
-        draw_nary_tree(Tree, correlation, c)
+        if cfg.draw_trees:
+            draw_nary_tree(Tree, correlation, c)
 
         print "[{}:{}] : Tree generated.".format(system_name, c)

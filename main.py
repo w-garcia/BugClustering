@@ -5,6 +5,7 @@ from generate_vectors import generate_vectors
 from clustering import cluster
 from config import config as cfg
 from jira import JIRA
+from classifier import classify
 import util
 import sys
 
@@ -36,8 +37,7 @@ def main():
                 cluster(system_name)
     else:
         print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
-        generate_vectors(cfg.model_selection)
-        cluster(cfg.model_selection)
+        classify()
 
 if __name__ == '__main__':
     main()

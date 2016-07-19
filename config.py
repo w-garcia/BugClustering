@@ -28,6 +28,8 @@ class ConfigurationManager:
         self._draw_leaf_statistics = self.config.getboolean('Rendering', 'draw_leaf_statistics')
         self._skip_repeated_nodes = self.config.getboolean('Rendering', 'skip_repeated_nodes')
         self._node_cutoff_percentage = self.config.getfloat('Rendering', 'node_cutoff_percentage')
+        self._draw_trees = self.config.getboolean('Rendering', 'draw_trees')
+        self._write_word_list = self.config.getboolean('Rendering', 'write_word_list')
 
         if self._classes_of_interest == 'all':
             self._classes_of_interest = ['a-', 'hw-', 'sw-', 'j-', 'c-', 't-', 'ht-', 'i-', 'x-']
@@ -49,6 +51,8 @@ class ConfigurationManager:
                     print '[warning] : Single system chosen as model, but system filter is not \'system\'.'
                     print '          : Setting systems_filter to \'system\'.'
                     self._systems_filter = 'system'
+
+
 
     @property
     def systems_filter(self):
@@ -117,6 +121,14 @@ class ConfigurationManager:
     @property
     def labelling_dataset(self):
         return self._labelling_dataset
+
+    @property
+    def draw_trees(self):
+        return self._draw_trees
+
+    @property
+    def write_word_list(self):
+        return self._write_word_list
 
     def to_file_string(self):
         topology_string = self._class_clustering_filter + '/'

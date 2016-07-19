@@ -23,6 +23,8 @@ config.set('Rendering', 'classes_of_interest', 'sw- hw- a-')
 config.set('Rendering', 'draw_leaf_statistics', 'True')
 config.set('Rendering', 'skip_repeated_nodes', 'True')
 config.set('Rendering', 'node_cutoff_percentage', '1')
+config.set('Rendering', 'draw_trees', 'False')
+config.set('Rendering', 'write_word_list', 'False')
 
 with open('options.cfg', 'wb') as cfg_file:
     config.write(cfg_file)

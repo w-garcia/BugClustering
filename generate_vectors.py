@@ -8,7 +8,8 @@ import math
 from Ticket import Ticket
 import os
 
-def generate_vectors(name):
+
+def generate_vectors(name, addon_selection=None):
     systems_filter = cfg.systems_filter
     class_clustering_filter = cfg.class_clustering_filter
 
@@ -18,7 +19,7 @@ def generate_vectors(name):
         selection = [row for row in DBModel.LFF_Keywords.select_by_system(name)]
 
     # Get test/label dataset according to config.
-    retrieve_additional_rows(selection)
+    retrieve_additional_rows(selection, addon_selection)
 
     if class_clustering_filter == 'none':
         cluster_by_all(name, selection)
@@ -146,6 +147,9 @@ def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticke
         print "[warning] : Not enough tickets to generate vectors. Skipping..."
         return
 
+    if not cfg.write_word_list:
+        return
+
     vector_path = util.generate_meta_path(system_name, 'vectors', c)
     util.ensure_path_exists(vector_path)
 
@@ -198,39 +202,15 @@ def write_matrix_file(filename, list_of_dicts):
             writer.writerow(row)
 
 
-def retrieve_additional_rows(selection):
-    if cfg.clustering_mode == 'test':
-        original_len = len(selection)
-        additional_select = [row for row in DBModel.LFF_Keywords.random(cfg.test_dataset).limit(3)]
-        write_addon_to_classifier_file(additional_select)
+def retrieve_additional_rows(selection, addon_selection):
+    if addon_selection is None:
+        return
 
-        for row in additional_select:
-            row.classification = ''
-            selection.append(row)
-        new_len = len(selection)
-        print "[vectors] : Original dataset length: {}, new length: {}".format(original_len, new_len)
-    elif cfg.clustering_mode == 'label':
-        pass
+    original_len = len(selection)
 
+    addon_selection.classification = ''
+    selection.append(addon_selection)
 
-def write_addon_to_classifier_file(addon_select):
-        #TODO: This doesn't work when using class_clustering_filter
-        cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
-        util.ensure_path_exists(cls_path)
+    new_len = len(selection)
+    print "[vectors] : Original dataset length: {}, new length: {}".format(original_len, new_len)
 
-        list_of_dicts = []
-        for row in addon_select:
-            _row_dict = {'id': row.id, 'description': row.description,
-                         'system': row.system, 'ground truth': row.classification, 'prediction': ''}
-            list_of_dicts.append(_row_dict)
-
-        # Write the matrix to csv file
-        filename = cls_path + addon_select[0].system + '_classifier.csv'
-        with open(filename, 'a') as csvfile:
-            fieldnames = list_of_dicts[0].keys()
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-            if os.stat(filename).st_size == 0:
-                writer.writeheader()
-            for row in list_of_dicts:
-                writer.writerow(row)
