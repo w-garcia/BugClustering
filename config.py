@@ -31,6 +31,7 @@ class ConfigurationManager:
         self._draw_trees = self.config.getboolean('Rendering', 'draw_trees')
         self._write_word_list = self.config.getboolean('Rendering', 'write_word_list')
 
+        #TODO: add "list" to class_of_interest name
         if self._classes_of_interest == 'all':
             self._classes_of_interest = ['a-', 'hw-', 'sw-', 'j-', 'c-', 't-', 'ht-', 'i-', 'x-']
         else:
