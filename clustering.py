@@ -74,7 +74,8 @@ class LabelledTree:
 
     @staticmethod
     def mark_node_of_interest(node):
-        if node.ticket.system == cfg.test_dataset:
+        #if node.ticket.system == cfg.test_dataset:
+        if len(node.ticket.classes) == 0:
             return True
         else:
             return False
@@ -395,7 +396,8 @@ def cluster_by_all(system_name, prediction=None):
     Tree.create_label_tree()
     #draw_binary_tree(Tree, correlation)
     Tree.create_nary_from_label_tree()
-    prediction.append(get_prediction(Tree))
+    if cfg.clustering_mode != 'vanilla':
+        prediction.append(get_prediction(Tree))
 
     if cfg.draw_trees:
         draw_nary_tree(Tree, correlation)

@@ -8,7 +8,7 @@ from jira import JIRA
 from classifier import classify
 import util
 import sys
-
+from analyzer import analyze
 
 def main():
     systems_filter = cfg.systems_filter
@@ -37,7 +37,8 @@ def main():
                 cluster(system_name)
     else:
         print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
-        classify()
+        #classify()
+        analyze()
 
 if __name__ == '__main__':
     main()

@@ -10,8 +10,13 @@ import copy
 def classify():
     #TODO: Get in random order, sequential tickets might be similair (important when processing multiple tickets at once)
     if cfg.clustering_mode == 'test':
+        if cfg.test_dataset == cfg.model_selection:
+            # Split up the same dataset
+            pass
         _dataset_stack = [row for row in DBModel.LFF_Keywords.select_by_system(cfg.test_dataset)]
     if cfg.clustering_mode == 'label':
+        if cfg.labelling_dataset == cfg.model_selection:
+            pass
         _dataset_stack = [row for row in DBModel.LFF_Keywords.select_by_system(cfg.labelling_dataset)]
 
     list_of_dicts = []
@@ -35,7 +40,6 @@ def classify():
     write_classifier_file(filename, list_of_dicts)
     print "[status] : Classifier finished. Analysis started."
 
-    filename = cls_path + list_of_dicts[0]['system'] + '_statistics.csv'
 
 
 def write_classifier_file(filename, list_of_dicts):
@@ -48,40 +52,3 @@ def write_classifier_file(filename, list_of_dicts):
             writer.writerow(row)
 
 
-def generate_statistics(list_of_dicts):
-    _list_truths = [row['ground truth'] for row in list_of_dicts]
-    _list_predictions = [row['prediction'] for row in list_of_dicts]
-
-    _total_category_accuracy = 0.0
-    for i in range(len(list_of_dicts)):
-        category_accuracy_count = 0.0
-        class_accuracy_count = 0.0
-
-        _truths = set(_list_truths[i].split(' '))
-        _truths_of_interest = set()
-        _predictions = set(_list_predictions[i].split(' '))
-        _truth_categories = set()
-
-        # First, fill in the class categories of interest from config in the truth list
-        for ci in cfg.classes_of_interest:
-            for truth in _truths:
-                if ci in truth:
-                    _truth_categories.add(ci)
-                    _truths_of_interest.add(truth)
-        print "[analysis] : Truth categories for ticket {}: {}".format(i, _truth_categories)
-
-        # Compare across categories
-        for c in _predictions:
-            for tc in _truth_categories:
-                if c == tc:
-                    category_accuracy_count += 1
-        _total_category_accuracy += float(category_accuracy_count / len(_truth_categories))
-
-
-
-    category_accuracy = float(_total_category_accuracy / len(list_of_dicts))
-    print "[analysis] : Category accuracy: {}".format(category_accuracy)
-
-
-def write_statistics_file(filename, (category_accuracy, class_accuracy)):
-    pass
