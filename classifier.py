@@ -13,11 +13,11 @@ def classify():
         if cfg.test_dataset == cfg.model_selection:
             # Split up the same dataset
             pass
-        _dataset_stack = [row for row in DBModel.LFF_Keywords.select_by_system(cfg.test_dataset)]
+        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.test_dataset).select()]
     if cfg.clustering_mode == 'label':
         if cfg.labelling_dataset == cfg.model_selection:
             pass
-        _dataset_stack = [row for row in DBModel.LFF_Keywords.select_by_system(cfg.labelling_dataset)]
+        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.labelling_dataset).select()]
 
     list_of_dicts = []
 

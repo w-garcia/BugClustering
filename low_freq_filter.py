@@ -10,7 +10,7 @@ def low_freq_filter(system_name):
     word_to_count_dict = collections.Counter()
     doc_freq = collections.Counter()
 
-    for row in DBModel.Stemmed_Keyword.select_by_system(system_name):
+    for row in DBModel.Stemmed_Keyword.get_db_ref_by_system(system_name).select():
         words_found = set()
         # Columns: row.description, row.classification
         words = nltk.word_tokenize(row.description)
@@ -27,7 +27,7 @@ def low_freq_filter(system_name):
 
     lff_threshold = cfg.low_freq_threshold
 
-    for row in DBModel.Stemmed_Keyword.select_by_system(system_name):
+    for row in DBModel.Stemmed_Keyword.get_db_ref_by_system(system_name).select():
         words_to_keep_in_ticket = []
         words = nltk.word_tokenize(row.description)
         for word in words:

@@ -16,7 +16,7 @@ def generate_vectors(name, addon_selection=None):
     if systems_filter == 'none':
         selection = [row for row in DBModel.LFF_Keywords.select()]
     else: #systems_filter == 'system':
-        selection = [row for row in DBModel.LFF_Keywords.select_by_system(name)]
+        selection = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(name).select()]
 
     # Get test/label dataset according to config.
     retrieve_additional_rows(selection, addon_selection)

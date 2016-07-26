@@ -443,7 +443,7 @@ def cluster_by_filter(system_name, topology_filter, clustering_filter, predictio
     if topology_filter == 'none':
         selection = DBModel.LFF_Keywords.select()
     else:
-        selection = DBModel.LFF_Keywords.select_by_system(system_name)
+        selection = DBModel.LFF_Keywords.get_db_ref_by_system(system_name).select()
 
     # Create list of classes of to be clustered according to filter
     for row in selection:

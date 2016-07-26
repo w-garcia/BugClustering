@@ -24,7 +24,7 @@ def stem_system(system_name):
     wordnet_lemmatizer = WordNetLemmatizer()
     vocab = set()
 
-    for row in DBModel.Terse_PreProcessed_Keyword.select_by_system(system_name):
+    for row in DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(system_name).select():
         stripped_description = util.strip_autogen_info(row.description)
 
         stems = []
@@ -97,7 +97,7 @@ def stem_system(system_name):
                                    'description': u' '.join(stems).encode('utf-8'),
                                    'classification': row.classification})
 
-    DBModel.Stemmed_Keyword.overwrite_system_rows(system_name, list_of_stem_dicts)
+    DBModel.Stemmed_Keyword.get_db_ref_by_system(system_name).overwrite_system_rows(system_name, list_of_stem_dicts)
 
     print "[stemmer] : Stemmed " + system_name + "."
 

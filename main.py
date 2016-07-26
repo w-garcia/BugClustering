@@ -10,6 +10,7 @@ import util
 import sys
 from analyzer import analyze
 
+
 def main():
     systems_filter = cfg.systems_filter
     perform_preprocessing = cfg.perform_preprocessing

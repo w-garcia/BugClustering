@@ -83,7 +83,8 @@ def generate_statistics(list_of_dicts):
             print _prediction_intersect
             print class_score
 
-        _temp_dict = {'description length': len(_list_descriptions[i]),
+        _temp_dict = {'description length': len(_list_descriptions[i].split(' ')),
+                      'description': _list_descriptions[i],
                       'category score': category_score,
                       'class score': class_score}
 

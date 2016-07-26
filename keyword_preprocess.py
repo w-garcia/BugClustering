@@ -81,6 +81,6 @@ def populate_tables(classifications_cache, full_descriptions_cache, terse_descri
                                    'description': terse_descriptions_cache[i],
                                    'classification': classifications_cache[i]})
 
-    DBModel.Full_PreProcessed_Keyword.overwrite_system_rows(system, list_of_full_dicts)
+    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system(system).overwrite_system_rows(system, list_of_full_dicts)
 
-    DBModel.Terse_PreProcessed_Keyword.overwrite_system_rows(system, list_of_ters_dicts)
+    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(system).overwrite_system_rows(system, list_of_ters_dicts)
