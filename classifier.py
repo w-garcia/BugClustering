@@ -10,14 +10,18 @@ import copy
 def classify():
     #TODO: Get in random order, sequential tickets might be similair (important when processing multiple tickets at once)
     if cfg.clustering_mode == 'test':
-        if cfg.test_dataset == cfg.model_selection:
-            # Split up the same dataset
-            pass
         _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.test_dataset).select()]
+
+        if cfg.test_dataset == cfg.model_selection:
+            # Split up the same dataset according to split
+            x = int(len(_dataset_stack) * (1 - cfg.test_dataset_split))
+            _dataset_stack = _dataset_stack[x:]
+
     if cfg.clustering_mode == 'label':
+        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.labelling_dataset).select()]
+
         if cfg.labelling_dataset == cfg.model_selection:
             pass
-        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.labelling_dataset).select()]
 
     list_of_dicts = []
 
@@ -25,6 +29,7 @@ def classify():
         print "[classifier] : {} tickets left to go.".format(len(_dataset_stack))
         row = _dataset_stack.pop()
         row_copy = copy.deepcopy(row)
+        row_copy.classification = ''
         #TODO: change prediction variable such that I can pass in a list of addon rows and get a list of predictions
         prediction = []
         generate_vectors(cfg.model_selection, row_copy)
@@ -39,7 +44,6 @@ def classify():
     filename = cls_path + list_of_dicts[0]['system'] + '_classifier.csv'
     write_classifier_file(filename, list_of_dicts)
     print "[status] : Classifier finished. Analysis started."
-
 
 
 def write_classifier_file(filename, list_of_dicts):

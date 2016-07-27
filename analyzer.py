@@ -90,10 +90,14 @@ def generate_statistics(list_of_dicts):
 
         _list_desc_length_to_score.append(_temp_dict)
 
-    class_accuracy = float(_total_class_accuracy / _total_class_predictions)
+    if _total_class_predictions != 0:
+        class_accuracy = float(_total_class_accuracy / _total_class_predictions)
+    else:
+        class_accuracy = 'nil'
+
     category_accuracy = float(_total_category_accuracy / n)
-    print "[analysis] : Category accuracy: {}".format(category_accuracy)
-    print "           : Class accuracy: {}".format(class_accuracy)
+    print "[results] : Category accuracy: {}".format(category_accuracy)
+    print "          : Class accuracy: {}".format(class_accuracy)
 
     return _list_desc_length_to_score
 

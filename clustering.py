@@ -74,7 +74,6 @@ class LabelledTree:
 
     @staticmethod
     def mark_node_of_interest(node):
-        #if node.ticket.system == cfg.test_dataset:
         if len(node.ticket.classes) == 0:
             return True
         else:

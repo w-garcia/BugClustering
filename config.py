@@ -17,6 +17,7 @@ class ConfigurationManager:
         self._clustering_mode = self.config.get('Topology', 'clustering_mode')
         self._model_selection = self.config.get('Topology', 'model_selection')
         self._test_dataset = self.config.get('Topology', 'test_dataset')
+        self._test_dataset_split = self.config.getfloat('Topology', 'test_dataset_split')
         self._labelling_dataset = self.config.get('Topology', 'labelling_dataset')
         self._low_freq_threshold = self.config.getint('Clustering', 'low_freq_threshold')
         self._cluster_similarity_method = self.config.get('Clustering', 'cluster_similarity_method')
@@ -118,6 +119,10 @@ class ConfigurationManager:
     @property
     def test_dataset(self):
         return self._test_dataset
+
+    @property
+    def test_dataset_split(self):
+        return self._test_dataset_split
 
     @property
     def labelling_dataset(self):

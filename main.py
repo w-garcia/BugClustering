@@ -38,7 +38,7 @@ def main():
                 cluster(system_name)
     else:
         print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
-        #classify()
+        classify()
         analyze()
 
 if __name__ == '__main__':

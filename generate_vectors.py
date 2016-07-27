@@ -7,6 +7,7 @@ import util
 import math
 from Ticket import Ticket
 import os
+import copy
 
 
 def generate_vectors(name, addon_selection=None):
@@ -206,11 +207,26 @@ def retrieve_additional_rows(selection, addon_selection):
     if addon_selection is None:
         return
 
+    if cfg.model_selection == cfg.test_dataset or cfg.model_selection == cfg.labelling_dataset:
+        x = int(len(selection) * cfg.test_dataset_split)
+        for i in range(x):
+            selection.pop()
+
+    assert(uniqueness_condition(selection, addon_selection),
+           "Classifier bug ticket is not unique! Check ticket dataset for duplicates.")
+
     original_len = len(selection)
 
-    addon_selection.classification = ''
     selection.append(addon_selection)
 
     new_len = len(selection)
     print "[vectors] : Original dataset length: {}, new length: {}".format(original_len, new_len)
 
+
+def uniqueness_condition(selection, addon_selection):
+    original_ids = [row.id for row in selection]
+    add_id = addon_selection.id
+
+    if add_id in original_ids:
+        return False
+    return True
