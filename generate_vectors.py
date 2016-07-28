@@ -10,17 +10,17 @@ import os
 import copy
 
 
-def generate_vectors(name, addon_selection=None):
+def generate_vectors(name, selection_cache=None):
     systems_filter = cfg.systems_filter
     class_clustering_filter = cfg.class_clustering_filter
 
-    if systems_filter == 'none':
-        selection = [row for row in DBModel.LFF_Keywords.select()]
-    else: #systems_filter == 'system':
-        selection = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(name).select()]
-
-    # Get test/label dataset according to config.
-    retrieve_additional_rows(selection, addon_selection)
+    if selection_cache:
+        selection = selection_cache
+    else:
+        if systems_filter == 'none':
+            selection = [row for row in DBModel.LFF_Keywords.select()]
+        else: #systems_filter == 'system':
+            selection = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(name).select()]
 
     if class_clustering_filter == 'none':
         cluster_by_all(name, selection)
@@ -201,32 +201,3 @@ def write_matrix_file(filename, list_of_dicts):
         writer.writeheader()
         for row in list_of_dicts:
             writer.writerow(row)
-
-
-def retrieve_additional_rows(selection, addon_selection):
-    if addon_selection is None:
-        return
-
-    if cfg.model_selection == cfg.test_dataset or cfg.model_selection == cfg.labelling_dataset:
-        x = int(len(selection) * cfg.test_dataset_split)
-        for i in range(x):
-            selection.pop()
-
-    assert(uniqueness_condition(selection, addon_selection),
-           "Classifier bug ticket is not unique! Check ticket dataset for duplicates.")
-
-    original_len = len(selection)
-
-    selection.append(addon_selection)
-
-    new_len = len(selection)
-    print "[vectors] : Original dataset length: {}, new length: {}".format(original_len, new_len)
-
-
-def uniqueness_condition(selection, addon_selection):
-    original_ids = [row.id for row in selection]
-    add_id = addon_selection.id
-
-    if add_id in original_ids:
-        return False
-    return True

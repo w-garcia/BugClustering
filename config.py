@@ -141,9 +141,24 @@ class ConfigurationManager:
         clustering_string = self._distance_metric + '-' + self._cluster_similarity_method + '/'
         scheme_string = self._weighting_scheme + '-' + str(self._low_freq_threshold) + '/'
         if self._clustering_mode == 'test':
-            classifier_string = self._clustering_mode + '-' + self._model_selection + '-on-' + self._test_dataset + '/'
+            model_split = ''
+            test_split = ''
+            if self._model_selection == self._test_dataset or self._model_selection == 'all_systems':
+                model_split = str(float(1 - self._test_dataset_split))
+                test_split = str(float(self._test_dataset_split))
+            classifier_string = "{}-{}{}-on-{}{}/".format(self._clustering_mode,
+                                                          self._model_selection,
+                                                          model_split,
+                                                          self._test_dataset,
+                                                          test_split)
         elif self._clustering_mode == 'label':
-            classifier_string = self._clustering_mode + '-' + self._model_selection + '-on-' + self._labelling_dataset + '/'
+            model_split = ''
+            if self._model_selection == self._test_dataset:
+                model_split = str(float(1 - self._test_dataset_split))
+            classifier_string = "{}-{}{}-on-{}/".format(self._clustering_mode,
+                                                        self._model_selection,
+                                                        model_split,
+                                                        self._labelling_dataset)
         else:
             classifier_string = self._clustering_mode + '/'
         return topology_string + classifier_string + clustering_string + scheme_string
