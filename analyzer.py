@@ -99,6 +99,12 @@ def generate_statistics(list_of_dicts):
     print "[results] : Category accuracy: {}".format(category_accuracy)
     print "          : Class accuracy: {}".format(class_accuracy)
 
+    _final_dict = {'description length': '-----',
+                   'description': 'final averages -----',
+                   'category score': category_accuracy,
+                   'class score': class_accuracy}
+    _list_desc_length_to_score.append(_final_dict)
+
     return _list_desc_length_to_score
 
 

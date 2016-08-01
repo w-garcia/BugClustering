@@ -40,7 +40,7 @@ def low_freq_filter(system_name):
                                   'description': u' '.join(words_to_keep_in_ticket),
                                   'classification': row.classification})
 
-    DBModel.LFF_Keywords.overwrite_system_rows(system_name, list_of_lff_dicts)
+    DBModel.LFF_Keywords.get_db_ref_by_system(system_name).overwrite_system_rows(system_name, list_of_lff_dicts)
 
     print "Stripped " + system_name + " of low frequency words."
 

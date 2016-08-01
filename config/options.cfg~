@@ -17,7 +17,7 @@ weighting_scheme = TF
 [Rendering]
 max_tree_size = 50
 node_label_display = both
-classes_of_interest = a-
+classes_of_interest = a- hw- sw-
 draw_leaf_statistics = True
 skip_repeated_nodes = True
 node_cutoff_percentage = 1

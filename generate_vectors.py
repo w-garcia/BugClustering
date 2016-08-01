@@ -133,6 +133,8 @@ def create_list_of_trouble_ticket_dicts(list_of_tickets, system_name, list_ticke
                     keyword_to_weight_dict[word] = DF
                 elif weighting_scheme == 'TFxIDF':
                     keyword_to_weight_dict[word] = TF*IDF
+                elif weighting_scheme == 'TF':
+                    keyword_to_weight_dict[word] = TF
 
         # Parameterize the numeric weights as a list of strings
         list_weights = [str(x) for x in keyword_to_weight_dict.values()]
