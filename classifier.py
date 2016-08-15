@@ -5,6 +5,7 @@ import csv
 import DBModel
 import util
 import copy
+import random
 
 
 def classify():
@@ -43,6 +44,16 @@ def classify():
     print "[status] : Classifier finished. Analysis started."
 
 
+def get_chunks(data_list):
+    num_chunks = int(1 / cfg.test_dataset_split)
+    len_chunk = len(data_list) / num_chunks
+    remainders = len(data_list) % num_chunks
+    # Chop off remainder tickets if length of data_list yields a remainder
+    if remainders:
+        data_list = data_list[:-remainders]
+    return [data_list[i:i + len_chunk] for i in range(0, len(data_list), len_chunk)]
+
+
 def setup_datasets():
     # TODO: Get in random order, sequential tickets might be similair (important when processing multiple tickets at once)
     # Create dataset stack to be labelled
@@ -51,15 +62,18 @@ def setup_datasets():
 
         if cfg.test_dataset == cfg.model_selection:
             # Split up the same dataset according to split
-            x = int(len(_dataset_stack) * (1 - cfg.test_dataset_split))
-            _dataset_stack = _dataset_stack[x:]
-            selection_cache = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.model_selection).select()]
-            selection_cache = selection_cache[:x]
+            chunks = get_chunks(_dataset_stack)
+
+            # Get random index to use as test
+            rand_index = random.randint(0, len(chunks) - 1)
+            _dataset_stack = chunks[rand_index]
+            chunks.pop(rand_index)
+
+            # Flatten rest of chunks into selection
+            selection_cache = [row for chunk in chunks for row in chunk]
             return _dataset_stack, selection_cache
         elif cfg.model_selection == 'all_systems':
-            # Use split variable to strip away test tickets from model dataset
-            x = int(len(_dataset_stack) * (1 - cfg.test_dataset_split))
-            _dataset_stack = _dataset_stack[x:]
+            # First add all the tickets, ignoring the nested system
             selection_cache = []
             for system in util.systems:
                 if system == cfg.test_dataset:
@@ -67,8 +81,14 @@ def setup_datasets():
                 for row in DBModel.LFF_Keywords.get_db_ref_by_system(system):
                     selection_cache.append(row)
 
-            # Now add the remaining tickets from the test dataset
-            for row in [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.test_dataset).select()][:x]:
+            # Figure out what the test dataset will be
+            chunks = get_chunks(_dataset_stack)
+            rand_index = random.randint(0, len(chunks) - 1)
+            _dataset_stack = chunks[rand_index]
+            chunks.pop(rand_index)
+
+            # Now add the remaining tickets from the test dataset using flattened rest of chunks
+            for row in [row for chunk in chunks for row in chunk]:
                 selection_cache.append(row)
             return _dataset_stack, selection_cache
         else:

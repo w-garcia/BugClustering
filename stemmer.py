@@ -11,14 +11,7 @@ cwd = os.getcwd()
 
 def stem_system(system_name):
     list_of_stem_dicts = []
-    banned_words = ['and', 'etc', 'with', 'of', 'in', 'that', 'on', 'do', 'wo' 'ca', 'are', 'get', 'from',
-                    'for', 'at', 'if', 'be', 'use', 'have', 'does', 'take', 'has', 'as', 'after', 'before', 'by',
-                    'caus', 'row', 'column', 'am', 'nn', 'go', 'consid', 'turn', 'bring', 'ack', 'us', 'today', 'hour',
-                    'take', 'log', 'need', 'with', 'becom', 'though', 'date', 'upon', 'come', 'came', 'behavior',
-                    'around', 'henc', 'hyphen', 'think', 'unless', 'want', 'way', 'syslog', 'logj', 'dy', 'see',
-                    'mechan', 'retri', 'roll', 'run', 'other', 'tri', 'make', 'seem', 'avro', 'http', 'million',
-                    'hundred', 'look', 'leav', 'guarante', 'line', 'merkl', 'propos', 'decid', ':', 'let', 'lot', 'impl',
-                    'meet', 'minut', 'thing', 'wal', 'alot', 'too', 'believ', 'happen']
+    banned_words = []
 
     porter_stemmer = PorterStemmer()
     wordnet_lemmatizer = WordNetLemmatizer()
