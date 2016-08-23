@@ -61,6 +61,10 @@ class Full_PreProcessed_Keyword(TicketDBModel):
         pass
     class zookeeper_Full_PreProcess(TicketDBModel):
         pass
+    class openstack_Full_PreProcess(TicketDBModel):
+        title = TextField()
+        status = CharField()
+        pass
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -76,6 +80,8 @@ class Full_PreProcessed_Keyword(TicketDBModel):
             return cls.mapreduce_Full_PreProcess
         elif system_name == 'zookeeper':
             return cls.zookeeper_Full_PreProcess
+        elif system_name == 'openstack':
+            return cls.openstack_Full_PreProcess
         else:
             return None
 
@@ -93,6 +99,10 @@ class Terse_PreProcessed_Keyword(TicketDBModel):
         pass
     class zookeeper_Terse_PreProcess(TicketDBModel):
         pass
+    class openstack_Terse_PreProcess(TicketDBModel):
+        title = TextField()
+        status = CharField()
+        pass
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -108,6 +118,8 @@ class Terse_PreProcessed_Keyword(TicketDBModel):
             return cls.mapreduce_Terse_PreProcess
         elif system_name == 'zookeeper':
             return cls.zookeeper_Terse_PreProcess
+        elif system_name == 'openstack':
+            return cls.openstack_Terse_PreProcess
         else:
             return None
 
@@ -125,6 +137,10 @@ class Stemmed_Keyword(TicketDBModel):
         pass
     class zookeeper_Stemmed_Keyword(TicketDBModel):
         pass
+    class openstack_Stemmed_Keyword(TicketDBModel):
+        title = TextField()
+        status = CharField()
+        pass
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -140,6 +156,8 @@ class Stemmed_Keyword(TicketDBModel):
             return cls.mapreduce_Stemmed_Keyword
         elif system_name == 'zookeeper':
             return cls.zookeeper_Stemmed_Keyword
+        elif system_name == 'openstack':
+            return cls.openstack_Stemmed_Keyword
         else:
             return None
 
@@ -157,6 +175,10 @@ class LFF_Keywords(TicketDBModel):
         pass
     class zookeeper_LFF_Keywords(TicketDBModel):
         pass
+    class openstack_LFF_Keywords(TicketDBModel):
+        title = TextField()
+        status = CharField()
+        pass
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -172,5 +194,7 @@ class LFF_Keywords(TicketDBModel):
             return cls.mapreduce_LFF_Keywords
         elif system_name == 'zookeeper':
             return cls.zookeeper_LFF_Keywords
+        elif system_name == 'openstack':
+            return cls.openstack_LFF_Keywords
         else:
             return None

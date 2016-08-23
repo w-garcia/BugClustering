@@ -121,14 +121,14 @@ def find_system_synonym_from_stem(s1):
 
 
 def reduce_according_to_phrase(w1):
-    phrases_to_filter = ['sourc', 'except', 'outofmemory', 'sink', 'zip', 'lifecyc', 'block', 'stabl', 'batch',
-                         'properti', 'node', 'recov', 'creat', 'config', 'mapred', 'yarn', 'runtim', 'hbase',
-                         'heartbeat', 'java', 'stress', 'hdfs', 'hadoop', 'buffer', 'thread', 'flum', 'zoo', 'agre',
-                         'cassandra', 'filesystem', 'ttl', 'load', 'error', 'drop', 'wait', 'visit', 'accumul', 'admin',
-                         'assign', 'exception', 'bug', 'cach', 'amoun', 'commit', 'fail', 'directori', 'system', 'job',
-                         'launch', 'lead']
+    phrases_to_filter = ['outofmemory', 'zip', 'lifecyc', 'stabl', 'batch',
+                         'properti', 'recov', 'mapred', 'yarn', 'runtim',
+                         'heartbeat', 'stress', 'hadoop', 'buffer', 'agre',
+                         'cassandra', 'filesystem', 'ttl', 'drop', 'wait', 'visit', 'accumul', 'admin',
+                         'assign', 'amoun', 'directori', 'system', 'job', 'launch', 'sink', 'block']
     for phrase in phrases_to_filter:
         if phrase in w1:
+            print phrase
             return phrase
     return w1
 

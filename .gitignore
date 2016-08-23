@@ -95,3 +95,4 @@ ENV/
 vectors/
 dot/
 classifier/
+launchpad_cache/

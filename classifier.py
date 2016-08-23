@@ -8,9 +8,9 @@ import copy
 import random
 
 
-def classify():
+def classify(slice=None):
 
-    _dataset_stack, selection_cache = setup_datasets()
+    _dataset_stack, selection_cache = setup_datasets(slice)
 
     list_of_dicts = []
 
@@ -54,7 +54,7 @@ def get_chunks(data_list):
     return [data_list[i:i + len_chunk] for i in range(0, len(data_list), len_chunk)]
 
 
-def setup_datasets():
+def setup_datasets(slice):
     # TODO: Get in random order, sequential tickets might be similair (important when processing multiple tickets at once)
     # Create dataset stack to be labelled
     if cfg.clustering_mode == 'test':
@@ -64,10 +64,16 @@ def setup_datasets():
             # Split up the same dataset according to split
             chunks = get_chunks(_dataset_stack)
 
-            # Get random index to use as test
-            rand_index = random.randint(0, len(chunks) - 1)
-            _dataset_stack = chunks[rand_index]
-            chunks.pop(rand_index)
+            # Get index to use as test. This is done using the slice variable for k-fold, or randomly for random subsampling
+            if cfg.xvalidation_mode == 'kfold':
+                index = slice
+            elif cfg.xvalidation_mode == 'rand_ss':
+                index = random.randint(0, len(chunks) - 1)
+            else:
+                index = 0
+
+            _dataset_stack = chunks[index]
+            chunks.pop(index)
 
             # Flatten rest of chunks into selection
             selection_cache = [row for chunk in chunks for row in chunk]
@@ -83,9 +89,15 @@ def setup_datasets():
 
             # Figure out what the test dataset will be
             chunks = get_chunks(_dataset_stack)
-            rand_index = random.randint(0, len(chunks) - 1)
-            _dataset_stack = chunks[rand_index]
-            chunks.pop(rand_index)
+            # Get index to use as test. This is done using the slice variable for k-fold, or randomly for random subsampling
+            if cfg._xvalidation_mode == 'kfold':
+                index = slice
+            elif cfg._xvalidation_mode == 'rand_ss':
+                index = random.randint(0, len(chunks) - 1)
+            else: #Not sure default should be yet
+                index = 0
+            _dataset_stack = chunks[index]
+            chunks.pop(index)
 
             # Now add the remaining tickets from the test dataset using flattened rest of chunks
             for row in [row for chunk in chunks for row in chunk]:

@@ -8,6 +8,7 @@ def get_full_description(j, line):
     begin_key = line.find('[') + 1
     end_key = line.find(']') - 1
 
+
     issue_id = line[begin_key: end_key + 1]
     try:
         issue = j.issue(issue_id)

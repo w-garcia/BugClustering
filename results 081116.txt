@@ -1,0 +1,58 @@
+Flume no phrase filter:			 86.2%
+..... no banned list/no phrase filter:   86.7%
+..... nothing : 			 85.0%
+..... vanilla:				 87.3%
+....  no banned list:			 89.0%
+..... no banned list/no sym list:	 85.6%
+..... no banned list/no aspect: 	 86.2%
+..... no banned list/only sw-:		 93.1%
+..... no banned list/only hw-: 		 10%/100% class accuracy
+hdfs no banned list:			 61%
+.... no banned list/no sym list:	 61.6%
+.... nothing: 				 61.6%
+CV:
+flume: 85.7% - 95.8% - 92.8%
+hdfs: 42.5% - 60.6% - 56.8% 
+zookeeper (euc): 69.5% - 67.8% - 61.4%
+cassandra: 88.5% - 89.8% - 
+
+zk (no phrase filter): 76.4% - 72% - 66% 
+zk: 		     : 69% - 68% - 69%
+zk (new pf)	     : 66.6% - 67% - 
+zk (new pf, node, thread) : 71.2% - 66% - 78% - 75.8% - 66%
+zk (new pf, creat)   : 72.4% - 66.6% - 
+zk (new pf, error)   : 66% - 66% - 70% 
+zk (new pf, config)  : 66.6% - 66.6% - 75%
+zk (all previous)    : 76% - 70% - 73% 
+zk (bug)	     : 73.5% - 66.6% - 72%
+zk (load) 	     : 73% - 70.1% - 72.4% - 66% 
+zk (commit) 	     : 76% - 72.9% - 76% 
+zk (except)	     : 73% - 66% - 76% - 76%
+zk (hbase)	     : 70% - 72.9% - 66% - 77.5% 
+zk (exception)	     : 68.3% - 76.4% - 66% - 72.9%
+flume (all previous) : 91.6% - 79.7% - 79.7% - 91% - 82.1% - 90.4% - 86.3% 
+flume (sourc, hdfs)  : 91.6% - 87.5% - 86.3% - 91.6% - 91% - 91.6% - 87.5% - 87.5% 
+flume (sink)	     : 78% - 84.5% - 82.1% - 82.1% - 84.5% - 89.2%
+hdfs (all previous w/sink)  : 50.8% - 63% - 54.9%
+hdfs (cach)	     	    : 52.9% - 54.4%
+hdfs (block)		    : 52.9% - 50.8% - 56% - 
+
+flume(all previous w/ cach,block) xtra words  : 91% - 92.8% - 87.5 - 86.9% - 
+flume(all previous w/ cach,block)	      : 83.9% 
+
+10 fold  xv:
+flume: 87.2% 
+hdfs: 57.8%
+cassandra: 89%
+mapreduce: 73.9%
+hbase: 
+zookeeper: 73.9%
+
+10 fold xv, only raw data:
+flume: cat- 80.5% cla-40.7%
+zookeeper: cat-65.7% cla-25.2%
+
+10 fold xv, all data
+flume: cat-85.4% cla-37.7%
+zookeeper: cat-72.6% cla-21.5%
+

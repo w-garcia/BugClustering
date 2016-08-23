@@ -19,6 +19,8 @@ class ConfigurationManager:
         self._test_dataset = self.config.get('Topology', 'test_dataset')
         self._test_dataset_split = self.config.getfloat('Topology', 'test_dataset_split')
         self._labelling_dataset = self.config.get('Topology', 'labelling_dataset')
+        self._xvalidation_mode = self.config.get('Topology', 'cross_validation_mode')
+        self._retrieve_label_datasets = self.config.getboolean('Topology', 'retrieve_label_datasets')
         self._low_freq_threshold = self.config.getint('Clustering', 'low_freq_threshold')
         self._cluster_similarity_method = self.config.get('Clustering', 'cluster_similarity_method')
         self._distance_metric = self.config.get('Clustering', 'distance_metric')
@@ -127,6 +129,14 @@ class ConfigurationManager:
     @property
     def labelling_dataset(self):
         return self._labelling_dataset
+
+    @property
+    def xvalidation_mode(self):
+        return self._xvalidation_mode
+
+    @property
+    def retrieve_label_datasets(self):
+        return self._retrieve_label_datasets
 
     @property
     def draw_trees(self):

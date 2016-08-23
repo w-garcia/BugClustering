@@ -2,7 +2,8 @@ import util
 from config import config as cfg
 import csv
 
-def analyze():
+
+def analyze(return_accuracies=False):
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
     filename = cls_path + cfg.test_dataset + '_classifier.csv'
@@ -15,6 +16,10 @@ def analyze():
 
     filename = cls_path + cfg.test_dataset + '_statistics.csv'
     write_statistics_file(filename, list_statistics)
+
+    if return_accuracies:
+        final_dict = list_statistics[len(list_statistics) - 1]
+        return final_dict['category score'], final_dict['class score']
 
 
 def generate_statistics(list_of_dicts):
