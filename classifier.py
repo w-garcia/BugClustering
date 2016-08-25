@@ -1,5 +1,6 @@
 from generate_vectors import generate_vectors
-from clustering import h_agglomerative_clustering
+from h_agglomerative import h_agglomerative_clustering
+from knn import knn_clustering
 from config import config as cfg
 import csv
 import DBModel
@@ -32,13 +33,15 @@ def classify(slice=None):
         generate_vectors(cfg.model_selection, selection_cache)
         h_agglomerative_clustering(cfg.model_selection, prediction)
 
-        if cfg.do_knn:
-            perform_aux_classifiers(cfg.model_selection, prediction)
-
         selection_cache.pop()
         _row_dict = {'id': row.id, 'description': row.description,
                      'system': row.system, 'ground truth': row.classification, 'prediction': ' '.join(prediction[0])}
         list_of_dicts.append(_row_dict)
+
+        if cfg.do_knn:
+            pass
+            # perform_aux_classifiers(cfg.model_selection, prediction)
+            # append result here
 
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
@@ -139,4 +142,5 @@ def uniqueness_condition(selection, addon_selection):
 
 
 def perform_aux_classifiers(system_name, predictions_list):
-    pass
+    knn_clustering(system_name, predictions_list)
+

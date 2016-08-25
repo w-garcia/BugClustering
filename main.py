@@ -2,7 +2,7 @@ from keyword_preprocess import process_system
 from stemmer import stem_system
 from low_freq_filter import low_freq_filter
 from generate_vectors import generate_vectors
-from clustering import h_agglomerative_clustering
+from h_agglomerative import h_agglomerative_clustering
 from config import config as cfg
 from jira import JIRA
 from classifier import classify
