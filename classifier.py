@@ -1,5 +1,5 @@
 from generate_vectors import generate_vectors
-from clustering import cluster
+from clustering import h_agglomerative_clustering
 from config import config as cfg
 import csv
 import DBModel
@@ -30,7 +30,10 @@ def classify(slice=None):
         #TODO: change prediction variable such that I can pass in a list of addon rows and get a list of predictions
         prediction = []
         generate_vectors(cfg.model_selection, selection_cache)
-        cluster(cfg.model_selection, prediction)
+        h_agglomerative_clustering(cfg.model_selection, prediction)
+
+        if cfg.do_knn:
+            perform_aux_classifiers(cfg.model_selection, prediction)
 
         selection_cache.pop()
         _row_dict = {'id': row.id, 'description': row.description,
@@ -133,3 +136,7 @@ def uniqueness_condition(selection, addon_selection):
     if add_id in original_ids:
         return False
     return True
+
+
+def perform_aux_classifiers(system_name, predictions_list):
+    pass

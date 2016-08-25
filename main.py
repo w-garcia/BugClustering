@@ -2,7 +2,7 @@ from keyword_preprocess import process_system
 from stemmer import stem_system
 from low_freq_filter import low_freq_filter
 from generate_vectors import generate_vectors
-from clustering import cluster
+from clustering import h_agglomerative_clustering
 from config import config as cfg
 from jira import JIRA
 from classifier import classify
@@ -38,11 +38,11 @@ def main():
         print "[status] : vanilla clustering mode started."
         if systems_filter == 'none':
             generate_vectors("all_systems")
-            cluster("all_systems")
+            h_agglomerative_clustering("all_systems")
         else:
             for system_name in util.systems:
                 generate_vectors(system_name)
-                cluster(system_name)
+                h_agglomerative_clustering(system_name)
     else:
         print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
         # Perform cross validation based on config: either k-fold or random sub-sampling

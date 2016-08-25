@@ -344,7 +344,7 @@ def get_prediction(Tree):
     return []
 
 
-def cluster(system_name, prediction=None):
+def h_agglomerative_clustering(system_name, prediction=None):
     class_clustering_filter = cfg.class_clustering_filter
     systems_filter = cfg.systems_filter
 
