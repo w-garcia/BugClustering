@@ -4,6 +4,7 @@ import csv
 from h_agglomerative import construct_matrix, build_ticket_list
 from sklearn import neighbors
 
+
 # Perform K-Nearest Neighbor clustering
 def knn_clustering(system_name, prediction=None):
     class_clustering_filter = cfg.class_clustering_filter
@@ -30,6 +31,7 @@ def cluster_by_all(system_name, prediction):
 
     # Create list of keyword weights, keeping string format
     list_of_weights = [ticket_dict['vector'] for ticket_dict in list_of_ticket_dicts]
+    ticket_predict_weights = list_of_weights.pop().split(' ')
 
     # Construct matrix from the list of keyword dictionaries
     tickets_to_weights_matrix = construct_matrix(list_of_weights)
@@ -39,12 +41,29 @@ def cluster_by_all(system_name, prediction):
         return
 
     list_of_tickets = build_ticket_list(list_of_ticket_dicts)
-
-    ticket_to_predict_weights = tickets_to_weights_matrix.pop()
+    ticket_target_list = build_ticket_classes(list_of_tickets)
 
     knn = neighbors.KNeighborsClassifier()
-    knn.fit(tickets_to_weights_matrix, ticket_to_predict_weights)
-    knn.predict(ticket_to_predict_weights)
+    knn.fit(tickets_to_weights_matrix, ticket_target_list)
+    predicted_class = knn.predict(ticket_predict_weights)[0]
+    print "knn prediction: {}".format(predicted_class)
+    if prediction is not None:
+        prediction.append([predicted_class])
+
+
+def build_ticket_classes(list_of_tickets):
+    target_list = []
+
+    for ticket in list_of_tickets:
+        for c in ticket.classes.split(' '):
+            if 't-' in c:
+                target_list.append(c)
+                break
+
+    print "target list len {}".format(len(target_list))
+    print "list of tickets len {}".format(len(list_of_tickets))
+
+    return target_list
 
 
 def cluster_by_filter(system_name, systems_filter, class_clustering_filter, prediction):

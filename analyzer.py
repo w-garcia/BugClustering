@@ -17,9 +17,29 @@ def analyze(return_accuracies=False):
     filename = cls_path + cfg.test_dataset + '_statistics.csv'
     write_statistics_file(filename, list_statistics)
 
-    if return_accuracies:
-        final_dict = list_statistics[len(list_statistics) - 1]
-        return final_dict['category score'], final_dict['class score']
+    if cfg.do_knn:
+        filename = cls_path + cfg.test_dataset + '_knn_classifier.csv'
+        with open(filename, 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+            list_of_aux_ticket_dicts = [rows for rows in reader]
+
+        print "[analysis] Starting knn statistics."
+        list_aux_statistics = generate_statistics(list_of_aux_ticket_dicts)
+        print "[analysis] Finished knn statistics."
+
+        filename = cls_path + cfg.test_dataset + '_knn_statistics.csv'
+        write_statistics_file(filename, list_aux_statistics)
+
+        if return_accuracies:
+            final_dict = list_statistics[len(list_statistics) - 1]
+            final_aux_dict = list_aux_statistics[len(list_aux_statistics) - 1]
+            return [[final_dict['category score'], final_dict['class score']],
+                    [final_aux_dict['category score'], final_aux_dict['class score']]]
+    else:
+        if return_accuracies:
+            final_dict = list_statistics[len(list_statistics) - 1]
+            return [[final_dict['category score'], final_dict['class score']],
+                    [0, 0]]
 
 
 def generate_statistics(list_of_dicts):
@@ -85,8 +105,8 @@ def generate_statistics(list_of_dicts):
             _prediction_intersect = set.intersection(_truths_of_interest, _predictions_of_interest)
             class_score = float(len(_prediction_intersect)) / float(len(_truths_of_interest))
             _total_class_accuracy += class_score
-            print _prediction_intersect
-            print class_score
+            #print _prediction_intersect
+            #print class_score
 
         _temp_dict = {'description length': len(_list_descriptions[i].split(' ')),
                       'description': _list_descriptions[i],

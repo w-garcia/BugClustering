@@ -1,0 +1,26 @@
+t-
+zk  TF: ha-55.8% knn-53.1%
+    DF: ha-55.6% knn-55.8%
+ TFxIDF:ha-63.3% knn-57.9%
+
+flume:
+ TFxIDF:ha-85% knn-85%
+
+hdfs:
+ TFxIDF:
+
+a-
+zk TFxIDF:ha-36.4% knn-33.2%
+
+sw-
+zk TFxIDF:ha-36.3% knn-25.6%
+
+hw-
+zk TFxIDF:ha-
+
+sw- hw-
+zk TFxIDF:ha-65% knn-84.5%
+       DF:ha-53% knn-85.8%
+flume
+       DF:ha-88.1% knn-95.1%
+       TF:ha-87.9% knn-95.1%

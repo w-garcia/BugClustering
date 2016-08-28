@@ -10,7 +10,7 @@ from openstack_preprocess import process_openstack
 import util
 import sys
 from analyzer import analyze
-
+import numpy
 
 def main():
     systems_filter = cfg.systems_filter
@@ -48,15 +48,42 @@ def main():
         # Perform cross validation based on config: either k-fold or random sub-sampling
         if cfg.xvalidation_mode == 'kfold':
             cat_accuracy_total = 0
+            cat_accuracies = []
             class_accuracy_total = 0
+            class_accuracies = []
+            knn_cat_accuracy_total = 0
+            knn_cat_accuracies = []
+            knn_class_accuracy_total = 0
+            knn_class_accuracies = []
             for i in range(int(1 / cfg.test_dataset_split)):
                 print "[kfold] : Classifying slice {}".format(i)
                 classify(slice=i)
-                category_score, class_score = analyze(return_accuracies=True)
-                cat_accuracy_total += category_score
-                class_accuracy_total += class_score
-            print "category: {} class: {}".format(cat_accuracy_total / int(1 / cfg.test_dataset_split),
-                                                  class_accuracy_total / int(1 / cfg.test_dataset_split))
+                scores_matrix = analyze(return_accuracies=True)
+                cat_accuracy_total += scores_matrix[0][0]
+                cat_accuracies.append(scores_matrix[0][0])
+                if scores_matrix[0][1] != 'nil':
+                    class_accuracy_total += scores_matrix[0][1]
+                    class_accuracies.append(scores_matrix[0][1])
+                knn_cat_accuracy_total += scores_matrix[1][0]
+                knn_cat_accuracies.append(scores_matrix[1][0])
+                if scores_matrix[1][1] != 'nil':
+                    knn_class_accuracy_total += scores_matrix[1][1]
+                    knn_class_accuracies.append(scores_matrix[1][1])
+            print "h-agglomerative - "
+            cat_accuracy = cat_accuracy_total / int(1 / cfg.test_dataset_split)
+            cat_std = numpy.std(cat_accuracies)
+            class_accuracy = class_accuracy_total / int(1 / cfg.test_dataset_split)
+            class_std = numpy.std(class_accuracies)
+            print "category: {} std: {} class: {} std: {}".format(cat_accuracy, cat_std,
+                                                                  class_accuracy, class_std)
+            print "knn - "
+            knn_cat_accuracy = knn_cat_accuracy_total / int(1 / cfg.test_dataset_split)
+            knn_cat_std = numpy.std(knn_cat_accuracies)
+            knn_class_accuracy = knn_class_accuracy_total / int(1 / cfg.test_dataset_split)
+            knn_class_std = numpy.std(knn_class_accuracies)
+            print "category: {} std: {} class: {} std: {}".format(knn_cat_accuracy, knn_cat_std,
+                                                                  knn_class_accuracy, knn_class_std)
+
         elif cfg.xvalidation_mode == 'rand_ss':
             classify()
             analyze()

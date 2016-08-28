@@ -14,6 +14,7 @@ def classify(slice=None):
     _dataset_stack, selection_cache = setup_datasets(slice)
 
     list_of_dicts = []
+    list_of_aux_dicts = []
 
     while _dataset_stack:
         print "[classifier] : {} tickets left to go.".format(len(_dataset_stack))
@@ -39,14 +40,19 @@ def classify(slice=None):
         list_of_dicts.append(_row_dict)
 
         if cfg.do_knn:
-            pass
-            # perform_aux_classifiers(cfg.model_selection, prediction)
-            # append result here
+            perform_aux_classifiers(cfg.model_selection, prediction)
+            _aux_row_dict = {'id': row.id, 'description': row.description,
+                             'system': row.system, 'ground truth': row.classification,
+                             'prediction': ' '.join(prediction[1])}
+            list_of_aux_dicts.append(_aux_row_dict)
 
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
     filename = cls_path + list_of_dicts[0]['system'] + '_classifier.csv'
     write_classifier_file(filename, list_of_dicts)
+    if cfg.do_knn:
+        filename = cls_path + list_of_dicts[0]['system'] + '_knn_classifier.csv'
+        write_classifier_file(filename, list_of_aux_dicts)
     print "[status] : Classifier finished. Analysis started."
 
 
@@ -60,11 +66,20 @@ def get_chunks(data_list):
     return [data_list[i:i + len_chunk] for i in range(0, len(data_list), len_chunk)]
 
 
+def contains_classes_of_interest(row):
+    for ci in cfg.classes_of_interest:
+        for c in row.classification.split(' '):
+            if ci in c:
+                return True
+    return False
+
+
 def setup_datasets(slice):
     # TODO: Get in random order, sequential tickets might be similair (important when processing multiple tickets at once)
     # Create dataset stack to be labelled
     if cfg.clustering_mode == 'test':
-        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.test_dataset).select()]
+        _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.test_dataset).select()
+                          if contains_classes_of_interest(row)]
 
         if cfg.test_dataset == cfg.model_selection:
             # Split up the same dataset according to split
@@ -91,7 +106,8 @@ def setup_datasets(slice):
                 if system == cfg.test_dataset:
                     continue
                 for row in DBModel.LFF_Keywords.get_db_ref_by_system(system):
-                    selection_cache.append(row)
+                    if contains_classes_of_interest(row):
+                        selection_cache.append(row)
 
             # Figure out what the test dataset will be
             chunks = get_chunks(_dataset_stack)

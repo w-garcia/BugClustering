@@ -29,13 +29,24 @@ def generate_vectors(name, selection_cache=None):
         cluster_by_filter(name, selection, class_clustering_filter)
 
 
+def contains_classes_of_interest(t):
+    if len(t.classes) == 0:
+        # this is a testing ticket
+        return True
+    for ci in cfg.classes_of_interest:
+        for c in t.classes.split(' '):
+            if ci in c:
+                return True
+    return False
+
+
 def cluster_by_all(name, selection):
     list_of_tickets = []
 
     for row in selection:
         t = Ticket(row.id, row.description, row.classification, row.system)
-
-        list_of_tickets.append(t)
+        if contains_classes_of_interest(t):
+            list_of_tickets.append(t)
 
     list_ticket_dicts = []
     create_list_of_trouble_ticket_dicts(list_of_tickets, name, list_ticket_dicts)
