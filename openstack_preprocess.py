@@ -4,7 +4,9 @@ import DBModel
 from httplib2 import ServerNotFoundError
 
 
-def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache):
+def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache, issue_number_cache,
+                    target_cache):
+    # This will insert the cache lists into DB table without deleting. Cache lists must be cleared beforehand.
     list_of_full_dicts = []
     list_of_ters_dicts = []
 
@@ -13,17 +15,21 @@ def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_ca
                                    'description': full_descriptions_cache[i],
                                    'classification': '',
                                    'title': title_cache[i],
-                                   'status': status_cache[i]})
+                                   'status': status_cache[i],
+                                   'issue_number': '',
+                                   'target': ''})
 
         list_of_ters_dicts.append({'system': 'openstack',
                                    'description': terse_descriptions_cache[i],
                                    'classification': '',
                                    'title': title_cache[i],
-                                   'status': status_cache[i]})
+                                   'status': status_cache[i],
+                                   'issue_number': '',
+                                   'target': ''})
 
-    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').overwrite_system_rows('openstack', list_of_full_dicts)
+    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').insert_atomically(list_of_full_dicts)
 
-    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').overwrite_system_rows('openstack', list_of_ters_dicts)
+    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').insert_atomically(list_of_ters_dicts)
 
 
 def process_openstack():
@@ -31,14 +37,22 @@ def process_openstack():
     launchpad = Launchpad.login_anonymously('getting_tickets', 'production', cachedir, version='devel')
 
     openstack = launchpad.project_groups["openstack"]
-    bugs = openstack.searchTasks(status=['Fix Released'])
+    bugs = openstack.searchTasks(status=['Fix Committed'])
     # Possible: ['New', 'Confirmed', 'Expired', 'Triaged', 'In Progress', 'Fix Released', 'Fix Committed']
     i = 0
+    choice = raw_input("This will completely delete openstack table. Proceed?").lower()
+    if choice == 'n' or choice == 'no':
+        return
+
+    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_system_rows('openstack')
+    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_system_rows('openstack')
 
     terse_descriptions_cache = []
     full_descriptions_cache = []
     status_cache = []
     title_cache = []
+    issue_id_cache = []
+    target_cache = []
 
     print "[openstack] Starting openstack pre-processing."
 
@@ -55,7 +69,10 @@ def process_openstack():
         #if i == 20:
         #    break
         #print(sorted(bug.lp_attributes))
+        #print "----"
         #print(sorted(bugObj.lp_attributes))
+        #print "----"
+        #print bugObj.id
 
         desc = bugObj.description
         paragraph_key = desc.find('\n') - 1
@@ -67,7 +84,23 @@ def process_openstack():
         full_descriptions_cache.append(u''.join(full_description).encode('utf-8'))
         status_cache.append(u''.join(bug.status).encode('utf-8'))
         title_cache.append(u''.join(bugObj.title).encode('utf-8'))
+        #issue_id_cache.append("{}".format(bugObj.id).encode('utf-8'))
+        target_cache.append(u''.join(bug.bug_target_name).encode('utf-8'))
 
-    populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache)
+        if i % 25 == 0:
+            populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache,
+                            issue_id_cache,
+                            target_cache)
+            terse_descriptions_cache = []
+            full_descriptions_cache = []
+            status_cache = []
+            title_cache = []
+            issue_id_cache = []
+            target_cache = []
+            print "Wrote 500 rows to openstack table."
+
+    # Add the rest of the things
+    populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache, issue_id_cache,
+                    target_cache)
 
     print "Processed openstack."
