@@ -6,7 +6,7 @@ from httplib2 import ServerNotFoundError
 
 def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache, issue_number_cache,
                     target_cache):
-    # This will insert the cache lists into DB table without deleting. Cache lists must be cleared beforehand.
+    # This will insert the cache lists into DB table without deleting. Cache lists must be cleared bef-orehand.
     list_of_full_dicts = []
     list_of_ters_dicts = []
 
@@ -16,16 +16,16 @@ def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_ca
                                    'classification': '',
                                    'title': title_cache[i],
                                    'status': status_cache[i],
-                                   'issue_number': '',
-                                   'target': ''})
+                                   'issue_number': issue_number_cache[i],
+                                   'target': target_cache[i]})
 
         list_of_ters_dicts.append({'system': 'openstack',
                                    'description': terse_descriptions_cache[i],
                                    'classification': '',
                                    'title': title_cache[i],
                                    'status': status_cache[i],
-                                   'issue_number': '',
-                                   'target': ''})
+                                   'issue_number': issue_number_cache[i],
+                                   'target': target_cache[i]})
 
     DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').insert_atomically(list_of_full_dicts)
 
@@ -44,8 +44,8 @@ def process_openstack():
     if choice == 'n' or choice == 'no':
         return
 
-    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_system_rows('openstack')
-    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_system_rows('openstack')
+    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').drop_table()
+    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').drop_table()
 
     terse_descriptions_cache = []
     full_descriptions_cache = []
@@ -84,7 +84,7 @@ def process_openstack():
         full_descriptions_cache.append(u''.join(full_description).encode('utf-8'))
         status_cache.append(u''.join(bug.status).encode('utf-8'))
         title_cache.append(u''.join(bugObj.title).encode('utf-8'))
-        #issue_id_cache.append("{}".format(bugObj.id).encode('utf-8'))
+        issue_id_cache.append("{}".format(bugObj.id).encode('utf-8'))
         target_cache.append(u''.join(bug.bug_target_name).encode('utf-8'))
 
         if i % 25 == 0:
