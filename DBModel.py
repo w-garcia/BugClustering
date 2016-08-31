@@ -14,6 +14,11 @@ class TicketDBModel(Model):
     target = CharField()
 
     @classmethod
+    def reset_table(cls):
+        if cls.table_exists():
+            cls.drop_table()
+
+    @classmethod
     def select_by_system(cls, system_name):
         if not cls.table_exists():
             return

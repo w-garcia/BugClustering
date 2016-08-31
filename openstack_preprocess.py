@@ -37,15 +37,15 @@ def process_openstack():
     launchpad = Launchpad.login_anonymously('getting_tickets', 'production', cachedir, version='devel')
 
     openstack = launchpad.project_groups["openstack"]
-    bugs = openstack.searchTasks(status=['Fix Committed'])
+    bugs = openstack.searchTasks(status=['New', 'Confirmed', 'Expired', 'Triaged', 'In Progress', 'Fix Released', 'Fix Committed'])
     # Possible: ['New', 'Confirmed', 'Expired', 'Triaged', 'In Progress', 'Fix Released', 'Fix Committed']
     i = 0
     choice = raw_input("This will completely delete openstack table. Proceed?").lower()
     if choice == 'n' or choice == 'no':
         return
 
-    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').drop_table()
-    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').drop_table()
+    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
+    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
 
     terse_descriptions_cache = []
     full_descriptions_cache = []
@@ -72,7 +72,6 @@ def process_openstack():
         #print "----"
         #print(sorted(bugObj.lp_attributes))
         #print "----"
-        #print bugObj.id
 
         desc = bugObj.description
         paragraph_key = desc.find('\n') - 1
@@ -87,7 +86,7 @@ def process_openstack():
         issue_id_cache.append("{}".format(bugObj.id).encode('utf-8'))
         target_cache.append(u''.join(bug.bug_target_name).encode('utf-8'))
 
-        if i % 25 == 0:
+        if i % 500 == 0:
             populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache,
                             issue_id_cache,
                             target_cache)
