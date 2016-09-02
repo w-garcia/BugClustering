@@ -44,7 +44,7 @@ def main():
                 generate_vectors(system_name)
                 h_agglomerative_clustering(system_name)
     else:
-        print "[status] : {} clustering mode started.".format(cfg.clustering_mode)
+        print "[status] : {} clustering mode started with {} slice selecton.".format(cfg.clustering_mode, cfg.xvalidation_mode)
         # Perform cross validation based on config: either k-fold or random sub-sampling
         if cfg.xvalidation_mode == 'kfold':
             cat_accuracy_total = 0

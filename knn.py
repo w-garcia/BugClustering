@@ -56,9 +56,18 @@ def build_ticket_classes(list_of_tickets):
 
     for ticket in list_of_tickets:
         for c in ticket.classes.split(' '):
-            if 't-' in c:
-                target_list.append(c)
+            found_target = False
+            for ci in cfg.classes_of_interest:
+                if ci in c:
+                    if len(cfg.classes_of_interest) > 1:
+                        target_list.append(ci)
+                    else: #only 1 given, add entire c
+                        target_list.append(c)
+                    found_target = True
+                    break
+            if found_target:
                 break
+
 
     print "target list len {}".format(len(target_list))
     print "list of tickets len {}".format(len(list_of_tickets))

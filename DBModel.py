@@ -8,10 +8,6 @@ class TicketDBModel(Model):
     description = TextField()
     classification = CharField()
     system = CharField()
-    title = TextField()
-    status = CharField()
-    issue_number = CharField()
-    target = CharField()
 
     @classmethod
     def reset_table(cls):
@@ -71,7 +67,10 @@ class Full_PreProcessed_Keyword(TicketDBModel):
     class zookeeper_Full_PreProcess(TicketDBModel):
         pass
     class openstack_Full_PreProcess(TicketDBModel):
-        pass
+        title = TextField()
+        status = CharField()
+        issue_number = CharField()
+        target = CharField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -107,7 +106,10 @@ class Terse_PreProcessed_Keyword(TicketDBModel):
     class zookeeper_Terse_PreProcess(TicketDBModel):
         pass
     class openstack_Terse_PreProcess(TicketDBModel):
-        pass
+        title = TextField()
+        status = CharField()
+        issue_number = CharField()
+        target = CharField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -143,7 +145,10 @@ class Stemmed_Keyword(TicketDBModel):
     class zookeeper_Stemmed_Keyword(TicketDBModel):
         pass
     class openstack_Stemmed_Keyword(TicketDBModel):
-        pass
+        title = TextField()
+        status = CharField()
+        issue_number = CharField()
+        target = CharField()
 
 
     @classmethod
@@ -180,8 +185,10 @@ class LFF_Keywords(TicketDBModel):
     class zookeeper_LFF_Keywords(TicketDBModel):
         pass
     class openstack_LFF_Keywords(TicketDBModel):
-        pass
-
+        title = TextField()
+        status = CharField()
+        issue_number = CharField()
+        target = CharField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
