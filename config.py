@@ -25,7 +25,7 @@ class ConfigurationManager:
         self._cluster_similarity_method = self.config.get('Clustering', 'cluster_similarity_method')
         self._distance_metric = self.config.get('Clustering', 'distance_metric')
         self._weighting_scheme = self.config.get('Clustering', 'weighting_scheme')
-        self._do_knn = self.config.getboolean('Clustering', 'do_knn')
+        self._classification_method = self.config.get('Clustering', 'classification_method')
         self._max_tree_size = self.config.getint('Rendering', 'max_tree_size')
         self._node_label_display = self.config.get('Rendering', 'node_label_display')
         self._classes_of_interest = self.config.get('Rendering', 'classes_of_interest')
@@ -88,8 +88,8 @@ class ConfigurationManager:
         return self._weighting_scheme
 
     @property
-    def do_knn(self):
-        return self._do_knn
+    def classification_method(self):
+        return self._classification_method
 
     @property
     def max_tree_size(self):

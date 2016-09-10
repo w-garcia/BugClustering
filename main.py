@@ -8,7 +8,6 @@ from jira import JIRA
 from classifier import classify
 from openstack_preprocess import process_openstack
 import util
-import sys
 from analyzer import analyze
 import numpy
 
@@ -25,7 +24,7 @@ def main():
 
         for system_name in util.systems:
             print "[status] : " + system_name + " pre-processing started."
-            #process_system(jira, system_name)
+            process_system(jira, system_name)
             stem_system(system_name)
             low_freq_filter(system_name)
 
@@ -52,38 +51,23 @@ def main():
             cat_accuracies = []
             class_accuracy_total = 0
             class_accuracies = []
-            knn_cat_accuracy_total = 0
-            knn_cat_accuracies = []
-            knn_class_accuracy_total = 0
-            knn_class_accuracies = []
             for i in range(int(1 / cfg.test_dataset_split)):
                 print "[kfold] : Classifying slice {}".format(i)
                 classify(slice=i)
-                scores_matrix = analyze(return_accuracies=True)
-                cat_accuracy_total += scores_matrix[0][0]
-                cat_accuracies.append(scores_matrix[0][0])
-                if scores_matrix[0][1] != 'nil':
-                    class_accuracy_total += scores_matrix[0][1]
-                    class_accuracies.append(scores_matrix[0][1])
-                knn_cat_accuracy_total += scores_matrix[1][0]
-                knn_cat_accuracies.append(scores_matrix[1][0])
-                if scores_matrix[1][1] != 'nil':
-                    knn_class_accuracy_total += scores_matrix[1][1]
-                    knn_class_accuracies.append(scores_matrix[1][1])
-            print "h-agglomerative - "
+                cat_accuracy, class_accuracy = analyze(return_accuracies=True)
+
+                cat_accuracy_total += cat_accuracy
+                cat_accuracies.append(cat_accuracy)
+                if class_accuracy != 'nil':
+                    class_accuracy_total += class_accuracy
+                    class_accuracies.append(class_accuracy)
+
+            print "RESULTS OF {}".format(cfg.classification_method)
             cat_accuracy = cat_accuracy_total / int(1 / cfg.test_dataset_split)
             cat_std = numpy.std(cat_accuracies)
             class_accuracy = class_accuracy_total / int(1 / cfg.test_dataset_split)
             class_std = numpy.std(class_accuracies)
-            print "category: {} std: {} class: {} std: {}".format(cat_accuracy, cat_std,
-                                                                  class_accuracy, class_std)
-            print "knn - "
-            knn_cat_accuracy = knn_cat_accuracy_total / int(1 / cfg.test_dataset_split)
-            knn_cat_std = numpy.std(knn_cat_accuracies)
-            knn_class_accuracy = knn_class_accuracy_total / int(1 / cfg.test_dataset_split)
-            knn_class_std = numpy.std(knn_class_accuracies)
-            print "category: {} std: {} class: {} std: {}".format(knn_cat_accuracy, knn_cat_std,
-                                                                  knn_class_accuracy, knn_class_std)
+            print "category: {} std: {} class: {} std: {}".format(cat_accuracy, cat_std, class_accuracy, class_std)
 
         elif cfg.xvalidation_mode == 'rand_ss':
             classify()

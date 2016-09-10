@@ -13,7 +13,6 @@ def classify(slice=None):
     _dataset_stack, selection_cache = setup_datasets(slice)
 
     list_of_dicts = []
-    list_of_aux_dicts = []
 
     while _dataset_stack:
         print "[classifier] : {} tickets left to go.".format(len(_dataset_stack))
@@ -31,28 +30,34 @@ def classify(slice=None):
         #TODO: change prediction variable such that I can pass in a list of addon rows and get a list of predictions
         prediction = []
         generate_vectors(cfg.model_selection, selection_cache)
-        do_h_agglomerative(cfg.model_selection, prediction)
+
+        if cfg.classification_method == 'default':
+            do_h_agglomerative(cfg.model_selection, prediction)
+        elif cfg.classification_method == 'knn':
+            do_sklearn(cfg.model_selection, prediction)
 
         selection_cache.pop()
-        _row_dict = {'id': row.id, 'description': row.description,
-                     'system': row.system, 'ground truth': row.classification, 'prediction': ' '.join(prediction[0])}
+        _row_dict = create_row_dict(prediction, row)
         list_of_dicts.append(_row_dict)
-
-        if cfg.do_aux_classifiers:
-            perform_aux_classifiers(cfg.model_selection, prediction)
-            _aux_row_dict = {'id': row.id, 'description': row.description,
-                             'system': row.system, 'ground truth': row.classification,
-                             'prediction': ' '.join(prediction[1])}
-            list_of_aux_dicts.append(_aux_row_dict)
 
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
-    filename = cls_path + list_of_dicts[0]['system'] + '_classifier.csv'
-    write_classifier_file(filename, list_of_dicts)
-    if cfg.do_knn:
+
+    if cfg.classification_method == 'default':
+        filename = cls_path + list_of_dicts[0]['system'] + '_classifier.csv'
+        write_classifier_file(filename, list_of_dicts)
+    elif cfg.classification_method == 'knn':
         filename = cls_path + list_of_dicts[0]['system'] + '_knn_classifier.csv'
-        write_classifier_file(filename, list_of_aux_dicts)
+        write_classifier_file(filename, list_of_dicts)
+
     print "[status] : Classifier finished. Analysis started."
+
+
+def create_row_dict(prediction, row):
+    row_dict = {'id': row.id, 'description': row.description,
+                 'system': row.system, 'ground truth': row.classification,
+                 'prediction': ' '.join(prediction[0])}
+    return row_dict
 
 
 def get_chunks(data_list):
@@ -154,8 +159,4 @@ def uniqueness_condition(selection, addon_selection):
     if add_id in original_ids:
         return False
     return True
-
-
-def perform_aux_classifiers(system_name, predictions_list):
-    do_sklearn(system_name, predictions_list)
 

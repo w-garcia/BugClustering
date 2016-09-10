@@ -6,40 +6,27 @@ import csv
 def analyze(return_accuracies=False):
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
-    filename = cls_path + cfg.test_dataset + '_classifier.csv'
 
-    with open(filename, 'r') as csvfile:
+    classifier_filename = ''
+    stats_filename = ''
+
+    if cfg.classification_method == 'default':
+        classifier_filename = cls_path + cfg.test_dataset + '_classifier.csv'
+        stats_filename = cls_path + cfg.test_dataset + '_statistics.csv'
+    elif cfg.classification_method == 'knn':
+        classifier_filename = cls_path + cfg.test_dataset + '_knn_classifier.csv'
+        stats_filename = cls_path + cfg.test_dataset + '_knn_statistics.csv'
+
+    with open(classifier_filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         list_of_ticket_dicts = [rows for rows in reader]
 
     list_statistics = generate_statistics(list_of_ticket_dicts)
+    write_statistics_file(stats_filename, list_statistics)
 
-    filename = cls_path + cfg.test_dataset + '_statistics.csv'
-    write_statistics_file(filename, list_statistics)
-
-    if cfg.do_knn:
-        filename = cls_path + cfg.test_dataset + '_knn_classifier.csv'
-        with open(filename, 'r') as csvfile:
-            reader = csv.DictReader(csvfile)
-            list_of_aux_ticket_dicts = [rows for rows in reader]
-
-        print "[analysis] Starting knn statistics."
-        list_aux_statistics = generate_statistics(list_of_aux_ticket_dicts)
-        print "[analysis] Finished knn statistics."
-
-        filename = cls_path + cfg.test_dataset + '_knn_statistics.csv'
-        write_statistics_file(filename, list_aux_statistics)
-
-        if return_accuracies:
-            final_dict = list_statistics[len(list_statistics) - 1]
-            final_aux_dict = list_aux_statistics[len(list_aux_statistics) - 1]
-            return [[final_dict['category score'], final_dict['class score']],
-                    [final_aux_dict['category score'], final_aux_dict['class score']]]
-    else:
-        if return_accuracies:
-            final_dict = list_statistics[len(list_statistics) - 1]
-            return [[final_dict['category score'], final_dict['class score']],
-                    [0, 0]]
+    if return_accuracies:
+        final_dict = list_statistics[len(list_statistics) - 1]
+        return final_dict['category score'], final_dict['class score']
 
 
 def generate_statistics(list_of_dicts):
