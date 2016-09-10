@@ -1,6 +1,6 @@
 from generate_vectors import generate_vectors
-from h_agglomerative import h_agglomerative_clustering
-from knn import knn_clustering
+from clustering_h_agglomerative import do_h_agglomerative
+from clustering_sklearn import do_sklearn
 from config import config as cfg
 import csv
 import DBModel
@@ -10,7 +10,6 @@ import random
 
 
 def classify(slice=None):
-
     _dataset_stack, selection_cache = setup_datasets(slice)
 
     list_of_dicts = []
@@ -32,14 +31,14 @@ def classify(slice=None):
         #TODO: change prediction variable such that I can pass in a list of addon rows and get a list of predictions
         prediction = []
         generate_vectors(cfg.model_selection, selection_cache)
-        h_agglomerative_clustering(cfg.model_selection, prediction)
+        do_h_agglomerative(cfg.model_selection, prediction)
 
         selection_cache.pop()
         _row_dict = {'id': row.id, 'description': row.description,
                      'system': row.system, 'ground truth': row.classification, 'prediction': ' '.join(prediction[0])}
         list_of_dicts.append(_row_dict)
 
-        if cfg.do_knn:
+        if cfg.do_aux_classifiers:
             perform_aux_classifiers(cfg.model_selection, prediction)
             _aux_row_dict = {'id': row.id, 'description': row.description,
                              'system': row.system, 'ground truth': row.classification,
@@ -158,5 +157,5 @@ def uniqueness_condition(selection, addon_selection):
 
 
 def perform_aux_classifiers(system_name, predictions_list):
-    knn_clustering(system_name, predictions_list)
+    do_sklearn(system_name, predictions_list)
 

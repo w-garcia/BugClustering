@@ -1,12 +1,12 @@
 from config import config as cfg
 import util
 import csv
-from h_agglomerative import construct_matrix, build_ticket_list
+from clustering_h_agglomerative import construct_matrix, build_ticket_list
 from sklearn import neighbors
 
 
-# Perform K-Nearest Neighbor clustering
-def knn_clustering(system_name, prediction=None):
+# Perform clustering with sklearn library
+def do_sklearn(system_name, prediction=None):
     class_clustering_filter = cfg.class_clustering_filter
     systems_filter = cfg.systems_filter
 
@@ -43,6 +43,10 @@ def cluster_by_all(system_name, prediction):
     list_of_tickets = build_ticket_list(list_of_ticket_dicts)
     ticket_target_list = build_ticket_classes(list_of_tickets)
 
+    knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix)
+
+
+def knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix):
     knn = neighbors.KNeighborsClassifier()
     knn.fit(tickets_to_weights_matrix, ticket_target_list)
     predicted_class = knn.predict(ticket_predict_weights)[0]
@@ -67,7 +71,6 @@ def build_ticket_classes(list_of_tickets):
                     break
             if found_target:
                 break
-
 
     print "target list len {}".format(len(target_list))
     print "list of tickets len {}".format(len(list_of_tickets))
