@@ -3,7 +3,7 @@ import util
 import csv
 from clustering_h_agglomerative import construct_matrix, build_ticket_list
 from sklearn import neighbors
-
+from sklearn.cluster import KMeans
 
 # Perform clustering with sklearn library
 def do_sklearn(system_name, prediction=None):
@@ -45,6 +45,8 @@ def cluster_by_all(system_name, prediction):
 
     if cfg.classification_method == 'knn':
         knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix)
+    if cfg.classification_method == 'kmeans':
+        kmeans_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix)
 
 
 def knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix):
@@ -54,6 +56,16 @@ def knn_classifier(prediction, ticket_predict_weights, ticket_target_list, ticke
     print "knn prediction: {}".format(predicted_class)
     if prediction is not None:
         prediction.append([predicted_class])
+
+
+def kmeans_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix):
+    kmeans = KMeans(n_clusters=len(ticket_target_list))
+    kmeans.fit(tickets_to_weights_matrix)
+
+    predicted_class = kmeans.predict(ticket_predict_weights)[0]
+    print "kmeans prediction: {}".format(ticket_target_list[predicted_class])
+    if prediction is not None:
+        prediction.append([ticket_target_list[predicted_class]])
 
 
 def build_ticket_classes(list_of_tickets):

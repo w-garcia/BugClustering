@@ -35,6 +35,8 @@ def classify(slice=None):
             do_h_agglomerative(cfg.model_selection, prediction)
         elif cfg.classification_method == 'knn':
             do_sklearn(cfg.model_selection, prediction)
+        elif cfg.classification_method == 'kmeans':
+            do_sklearn(cfg.model_selection, prediction)
 
         selection_cache.pop()
         _row_dict = create_row_dict(prediction, row)
@@ -43,12 +45,15 @@ def classify(slice=None):
     cls_path = util.generate_meta_path(cfg.model_selection, 'classifier')
     util.ensure_path_exists(cls_path)
 
+    filename = ''
     if cfg.classification_method == 'default':
         filename = cls_path + list_of_dicts[0]['system'] + '_classifier.csv'
-        write_classifier_file(filename, list_of_dicts)
     elif cfg.classification_method == 'knn':
         filename = cls_path + list_of_dicts[0]['system'] + '_knn_classifier.csv'
-        write_classifier_file(filename, list_of_dicts)
+    elif cfg.classification_method == 'kmeans':
+        filename = cls_path + list_of_dicts[0]['system'] + '_kmeans_classifier.csv'
+
+    write_classifier_file(filename, list_of_dicts)
 
     print "[status] : Classifier finished. Analysis started."
 

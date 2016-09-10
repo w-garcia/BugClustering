@@ -16,6 +16,9 @@ def analyze(return_accuracies=False):
     elif cfg.classification_method == 'knn':
         classifier_filename = cls_path + cfg.test_dataset + '_knn_classifier.csv'
         stats_filename = cls_path + cfg.test_dataset + '_knn_statistics.csv'
+    elif cfg.classification_method == 'kmeans':
+        classifier_filename = cls_path + cfg.test_dataset + '_kmeans_classifier.csv'
+        stats_filename = cls_path + cfg.test_dataset + '_kmeans_statistics.csv'
 
     with open(classifier_filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
