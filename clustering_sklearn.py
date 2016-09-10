@@ -43,7 +43,8 @@ def cluster_by_all(system_name, prediction):
     list_of_tickets = build_ticket_list(list_of_ticket_dicts)
     ticket_target_list = build_ticket_classes(list_of_tickets)
 
-    knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix)
+    if cfg.classification_method == 'knn':
+        knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix)
 
 
 def knn_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix):
