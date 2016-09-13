@@ -19,12 +19,19 @@ def stem_system(system_name):
     vocab = set()
 
     if cfg.clustering_mode == 'label':
-        selection = [row for row in DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(cfg.labelling_dataset).random(cfg.labelling_dataset)]
-        selection = selection[0:1000]
+        temp_list = [row for row in DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(cfg.labelling_dataset).random(cfg.labelling_dataset)]
+        selection = []
+        for row in temp_list:
+            if row.status != 'New' and row.status != 'Expired' and row.status != 'In Progress':
+                selection.append(row)
+
     else:
         selection = DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(system_name).select()
 
     for row in selection:
+        if cfg.clustering_mode == 'label' and len(list_of_stem_dicts) == 1000:
+            break
+
         stripped_description = util.strip_autogen_info(row.description)
 
         stems = []
@@ -92,6 +99,9 @@ def stem_system(system_name):
 
                     if stem not in banned_words and len(stem) > 2:
                         stems.append(stem)
+
+        if len(stems) <= 4:
+            continue
 
         if cfg.clustering_mode == 'label':
             list_of_stem_dicts.append({'system': system_name,
