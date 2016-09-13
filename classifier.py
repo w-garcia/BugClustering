@@ -141,7 +141,10 @@ def setup_datasets(slice):
         _dataset_stack = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.labelling_dataset).select()]
         # Label dataset should never intersect with model data
         if cfg.model_selection == 'all_systems':
-            selection_cache = [row for row in DBModel.LFF_Keywords.select()]
+            selection_cache = []
+            for system in util.systems:
+                for row in DBModel.LFF_Keywords.get_db_ref_by_system(system).select():
+                    selection_cache.append(row)
         else:
             selection_cache = [row for row in DBModel.LFF_Keywords.get_db_ref_by_system(cfg.model_selection).select()]
         return _dataset_stack, selection_cache
