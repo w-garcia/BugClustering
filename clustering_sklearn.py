@@ -3,7 +3,7 @@ import util
 import csv
 from clustering_h_agglomerative import construct_matrix, build_ticket_list
 from sklearn import neighbors
-from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 
 # Perform clustering with sklearn library
 def do_sklearn(system_name, prediction=None):
@@ -59,7 +59,7 @@ def knn_classifier(prediction, ticket_predict_weights, ticket_target_list, ticke
 
 
 def kmeans_classifier(prediction, ticket_predict_weights, ticket_target_list, tickets_to_weights_matrix):
-    kmeans = KMeans(n_clusters=len(ticket_target_list), n_jobs=-1)
+    kmeans = MiniBatchKMeans(n_clusters=len(ticket_target_list), init_size=len(tickets_to_weights_matrix) + 1)
     kmeans.fit(tickets_to_weights_matrix)
 
     predicted_class = kmeans.predict(ticket_predict_weights)[0]
