@@ -36,9 +36,18 @@ def low_freq_filter(system_name):
 
                 words_to_keep_in_dataset.add(word)
 
-        list_of_lff_dicts.append({'system': system_name,
-                                  'description': u' '.join(words_to_keep_in_ticket),
-                                  'classification': row.classification})
+        if cfg.clustering_mode == 'label':
+            list_of_lff_dicts.append({'system': system_name,
+                                       'description': u' '.join(words_to_keep_in_ticket),
+                                       'classification': row.classification,
+                                       'title': row.title,
+                                       'status': row.status,
+                                       'issue_number': row.issue_number,
+                                       'target': row.target})
+        else:
+            list_of_lff_dicts.append({'system': system_name,
+                                      'description': u' '.join(words_to_keep_in_ticket),
+                                      'classification': row.classification})
 
     DBModel.LFF_Keywords.get_db_ref_by_system(system_name).overwrite_system_rows(system_name, list_of_lff_dicts)
 

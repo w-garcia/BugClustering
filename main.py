@@ -43,6 +43,8 @@ def main():
             for system_name in util.systems:
                 generate_vectors(system_name)
                 do_h_agglomerative(system_name)
+    elif cfg.clustering_mode == 'label':
+        classify()
     else:
         print "[status] : {} clustering mode started with {} slice selecton.".format(cfg.clustering_mode, cfg.xvalidation_mode)
         # Perform cross validation based on config: either k-fold or random sub-sampling

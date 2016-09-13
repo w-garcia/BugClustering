@@ -5,7 +5,7 @@ import util
 import nltk
 import os
 import re
-
+from config import config as cfg
 cwd = os.getcwd()
 
 
@@ -13,11 +13,18 @@ def stem_system(system_name):
     list_of_stem_dicts = []
     banned_words = []
 
+    print "[stemmer] Stemming {}.".format(system_name)
     porter_stemmer = PorterStemmer()
     wordnet_lemmatizer = WordNetLemmatizer()
     vocab = set()
 
-    for row in DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(system_name).select():
+    if cfg.clustering_mode == 'label':
+        selection = [row for row in DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(cfg.labelling_dataset).random(cfg.labelling_dataset)]
+        selection = selection[0:1000]
+    else:
+        selection = DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system(system_name).select()
+
+    for row in selection:
         stripped_description = util.strip_autogen_info(row.description)
 
         stems = []
@@ -86,9 +93,18 @@ def stem_system(system_name):
                     if stem not in banned_words and len(stem) > 2:
                         stems.append(stem)
 
-        list_of_stem_dicts.append({'system': system_name,
-                                   'description': u' '.join(stems).encode('utf-8'),
-                                   'classification': row.classification})
+        if cfg.clustering_mode == 'label':
+            list_of_stem_dicts.append({'system': system_name,
+                                       'description': u' '.join(stems).encode('utf-8'),
+                                       'classification': row.classification,
+                                       'title': row.title,
+                                       'status': row.status,
+                                       'issue_number': row.issue_number,
+                                       'target': row.target})
+        else:
+            list_of_stem_dicts.append({'system': system_name,
+                                       'description': u' '.join(stems).encode('utf-8'),
+                                       'classification': row.classification})
 
     DBModel.Stemmed_Keyword.get_db_ref_by_system(system_name).overwrite_system_rows(system_name, list_of_stem_dicts)
 
@@ -128,7 +144,7 @@ def reduce_according_to_phrase(w1):
                          'assign', 'amoun', 'directori', 'system', 'job', 'launch', 'sink', 'block']
     for phrase in phrases_to_filter:
         if phrase in w1:
-            print phrase
+            #print phrase
             return phrase
     return w1
 
