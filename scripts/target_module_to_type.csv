@@ -1,0 +1,10 @@
+t-bug,t-new,module
+35,3,cinder
+71,10,fuel
+34,4,heat
+35,9,horizon
+30,1,keystone
+106,23,meta
+320,33,misc
+62,5,neutron
+105,9,nova

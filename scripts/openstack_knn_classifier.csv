@@ -1,0 +1,2001 @@
+system,t,prediction,id,description
+,,,,
+openstack,t-bug,sw-,2663,eed document level nailgun assign trace data data
+,,,,
+openstack,t-bug,sw-,2662,unit test test tie need mock time guarante run version test environ resu
+,,,,
+openstack,t-bug,sw-,2661,output repeat role paragraph line descript
+,,,,
+openstack,t-bug,sw-,2660,field page fill login page user login horizon use
+,,,,
+openstack,t-bug,sw-,2659,rior issu comput case exist notif captur use period begin day
+,,,,
+openstack,t-bug,sw-,2658,node neutron port allow pair list type dict address
+,,,,
+openstack,t-bug,sw-,2657,dev pkg config instal tri run otherwis test
+,,,,
+openstack,t-bug,sw-,2656,trace return context session case imag
+,,,,
+openstack,t-bug,sw-,2655,eutron server return html code user execut list agent agent
+,,,,
+openstack,t-bug,sw-,2654,element count chang http element caus creat command fail flag pass prevent agent set correct
+,,,,
+openstack,t-new,sw-,2653,end user guid add section heat dashboard chapter screenshot includ
+,,,,
+openstack,t-bug,sw-,2652,resiz resiz size need send event
+,,,,
+openstack,t-new,sw-,2651,inc http neutron option group gener deprec cinder nova option group default
+,,,,
+openstack,t-bug,sw-,2650,upgrad requir fuel network test version
+,,,,
+openstack,t-bug,sw-,2649,follow request result timestamp result caus exception process way ceilomet use
+,,,,
+openstack,t-bug,sw-,2648,share start check run share call driver method guarante sha
+,,,,
+openstack,t-bug,sw-,2647,see follow race condit case run result failur case start
+,,,,
+openstack,t-new,sw-,2646,way get help output set list insert argum
+,,,,
+openstack,t-bug,sw-,2645,zone work user auth check
+,,,,
+openstack,t-bug,sw-,2644,curl get http auth token accept applic
+,,,,
+openstack,t-bug,sw-,2643,hang key file file
+,,,,
+openstack,t-bug,sw-,2642,task stream creat load balanc updat load balanc object task load balanc object caus network setup call amphora driver
+,,,,
+openstack,t-bug,sw-,2641,ight access gerrit project defin fuel config project yaml acl
+,,,,
+openstack,t-bug,sw-,2640,reat stack heat creat result
+,,,,
+openstack,t-bug,sw-,2639,align test descript fuel code accept case releas accept
+,,,,
+openstack,t-bug,sw-,2638,ure run http issu prevent problem
+,,,,
+openstack,t-bug,sw-,2637,protect flag imag prevent delet expos hori
+,,,,
+openstack,t-bug,sw-,2636,hen tri creat flavor string get error
+,,,,
+openstack,t-bug,sw-,2635,hen tri import transfer horizon gate fai
+,,,,
+openstack,t-bug,sw-,2634,hen creat bay use resourc bay state return
+,,,,
+openstack,t-bug,sw-,2633,simplifi execut need make variabl system test case work
+,,,,
+openstack,t-bug,sw-,2632,servic librari open stack project port use
+,,,,
+openstack,t-bug,sw-,2631,guarante ssl header option list option list function show sampl config
+,,,,
+openstack,t-bug,sw-,2630,test option updat configur jenkin serv
+,,,,
+openstack,t-bug,sw-,2629,need remov name make fix
+,,,,
+openstack,t-new,sw-,2628,data write file contain data autom process mount
+,,,,
+openstack,t-bug,sw-,2627,moment batch sql queri code replac code use
+,,,,
+openstack,t-bug,sw-,2626,lbaa action associ fip show present make sens vip
+,,,,
+openstack,t-bug,sw-,2625,follow behavior detect swift kilo code chang issu affect versi
+,,,,
+openstack,t-new,sw-,2624,horizon panel group panel group menu reflect structur panel sourc file detect way group panel packag use
+,,,,
+openstack,t-bug,sw-,2623,ttp highlight applic catalog murano issu compon
+,,,,
+openstack,t-bug,sw-,2622,see thing look race host file write dnsmasq dhcp request total get error dnsmasq state address duplic address time look host file replac
+,,,,
+openstack,t-bug,sw-,2621,region add host get ceilomet listen address start ceilomet api servic get address class hostnam support
+,,,,
+openstack,t-bug,sw-,2620,fter upgrad essex folsom tri attach volum exist case work tri attach exist volum case result traceback end
+,,,,
+openstack,t-bug,sw-,2619,creat subnet alloc pool start end
+,,,,
+openstack,t-new,sw-,2618,folsom min count max count valid valu comput server caus server error throw check need add request throw error fix
+,,,,
+openstack,t-bug,sw-,2617,hen use rabbit queue order possibl rabbit disk space model happen api hang wait send messa
+,,,,
+openstack,t-new,sw-,2616,eilomet compon use fill log file error bel
+,,,,
+openstack,t-bug,sw-,2615,rom horizon user issu action run
+,,,,
+openstack,t-bug,sw-,2614,look cmd use port
+,,,,
+openstack,t-bug,sw-,2613,document connect give page configur kernel data
+,,,,
+openstack,t-bug,sw-,2612,orizon support version unit test fail run follow error
+,,,,
+openstack,t-bug,sw-,2611,code handl interface make check see interface exist assum exist rest oper contain devic remov time nova agent devic remov time caus exception trigger port oper caus state port side act
+,,,,
+openstack,t-new,sw-,2610,associ comput admin messag add imag html break
+,,,,
+openstack,t-bug,sw-,2609,info class encapsul auth attribut expos domain
+,,,,
+openstack,t-bug,sw-,2608,ith quantum api quantum use network dhcp
+,,,,
+openstack,t-bug,sw-,2607,replac pod api fail state exist pod duplic replac pod api defin
+,,,,
+openstack,t-bug,sw-,2606,leas chang problem http configur test group test group run test accord chang commit puppet modul implement http
+,,,,
+openstack,t-bug,sw-,2605,thread captur snapshot fail trace followi
+,,,,
+openstack,t-bug,sw-,2604,list volum type http volum
+,,,,
+openstack,t-bug,sw-,2603,read launch case paragraph http
+,,,,
+openstack,t-bug,sw-,2602,delet succeed tie server way port associ get delet trigger delet affect nova fail detach port gbp delet
+,,,,
+openstack,t-new,sw-,2601,eutron featur region add patch http
+,,,,
+openstack,t-bug,sw-,2600,sing glancecli creat imag imag size contain none valu
+,,,,
+openstack,t-bug,sw-,2599,problem distribut ajax updat load element use element cache element chang result rais stale element refer excepti
+,,,,
+openstack,t-bug,sw-,2598,ser volum driver cinder volum driver lvm driver detect driver exist upgrad hava
+,,,,
+openstack,t-bug,sw-,2597,rom email post mail list
+,,,,
+openstack,t-bug,sw-,2596,creat server metadata valu meta detail exceed creat request
+,,,,
+openstack,t-bug,sw-,2595,hen tri creat admin project
+,,,,
+openstack,t-bug,sw-,2594,hen default design creat tripleo design manag creat default deploy design tarbal directori creat upload swi
+,,,,
+openstack,t-bug,sw-,2593,bug report dev doc doc sourc glanc
+,,,,
+openstack,t-new,sw-,2592,dashboard dashboard project contain form import contain tabl function function move contain import form tab
+,,,,
+openstack,t-bug,sw-,2591,state heat configur default devstack need fix
+,,,,
+openstack,t-bug,sw-,2590,xen server custom releas includ network
+,,,,
+openstack,t-bug,sw-,2589,fter instal cinder code appli sync oper volum migrat fail
+,,,,
+openstack,t-bug,sw-,2588,dvr neutron agent refer exist self issu introduc http
+,,,,
+openstack,t-bug,sw-,2587,return intern server error advertis comput host
+,,,,
+openstack,t-bug,sw-,2586,infrastructur instal playbook haproxi becom detail failu
+,,,,
+openstack,t-bug,sw-,2585,lbaa unit test use form test plugin quantum plugin case class mix make add refer core resourc copi
+,,,,
+openstack,t-bug,sw-,2584,enter number url tenant becom noth valid tenant invalid topic data display page use user tenant
+,,,,
+openstack,t-bug,sw-,2583,leav credenti error messag print
+,,,,
+openstack,t-bug,sw-,2582,meter use client lbaa api ceilomet neutron client work api way visual use correct api
+,,,,
+openstack,t-bug,sw-,2581,hen run tox time execut fail error state type determin
+,,,,
+openstack,t-new,sw-,2580,keyston authent user client request respond http bodi contain authent ask
+,,,,
+openstack,t-bug,sw-,2579,ommit http break abil get client domain scope token tri someth
+,,,,
+openstack,t-bug,sw-,2578,gateway creat devic param foo
+,,,,
+openstack,t-bug,sw-,2577,disk miss tombston tri advertis use replica delet fai
+,,,,
+openstack,t-bug,sw-,2576,rest api return header respons improve api allow client determin resourc chang time client interact client chang send request header allow iron servic prevent updat problem begin use post place support patch requ
+,,,,
+openstack,t-bug,sw-,2575,test pass reli creat secur group use work
+,,,,
+openstack,t-bug,sw-,2574,chang gerrit run test
+,,,,
+openstack,t-bug,sw-,2573,configur option allow servic start worker process
+,,,,
+openstack,t-bug,sw-,2572,section refer titl develop updat state juno releas featur overview connect admin guid add
+,,,,
+openstack,t-bug,sw-,2571,problem use zuul cloner access constraint see
+,,,,
+openstack,t-bug,sw-,2570,client introduc client ident client remov hardcod endpoint type admin
+,,,,
+openstack,t-bug,sw-,2569,extens lack api sampl
+,,,,
+openstack,t-new,sw-,2568,support hide router panel
+,,,,
+openstack,t-bug,sw-,2567,index mail thread http email address hide condit meter metric use doc caus confus fix issu condit meter continu develop document guid open stack
+,,,,
+openstack,t-bug,sw-,2566,user creat rout router subn
+,,,,
+openstack,t-bug,sw-,2565,hen get error share creation retri enabl messag aggreg format
+,,,,
+openstack,t-bug,sw-,2564,fuel miss log report contain server swift object server swift proxi serv
+,,,,
+openstack,t-bug,sw-,2563,hang driver data sourc driver class support persist advertis data match chang need
+,,,,
+openstack,t-bug,sw-,2562,list thread detail chang polici enabl user choos specif host launch case
+,,,,
+openstack,t-new,sw-,2561,leas updat flavor manag section api doc http
+,,,,
+openstack,t-bug,sw-,2560,vpn servic detail page vpn connect label show valu connect detect propos none display leav user connect detect descript label
+,,,,
+openstack,t-bug,sw-,2559,hile act boot volum discov end
+,,,,
+openstack,t-bug,sw-,2558,kilo neutron lbaa bran
+,,,,
+openstack,t-bug,sw-,2557,hen run fuel noth quit replac
+,,,,
+openstack,t-bug,sw-,2556,log debug level mean applic log set debug oper vmware backend
+,,,,
+openstack,t-bug,sw-,2555,mqp host updat comput node add rabbit node
+,,,,
+openstack,t-new,sw-,2554,imag add method bin glanc state followi
+,,,,
+openstack,t-bug,sw-,2553,ccord http topolog node set follo
+,,,,
+openstack,t-bug,sw-,2552,use heat protect
+,,,,
+openstack,t-bug,sw-,2551,hen fals devstack conf devstack tool script creat fai
+,,,,
+openstack,t-bug,sw-,2550,hen creat disk partition quit fill
+,,,,
+openstack,t-bug,sw-,2549,driver report error assign use
+,,,,
+openstack,t-bug,sw-,2548,eed remov interface field autom test accord http
+,,,,
+openstack,t-bug,sw-,2547,bunch connect http break use
+,,,,
+openstack,t-bug,sw-,2546,fter run devstack setup libvirt kvm env fedora comput crash
+,,,,
+openstack,t-bug,sw-,2545,lanc use shell true glanc test unit test migrat line function
+,,,,
+openstack,t-bug,sw-,2544,case name foo space end caus error messag
+,,,,
+openstack,t-bug,sw-,2543,file ref ident api admin method set user enabl document print file swagger tool log http
+,,,,
+openstack,t-bug,sw-,2542,gener script refer variabl pass system use environ modul packag environ variabl leav gener sampl fail
+,,,,
+openstack,t-new,sw-,2541,conf ini support secur group enabl secur group
+,,,,
+openstack,t-bug,sw-,2540,hen messag agent activ bunch provis bunch state error state bunch state stay build state fail act
+,,,,
+openstack,t-bug,sw-,2539,menu contain right column row action titl requir see everyth break menu measur
+,,,,
+openstack,t-bug,sw-,2538,suppress messag unit test need investig root caus need chang log level support annoy messag
+,,,,
+openstack,t-bug,sw-,2537,detect follow error lbaa log creat vip
+,,,,
+openstack,t-bug,sw-,2536,eilomet becom devstack plugin project use ceilomet jenkin problem ask chang describ
+,,,,
+openstack,t-bug,sw-,2535,mage member test test fail
+,,,,
+openstack,t-bug,sw-,2534,python packag init user warn modul deprec assum basi way get client class object detect client
+,,,,
+openstack,t-new,sw-,2533,write stack end user gui
+,,,,
+openstack,t-bug,sw-,2532,creat databas outlin describ step step creat databas
+,,,,
+openstack,t-bug,sw-,2531,exist list gener cisco plug
+,,,,
+openstack,t-new,sw-,2530,problem see creat provid network neutron configur use edg bunch comput port group get creat edg make sens defin plugin present problem port group look comput bunch launch share network pass
+,,,,
+openstack,t-bug,sw-,2529,paragraph http instruct aim creat endpoint use variabl tenant
+,,,,
+openstack,t-bug,sw-,2528,trove method rackspac client rackspac heat engin plugin client work trove resourc
+,,,,
+openstack,t-bug,sw-,2527,fter increment number node run heat stack
+,,,,
+openstack,t-bug,sw-,2526,ssl doc horizon haproxi rabbitmq make sens central ssl secur key relat document connect servic doc associ ssl
+,,,,
+openstack,t-bug,sw-,2525,penstack config use suse configur
+,,,,
+openstack,t-new,sw-,2524,script upgrad docker contain possibl make tarbal docker contain add releas
+,,,,
+openstack,t-bug,sw-,2523,default version cinder cinder conf rescu juno includ follow entri match configur entri cinder config
+,,,,
+openstack,t-bug,sw-,2522,ome output help cli trove manag space end line caus gate manual tox test fail gener fil
+,,,,
+openstack,t-bug,sw-,2521,call verif network task manag remov verif task
+,,,,
+openstack,t-bug,sw-,2520,hen app instal stream exception get follo
+,,,,
+openstack,t-bug,sw-,2519,pend extens wait get pleas review contain merg extens approv
+,,,,
+openstack,t-bug,sw-,2518,plugin tag deprec juno bug track remov
+,,,,
+openstack,t-bug,sw-,2517,templat return list contain handl get
+,,,,
+openstack,t-bug,sw-,2516,hen tri creat volum admin user get excepti
+,,,,
+openstack,t-bug,sw-,2515,collect featur perform task collect statist fuel infrastructur use collect info resourc code task mix packag nailgun statist complic structur make model reus util code region refactor effort simplifi manag statist creat code coupl logic place move util infrastructur function custom error definit etc
+,,,,
+openstack,t-bug,sw-,2514,class glanc regist context request context past filter glanc wsgi filter glanc filter keyston middlewar glanc auth keyston context middlewar result error glanc start glanc exception import failur fail import request class caus modul name glanc auth look modul remov http
+,,,,
+openstack,t-bug,sw-,2513,file make ubuntu distribut
+,,,,
+openstack,t-new,sw-,2512,support page enter credenti registr form login password chang statist context submit credenti registr
+,,,,
+openstack,t-new,sw-,2511,etwork api extens level network http
+,,,,
+openstack,t-bug,sw-,2510,cli user want get event log write issu hardcod
+,,,,
+openstack,t-bug,sw-,2509,transfer guid miss charact titl page ask packag instal build
+,,,,
+openstack,t-bug,sw-,2508,volum creat img think copi imag volum fail disk enabl fix stream creat volum imag chang use window creat volum copi imag skip volum creation get driver creat disk base download imag import
+,,,,
+openstack,t-bug,sw-,2507,issu non attach host attach begin connect branch functi
+,,,,
+openstack,t-bug,sw-,2506,test linuxbridg plugin follo
+,,,,
+openstack,t-bug,sw-,2505,use default driver cinder rhel look place includ file moment line get add rhel
+,,,,
+openstack,t-bug,sw-,2504,list cache dict process run multipl process project switch remov project list
+,,,,
+openstack,t-new,sw-,2503,type session persist support accord http
+,,,,
+openstack,t-bug,sw-,2502,volum creat command accept attribut snapshot enabl user creat volum snapshot
+,,,,
+openstack,t-bug,sw-,2501,ajax use look updat use spin use
+,,,,
+openstack,t-bug,sw-,2500,ttempt get type fail
+,,,,
+openstack,t-bug,sw-,2499,ident uri prevent neutron talk nova
+,,,,
+openstack,t-bug,sw-,2498,agent test result batch failur
+,,,,
+openstack,t-bug,sw-,2497,hen tri attach volum driver fail return error
+,,,,
+openstack,t-bug,sw-,2496,see servic deploy servic
+,,,,
+openstack,t-new,sw-,2495,magnum add requir project add hack need
+,,,,
+openstack,t-new,sw-,2494,quantum entri http core project
+,,,,
+openstack,t-bug,sw-,2493,run api doc test integrate notic commit
+,,,,
+openstack,t-bug,sw-,2492,want add valu header use get header rest client way
+,,,,
+openstack,t-bug,sw-,2491,exception wrap trace filter traceback call trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter context trace oslo sqlalchemi filter file line execut trace filter argument paramet trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter queri queri arg trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter queri queri self trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter return key val val detail trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter return key val val detail trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter return detail obj map map trace oslo sqlalchemi filter file line detail trace oslo sqlalchemi filter encod map trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter return valu trace oslo sqlalchemi filter file line trace oslo sqlalchemi filter return valu transfer trace oslo sqlalchemi filter attribut error object attribut
+,,,,
+openstack,t-bug,sw-,2490,use cinder manila talk app store rest
+,,,,
+openstack,t-bug,sw-,2489,search task puppet log discuss look ceilomet control task caus discuss
+,,,,
+openstack,t-bug,sw-,2488,secur openstack secur guid sampl creat month review secur guid
+,,,,
+openstack,t-bug,sw-,2487,bug horizon everyth address close interpret
+,,,,
+openstack,t-bug,sw-,2486,day need know network map use vlan bridg map use map network bridg bridg map
+,,,,
+openstack,t-bug,sw-,2485,self case imag connect nova base request context
+,,,,
+openstack,t-bug,sw-,2484,section partition haproxi configur follo
+,,,,
+openstack,t-bug,sw-,2483,tool prevent pep run
+,,,,
+openstack,t-bug,sw-,2482,see error messag window agent log rabbit
+,,,,
+openstack,t-bug,sw-,2481,secur guid list refer url list end chapter list display version record url connect name display url stale becom
+,,,,
+openstack,t-bug,sw-,2480,env method extens form document
+,,,,
+openstack,t-bug,sw-,2479,vmware neutron test unit test nsx plugin test port test delet port network string exception empti
+,,,,
+openstack,t-bug,sw-,2478,provis set permiss prevent write docker volum lack file flag mount
+,,,,
+openstack,t-bug,sw-,2477,add code support nova quantum run test code problem run http
+,,,,
+openstack,t-bug,sw-,2476,server charact tri boot server boot fail obtain dhcp address network neutron configur server name charact hostnam
+,,,,
+openstack,t-bug,sw-,2475,page http config file name locat cent
+,,,,
+openstack,t-new,sw-,2474,log messag chang pod detect pod
+,,,,
+openstack,t-bug,sw-,2473,method count datacent proper
+,,,,
+openstack,t-bug,hw-,2472,follow instruct http instal sourc document state sudo pip instal requir txt result keyston keyston manag keyston instal
+,,,,
+openstack,t-bug,sw-,2471,resourc tracker use call use regex search case host tabl caus call make regex need call use affect oper
+,,,,
+openstack,t-bug,sw-,2470,pleas compar releas mirror iso
+,,,,
+openstack,t-bug,sw-,2469,liberti releas network tab class miss doc
+,,,,
+openstack,t-bug,sw-,2468,report cinder get valu cinder servic region servic region
+,,,,
+openstack,t-bug,sw-,2467,fault data fault name
+,,,,
+openstack,t-bug,sw-,2466,list endpoint return form
+,,,,
+openstack,t-bug,sw-,2465,ith process requir sync advertis mileston branch none propos branch creat requir problem fail
+,,,,
+openstack,t-new,sw-,2464,region api execut align
+,,,,
+openstack,t-bug,sw-,2463,post sampl api test check messag print json return api verif
+,,,,
+openstack,t-bug,sw-,2462,nova configur use base log servic run system becom name servic log resolv log record contain name servic binari gener log open stack system use central base log mechan
+,,,,
+openstack,t-bug,sw-,2461,tri rescu imag kernel ramdisk error show comput
+,,,,
+openstack,t-bug,sw-,2460,volum ask rule work make set packag
+,,,,
+openstack,t-bug,sw-,2459,iso open stack juno releas
+,,,,
+openstack,t-bug,sw-,2458,map place revert name
+,,,,
+openstack,t-bug,sw-,2457,script interpret section file case file form messag
+,,,,
+openstack,t-bug,sw-,2456,verif exist break retri comma
+,,,,
+openstack,t-bug,sw-,2455,test config metadata self sign secur caus error
+,,,,
+openstack,t-new,sw-,2454,reproduc design conf use databas design pool manag cache examp
+,,,,
+openstack,t-bug,sw-,2453,keystonecli bunch exception exception region api applic import use exception caus problem work creat librari applic look exception endpoint found rais exception exception import keystonecli exception need get region exception region api propos chang switch keystonecli use exception move exception exception backward compat exception stay renam exception exception exception renam exception backward compat anyth use exception continu work becom renam exception mean becom stop sync exception oslo
+,,,,
+openstack,t-bug,sw-,2452,type check set user group file directori mode configur file directori
+,,,,
+openstack,t-bug,sw-,2451,ome quantum plugin need know data creat network port network need know bunch data total port need know data set network
+,,,,
+openstack,t-bug,sw-,2450,test run glanc master messag stdout annoy connect
+,,,,
+openstack,t-new,sw-,2449,support extend imag format type support
+,,,,
+openstack,t-bug,sw-,2448,lock alloc subnet postgresql guarante alloc cidr overlap cidr noth subnet alloc creat subnet
+,,,,
+openstack,t-bug,sw-,2447,resourc list command execut filter param heat throw server error
+,,,,
+openstack,t-bug,sw-,2446,detect forc ssl access master
+,,,,
+openstack,t-bug,sw-,2445,error api ref imag
+,,,,
+openstack,t-bug,sw-,2444,tempest scenario test creat resourc
+,,,,
+openstack,t-bug,sw-,2443,tep reproduc log network import murano applic creat murano environ add import applic creat environ deploy environ wait finish deploy environ click delet environ stay page ask result environ delet list result environ delet state list reload
+,,,,
+openstack,t-bug,sw-,2442,sign need nova keyston
+,,,,
+openstack,t-bug,sw-,2441,creat snapshot use effort memori
+,,,,
+openstack,t-bug,sw-,2440,sing ceph backend fail process measur show trace
+,,,,
+openstack,t-bug,sw-,2439,hile run stack stack make permiss error
+,,,,
+openstack,t-bug,sw-,2438,ttp implement notif project use
+,,,,
+openstack,t-bug,sw-,2437,option disabl kernel schedul use support cent
+,,,,
+openstack,t-bug,sw-,2436,moment problem use allow instal depend version
+,,,,
+openstack,t-new,sw-,2435,agnum panel regist file use file hori
+,,,,
+openstack,t-bug,sw-,2434,databas role fail firewal refactor need port open resu
+,,,,
+openstack,t-bug,sw-,2433,delet pool use flavor error rais user tri
+,,,,
+openstack,t-bug,sw-,2432,config gener servic neutron agent contain
+,,,,
+openstack,t-bug,sw-,2431,gener set servic case flavor default valu flavor scope
+,,,,
+openstack,t-bug,sw-,2430,section request token open stack ident api json data give model request
+,,,,
+openstack,t-bug,sw-,2429,sing context assign network node creat environ add comput node configur interface public network list need assign comput number interface use network stay place public
+,,,,
+openstack,t-bug,sw-,2428,fter neutron agent restart namespac dhcp router namespac access command neutron agent contain
+,,,,
+openstack,t-bug,sw-,2427,notif driver heat conf attribut
+,,,,
+openstack,t-bug,sw-,2426,right level file document make doc move give
+,,,,
+openstack,t-bug,sw-,2425,ook hour comput servic messag
+,,,,
+openstack,t-bug,sw-,2424,sing nova folsom code see exception perform resiz use resiz host
+,,,,
+openstack,t-bug,sw-,2423,case creat get action work time error return
+,,,,
+openstack,t-bug,sw-,2422,doc state time measur second valu look second doc code think chang
+,,,,
+openstack,t-new,sw-,2421,secur guid discuss kvm kernel merg xen associ end
+,,,,
+openstack,t-bug,sw-,2420,hen lvm second case migrat devstack case disk copi finish comput node delet sourc comput
+,,,,
+openstack,t-bug,sw-,2419,test make acl swift instal work creat admin user user contain object contain contain object think admin allow user tenant test appli line api call get resu
+,,,,
+openstack,t-bug,sw-,2418,configur document use hand name plugin set setup config forc admin oper leav class
+,,,,
+openstack,t-bug,sw-,2417,build gate murano see
+,,,,
+openstack,t-bug,sw-,2416,resourc info error log messag local transfer
+,,,,
+openstack,t-bug,sw-,2415,devstack boot deploy ramdisk kernel fedora
+,,,,
+openstack,t-bug,sw-,2414,think switch object stop work tri error
+,,,,
+openstack,t-bug,sw-,2413,state updat databas snapshot creat
+,,,,
+openstack,t-bug,sw-,2412,set interface ring
+,,,,
+openstack,t-new,sw-,2411,plugin work work multipl paramet allow assign time
+,,,,
+openstack,t-bug,sw-,2410,follow command execut quantum dhcp agent
+,,,,
+openstack,t-bug,sw-,2409,hen tri add remov node rackspac stack error
+,,,,
+openstack,t-bug,sw-,2408,function swagger use includ use destroy system use
+,,,,
+openstack,t-bug,sw-,2407,return case object older client action case list object see version case list object fill object
+,,,,
+openstack,t-bug,sw-,2406,detach interface run comput host cast rpc invoc valid comput manag model port pass miss http respons code return user user need look log determin error index noth
+,,,,
+openstack,t-bug,sw-,2405,tag version look relea
+,,,,
+openstack,t-bug,sw-,2404,use sampl data script total keyston delet tenant leav admin user tenant connect user tenant membership exi
+,,,,
+openstack,t-bug,sw-,2403,serial oper test
+,,,,
+openstack,t-bug,sw-,2402,hen tri instal fuel cpu fuel instal block begin messag state hardwar
+,,,,
+openstack,t-bug,sw-,2401,continu line hang
+,,,,
+openstack,t-bug,sw-,2400,error instal machin instal fedora instal default updat guid rpm packag add depend
+,,,,
+openstack,t-bug,sw-,2399,hen use resourc place leav error
+,,,,
+openstack,t-bug,sw-,2398,hen copi object use http copi side copi copi metadata associ object includ delet header effect use version object version get
+,,,,
+openstack,t-bug,sw-,2397,stack upgrad engin check releas uniqu issu
+,,,,
+openstack,t-bug,sw-,2396,lock dashboard node filter see screen
+,,,,
+openstack,t-new,sw-,2395,eed essex branch manag
+,,,,
+openstack,t-bug,sw-,2394,connect issu neutron oper
+,,,,
+openstack,t-bug,sw-,2393,nce enabl set conf get excepti
+,,,,
+openstack,t-bug,sw-,2392,hen use ldap ssl self sign secur need option ignor warn accept
+,,,,
+openstack,t-bug,sw-,2391,attack use site method determin python modul
+,,,,
+openstack,t-bug,sw-,2390,hang chang get devic
+,,,,
+openstack,t-bug,sw-,2389,ome map plugin unit test assign region name break behavior config option config overrid see map test run worker run test use region name test fail model test url region
+,,,,
+openstack,t-bug,sw-,2388,accept scope header get object respons miss commit
+,,,,
+openstack,t-bug,sw-,2387,option get move servic credenti group hava
+,,,,
+openstack,t-bug,sw-,2386,support neutron backend overlap detect overlap conflict get exception
+,,,,
+openstack,t-bug,sw-,2385,mac entri creation fail follow error
+,,,,
+openstack,t-bug,sw-,2384,use option instal look
+,,,,
+openstack,t-bug,sw-,2383,hen glanc api replac imag member leav request bodi return intern server error
+,,,,
+openstack,t-bug,sw-,2382,horizon horizon compon model compon dashboard build compon execut
+,,,,
+openstack,t-bug,sw-,2381,fuel review page author reset crash exception version featur group
+,,,,
+openstack,t-bug,sw-,2380,integrate error use mysql back
+,,,,
+openstack,t-bug,sw-,2379,encount exception caus hypervisor loop end tri retri continu
+,,,,
+openstack,t-bug,sw-,2378,eed get line python
+,,,,
+openstack,t-bug,sw-,2377,add problem jenkin problem zuul print commit repo org count region need determin master tag branch make
+,,,,
+openstack,t-bug,sw-,2376,img absent case role
+,,,,
+openstack,t-bug,sw-,2375,cloud get throw exception log error api make debug issu
+,,,,
+openstack,t-bug,sw-,2374,fter master node wizard oper system releas http disabl
+,,,,
+openstack,t-bug,sw-,2373,network wizard context tab allow use kernel backend glanc
+,,,,
+openstack,t-new,sw-,2372,fter updat gerrit trigger plugin support plugin break resolv updat plugin
+,,,,
+openstack,t-bug,sw-,2371,ahara provis vanilla bunch heat engin heat templat error
+,,,,
+openstack,t-bug,sw-,2370,hypervisor statist report nova hypervisor stat servic run comput node output bel
+,,,,
+openstack,t-bug,sw-,2369,ure creation gbp lpolici object need implement valid check attribut valu
+,,,,
+openstack,t-bug,sw-,2368,open stack comput admin manual section manag volum see hyperlink aim index script make volum backup
+,,,,
+openstack,t-bug,sw-,2367,volum migrat avail zone work user need migrat volum avail zone use
+,,,,
+openstack,t-bug,sw-,2366,use condit horizon leav review assum refer horizon dashboard compon open sta
+,,,,
+openstack,t-new,sw-,2365,store kernel driver send provid discoveri volum function provid prob
+,,,,
+openstack,t-new,sw-,2364,resourc stack method handl found rais
+,,,,
+openstack,t-bug,sw-,2363,hen creat case api send
+,,,,
+openstack,t-bug,sw-,2362,fter execut imag file glanc get error messag unset succeed upload imag
+,,,,
+openstack,t-bug,sw-,2361,token trust base valu chang format token associ trust show list token trust
+,,,,
+openstack,t-bug,sw-,2360,look heat set set use debug notic self context auth plugin ident endpoin
+,,,,
+openstack,t-bug,sw-,2359,place nova assert use manner model
+,,,,
+openstack,t-new,sw-,2358,eport day http comment
+,,,,
+openstack,t-new,sw-,2357,tep reproduc add line ceilomet http conf run
+,,,,
+openstack,t-bug,sw-,2356,run task share manag servic capabl run task
+,,,,
+openstack,t-bug,sw-,2355,hen integ test environ ssl enabl test rais excepti
+,,,,
+openstack,t-bug,sw-,2354,agnum bay creat name baymodel node
+,,,,
+openstack,t-bug,sw-,2353,propos mail list upgrad
+,,,,
+openstack,t-bug,sw-,2352,neutron secur group api chang valu ipv icmp leav creation acl leav fail tie secur group rule por
+,,,,
+openstack,t-bug,sw-,2351,releas fuelmain sha fuellib sha auth ask api nailgun sha output docker python fuelclient sha astut sha featur group miranti releas fuelmain sha fuellib sha
+,,,,
+openstack,t-bug,sw-,2350,use reli cento data need creat cent detect tool cent base docker
+,,,,
+openstack,t-bug,sw-,2349,failur devstack gate prevent test pass index non
+,,,,
+openstack,t-bug,sw-,2348,test option show catalog default set fact show basi function manifest count fact case block develop http
+,,,,
+openstack,t-bug,sw-,2347,ith plugin introduc role appli
+,,,,
+openstack,t-bug,sw-,2346,case wsgi interface sqlite backend creat messag serv
+,,,,
+openstack,t-bug,sw-,2345,creat snapshot case boot volum second
+,,,,
+openstack,t-bug,sw-,2344,follow error script connect
+,,,,
+openstack,t-bug,sw-,2343,hardcod valu allow set user context role defin http
+,,,,
+openstack,t-new,sw-,2342,keystonecli version releas region openstack essex version adjust
+,,,,
+openstack,t-bug,sw-,2341,hen trove fail creat secur group default rule case creat action fail perform rollback turn case error state delet entri case case tabl side effect case add build state case tabl chang state user delet
+,,,,
+openstack,t-bug,sw-,2340,ntegrat test problem test case group file skip set cla
+,,,,
+openstack,t-bug,sw-,2339,keyston servic creat command allow creation servic type hope accord servic section api documentati
+,,,,
+openstack,t-bug,sw-,2338,describ avail zone place node zone support avail
+,,,,
+openstack,t-bug,sw-,2337,ttp group key project solut key hour show test unit test comput comput test case test run case queri mac unit test assum moment run look thing test caus
+,,,,
+openstack,t-new,sw-,2336,hen object directori file post copi replica tombston file directori leav tombston meta file sourc directori tombston sourc target directori node yield suffix hash caus replica sync
+,,,,
+openstack,t-bug,sw-,2335,hen chang requir file project requir chang look check branch master bran
+,,,,
+openstack,t-bug,sw-,2334,rhel clone devstack run fail step remov python packag turn remov python pip packag error
+,,,,
+openstack,t-bug,sw-,2333,run block migrat test xen server error
+,,,,
+openstack,t-bug,sw-,2332,http version use provid
+,,,,
+openstack,t-bug,sw-,2331,execut function relat resourc track iron node make api request iron node scale reduc call
+,,,,
+openstack,t-bug,sw-,2330,page header block horizon make http
+,,,,
+openstack,t-bug,sw-,2329,regist script gener config
+,,,,
+openstack,t-bug,sw-,2328,murano dsvm test fail follow error messa
+,,,,
+openstack,t-bug,sw-,2327,agent port python need python packag creat environ run test python
+,,,,
+openstack,t-new,sw-,2326,fuel rest api network backend log log region network backend file log expos user
+,,,,
+openstack,t-bug,sw-,2325,nova network configur neutron network configur use task way think get task choos access refactor follow
+,,,,
+openstack,t-bug,sw-,2324,sing sourc group type rule network star spawn becom error sourc finish group
+,,,,
+openstack,t-new,sw-,2323,resourc attribut make api call templat call time result request tripleo scale result api call delay resourc creation period heat engin cpu
+,,,,
+openstack,t-bug,sw-,2322,place nova assert use manner model
+,,,,
+openstack,t-bug,sw-,2321,entiti name caus show delet aggreg
+,,,,
+openstack,t-bug,sw-,2320,thing fix fuel region remov name code
+,,,,
+openstack,t-bug,sw-,2319,leas system test bvt fuel proj
+,,,,
+openstack,t-bug,sw-,2318,shell test run cli unit test fail python
+,,,,
+openstack,t-bug,sw-,2317,period problem propos transfer swift
+,,,,
+openstack,t-bug,sw-,2316,admin want edit detail user project associ form fail error error submit form pleas tri
+,,,,
+openstack,t-bug,sw-,2315,api site clean open stack project name convent
+,,,,
+openstack,t-bug,sw-,2314,rom test look consol work
+,,,,
+openstack,t-bug,sw-,2313,instal glanc client ubuntu pip instal python glancecli tri someth client get
+,,,,
+openstack,t-bug,sw-,2312,hen tri creat templat get rest respons bodi contain val
+,,,,
+openstack,t-bug,sw-,2311,fter upgrad tempest valu cli directori config file caus fail neutron
+,,,,
+openstack,t-bug,sw-,2310,lanc hardcod clean endpoint servic catalog keyston auth
+,,,,
+openstack,t-bug,sw-,2309,use endpoint glanc move servic type
+,,,,
+openstack,t-bug,sw-,2308,hen tri start trove crash error fix
+,,,,
+openstack,t-bug,sw-,2307,sing tripleo heat templat get error
+,,,,
+openstack,t-bug,sw-,2306,commit break nsx text
+,,,,
+openstack,t-bug,sw-,2305,servic catalog endpoint servic detail check everyth format self assert endpoint self assert endpoint self assert endpoint endpoin
+,,,,
+openstack,t-bug,sw-,2304,drop lxc bridg task role think chang lxc bridg config
+,,,,
+openstack,t-bug,sw-,2303,happen run keystonecli test fail traceback get use tox
+,,,,
+openstack,t-bug,sw-,2302,get miss
+,,,,
+openstack,t-bug,sw-,2301,load site request volum creation attach volum delet detach happen error
+,,,,
+openstack,t-new,sw-,2300,leas add manag init script restart action cento ubu
+,,,,
+openstack,t-bug,sw-,2299,mqp queue option defin class use puppet class
+,,,,
+openstack,t-bug,sw-,2298,number exception class defin gbp neutron servic exception base class inherit exception class make base class need name doc string defin mean
+,,,,
+openstack,t-new,sw-,2297,run open stack ceph know problem use copi option glanc cli use horizon bring save imag imag get save pool ceph stay save state sta
+,,,,
+openstack,t-bug,sw-,2296,user defin scope queri use month want check data class allow choos month default month get start end way implement
+,,,,
+openstack,t-bug,sw-,2295,lxc driver support flag fail creat domain caus boot
+,,,,
+openstack,t-bug,sw-,2294,hen updat bunch name get error
+,,,,
+openstack,t-bug,sw-,2293,length limit name server osapi charact enforc column constraint api fix valu length valu paramet state
+,,,,
+openstack,t-bug,sw-,2292,test creat share share serv
+,,,,
+openstack,t-bug,sw-,2291,hen backup size max swift section size pass backup need write section case section get write none section write backup restor
+,,,,
+openstack,t-bug,sw-,2290,dhcp code code use namespac need util help peopl clean namespac process run dnsmasq ask name mangl know namespac clean
+,,,,
+openstack,t-bug,sw-,2289,hen distribut router creat interface port gateway set router plugin creat interface port devic owner router interface
+,,,,
+openstack,t-bug,sw-,2288,ttp line result refer exist class definit
+,,,,
+openstack,t-new,sw-,2287,list index deploy essex list index add output place open bug report list miss index base review api model
+,,,,
+openstack,t-bug,sw-,2286,proxi server base code block detect object choos sourc object place timestamp timestamp header run issu test upgrad use use object timestamp set authent process fail base return
+,,,,
+openstack,t-bug,sw-,2285,evstack instal dashboard test way guarante user login dashboard start case perform actio
+,,,,
+openstack,t-bug,sw-,2284,hen parallel test enabl thread creat destroy port result chang devic count report age
+,,,,
+openstack,t-bug,sw-,2283,control deploy env neutron
+,,,,
+openstack,t-new,sw-,2282,script add confirm prompt warn user thing happen give
+,,,,
+openstack,t-bug,sw-,2281,check integ type min valu valid integ method
+,,,,
+openstack,t-bug,sw-,2280,action definit need caus block option action contain block result respons
+,,,,
+openstack,t-bug,sw-,2279,method return valu rais type error
+,,,,
+openstack,t-bug,sw-,2278,chapter start chapter discuss noth discuss chapter git sha url http sourc file file xml case report
+,,,,
+openstack,t-bug,sw-,2277,doc section behavior propos use flavor spec place call action configur devic libvirt node break comput capabl filter tri use place filter host schedul case fail valid host found
+,,,,
+openstack,t-bug,sw-,2276,test call role ref admin api pass non exist valu role
+,,,,
+openstack,t-bug,sw-,2275,mage detail horizon display option edit imag user admin proj
+,,,,
+openstack,t-bug,sw-,2274,ollow action detail http open bug proxi code chang need handl chang blueprint notif
+,,,,
+openstack,t-bug,sw-,2273,error happen format way retriev caus probl
+,,,,
+openstack,t-bug,sw-,2272,lanc report owner imag name tenant check mysql tabl store name think name tenant chang caus miss imag
+,,,,
+openstack,t-bug,sw-,2271,encount issu delet exist vnx system vnx driver vnx system get data driver see creat creat
+,,,,
+openstack,t-bug,sw-,2270,assign replica default consist
+,,,,
+openstack,t-bug,sw-,2269,use file cache dogpil cache backend use packag key rais type error model argument pass client get client string use region cache
+,,,,
+openstack,t-bug,sw-,2268,window wmi class introduc target serial por
+,,,,
+openstack,t-new,sw-,2267,port channel interface support implement cisco core plug
+,,,,
+openstack,t-bug,sw-,2266,parent process get send child child reload config file call reset servic parent continu run
+,,,,
+openstack,t-bug,sw-,2265,test test list test neutron meter label rule list work gate return respons code test fail devstack config issu test setup
+,,,,
+openstack,t-bug,sw-,2264,project network assign manag project noth fail
+,,,,
+openstack,t-bug,sw-,2263,timestamp work log tab deploy
+,,,,
+openstack,t-bug,sw-,2262,xml handl older deprec auto disk config disk config attribut caus resiz action set option fail pass use xml
+,,,,
+openstack,t-bug,sw-,2261,hen agent restart rpc server tri connect connect process stable
+,,,,
+openstack,t-bug,sw-,2260,ubuntu assign hostnam machin tri run get messag show termin
+,,,,
+openstack,t-bug,sw-,2259,guid data perform test coupl detail talk interface
+,,,,
+openstack,t-bug,sw-,2258,case resolv oper want extend public network alloc float
+,,,,
+openstack,t-bug,sw-,2257,ttempt creat packag command caus error
+,,,,
+openstack,t-bug,sw-,2256,client ask look use pla
+,,,,
+openstack,t-bug,sw-,2255,user member group inherit role group explain examp
+,,,,
+openstack,t-bug,sw-,2254,fail updat chang thread thread work
+,,,,
+openstack,t-bug,sw-,2253,case user want boot devic system event disk contain disk role get boot
+,,,,
+openstack,t-bug,sw-,2252,region discoveri set trigger target pass list includ wwpn system caus issu scenario
+,,,,
+openstack,t-bug,sw-,2251,test modul nova fail test
+,,,,
+openstack,t-new,sw-,2250,element give user sudo power chang allow sudo rootwrap
+,,,,
+openstack,t-new,sw-,2249,instal kolla pip write report state instal version queri cli version version state
+,,,,
+openstack,t-bug,sw-,2248,use default fals track ini
+,,,,
+openstack,t-bug,sw-,2247,inder manag volum use function chang volum trunk look
+,,,,
+openstack,t-bug,sw-,2246,hen metadata request get neutron metadata proxi nova assum forward detail header address case
+,,,,
+openstack,t-bug,sw-,2245,action stop fail file exist caus rabbit process
+,,,,
+openstack,t-bug,sw-,2244,root case backup restor case total root enabl report servic databas root show api show root disabl
+,,,,
+openstack,t-bug,sw-,2243,group gerrit prevent use
+,,,,
+openstack,t-bug,sw-,2242,servic name set project name project queri keyston catalog use servic name servic type choos right endpoin
+,,,,
+openstack,t-bug,sw-,2241,float manual disassoci float
+,,,,
+openstack,t-bug,sw-,2240,cidr allow pair host rpc call agent run issu retriev secur group member confirm total work code think break member secur group refer group get rule rpc
+,,,,
+openstack,t-new,sw-,2239,fuel network run choos test use run test way file assign error messag
+,,,,
+openstack,t-bug,sw-,2238,configur build amphora host amphora run templat use deploy ask data patch pass amphora work templat system templat adjust use host data
+,,,,
+openstack,t-bug,sw-,2237,float need polici plugin dri
+,,,,
+openstack,t-bug,sw-,2236,multipl server swift instal ubuntu refer directori exi
+,,,,
+openstack,t-bug,sw-,2235,ight instal tempest start command execut test set topic
+,,,,
+openstack,t-bug,sw-,2234,migrat fail adapt map stable host manag partition map move client partition adapt leav manag partition
+,,,,
+openstack,t-bug,sw-,2233,unit test run network test password prompt fail test rais ask test mock request search network
+,,,,
+openstack,t-bug,sw-,2232,stack kilo setup rhel . control comput node network comput network network config
+,,,,
+openstack,t-new,sw-,2231,murray ncc group report keyston server use entiti keyston requ
+,,,,
+openstack,t-bug,sw-,2230,use secur sign requ
+,,,,
+openstack,t-bug,sw-,2229,hen run pacemak resourc restart resourc name use restart hang disabl servic wait call follow
+,,,,
+openstack,t-bug,sw-,2228,event model backend defin attribut refer attribut type
+,,,,
+openstack,t-new,sw-,2227,ubuntu password contain expos lxc templat
+,,,,
+openstack,t-bug,sw-,2226,enabl vlan base network topolog vlan dnsmasq server datacent servic network topolog
+,,,,
+openstack,t-bug,sw-,2225,call paragraph data give section
+,,,,
+openstack,t-new,sw-,2224,add associ horizon use http ssl support
+,,,,
+openstack,t-bug,sw-,2223,use postgresql master node detail migrat version databas migrat becom region master node upgrad
+,,,,
+openstack,t-bug,sw-,2222,section inherit backend option set backend context default section ignor set back
+,,,,
+openstack,t-bug,sw-,2221,dev templat show chang sahara sahara url set keyston registr miss instruct remov servic base permiss data process
+,,,,
+openstack,t-bug,hw-,2220,mirror master node fuel rais fail deploy
+,,,,
+openstack,t-new,sw-,2219,side filter miss access secur tabl pair
+,,,,
+openstack,t-bug,sw-,2218,pleas releas network master branch
+,,,,
+openstack,t-bug,sw-,2217,script reb
+,,,,
+openstack,t-bug,sw-,2216,run trunk grizzli trunk test get upgrad bridg creat linuxbridg age
+,,,,
+openstack,t-bug,sw-,2215,etwork driver test fail test introduc neutron test system tri network topolog unit test environ caus test fail
+,,,,
+openstack,t-bug,sw-,2214,run horizon proxi server domain
+,,,,
+openstack,t-bug,sw-,2213,need option caus run oper test
+,,,,
+openstack,t-bug,sw-,2212,boot fix xxx fail error comput log
+,,,,
+openstack,t-bug,sw-,2211,isinst function determin type exception model http
+,,,,
+openstack,t-new,sw-,2210,section locat tool support imag creation open stack virtual machin imag templat text use connect refer model templat file git hub detect imag build templat
+,,,,
+openstack,t-bug,sw-,2209,test use check case connect pass variabl connect
+,,,,
+openstack,t-bug,sw-,2208,support python enabl ini get output ini
+,,,,
+openstack,t-bug,sw-,2207,group test enabl default see default valu sahara test integrate config config vanilla vanilla cdh enabl need disabl configur file want run test
+,,,,
+openstack,t-new,sw-,2206,section explain configur quantum big switch plugin need add
+,,,,
+openstack,t-bug,sw-,2205,lanc imag list command fail imag user run error
+,,,,
+openstack,t-bug,sw-,2204,hen tri delet port use horizon show messag fail delet subnet
+,,,,
+openstack,t-bug,sw-,2203,fter releas hack accept requir http test requir bump issu fix
+,,,,
+openstack,t-bug,sw-,2202,osapi specif chang behavior api control need
+,,,,
+openstack,t-bug,sw-,2201,issu happen eventlet rest test fail test test test test tag worker traceback call file line return func file line test self equal start call count file line equal self assert detect messag file line assert rais mismatch error mismatch error
+,,,,
+openstack,t-bug,sw-,2200,magnum bay creat name
+,,,,
+openstack,t-bug,sw-,2199,replac python templat use python string
+,,,,
+openstack,t-bug,sw-,2198,document report use info finish compar tool puppet
+,,,,
+openstack,t-bug,sw-,2197,want run glanc log level info log set config file see queri log file log
+,,,,
+openstack,t-bug,sw-,2196,alarm show print tabl alarm attribut row miss log bel
+,,,,
+openstack,t-bug,sw-,2195,proxi return capabl capabl valu bunch configur manag group call get bunch includ bunch
+,,,,
+openstack,t-bug,sw-,2194,util deprec switch oslo name
+,,,,
+openstack,t-bug,sw-,2193,eed remov remov resourc
+,,,,
+openstack,t-bug,sw-,2192,driver guarante snapshot replica creat share driver need implement creat replica delet replica replica driver meth
+,,,,
+openstack,t-bug,sw-,2191,look data duplic sourc remov messag
+,,,,
+openstack,t-bug,sw-,2190,chang mileston propos case releas focu develop project
+,,,,
+openstack,t-bug,sw-,2189,run setup today look break keyston pki
+,,,,
+openstack,t-bug,sw-,2188,fter commit caus keyston servic start
+,,,,
+openstack,t-bug,sw-,2187,widget allow choos valu place type
+,,,,
+openstack,t-bug,sw-,2186,hen run api ref tox environ warn
+,,,,
+openstack,t-bug,sw-,2185,creat libvirt ask fail error
+,,,,
+openstack,t-bug,sw-,2184,barbican rpm fail depend add script depend need
+,,,,
+openstack,t-bug,sw-,2183,instal fuel environ open stack debug log
+,,,,
+openstack,t-bug,sw-,2182,hen tri deploy murano contain templat way script engin gener way file execut design build delet way engin script
+,,,,
+openstack,t-bug,sw-,2181,accord bug test think add test ostf function addit ostf case migrat node
+,,,,
+openstack,t-bug,sw-,2180,test tri oper issu detect caus use resourc group contain
+,,,,
+openstack,t-bug,sw-,2179,hen transfer enabl return messag case format call case appli substitut valu gain appli messag transfer support includ use substitut region format pass order limit size case local pass dictionari valu limit refer format string
+,,,,
+openstack,t-bug,sw-,2178,ldap ident backend sql assign need configur
+,,,,
+openstack,t-bug,sw-,2177,run case know comput node ram memori show error comput log case stay pend state
+,,,,
+openstack,t-bug,sw-,2176,gerrit group member need project
+,,,,
+openstack,t-bug,sw-,2175,mware driver chang comput node state xxx miss connect cent
+,,,,
+openstack,t-bug,sw-,2174,look day cisco vpn devic driver class decor class class child refer
+,,,,
+openstack,t-bug,sw-,2173,hen user leav heat client leav messag give traceback termin
+,,,,
+openstack,t-bug,sw-,2172,review swift cli support client need
+,,,,
+openstack,t-new,sw-,2171,admin system panel overview extract default server use tabl display column tenant hyperlink tenant row choos tenant connect result error
+,,,,
+openstack,t-new,sw-,2170,step contain meter lbaa
+,,,,
+openstack,t-bug,sw-,2169,server resourc check assign key name exist valid fail assign key creat nova key pair
+,,,,
+openstack,t-bug,sw-,2168,post document connect
+,,,,
+openstack,t-bug,sw-,2167,integrate test context mean puppet modul puppet project test
+,,,,
+openstack,t-bug,sw-,2166,catalog get exceed header limit servic use servic catalog head
+,,,,
+openstack,t-bug,sw-,2165,xen server failur state follow fail
+,,,,
+openstack,t-new,sw-,2164,descript check document monasca agent
+,,,,
+openstack,t-bug,sw-,2163,miss docker volum size yaml field mention heat templat
+,,,,
+openstack,t-new,sw-,2162,enabl metadata api leav failur time
+,,,,
+openstack,t-bug,sw-,2161,test test messag
+,,,,
+openstack,t-new,sw-,2160,user list resourc detail show resourc detail list resourc detail support
+,,,,
+openstack,t-new,sw-,2159,complain outlin look limit write write
+,,,,
+openstack,t-bug,sw-,2158,hen delet project invalid project token user role project assign manag method use project use driver method look assign ignor group role assign user proj
+,,,,
+openstack,t-bug,sw-,2157,case creation notif gener network info tri retriev network info delay api respons
+,,,,
+openstack,t-bug,sw-,2156,place fedora wiki page updat http index base instal
+,,,,
+openstack,t-bug,sw-,2155,support page click creat report fill form submit form form field lock save request send moment dialog
+,,,,
+openstack,t-bug,sw-,2154,commit namespac neutron review approv wait chang router creation logic break neutron unit
+,,,,
+openstack,t-bug,sw-,2153,snippet updat neutron router rout fail xml format requ
+,,,,
+openstack,t-bug,sw-,2152,replica compon default test http
+,,,,
+openstack,t-bug,sw-,2151,skeleton model test test pla
+,,,,
+openstack,t-bug,sw-,2150,show host member aggreg aggreg detail aggreg aggreg aggreg way
+,,,,
+openstack,t-bug,sw-,2149,reat cache backend http
+,,,,
+openstack,t-bug,sw-,2148,vpnaa extens code block get resourc servic addit propos ssl vpn case
+,,,,
+openstack,t-bug,sw-,2147,test fail accord test expect
+,,,,
+openstack,t-bug,sw-,2146,messag return user creat volum request exceed quota give user data need correct problem error messag return
+,,,,
+openstack,t-new,sw-,2145,defin tosca document use url system file followi
+,,,,
+openstack,t-bug,sw-,2144,http merg set default rule default secur
+,,,,
+openstack,t-bug,sw-,2143,eed ignor file get
+,,,,
+openstack,t-bug,sw-,2142,ure stack resourc persist oper succeed fail queri resourc stack reflect fact resourc creat confus user tool report state oper stack updat resourc delet chang reflect state resourc
+,,,,
+openstack,t-new,sw-,2141,eed follow convent defin http
+,,,,
+openstack,t-bug,sw-,2140,hen call destroy get error
+,,,,
+openstack,t-bug,sw-,2139,context ask decor sqlalchemi api copi func name attribut function wrap function caus debug
+,,,,
+openstack,t-bug,sw-,2138,bug fix break system run see python system option upgrad
+,,,,
+openstack,t-bug,sw-,2137,caus network end event network patch event contain data creat
+,,,,
+openstack,t-bug,sw-,2136,test file test case test get volum attach issu bring element volum json xml respons structur
+,,,,
+openstack,t-bug,sw-,2135,creat option yaml option http proxi use imag build access
+,,,,
+openstack,t-bug,sw-,2134,spin default follow autom script launch hit race condit caus fail launch
+,,,,
+openstack,t-bug,sw-,2133,follow warn look delet vpnaa vpn site connect obj
+,,,,
+openstack,t-new,sw-,2132,past command work whitespac server
+,,,,
+openstack,t-bug,sw-,2131,improve speed tempest test expos race condit volum creat sequenc capabl updat interv second
+,,,,
+openstack,t-bug,sw-,2130,extract caus configur includ case api servic discuss environ
+,,,,
+openstack,t-bug,sw-,2129,fter network configur updat fuel network data structur chang line fuel network client chang default network context method work
+,,,,
+openstack,t-bug,sw-,2128,orizon file librari bunch bootstrap model packag requir bug pass leav
+,,,,
+openstack,t-new,sw-,2127,cloud servic provid manag data kernel hardwar databas manag system solut open stack ask node regist iron node hypervisor nova schedul deploy size scale servic provid yield present way ask solut manag hardwar leav node iron
+,,,,
+openstack,t-bug,sw-,2126,comput cpu report float detail rest open stack system report integ libvirt model use present
+,,,,
+openstack,t-bug,sw-,2125,ith chang allow chang open stack servic password hand playbook refer variabl report fix hand
+,,,,
+openstack,t-bug,sw-,2124,user choos exist bunch need leav abil creat bunch savanna leav
+,,,,
+openstack,t-bug,sw-,2123,driver gener driver net app bunch mode driver use data share server detail set case share server creat
+,,,,
+openstack,t-bug,sw-,2122,avail zone output attribut case resourc input leav user place reli input determin valu attribut resolv
+,,,,
+openstack,t-bug,sw-,2121,name admin tab admin project tab
+,,,,
+openstack,t-bug,sw-,2120,python creat file tox run chang delet file switch branch creat error suppress tox
+,,,,
+openstack,t-bug,sw-,2119,ser fail updat lpolici attribut case use lpolici obj
+,,,,
+openstack,t-bug,sw-,2118,document miss section report creat backup fuel master node configur restor configur instal fuel master
+,,,,
+openstack,t-bug,sw-,2117,hen upload jar file jar model user record name someth jar anyth end run problem ask file fail screen give file name use name
+,,,,
+openstack,t-bug,sw-,2116,requir txt user instal heat engin tri detect monasca plugin miss user client depend bug file updat monasca plugin string mention client depend
+,,,,
+openstack,t-bug,sw-,2115,error show instal plugin
+,,,,
+openstack,t-bug,sw-,2114,heat stack state action column track state stack action perform stack column valu valu state actio
+,,,,
+openstack,t-new,sw-,2113,gerrit server review org replica git repositori servic case http replica project develop document propos clone open stack project second use softwar
+,,,,
+openstack,t-bug,sw-,2112,port fix snippet use instal config master node order fix issu master node
+,,,,
+openstack,t-bug,sw-,2111,paramet yaml helper follow
+,,,,
+openstack,t-bug,sw-,2110,nce add debug env ini debug test case tox
+,,,,
+openstack,t-bug,sw-,2109,creat avail zone add aggreg
+,,,,
+openstack,t-bug,sw-,2108,hen ceilomet configur ssl detect heat fail connect use
+,,,,
+openstack,t-bug,sw-,2107,cinder volum log get clutter warn messag
+,,,,
+openstack,t-bug,sw-,2106,support creat cent environ fuel remov code fixtur
+,,,,
+openstack,t-bug,sw-,2105,deploy valu log file paramet ceph
+,,,,
+openstack,t-bug,sw-,2104,share network get connect activ share network show
+,,,,
+openstack,t-bug,sw-,2103,use place deprec warn use inst
+,,,,
+openstack,t-bug,sw-,2102,vpnaa creat encapsul mode ipsec polici cisco encapsul mode assign use
+,,,,
+openstack,t-bug,sw-,2101,bug requir file sort give requir file contain comment propos header requir file line
+,,,,
+openstack,t-bug,sw-,2100,emov code test attach interface
+,,,,
+openstack,t-bug,sw-,2099,paragraph write look case head node paragraph show bel
+,,,,
+openstack,t-bug,sw-,2098,unit agent test connect test connect call connect start start daemon true loop mock mock call list mock start eat
+,,,,
+openstack,t-bug,sw-,2097,import backend keyston devstack setup morn
+,,,,
+openstack,t-bug,sw-,2096,chang syntax machin batch order work machin batch name machin batch
+,,,,
+openstack,t-bug,sw-,2095,hen creat stack templat autosc group scale log messag
+,,,,
+openstack,t-bug,sw-,2094,step highlight instal neutron plugin ubuntu give comput
+,,,,
+openstack,t-bug,sw-,2093,tri delet volum stay error delet stat
+,,,,
+openstack,t-new,sw-,2092,hen use libvirt cpu monitor driver metric collect notic case valu cpu user cpu cpu case happen track add debug log time track probl
+,,,,
+openstack,t-bug,sw-,2091,plug architectur allow script sourc code file form app need extend architectur allow unit test file add spec
+,,,,
+openstack,t-bug,sw-,2090,test remov resourc use report api
+,,,,
+openstack,t-bug,sw-,2089,refer project code name
+,,,,
+openstack,t-bug,sw-,2088,ome test use method true isinst assert type way use assert case leav
+,,,,
+openstack,t-bug,sw-,2087,heat authent issu heat pass admin login quantum specifi
+,,,,
+openstack,t-bug,sw-,2086,error import name
+,,,,
+openstack,t-bug,sw-,2085,hen tri show templat exist get error
+,,,,
+openstack,t-bug,sw-,2084,legaci remov branch otherwis break work platform node
+,,,,
+openstack,t-bug,sw-,2083,task modul miss unittest leav list task use sort
+,,,,
+openstack,t-bug,sw-,2082,hen run test test fail case spawn error
+,,,,
+openstack,t-bug,sw-,2081,execut case resiz action resiz host
+,,,,
+openstack,t-bug,sw-,2080,found exception exception modul rais paramet look give val
+,,,,
+openstack,t-bug,sw-,2079,initi script deploy stack fail tri sourc tripleo
+,,,,
+openstack,t-bug,sw-,2078,org api ref ident
+,,,,
+openstack,t-bug,sw-,2077,morn man page fail build commit
+,,,,
+openstack,t-new,sw-,2076,time assum load reload ring increment order python cpu load
+,,,,
+openstack,t-bug,sw-,2075,need merg packag
+,,,,
+openstack,t-bug,sw-,2074,look caus packag python plugin contain python code support platform
+,,,,
+openstack,t-bug,sw-,2073,tri use driver set flag volum driver volum driver driver tri start volum end error
+,,,,
+openstack,t-bug,sw-,2072,introduc crash type error type
+,,,,
+openstack,t-bug,sw-,2071,ttp introduc test fail
+,,,,
+openstack,t-bug,sw-,2070,hen imag volum cache enabl limit tri imag error see log volum tri creat run error state
+,,,,
+openstack,t-bug,sw-,2069,imag creat fail pars type return
+,,,,
+openstack,t-bug,sw-,2068,capabl cinder driver enabl initi access volum creat
+,,,,
+openstack,t-bug,sw-,2067,document state user state tenant user
+,,,,
+openstack,t-bug,sw-,2066,network allow creat bridg name
+,,,,
+openstack,t-bug,sw-,2065,chang run http allow perform case leav site libvirt ignor node follow leav site happen caus reb
+,,,,
+openstack,t-new,sw-,2064,blueprint detail resourc show chang aim support see
+,,,,
+openstack,t-bug,sw-,2063,keyston client ask name creat role curl name field creat role client end consist
+,,,,
+openstack,t-bug,sw-,2062,use kilo ceph libvirt kvm
+,,,,
+openstack,t-bug,sw-,2061,place servic file server
+,,,,
+openstack,t-bug,sw-,2060,get attribut resourc action snapshot
+,,,,
+openstack,t-bug,sw-,2059,kilo chang option option client accept advertis support name accept name
+,,,,
+openstack,t-bug,sw-,2058,inc work releas chang default valu
+,,,,
+openstack,t-bug,sw-,2057,case delet wait case state check method wait exception speed oper
+,,,,
+openstack,t-bug,sw-,2056,logic network creat imag fail get kernel ramdisk imag function check comput
+,,,,
+openstack,t-bug,sw-,2055,build man attack binari bring
+,,,,
+openstack,t-bug,sw-,2054,hen network show time creat block default
+,,,,
+openstack,t-new,sw-,2053,ccord code enabl glanc datastor backend driver function section add configur glanc api
+,,,,
+openstack,t-bug,sw-,2052,swift store imag delet imag section delet caus imag delet assum case imag case parallel delet imag section parallel imag section delet improve oper imag delet
+,,,,
+openstack,t-bug,sw-,2051,ttp noth event api model
+,,,,
+openstack,t-bug,sw-,2050,reation environ fail tri use network devic parent
+,,,,
+openstack,t-new,sw-,2049,eed api remov token execut support backend
+,,,,
+openstack,t-bug,sw-,2048,manag float list creat creat delet number assum hour list assum second oper insert delet choos databas
+,,,,
+openstack,t-new,sw-,2047,ommit tripleo imag element add instal appli config bug fix http remov instal releas fix pbr
+,,,,
+openstack,t-bug,sw-,2046,reat client aggreg command look work show list
+,,,,
+openstack,t-bug,sw-,2045,return argument return follow
+,,,,
+openstack,t-bug,sw-,2044,problem page refer project data process problem binari problem binari form script html exist need fix remov refer
+,,,,
+openstack,t-bug,sw-,2043,propos http use import class import class modul import import
+,,,,
+openstack,t-bug,sw-,2042,bug subnet delet port need auto delet plugin code level neutron
+,,,,
+openstack,t-new,sw-,2041,neutron plugin type mechan manag assert dictionari list type driver mechan driver order mechan driver class variabl type mechan order mechan driver give type add list driver type allow regist configur driver type
+,,,,
+openstack,t-bug,sw-,2040,leav set set add field devic dictionari remov valid caus segment field gateway connect
+,,,,
+openstack,t-bug,sw-,2039,fter host case target host report case
+,,,,
+openstack,t-bug,sw-,2038,port execut detail mention
+,,,,
+openstack,t-bug,sw-,2037,interface listen configur leav default servic sta
+,,,,
+openstack,t-bug,sw-,2036,method creat volum call method obtain volum
+,,,,
+openstack,t-bug,sw-,2035,hen fip disassoci node float agent gateway port delet thing happen delet host fip associ way work way
+,,,,
+openstack,t-bug,sw-,2034,use key network cidr type key default
+,,,,
+openstack,t-bug,sw-,2033,month host function remov kilo releas network remov caus delay start plugin instal result failur migrat vlan host reb
+,,,,
+openstack,t-bug,sw-,2032,creat user endpoint servic restart way caus start keyston servic databas
+,,,,
+openstack,t-new,sw-,2031,hen tri upload imag use xen server glanc plugin
+,,,,
+openstack,t-bug,sw-,2030,hen case creat copi metadata imag volum save case system metadata leav detail time record metadata use configur case metadata imag chang
+,,,,
+openstack,t-bug,sw-,2029,hang driver handl network type etc add test case dri
+,,,,
+openstack,t-bug,sw-,2028,plugin hook http redirect code follow http spec plugin look redirect handl handl redirect code specif mod
+,,,,
+openstack,t-bug,sw-,2027,output build bunch look thi
+,,,,
+openstack,t-bug,sw-,2026,ident default attribut use configur keyston servic
+,,,,
+openstack,t-new,sw-,2025,fix http introduc vmware fixtur noop
+,,,,
+openstack,t-bug,sw-,2024,hen resourc scale polici signal rais
+,,,,
+openstack,t-bug,sw-,2023,rst document doc sourc enforc
+,,,,
+openstack,t-bug,sw-,2022,modul doesnt return number base core thread core enabl deploy number depend core thread proce
+,,,,
+openstack,t-bug,sw-,2021,python bind leav retri rate limit erro
+,,,,
+openstack,t-bug,sw-,2020,etwork api extens creat load balanc
+,,,,
+openstack,t-bug,sw-,2019,secur templat refer use ssl place ssl replac mention discuss level secur
+,,,,
+openstack,t-bug,sw-,2018,evstack instal python packag python environ set true conf bug api servic run rootwrap fail
+,,,,
+openstack,t-bug,sw-,2017,consol output fail unit test clutter line info migrat repo script commit http output test look
+,,,,
+openstack,t-bug,sw-,2016,magnum help baymodel creat show messag name
+,,,,
+openstack,t-bug,sw-,2015,rabbitmq modul introduc featur relat paramet chang databas chang paramet chang configur fals default affect puppet state confirm import affect puppet state confirm import affect puppet state confirm import affect puppet state confirm import affect puppet state confirm import affect puppet state confirm import affect puppet state confirm import affect puppet heat state confirm import affect puppet state confirm import affect cinder state confirm import affect puppet ceilomet state confirm import
+,,,,
+openstack,t-bug,sw-,2014,client give level attribut error encount give excepti
+,,,,
+openstack,t-bug,sw-,2013,eat command line client heat work auth token leav password
+,,,,
+openstack,t-bug,sw-,2012,schedul test case schedul test case bunch test
+,,,,
+openstack,t-bug,sw-,2011,hen use disk instal open stack ceph need use paramet get performan
+,,,,
+openstack,t-bug,sw-,2010,condit get request caus
+,,,,
+openstack,t-bug,sw-,2009,issu patch merg http
+,,,,
+openstack,t-new,sw-,2008,list api level support filter bay object filter
+,,,,
+openstack,t-bug,sw-,2007,move ntp server configur servic name ntp server paramet chang ntp server break upgrad user ntp server param
+,,,,
+openstack,t-bug,sw-,2006,user start cdh bunch ntp servic start
+,,,,
+openstack,t-bug,sw-,2005,emov use replac name functi
+,,,,
+openstack,t-bug,sw-,2004,uri paramet show api mention page show
+,,,,
+openstack,t-bug,sw-,2003,ook http introduc unit test failu
+,,,,
+openstack,t-bug,sw-,2002,volum detach case boot volum
+,,,,
+openstack,t-new,sw-,2001,instal devstack empti metadata follow http activ notif nova
+,,,,
+openstack,t-bug,sw-,2000,problem run sphinx document look break
+,,,,
+openstack,t-bug,sw-,1999,fuel librari read fuel requir
+,,,,
+openstack,t-bug,sw-,1998,encount bug header size use keyston debug messag server log client display use curl command display error messag proper
+,,,,
+openstack,t-bug,sw-,1997,report use comment patch patch set
+,,,,
+openstack,t-bug,sw-,1996,line check quota volum servic enabl
+,,,,
+openstack,t-bug,sw-,1995,keyston api allow user creat domain authent user api version support client authent name tenant auth support
+,,,,
+openstack,t-bug,sw-,1994,test use list flavor
+,,,,
+openstack,t-bug,sw-,1993,eypair store ldap caus ldap persist
+,,,,
+openstack,t-bug,sw-,1992,request object manifest file
+,,,,
+openstack,t-bug,sw-,1991,need config file sampl option valid miss option add
+,,,,
+openstack,t-bug,sw-,1990,win resiz method default size file size see size metadata size imag
+,,,,
+openstack,t-bug,sw-,1989,creat stack user see root
+,,,,
+openstack,t-bug,sw-,1988,driver use lpop rule dvr router interface caus chang blueprint
+,,,,
+openstack,t-bug,sw-,1987,osapi spec ask disk min ram return get imag detail examp
+,,,,
+openstack,t-bug,sw-,1986,report thing run problem help track problem case option run debug mode state devic
+,,,,
+openstack,t-bug,sw-,1985,libvirt imag cache manag process hash file
+,,,,
+openstack,t-bug,sw-,1984,document templat section definit murano packa
+,,,,
+openstack,t-bug,sw-,1983,match api method region nova place cinder error cinder nova use code cinder remo
+,,,,
+openstack,t-bug,sw-,1982,interface place vlan segment environ caus sens
+,,,,
+openstack,t-bug,sw-,1981,error hyper thread enabl miss count respons client list cpu
+,,,,
+openstack,t-bug,sw-,1980,system test snapshot revert time sync network perform
+,,,,
+openstack,t-bug,sw-,1979,ntegrat test function nailgun api intern object
+,,,,
+openstack,t-bug,sw-,1978,caus bootstrap admin script set interface dhcp mode mode choos
+,,,,
+openstack,t-bug,hw-,1977,deploy barbican api queue worker node race condit api node press order queue action save result worker fail process order retriev order
+,,,,
+openstack,t-bug,sw-,1976,fter plugin architectur pep work run
+,,,,
+openstack,t-bug,sw-,1975,project volum creat volum volum snapshot click delet volum delet snapshot releas display messag
+,,,,
+openstack,t-bug,sw-,1974,hen creat subnet creat subnet dialog check box disabl gateway check user click subnet detail tab dialog releas disabl display creat
+,,,,
+openstack,t-new,sw-,1973,region support conf need add configur region name assign region name control region detect cinder servic call configur volum attach
+,,,,
+openstack,t-bug,sw-,1972,cleanup initi config config registr regist
+,,,,
+openstack,t-bug,sw-,1971,instal window look
+,,,,
+openstack,t-bug,sw-,1970,follow page boot case detect bug document caus interpret boot syntax document follo
+,,,,
+openstack,t-bug,sw-,1969,fault handl creat server request bodi
+,,,,
+openstack,t-bug,sw-,1968,fail deploy deploy fuel use neutron vlan segment use vlan manag store
+,,,,
+openstack,t-bug,sw-,1967,hen control restart port devic doesnt exist
+,,,,
+openstack,t-bug,sw-,1966,neutron tool log file neutron agent log end
+,,,,
+openstack,t-bug,sw-,1965,reat stack follow templat give valu key name succeed
+,,,,
+openstack,t-bug,sw-,1964,chang http need assum version import modul need cha
+,,,,
+openstack,t-bug,sw-,1963,doc page index version imag api api refer
+,,,,
+openstack,t-bug,sw-,1962,domain descript mention keyston
+,,,,
+openstack,t-bug,sw-,1961,default driver nova network driver use leav confus return result set function give class defin interface rais implement error function inst
+,,,,
+openstack,t-bug,sw-,1960,debug kolla cmd build base run setup instal star
+,,,,
+openstack,t-bug,sw-,1959,hen schedul ask comput run comput manag check resourc resourc track
+,,,,
+openstack,t-bug,sw-,1958,git master http http auth token queri match
+,,,,
+openstack,t-bug,sw-,1957,hen agent start send server messag flag state server method use cast method send messag guarante server get start messag test messag miss result server updat start time agent entri send lpop dri
+,,,,
+openstack,t-bug,sw-,1956,ceilomet test ubuntu fail error
+,,,,
+openstack,t-bug,sw-,1955,python bind leav retri rate limit erro
+,,,,
+openstack,t-bug,sw-,1954,hang add firewal driver logic determin vif detail pass nova plug ask firewal set server side requir mean deploy upgrad liberti mitaka agent use hybrid driver break server configur firewal dri
+,,,,
+openstack,t-bug,sw-,1953,age http visual see languag switch page display
+,,,,
+openstack,t-bug,sw-,1952,end section instruct review start neutron agent servic servic fail start log file
+,,,,
+openstack,t-bug,sw-,1951,script report tempest result work fail follow trace http
+,,,,
+openstack,t-new,sw-,1950,domain scope argument domain group domain project domain filter group project command role add doc miss
+,,,,
+openstack,t-bug,sw-,1949,gate project order run unit test
+,,,,
+openstack,t-bug,sw-,1948,hen system load charact channel attach happen instal devic show command caus detach fail detach devic libvirt volum code run attach time devic show time system load
+,,,,
+openstack,t-bug,sw-,1947,resourc creat fix use exist base
+,,,,
+openstack,t-bug,sw-,1946,delet chang http metadata system metadata block devic map set delet need migrat delet
+,,,,
+openstack,t-new,sw-,1945,document build miss packag gener http
+,,,,
+openstack,t-bug,sw-,1944,reproduc issu tri resiz flavor case resiz state
+,,,,
+openstack,t-bug,sw-,1943,specifi request includ tenant uri allow user choos project interact use header assign api choos user proje
+,,,,
+openstack,t-bug,sw-,1942,chapter target give data need caus
+,,,,
+openstack,t-bug,sw-,1941,help text config flag edit
+,,,,
+openstack,t-bug,sw-,1940,ask version murano git instal instal version
+,,,,
+openstack,t-bug,sw-,1939,folk index bug handl xml today use json patch document xml assum work xml way proce
+,,,,
+openstack,t-bug,sw-,1938,openstack api document state disk config method return respons bodi api return respons state
+,,,,
+openstack,t-bug,sw-,1937,fter run tox directori pbr gener
+,,,,
+openstack,t-new,sw-,1936,ith merg http resourc outlin api
+,,,,
+openstack,t-bug,sw-,1935,section instal configur control node compon detail text
+,,,,
+openstack,t-bug,sw-,1934,flavor creat command fail error
+,,,,
+openstack,t-bug,sw-,1933,hen issu credenti name password horizon give error detect
+,,,,
+openstack,t-bug,sw-,1932,allow set sort option click header depend tabl client side sort prevent need way side sort
+,,,,
+openstack,t-bug,sw-,1931,default set cinder conf default tri cinder list volum result
+,,,,
+openstack,t-bug,sw-,1930,tri add imag command add regist get stream imag data
+,,,,
+openstack,t-bug,sw-,1929,boot flavor imag key name
+,,,,
+openstack,t-bug,sw-,1928,relat blueprint network connect rise
+,,,,
+openstack,t-bug,sw-,1927,work bug fail check devstack
+,,,,
+openstack,t-bug,sw-,1926,version auth legaci log action merg branch merg help batch user investig auth
+,,,,
+openstack,t-bug,sw-,1925,region review http recommend chang name meth
+,,,,
+openstack,t-bug,sw-,1924,sahara pep fail error pleas assum look
+,,,,
+openstack,t-bug,sw-,1923,run iso issu get problem failur
+,,,,
+openstack,t-bug,sw-,1922,hen creat server secur group name assign element name attribut
+,,,,
+openstack,t-bug,sw-,1921,report file assum time http server start download report
+,,,,
+openstack,t-bug,sw-,1920,text report use case descript servic hyperlink defin descript tag
+,,,,
+openstack,t-bug,sw-,1919,add export system test
+,,,,
+openstack,t-bug,sw-,1918,name spec renam
+,,,,
+openstack,t-bug,sw-,1917,add skip quit test need fix
+,,,,
+openstack,t-bug,sw-,1916,evstack plugin look instal dashboard plugin horizon
+,,,,
+openstack,t-bug,sw-,1915,releas fuelmain sha fuellib sha auth ask api nailgun sha output docker python fuelclient sha astut sha featur group miranti releas fuelmain sha fuellib sha
+,,,,
+openstack,t-bug,sw-,1914,qlalchemi sql default compar imag locat rais sequenc result see performan
+,,,,
+openstack,t-bug,sw-,1913,add test test environ work api test scenario test defin provid resourc launch stack check resourc
+,,,,
+openstack,t-bug,sw-,1912,hen tri use client bunch list get error messa
+,,,,
+openstack,t-bug,sw-,1911,auth middlewar redirect admin api client redirect index servic api keyston need add configur set conf
+,,,,
+openstack,t-bug,sw-,1910,ipsec site connect valid check router assign access data vpn servic tab
+,,,,
+openstack,t-bug,sw-,1909,option configur transfer suffix transfer case
+,,,,
+openstack,t-bug,sw-,1908,hen batch api oper oper succeed fail
+,,,,
+openstack,t-bug,sw-,1907,creat flavor flavor admin user allow
+,,,,
+openstack,t-bug,sw-,1906,environ user regist system activ directori integrate keyston look system use system propos paramet membership reduc user user keyston horizon
+,,,,
+openstack,t-new,sw-,1905,inc switch mitaka develop add fuel
+,,,,
+openstack,t-bug,sw-,1904,case produc error messag test fail fix
+,,,,
+openstack,t-bug,sw-,1903,use test environ http need python client version http
+,,,,
+openstack,t-bug,sw-,1902,look use trust filter comput capabl filter aggreg case extra spec filter
+,,,,
+openstack,t-bug,sw-,1901,request get resourc resourc match resourc return error bodi respons
+,,,,
+openstack,t-bug,sw-,1900,hen exception rise add creat imag imag creat imag delet
+,,,,
+openstack,t-bug,sw-,1899,build miranti build number output dev ostf sha fuelmain sha astut sha releas fuellib sha
+,,,,
+openstack,t-bug,sw-,1898,think cli mention chapter imag servic place key chapter imag servic command line
+,,,,
+openstack,t-bug,sw-,1897,need skeleton implement cli comma
+,,,,
+openstack,t-bug,sw-,1896,configur variabl set root valu set
+,,,,
+openstack,t-bug,sw-,1895,unittest use jenkin problem develop use mock caus unittest process tabl delet tabl command command assum second creat tabl set test unit test execut hour backend unit test execut
+,,,,
+openstack,t-new,sw-,1894,bridg network succeed look quantum support
+,,,,
+openstack,t-bug,sw-,1893,dsvm network use plugin
+,,,,
+openstack,t-bug,sw-,1892,noop firewal driver use libvirt hybrid driver leav crash spawn
+,,,,
+openstack,t-bug,sw-,1891,hen tri retriev templat exist get delet get state code resourc ask state code state code
+,,,,
+openstack,t-bug,sw-,1890,fter creat bunch vmware plugin configur tab tab see tab messag
+,,,,
+openstack,t-bug,sw-,1889,config ipv rst network gui
+,,,,
+openstack,t-bug,sw-,1888,logic read volum cinder volum driver vnx cli logic cinder volum manag
+,,,,
+openstack,t-bug,sw-,1887,eilomet error messag pars middlewar count custom error messag length set messag length header set integ valu header
+,,,,
+openstack,t-bug,sw-,1886,check check see modul load network
+,,,,
+openstack,t-bug,sw-,1885,ahara servic type chang data process data process need servic name ostf test keyston detect endpoint servic type
+,,,,
+openstack,t-bug,sw-,1884,build doc run setup fail sphinx ask tool ask wiki instruct
+,,,,
+openstack,t-new,sw-,1883,xml murray ncc group report file messag use entiti keyston requ
+,,,,
+openstack,t-bug,sw-,1882,hen get metadata agent pass endpoint type get servic catalog retriev auth url client default admin
+,,,,
+openstack,t-bug,sw-,1881,hen tri test float get follow quantum ser
+,,,,
+openstack,t-bug,sw-,1880,follow error fuel env delet
+,,,,
+openstack,t-bug,sw-,1879,tabl request fuel gerrit show state
+,,,,
+openstack,t-new,sw-,1878,hen configur problem add paramet configur valu leav valu pair result valu pair pass savanna
+,,,,
+openstack,t-bug,sw-,1877,complain code use none non
+,,,,
+openstack,t-bug,sw-,1876,hen router auto schedul configur agent count router scope max agent router auto schedul router schedul router age
+,,,,
+openstack,t-bug,sw-,1875,ser permiss delet fil
+,,,,
+openstack,t-bug,sw-,1874,sing master devstack master servic
+,,,,
+openstack,t-bug,sw-,1873,case type miss trunk prevent work
+,,,,
+openstack,t-bug,sw-,1872,issu overlook core review repositori need caus check
+,,,,
+openstack,t-bug,sw-,1871,team index method replac cleanup unit
+,,,,
+openstack,t-bug,sw-,1870,keyston token plugin keyston router docstr fix match
+,,,,
+openstack,t-bug,sw-,1869,get port call big switch plugin field fail error
+,,,,
+openstack,t-bug,sw-,1868,run test box run port
+,,,,
+openstack,t-bug,sw-,1867,case resourc delet network port assum agent set time proce
+,,,,
+openstack,t-bug,sw-,1866,hen run python get help
+,,,,
+openstack,t-bug,sw-,1865,test function test imag test imag imag test imag unset
+,,,,
+openstack,t-bug,sw-,1864,data trove backup datastor datastor versi
+,,,,
+openstack,t-bug,sw-,1863,agent schedul extens expos api assign resourc agent need document support plugin
+,,,,
+openstack,t-bug,sw-,1862,hope use sqlite unit test sqlite
+,,,,
+openstack,t-bug,sw-,1861,evstack test host use doc host name node develop clone caus host name node hostnam devstack end show hypervisor hypervisor list error creat
+,,,,
+openstack,t-bug,sw-,1860,stack subcommand stack file check environ
+,,,,
+openstack,t-bug,sw-,1859,name client function import version mod
+,,,,
+openstack,t-bug,sw-,1858,test case name unit test quota see
+,,,,
+openstack,t-bug,sw-,1857,nova test run use virtual
+,,,,
+openstack,t-bug,sw-,1856,plugin regist label problem node node label associ problem prevent zuul assign node run problem function regist node
+,,,,
+openstack,t-bug,sw-,1855,logic download imag task download imag
+,,,,
+openstack,t-bug,sw-,1854,state show activ activ associ
+,,,,
+openstack,t-bug,sw-,1853,wait task complet edg case
+,,,,
+openstack,t-bug,sw-,1852,hen split role manag backend api case test backend ldap switch call role api examp
+,,,,
+openstack,t-bug,sw-,1851,follow test case valid way valid http method tri creat monitor lbaa api test unit method give exception think need valid input paramet
+,,,,
+openstack,t-bug,sw-,1850,nova set test fail outlin
+,,,,
+openstack,t-bug,hw-,1849,miss ask error messag substitut valu see deploy fail method deploy node miss ask
+,,,,
+openstack,t-bug,sw-,1848,eypair gener includ user name control node gener comment field
+,,,,
+openstack,t-bug,sw-,1847,unit test engin event modul
+,,,,
+openstack,t-bug,sw-,1846,mechan instal ask jar context ask proper
+,,,,
+openstack,t-bug,sw-,1845,secur add gate test bunch issu rais issu need
+,,,,
+openstack,t-bug,sw-,1844,ook code comput version need handl search keyston role
+,,,,
+openstack,t-bug,sw-,1843,code disk format creat imag support
+,,,,
+openstack,t-bug,sw-,1842,ref document http type data default option pla
+,,,,
+openstack,t-new,sw-,1841,eilomet count packag miss ubuntu pleas add
+,,,,
+openstack,t-new,sw-,1840,access secur manag rule action add
+,,,,
+openstack,t-bug,sw-,1839,hen creat user use api cli client horizon pass domain match write domain creat default default
+,,,,
+openstack,t-bug,sw-,1838,extend support includ cento tri deprec cento effect chang submit gerrit review sahara cdh plugin manag cdh use file start
+,,,,
+openstack,t-bug,sw-,1837,reset method driver paramet call accept default set true api paramet get string condit method look
+,,,,
+openstack,t-bug,sw-,1836,problem use zuul cloner access constraint see
+,,,,
+openstack,t-bug,sw-,1835,show network verif action result fuel stat bunch
+,,,,
+openstack,t-bug,sw-,1834,ollow extens class inherit extens extens
+,,,,
+openstack,t-new,sw-,1833,python client manag allow pair por
+,,,,
+openstack,t-bug,sw-,1832,test python test manag interface get data exception run run python run list run python run load list fail iron test driver test manag test case test manag interface get data exception tag worker empti attach stdout context sqlite assum . info migrat context sqlite info migrat assum info migrat run traceback call file line return func file line test manag interface get data exception file line equal self assert detect messag file line assert rais mismatch error mismatch error mention get data error error fail get data error object test fail failur error fail error invoc error test python test manag interface get data exception error command fail
+,,,,
+openstack,t-bug,sw-,1831,creat router attach subnet tri detach subnet fail debug code detect extra rout get rout router return rout
+,,,,
+openstack,t-bug,sw-,1830,test test vnf monitor vnf test monitor test creat vnf monitor tosca
+,,,,
+openstack,t-bug,sw-,1829,launch case field popul time comput case conclus notif move build run case field popul notif
+,,,,
+openstack,t-bug,sw-,1828,split move bunch api compat ident cross call complic
+,,,,
+openstack,t-new,sw-,1827,field api outlin includ base volum support
+,,,,
+openstack,t-bug,sw-,1826,transfer side code discuss press class tosca type comput discuss press custom execut need chang need implement custom type
+,,,,
+openstack,t-bug,sw-,1825,subnet configur gateway gateway set subnet creat chang gateway exist subn
+,,,,
+openstack,t-bug,sw-,1824,follow exception happen agent port bind
+,,,,
+openstack,t-bug,sw-,1823,ccord http oper issu enabl manag plug
+,,,,
+openstack,t-bug,sw-,1822,map devic discoveri agent filter devic need
+,,,,
+openstack,t-bug,sw-,1821,log data dump request bodi log request
+,,,,
+openstack,t-bug,sw-,1820,follow detect use nsx
+,,,,
+openstack,t-bug,sw-,1819,hen trust schedul run default valu
+,,,,
+openstack,t-bug,sw-,1818,fail merg hack check neutron
+,,,,
+openstack,t-bug,sw-,1817,look configur problem issu agent win imag see screenshot
+,,,,
+openstack,t-bug,sw-,1816,process fail
+,,,,
+openstack,t-bug,sw-,1815,ith version neutron vpnaa instal
+,,,,
+openstack,t-bug,sw-,1814,hen use backend add imag oper fail leav rollback oper delet imag creat
+,,,,
+openstack,t-bug,sw-,1813,command fail devic mount
+,,,,
+openstack,t-bug,sw-,1812,want abil boot imag node mode see thread http
+,,,,
+openstack,t-bug,sw-,1811,migrat close session backend result user leav need close second
+,,,,
+openstack,t-new,sw-,1810,quantum plugin ask agent function reli quantum dhcp agent work correct
+,,,,
+openstack,t-bug,sw-,1809,mention prefix flag get remov essex relea
+,,,,
+openstack,t-bug,sw-,1808,menu use check switch menu
+,,,,
+openstack,t-bug,sw-,1807,variabl method use remov
+,,,,
+openstack,t-bug,sw-,1806,hen review code shell detect use servic updat polici error
+,,,,
+openstack,t-bug,sw-,1805,orizon crash remov log user proje
+,,,,
+openstack,t-bug,sw-,1804,think type servic name
+,,,,
+openstack,t-bug,sw-,1803,column type action start time action time set sqlalchemi float default time valu store
+,,,,
+openstack,t-bug,sw-,1802,target http configur option includ past ini enforc load oper engin discuss extend project use past conclus scope
+,,,,
+openstack,t-new,sw-,1801,write python support mean version replac support drop interface leav match handl self paramet need pass bring drop
+,,,,
+openstack,t-new,sw-,1800,need action list menu detail detail bootstrap support way add
+,,,,
+openstack,t-bug,sw-,1799,need servic enabl task execut contain clean
+,,,,
+openstack,t-bug,sw-,1798,hen develop environ tox fail
+,,,,
+openstack,t-bug,sw-,1797,driver prevent delet neutron network tie
+,,,,
+openstack,t-bug,sw-,1796,hen extend volum class display volum
+,,,,
+openstack,t-bug,sw-,1795,key error tri boot case code line
+,,,,
+openstack,t-new,sw-,1794,hang introduc http reflect documentati
+,,,,
+openstack,t-bug,sw-,1793,role test releas requir mitaka
+,,,,
+openstack,t-bug,sw-,1792,issu http get request api assign limit valu queri string integ api return intern server error look
+,,,,
+openstack,t-bug,sw-,1791,get verif resourc result
+,,,,
+openstack,t-bug,sw-,1790,need packag build fuel packag master branch cento
+,,,,
+openstack,t-bug,sw-,1789,team refactor conf option chang power driver load need import conf
+,,,,
+openstack,t-bug,sw-,1788,master master pkg ubu
+,,,,
+openstack,t-bug,sw-,1787,race produc pki token overlook produc json bodi remov whitespac charact case follow json
+,,,,
+openstack,t-bug,sw-,1786,hen charact use name horizon miss gener case write
+,,,,
+openstack,t-bug,sw-,1785,omain mention page data wiki look page domain featur http
+,,,,
+openstack,t-bug,sw-,1784,hen read doc notic followi
+,,,,
+openstack,t-bug,sw-,1783,page http code snippet ident servic endpoint url admin access
+,,,,
+openstack,t-bug,sw-,1782,ttempt delet stack swift signal handl result error swi
+,,,,
+openstack,t-bug,sw-,1781,plug open stack network
+,,,,
+openstack,t-bug,sw-,1780,finish pacemak fail start mysql reb
+,,,,
+openstack,t-bug,sw-,1779,version support get data method get data work test show
+,,,,
+openstack,t-bug,sw-,1778,configur comput fail log file line file line result method file line action result context file line return line save self object context self name error name trace traceback call trace file line wait trace wait trace file line wait trace return wait trace file line wait trace return exit event wait trace file line wait trace return hub get trace nova file line switch trace return switch trace file line trace nova result function trace file line run servic trace servic start trace file line trace nova self manag start hook trace file line start hook trace self updat resourc nova context get trace file line resourc trace updat resourc context trace file line trace nova return trace nova file line resourc trace self comput node resourc trace file line trace self resourc stat true trace file line trace self tracker save trace file line trace nova dev save trace file line trace nova trace file line action trace arg trace file line call trace return rais call method trace file line trace return cast call trace file line call trace result rpc call context topic trace file line call trace return conf context topic trace file line call trace rpc get connect pool conf connect trace file line call trace list trace file line trace rais result trace nova name error name trace traceback call trace trace file line trace trace trace file line trace result method trace trace file line action trace result trace trace file line trace nova return trace nova trace file line trace nova self object context self trace trace name error name
+,,,,
+openstack,t-bug,sw-,1777,hen creat polici use ident api
+,,,,
+openstack,t-bug,sw-,1776,ttp defin devic devic templat vnf attribut devic vnf devic templat
+,,,,
+openstack,t-bug,sw-,1775,volum clean tempest test run see screenshot complet test
+,,,,
+openstack,t-bug,sw-,1774,ccord softwar config input assign json json structur pass script hook dump environ variabl shell script python script handl
+,,,,
+openstack,t-bug,sw-,1773,see error glanc api configur memori happen get glanc api run
+,,,,
+openstack,t-bug,sw-,1772,http check configur neutron detect plugin look alarm show alarm state api work
+,,,,
+openstack,t-bug,sw-,1771,forward tri reus token get api report failur voic token valid caus assum forward run second comput node assum tenant forward caus default tenant token request run token second
+,,,,
+openstack,t-bug,sw-,1770,pass succeed test rpc gate test list add piec run script resourc miss test fai
+,,,,
+openstack,t-bug,sw-,1769,instal open stack use essex branch devstack instal detect quantum servic fail start error import argument quantum import config error look chang proje
+,,,,
+openstack,t-bug,sw-,1768,icmp creat secur group rule port scope min min port scope max max get rule type code icmp icmp
+,,,,
+openstack,t-bug,sw-,1767,hen exist keyston client output error rais use thi
+,,,,
+openstack,t-bug,sw-,1766,error python file
+,,,,
+openstack,t-new,sw-,1765,mware hit connect time tri clone org today see problem propos problem git
+,,,,
+openstack,t-new,sw-,1764,header polici outlin open stack http
+,,,,
+openstack,t-bug,sw-,1763,initi zone sequenc remov target wwpn initi zone code delet zone time delet creation zone miss access volum disk
+,,,,
+openstack,t-bug,sw-,1762,hang break agent window
+,,,,
+openstack,t-bug,sw-,1761,regist test test sqlalchemi test import modul call get api init
+,,,,
+openstack,t-bug,sw-,1760,noth set need overrid set functi
+,,,,
+openstack,t-new,sw-,1759,add neutron plugin perform eventlet
+,,,,
+openstack,t-bug,sw-,1758,insert rule exist polici give error attribut error object attribut
+,,,,
+openstack,t-bug,sw-,1757,page output encod user email address user input valid user email address creation process inject script tag email address cross site script issu
+,,,,
+openstack,t-bug,sw-,1756,case secur group fail error
+,,,,
+openstack,t-bug,sw-,1755,deploy environ dvr popul agent neutron option system test templat fuel option templat need want test configur
+,,,,
+openstack,t-bug,sw-,1754,hile execut record list command get
+,,,,
+openstack,t-bug,sw-,1753,problem run instal target directori get error horizon instal tri file root way set mount return relat problem want reus exist repositori check open stack instal branch check clone repositori
+,,,,
+openstack,t-new,sw-,1752,releas tarbal check transfer merg
+,,,,
+openstack,t-bug,sw-,1751,big switch topolog sync function includ data network includ port float address subnet miss tenant
+,,,,
+openstack,t-bug,sw-,1750,inder test test use rais regex renam assert rais python version
+,,,,
+openstack,t-bug,sw-,1749,dhcp option dhcp option ovn logic port option
+,,,,
+openstack,t-bug,sw-,1748,emov key case volum tabl add case column place nova bug
+,,,,
+openstack,t-bug,sw-,1747,iron run region name keyston client caus problem
+,,,,
+openstack,t-bug,sw-,1746,system log modul use place propos use oslo log librari version log use log level info debug log modul system log mod
+,,,,
+openstack,t-bug,sw-,1745,request use autosc group
+,,,,
+openstack,t-bug,sw-,1744,function need run execut run root flag set true need add command rootwrap
+,,,,
+openstack,t-bug,sw-,1743,exception rais extend volum handl manag
+,,,,
+openstack,t-bug,sw-,1742,rule api bunch mode driver use export manag api leav backward compat recommend support way export manag need chang driver use set api export polici creat export rule creat export rule chang
+,,,,
+openstack,t-bug,sw-,1741,hen keyston multipl type servic command get uniqu match excepti
+,,,,
+openstack,t-bug,sw-,1740,eat patch report meth
+,,,,
+openstack,t-bug,sw-,1739,need fix allow debug capabl manila share servic use debug share servic bug fix requir leav develop debug capabl
+,,,,
+openstack,t-bug,sw-,1738,set xen kvm libvirt driver window win node boot case patch add context libvirt driver xen kvm fix prob
+,,,,
+openstack,t-bug,sw-,1737,error case map rule document
+,,,,
+openstack,t-bug,sw-,1736,user creat activ directori applic murano environ follow name domain domain domain domain deploy fail follow error
+,,,,
+openstack,t-bug,sw-,1735,eport interv send heartbeat servic neutron servic respond rpc messag updat agent heartbeat record heartbeat compar configur agent time determin agent agent state use schedul network dhcp agent
+,,,,
+openstack,t-bug,sw-,1734,network remov fuel version fuel client deprec warn option mention network remo
+,,,,
+openstack,t-bug,sw-,1733,reat snapshot case test boot result hyper exception hyper wmi problem fail state trace http
+,,,,
+openstack,t-bug,sw-,1732,eed chang master mitaka bran
+,,,,
+openstack,t-bug,sw-,1731,introduc support multipl branch migrat directori neutron manag break check migrat project branch tool properli handl type directori
+,,,,
+openstack,t-bug,sw-,1730,ook fix http notic api api hook context hook properli detect check admin role http polici relat code run header polici engin dict run polici engin count log level bump debug servic notic log entri
+,,,,
+openstack,t-bug,sw-,1729,neutron assum port devic owner start
+,,,,
+openstack,t-bug,sw-,1728,look neutron ask access nova order vif plug break tripleo problem
+,,,,
+openstack,t-bug,sw-,1727,plugin extens filter use
+,,,,
+openstack,t-new,sw-,1726,discuss bug check project gate use cla sign enforc entri author file file auto gener packag use python setup command file exist project swift keyston nova
+,,,,
+openstack,t-bug,sw-,1725,creat role edit role admin
+,,,,
+openstack,t-bug,sw-,1724,merg http bring function write test test
+,,,,
+openstack,t-bug,sw-,1723,default dashboard renam grizzli leav peopl upgrad leav deprec mechan thing
+,,,,
+openstack,t-bug,sw-,1722,qlalchemi queri use code quantum plugin
+,,,,
+openstack,t-bug,sw-,1721,templat config servic type servic type case fail provis
+,,,,
+openstack,t-bug,sw-,1720,reation network type fail support
+,,,,
+openstack,t-bug,sw-,1719,return code caus warn log mean caus
+,,,,
+openstack,t-bug,sw-,1718,bunch fedora build failur today packa
+,,,,
+openstack,t-bug,sw-,1717,ser need option leav pair tosca templat access vnf
+,,,,
+openstack,t-bug,sw-,1716,hile review notif notic docstr miss case discov definit regist event
+,,,,
+openstack,t-bug,sw-,1715,day see kernel crash http
+,,,,
+openstack,t-bug,sw-,1714,failur format chang absent directori fail set see file exist
+,,,,
+openstack,t-bug,sw-,1713,ith cpu disabl devstack test restart libvirt bin servic servic instal need
+,,,,
+openstack,t-bug,sw-,1712,check gate run test run unittest fail tempest name design
+,,,,
+openstack,t-bug,sw-,1711,test use test rest test case class gain access auth build function caus databas fixtur load break helper function infrastructur class improve
+,,,,
+openstack,t-bug,sw-,1710,test ignor glanc code infrastructur
+,,,,
+openstack,t-bug,sw-,1709,class document file updat class
+,,,,
+openstack,t-bug,sw-,1708,hen manag use float give error object attribut
+,,,,
+openstack,t-bug,sw-,1707,admin system system
+,,,,
+openstack,t-bug,sw-,1706,need updat cache start trigger softwar
+,,,,
+openstack,t-bug,sw-,1705,remov deprec auth option
+,,,,
+openstack,t-bug,sw-,1704,creat creat server server delet test finish
+,,,,
+openstack,t-new,sw-,1703,polici file updat use polici languag creat polici file read list list oper
+,,,,
+openstack,t-bug,sw-,1702,use host chang puppet copi puppet log
+,,,,
+openstack,t-new,sw-,1701,servic time report interv servic see report
+,,,,
+openstack,t-bug,sw-,1700,exit discov bvt test check packag
+,,,,
+openstack,t-bug,sw-,1699,bin comput schedul network fail read bin conf index process start daemon assign bin nova
+,,,,
+openstack,t-bug,sw-,1698,resourc url map detail
+,,,,
+openstack,t-new,sw-,1697,suse secur team report followi
+,,,,
+openstack,t-bug,sw-,1696,penstack manual doc comput
+,,,,
+openstack,t-bug,sw-,1695,ttp get merg review need problem run servic
+,,,,
+openstack,t-bug,sw-,1694,deprec import driver deprec liberti remov info keyston core use default dogpil sha mangl key region token driver keyston implement action request implement error traceback call error keyston file line modul error keyston exit error keyston file line error keyston cli config file file error keyston file line error keyston command cmd class error keyston file line error keyston token manag token error keyston file line token error keyston rais exception implement error keyston implement action request implement error keyston expect result error
+,,,,
+openstack,t-bug,sw-,1693,document folk use http use gener document command subcommand http use subcommand get subcommand complet subcommand mean add chang subcommand list need updat complet subcommand
+,,,,
+openstack,t-bug,sw-,1692,eat resourc group need test
+,,,,
+openstack,t-bug,sw-,1691,add abil creat node group templat volum mount prefix param
+,,,,
+openstack,t-new,sw-,1690,review track work add dhcp support network ovn piec miss support work add agent neutron tie dhcp support liberti region spec
+,,,,
+openstack,t-bug,sw-,1689,rior keyston user get credenti
+,,,,
+openstack,t-bug,sw-,1688,public key read disk inject init check line inject cloud init yaml line break yaml format creat init work result boot cmd run network
+,,,,
+openstack,t-bug,sw-,1687,case heartbeat test deploy run control
+,,,,
+openstack,t-bug,sw-,1686,email infrastructur alarm plugin
+,,,,
+openstack,t-bug,sw-,1685,templat use creat packag http
+,,,,
+openstack,t-new,sw-,1684,leas remov voic chapter store focu architectur design
+,,,,
+openstack,t-bug,sw-,1683,api endpoint chang power provis state document
+,,,,
+openstack,t-bug,sw-,1682,run script run memori number argument problem loop pars argum
+,,,,
+openstack,t-bug,sw-,1681,reat server min count max count accept rais requ
+,,,,
+openstack,t-bug,sw-,1680,tabl use tabl featur widget show default messag filter yield detail case need
+,,,,
+openstack,t-new,sw-,1679,search result continu leav search page destroy ask search helper check help
+,,,,
+openstack,t-new,sw-,1678,work agent complain follow time oper
+,,,,
+openstack,t-new,sw-,1677,ceph need add group neutron neutron
+,,,,
+openstack,t-bug,sw-,1676,hen run migrat see error repeat comput log file trace see
+,,,,
+openstack,t-bug,sw-,1675,leav region name give endpoint servic type servic region get endpoint look add endpoint give type region get region error prevent command region
+,,,,
+openstack,t-bug,sw-,1674,notif sync case object chang detail
+,,,,
+openstack,t-bug,sw-,1673,prevent compat config compat
+,,,,
+openstack,t-bug,sw-,1672,omain role domain assign domain role domain user project domain
+,,,,
+openstack,t-bug,sw-,1671,connect neutron interface bridg adapt set mode allow case virtual box need mode need neutron
+,,,,
+openstack,t-bug,sw-,1670,block store api api data type string
+,,,,
+openstack,t-bug,sw-,1669,listen port host address api server chang config file conflict exist
+,,,,
+openstack,t-new,sw-,1668,discov capabl support http propos cha
+,,,,
+openstack,t-bug,sw-,1667,follow command miss paramet net
+,,,,
+openstack,t-bug,sw-,1666,hen alarm delet need updat state
+,,,,
+openstack,t-bug,sw-,1665,network role yaml miss empti result erro
+,,,,
+openstack,t-bug,sw-,1664,client renam share snapshot

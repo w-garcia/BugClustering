@@ -71,6 +71,10 @@ class Full_PreProcessed_Keyword(TicketDBModel):
         status = CharField()
         issue_number = CharField()
         target = CharField()
+        date_created = TextField()
+        date_closed = TextField()
+        heat = TextField()
+        importance = TextField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -110,6 +114,10 @@ class Terse_PreProcessed_Keyword(TicketDBModel):
         status = CharField()
         issue_number = CharField()
         target = CharField()
+        date_created = TextField()
+        date_closed = TextField()
+        heat = TextField()
+        importance = TextField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -149,7 +157,10 @@ class Stemmed_Keyword(TicketDBModel):
         status = CharField()
         issue_number = CharField()
         target = CharField()
-
+        date_created = TextField()
+        date_closed = TextField()
+        heat = TextField()
+        importance = TextField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):
@@ -189,6 +200,10 @@ class LFF_Keywords(TicketDBModel):
         status = CharField()
         issue_number = CharField()
         target = CharField()
+        date_created = TextField()
+        date_closed = TextField()
+        heat = TextField()
+        importance = TextField()
 
     @classmethod
     def get_db_ref_by_system(cls, system_name):

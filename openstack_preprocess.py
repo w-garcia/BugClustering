@@ -2,30 +2,30 @@ import util
 from launchpadlib.launchpad import Launchpad
 import DBModel
 from httplib2 import ServerNotFoundError
+from collections import defaultdict
 
 
-def populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache, issue_number_cache,
-                    target_cache):
+def populate_tables(cache):
     # This will insert the cache lists into DB table without deleting. Cache lists must be cleared bef-orehand.
     list_of_full_dicts = []
     list_of_ters_dicts = []
 
-    for i in range(len(full_descriptions_cache)):
+    for i in range(len(cache['full_descriptions_cache'])):
         list_of_full_dicts.append({'system': 'openstack',
-                                   'description': full_descriptions_cache[i],
+                                   'description': cache['full_descriptions_cache'][i],
                                    'classification': '',
-                                   'title': title_cache[i],
-                                   'status': status_cache[i],
-                                   'issue_number': issue_number_cache[i],
-                                   'target': target_cache[i]})
+                                   'title': cache['title_cache'][i],
+                                   'status': cache['status_cache'][i],
+                                   'issue_number': cache['issue_number_cache'][i],
+                                   'target': cache['target_cache'][i]})
 
         list_of_ters_dicts.append({'system': 'openstack',
-                                   'description': terse_descriptions_cache[i],
+                                   'description': cache['terse_descriptions_cache'][i],
                                    'classification': '',
-                                   'title': title_cache[i],
-                                   'status': status_cache[i],
-                                   'issue_number': issue_number_cache[i],
-                                   'target': target_cache[i]})
+                                   'title': cache['title_cache'][i],
+                                   'status': cache['status_cache'][i],
+                                   'issue_number': cache['issue_number_cache'][i],
+                                   'target': cache['target_cache'][i]})
 
     DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').insert_atomically(list_of_full_dicts)
 
@@ -44,15 +44,16 @@ def process_openstack():
     if choice == 'n' or choice == 'no':
         return
 
-    DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
-    DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
+    #DBModel.Full_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
+    #DBModel.Terse_PreProcessed_Keyword.get_db_ref_by_system('openstack').reset_table()
 
-    terse_descriptions_cache = []
-    full_descriptions_cache = []
-    status_cache = []
-    title_cache = []
-    issue_id_cache = []
-    target_cache = []
+    cache = defaultdict(list)
+    cache['terse_descriptions_cache'] = []
+    cache['full_descriptions_cache'] = []
+    cache['status_cache'] = []
+    cache['title_cache'] = []
+    cache['issue_id_cache'] = []
+    cache['target_cache'] = []
 
     print "[openstack] Starting openstack pre-processing."
 
@@ -79,27 +80,20 @@ def process_openstack():
         ters_description = desc[:paragraph_key]
         full_description = desc
 
-        terse_descriptions_cache.append(u''.join(ters_description).encode('utf-8'))
-        full_descriptions_cache.append(u''.join(full_description).encode('utf-8'))
-        status_cache.append(u''.join(bug.status).encode('utf-8'))
-        title_cache.append(u''.join(bugObj.title).encode('utf-8'))
-        issue_id_cache.append("{}".format(bugObj.id).encode('utf-8'))
-        target_cache.append(u''.join(bug.bug_target_name).encode('utf-8'))
+        cache['terse_descriptions_cache'].append(u''.join(ters_description).encode('utf-8'))
+        cache['full_descriptions_cache'].append(u''.join(full_description).encode('utf-8'))
+        cache['status_cache'].append(u''.join(bug.status).encode('utf-8'))
+        cache['title_cache'].append(u''.join(bugObj.title).encode('utf-8'))
+        cache['issue_id_cache'].append("{}".format(bugObj.id).encode('utf-8'))
+        cache['target_cache'].append(u''.join(bug.bug_target_name).encode('utf-8'))
 
         if i % 500 == 0:
-            populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache,
-                            issue_id_cache,
-                            target_cache)
-            terse_descriptions_cache = []
-            full_descriptions_cache = []
-            status_cache = []
-            title_cache = []
-            issue_id_cache = []
-            target_cache = []
+            for key in cache:
+                cache[key] = []
+
             print "Wrote 500 rows to openstack table."
 
     # Add the rest of the things
-    populate_tables(full_descriptions_cache, terse_descriptions_cache, status_cache, title_cache, issue_id_cache,
-                    target_cache)
+    populate_tables(cache)
 
     print "Processed openstack."
