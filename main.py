@@ -7,6 +7,7 @@ from config import config as cfg
 from jira import JIRA
 from classifier import classify
 from openstack_preprocess import process_openstack
+from collections import defaultdict
 import util
 from analyzer import analyze
 import numpy
@@ -49,27 +50,39 @@ def main():
         print "[status] : {} clustering mode started with {} slice selecton.".format(cfg.clustering_mode, cfg.xvalidation_mode)
         # Perform cross validation based on config: either k-fold or random sub-sampling
         if cfg.xvalidation_mode == 'kfold':
-            cat_accuracy_total = 0
-            cat_accuracies = []
-            class_accuracy_total = 0
-            class_accuracies = []
+            class_to_scores_dict = defaultdict(dict)
+            for c in cfg.classes_of_interest:
+                class_to_scores_dict[c]['recalls'] = []
+                class_to_scores_dict[c]['precisions'] = []
+                class_to_scores_dict[c]['f_scores'] = []
+
             for i in range(int(1 / cfg.test_dataset_split)):
                 print "[kfold] : Classifying slice {}".format(i)
                 classify(slice=i)
-                cat_accuracy, class_accuracy = analyze(return_accuracies=True)
+                scores_dict = analyze(return_accuracies=True)
+                for c in scores_dict:
+                    class_to_scores_dict[c]['recalls'].append(scores_dict[c]['recall'])
+                    class_to_scores_dict[c]['precisions'].append(scores_dict[c]['precision'])
+                    class_to_scores_dict[c]['f_scores'].append(scores_dict[c]['f1'])
 
-                cat_accuracy_total += cat_accuracy
-                cat_accuracies.append(cat_accuracy)
-                if class_accuracy != 'nil':
-                    class_accuracy_total += class_accuracy
-                    class_accuracies.append(class_accuracy)
+            print "RESULTS OF {}; {} on {}".format(cfg.classification_method, cfg.model_selection, cfg.test_dataset)
+            for c in class_to_scores_dict:
+                avg_recall = sum(class_to_scores_dict[c]['recalls']) / len(class_to_scores_dict[c]['recalls'])
+                recall_std = numpy.std(class_to_scores_dict[c]['recalls'])
 
-            print "RESULTS OF {}".format(cfg.classification_method)
-            cat_accuracy = cat_accuracy_total / int(1 / cfg.test_dataset_split)
-            cat_std = numpy.std(cat_accuracies)
-            class_accuracy = class_accuracy_total / int(1 / cfg.test_dataset_split)
-            class_std = numpy.std(class_accuracies)
-            print "category: {} std: {} class: {} std: {}".format(cat_accuracy, cat_std, class_accuracy, class_std)
+                avg_precision = sum(class_to_scores_dict[c]['precisions']) / len(class_to_scores_dict[c]['precisions'])
+                precision_std = numpy.std(class_to_scores_dict[c]['precisions'])
+
+                avg_f_score = sum(class_to_scores_dict[c]['f_scores'])/len(class_to_scores_dict[c]['f_scores'])
+                f_score_std = numpy.std(class_to_scores_dict[c]['f_scores'])
+
+                print "{}: Recall: {}+-{}; Precision: {}+-{}; F1: {}+-{};".format(c,
+                                                                                  format(avg_recall, '.3f'),
+                                                                                  format(recall_std, '.3f'),
+                                                                                  format(avg_precision, '.3f'),
+                                                                                  format(precision_std, '.3f'),
+                                                                                  format(avg_f_score, '.3f'),
+                                                                                  format(f_score_std, '.3f'))
 
         elif cfg.xvalidation_mode == 'rand_ss':
             classify()

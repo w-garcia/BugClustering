@@ -1,6 +1,7 @@
 import util
 from config import config as cfg
 import csv
+from collections import defaultdict
 
 
 def analyze(return_accuracies=False):
@@ -24,12 +25,11 @@ def analyze(return_accuracies=False):
         reader = csv.DictReader(csvfile)
         list_of_ticket_dicts = [rows for rows in reader]
 
-    list_statistics = generate_statistics(list_of_ticket_dicts)
-    write_statistics_file(stats_filename, list_statistics)
+    scores_dict = generate_statistics(list_of_ticket_dicts)
+    #write_statistics_file(stats_filename, list_statistics)
 
     if return_accuracies:
-        final_dict = list_statistics[len(list_statistics) - 1]
-        return final_dict['category score'], final_dict['class score']
+        return scores_dict
 
 
 def generate_statistics(list_of_dicts):
@@ -37,90 +37,82 @@ def generate_statistics(list_of_dicts):
     _list_predictions = [row['prediction'] for row in list_of_dicts]
     _list_descriptions = [row['description'] for row in list_of_dicts]
 
-    _total_category_accuracy = 0.0
-    _total_class_accuracy = 0.0
-    _total_class_predictions = 0
+    # Build confusion matrix template.
+    # predictions x actuals. Row n+1 is used for total actuals,
+    # and column n+1 is used for total predictions
+    confusion_matrix = defaultdict(dict)
+    for actual in cfg.classes_of_interest:
+        for predicted in cfg.classes_of_interest:
+            confusion_matrix[actual][predicted] = 0.0
+
     _list_desc_length_to_score = []
 
     n = len(list_of_dicts)
+    for i in range(n):
+        _truth = extract_truth(set(_list_truths[i].split(' ')))
+        _prediction = set(_list_predictions[i].split(' ')).pop()
 
-    for i in range(len(list_of_dicts)):
-
-        _truths = set(_list_truths[i].split(' '))
-        _predictions = set(_list_predictions[i].split(' '))
-
-        _truth_categories = set()
-        _truths_of_interest = set()
-
-        _prediction_categories = set()
-        _predictions_of_interest = set()
-
-        # First, fill in the class categories of interest from config in the truth list
-        for ci in cfg.classes_of_interest:
-            for truth in _truths:
-                if ci in truth:
-                    _truth_categories.add(ci)
-                    _truths_of_interest.add(truth)
-
-            for prediction in _predictions:
-                if ci in prediction:
-                    _prediction_categories.add(ci)
-                    if len(prediction) > 3:
-                        _predictions_of_interest.add(prediction)
-
-        print "[analysis] : Truth categories for ticket {}: {}".format(i, _truth_categories)
-        print "           : Truths of interest: {}".format(_truths_of_interest)
-        print "           : Prediction categories: {}".format(_prediction_categories)
-        print "           : Predictions of interest: {}".format(_predictions_of_interest)
-
-        # This ticket had no classes of interest
-        if len(_truth_categories) == 0:
-            # If a guess was made, this detracts from the accuracy, so keep n the same and continue
-            if _prediction_categories:
-                continue
-            #TODO: Need to modify vector generator so tickets without classes of interest aren't included in clustering.
-            # If a prediction wasn't made, that' good. Subtract 1 from n because this ticket wasn't useful.
-            n -= 1
-            continue
-
-        # Compare across categories
-        _category_intersect = set.intersection(_truth_categories, _prediction_categories)
-        category_score = float(len(_category_intersect)) / float(len(_truth_categories))
-        _total_category_accuracy += category_score
-
-        class_score = 'nil'
-        # There are predictions of interest, so it tried to guess specific classes for this ticket
-        if _predictions_of_interest:
-            _total_class_predictions += 1
-            _prediction_intersect = set.intersection(_truths_of_interest, _predictions_of_interest)
-            class_score = float(len(_prediction_intersect)) / float(len(_truths_of_interest))
-            _total_class_accuracy += class_score
-            #print _prediction_intersect
-            #print class_score
+        confusion_matrix[_truth][_prediction] += 1.0
 
         _temp_dict = {'description length': len(_list_descriptions[i].split(' ')),
                       'description': _list_descriptions[i],
-                      'category score': category_score,
-                      'class score': class_score}
+                      'precision': '',
+                      'recall': '',
+                      'f-score': ''}
 
         _list_desc_length_to_score.append(_temp_dict)
 
-    if _total_class_predictions != 0:
-        class_accuracy = float(_total_class_accuracy / _total_class_predictions)
-    else:
-        class_accuracy = 'nil'
+    total_actuals_dict = defaultdict(int)
+    total_predictions_dict = defaultdict(int)
+    for actual in cfg.classes_of_interest:
+        for prediction in cfg.classes_of_interest:
+            total_predictions_dict[prediction] += confusion_matrix[actual][prediction]
+            total_actuals_dict[actual] += confusion_matrix[actual][prediction]
 
-    category_accuracy = float(_total_category_accuracy / n)
-    print "[results] : Category accuracy: {}".format(category_accuracy)
-    print "          : Class accuracy: {}".format(class_accuracy)
+    scores = defaultdict(dict)
+    for c in cfg.classes_of_interest:
+        scores[c]['recall'] = 1.0
+        scores[c]['precision'] = 1.0
+        if total_actuals_dict[c] != 0.0:
+            scores[c]['recall'] = confusion_matrix[c][c] / total_actuals_dict[c]
+        if total_predictions_dict[c] != 0.0:
+            scores[c]['precision'] = confusion_matrix[c][c] / total_predictions_dict[c]
+        precision = scores[c]['precision']
+        recall = scores[c]['recall']
+        scores[c]['f1'] = 0.0
+        if precision != 0 and recall != 0:
+            scores[c]['f1'] = float((2*precision*recall) / (precision + recall))
 
-    _final_dict = {'description length': '-----',
-                   'description': 'final averages -----',
-                   'category score': category_accuracy,
-                   'class score': class_accuracy}
-    _list_desc_length_to_score.append(_final_dict)
+    print_confusion_matrix(confusion_matrix, total_actuals_dict, total_predictions_dict)
 
-    return _list_desc_length_to_score
+    print "[analyzer] : Scores:"
+    for c in scores:
+        print "{}: Precision: {}, Recall: {}, F1: {}".format(c, scores[c]['precision'], scores[c]['recall'],
+                                                             scores[c]['f1'])
+
+    return scores
+
+
+def print_confusion_matrix(confusion_matrix, total_actuals_dict, total_predictions_dict):
+    print "[analyzer] : Here is the confusion matrix:"
+    for c in confusion_matrix:
+        strin = ""
+        for ci in confusion_matrix[c]:
+            strin += "{} ".format(confusion_matrix[c][ci])
+        strin += str(total_actuals_dict[c])
+        print strin
+    last_row = ""
+    for c in total_predictions_dict:
+        last_row += "{} ".format(total_predictions_dict[c])
+    print last_row
+
+
+def extract_truth(truths_set):
+    for truth in truths_set:
+            for c in cfg.classes_of_interest:
+                if c in truth:
+                    return c
+    raise ValueError('Class of interest not found in bug\'s ground truth.')
 
 
 def write_statistics_file(filename, list_dicts):
